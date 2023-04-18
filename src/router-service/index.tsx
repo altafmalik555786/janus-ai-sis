@@ -1,7 +1,7 @@
 import { constRoute } from "@utils/route";
 import { memo } from "react";
 import { Route, Routes } from "react-router-dom";
-import Login from "@components/layout/main-layout/public-layout/login";
+import Login from "@components/login";
 
 const Routing = () => {
   return (
