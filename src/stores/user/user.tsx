@@ -26,10 +26,11 @@ export const user = types
 
   }))
   .actions((self) => {
-    const onUserLoginInfo = flow(function* (data, navigate) {
+    const onUserLogin = flow(function* (data, navigate) {
       self.loadingLogin = true;
       try {
         const res = yield userApi.onUserLogin(data);
+        console.log("onUserLogin res", res)
         if (res?.success) {
           localStorage.setItem(LOWER_TOKEN, res?.token);
           localStorage.setItem(LOWER_THEME, res?.defaultTheme);
@@ -40,7 +41,7 @@ export const user = types
           }
         }
       } catch (error) {
-        catchError(error, "onUserLoginInfo");
+        catchError(error, "onUserLogin");
       } finally {
         self.loadingLogin = false;
       }
@@ -85,7 +86,7 @@ export const user = types
     });
 
     return {
-      onUserLoginInfo,
+      onUserLogin,
       onSignUpUser,
       loadUserInfo,
      

@@ -25,7 +25,5 @@ export const constRoute = {
   results: "/results",
   marketRules: "/market-rules",
   termsAndConditions: "/terms-and-conditions",
-  cash: "/cash",
-  ledger: "/ledger",
-  creditLedger: "/credit-ledger",
+
 };
