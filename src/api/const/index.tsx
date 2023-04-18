@@ -1,4 +1,4 @@
-export const baseUrl = "HTTPS//:ahmed.aiscene.net/"; //// Live for live server
+export const baseUrl = "https://ahmed.aiscene.net/"; //// Live for live server
 export const baseUrlFiles = "baseUrl";
 
 

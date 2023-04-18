@@ -1,25 +1,52 @@
-import { Button, Form, Input, Row } from "antd";
+import { Button, Checkbox, Form, Input, Row } from "antd";
 import { observer } from "mobx-react";
 import React, { memo } from "react";
 import style from "./style.module.scss";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { validateMessages } from "@utils/json-data";
+import { useStore } from "@stores/root-store";
+import { notification } from "@utils/notifications";
+import { useNavigate } from "react-router-dom";
+import { constRoute } from "@utils/route";
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 const SignUp = observer(() => {
   const [signUpForm] = Form.useForm();
+  const navigate = useNavigate();
 
-  const onFormSubmit= (values) =>    {
-console.log(values)
-  }
+  const {
+    user: { onSignUpUser },
+  } = useStore(null);
+
+  const onFormSubmit = (values) => {
+    const payload = {
+      email: values.email,
+      password: values.password,
+      phone: values.telephone,
+    }
+    if(values.password === values.confirmPassword){
+      onSignUpUser(payload)
+    }else{
+      notification.error("Password should be matched");
+    }
+  };
+
+  const onChange = (e: CheckboxChangeEvent) => {
+    // console.log(`checked = ${e.target.checked}`);
+  }; 
 
   return (
     <div className={style.mainSignUpWrraper}>
-      <div style={{ width: 500, margin:10}}>
+      <div style={{ width: 500, margin: 10 }}>
         <div className={style.welcomeWrraper}>
           <img src={welcomeLogo} alt="" />
           <h2>Create Your Account</h2>
-          <p>Once you create your account, you will have a 7-day free trial to use Climate Finance Copilot and we will notify you once the trial expires. </p>
+          <p>
+            Once you create your account, you will have a 7-day free trial to
+            use Climate Finance Copilot and we will notify you once the trial
+            expires.{" "}
+          </p>
         </div>
         <Form
           form={signUpForm}
@@ -28,7 +55,7 @@ console.log(values)
           onFinish={onFormSubmit}
           autoComplete={"off"}
           validateMessages={validateMessages}
-          layout='vertical'
+          layout="vertical"
           className={style.signUpForm}
         >
           <Form.Item
@@ -37,6 +64,7 @@ console.log(values)
             rules={[
               {
                 required: true,
+                type:"email",
                 message: `Please provide a valid email address`,
               },
             ]}
@@ -47,11 +75,11 @@ console.log(values)
             label={"Telephone Number"}
             name={"telephone"}
             rules={[
-                {
-                  required: true,
-                  message: "invalid number",
-                },
-              ]}
+              {
+                required: true,
+                message: "invalid number",
+              },
+            ]}
           >
             <Input placeholder="Enter number" />
           </Form.Item>
@@ -98,14 +126,16 @@ console.log(values)
         </Form>
         <div>
           <div className={style.signUpWrraper}>
-            {/* <p>Forgot Password?</p> */}
+          <Checkbox onChange={onChange}>I accept the <span className={style.termsStyle}>Terms</span> & <span className={style.termsStyle}>Privacy Policy</span></Checkbox>
             <Form form={signUpForm} onFinish={onFormSubmit}>
-            <Button htmlType="submit" className={style.signUpBtn}>Sign Up</Button>
+              <Button htmlType="submit" className={style.signUpBtn}>
+                Sign Up
+              </Button>
             </Form>
           </div>
           <div className={style.loginWrraper}>
             <p>Already have an account?</p>
-            <span> Log In</span>
+            <span style={{cursor:'pointer'}} onClick={() => navigate(constRoute?.login)}> Log In</span>
           </div>
         </div>
       </div>
