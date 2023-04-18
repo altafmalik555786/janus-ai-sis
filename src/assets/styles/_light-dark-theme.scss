@@ -1,0 +1,233 @@
+@import "@assets/styles/colors";
+
+$themes: (
+  //////////////////////////// Side Bar ////////////////////////////
+  sideBarBg:
+    (
+      greyTheme: #dddddd,
+      lightTheme: #2f353b,
+      darkTheme: #181f2c,
+    ),
+  sideBarFontColor: (
+    greyTheme: #292e3a,
+    lightTheme: #ffffff,
+    darkTheme: #ffffff,
+  ),
+  sideBarSelectedTabBg: (
+    greyTheme: #085845,
+    lightTheme: #3a4248,
+    darkTheme: #085845,
+  ),
+  sideBarSelectedTabBoxShadow: (
+    greyTheme: 4px 4px 0px #000000,
+    lightTheme: 0px,
+    darkTheme: 4px 4px 0px #000000,
+  ),
+  sideBarTabHover: (
+    greyTheme: transparent,
+    lightTheme: #20a8d8,
+    darkTheme: transparent,
+  ),
+  sideBarTabBoxShadowHover: (
+    greyTheme: 4px 4px 0px rgba(7, 190, 147, 0.4),
+    lightTheme: 0px,
+    darkTheme: 4px 4px 0px rgba(24, 31, 44, 0.4),
+  ),
+  //////////////////////////// Header bar ////////////////////////////
+  headerBg:
+    (
+      greyTheme: #dddddd,
+      lightTheme: #ffffff,
+      darkTheme: #292e3a,
+    ),
+  headerFontColor: (
+    greyTheme: #292e3a,
+    lightTheme: #73818f,
+    darkTheme: #ffffff,
+  ),
+  headerFontColorHover: (
+    greyTheme: #000000,
+    lightTheme: #000000,
+    darkTheme: #ffffff,
+  ),
+  //////////////////////////// login Page ////////////////////////////
+  darkInputBg:
+    (
+      greyTheme: rgba(255, 255, 255, 0.15),
+      lightTheme: rgba(255, 255, 255, 0.15),
+      darkTheme: black,
+    ),
+  loginFieldBg: (
+    greyTheme: #30887a,
+    lightTheme: #30887a,
+    darkTheme: black,
+  ),
+  //////////////////////////// buttons ////////////////////////////
+  filledBtnColorHover:
+    (
+      greyTheme: #ffffff,
+      lightTheme: #ffffff,
+      darkTheme: #ffffff,
+    ),
+  filledBtnBoxShadowHover: (
+    greyTheme: 2px 2px 2px 2px rgba(7, 190, 147, 0.4),
+    lightTheme: 2px 2px 2px 2px rgb(0, 177, 129, 0.4),
+    darkTheme: 2px 2px 2px 2px rgba(7, 190, 147, 0.4),
+  ),
+  filledBtnBgHover: (
+    greyTheme: #07be93,
+    lightTheme: #4dbd74,
+    darkTheme: #07be93,
+  ),
+  filledBtnColor: (
+    greyTheme: #ffffff,
+    lightTheme: #ffffff,
+    darkTheme: #ffffff,
+  ),
+  filledBtnBg: (
+    greyTheme: #07be93,
+    lightTheme: #00b181,
+    darkTheme: #07be93,
+  ),
+  filledBtnBorder: (
+    greyTheme: #07be93,
+    lightTheme: #00b181,
+    darkTheme: #bdbdbd,
+  ),
+  outlinedBtnBoxShadowHover: (
+    greyTheme: 2px 2px 2px 2px rgb(0, 0, 0, 0.4),
+    lightTheme: 2px 2px 2px 2px rgb(32, 168, 216, 0.4),
+    darkTheme: 2px 2px 2px 2px rgb(0, 0, 0, 0.4),
+  ),
+  outlinedBtnBorderHover: (
+    greyTheme: #000000,
+    lightTheme: #20a8d8,
+    darkTheme: #000000,
+  ),
+  outlinedBtnColorHover: (
+    greyTheme: #000000,
+    lightTheme: #ffffff,
+    darkTheme: #ffff,
+  ),
+  outlinedBtnBgHover: (
+    greyTheme: transparent,
+    lightTheme: #20a8d8,
+    darkTheme: transparent,
+  ),
+  outlinedBtnColor: (
+    greyTheme: #000000,
+    lightTheme: #20a8d8,
+    darkTheme: #ffffff,
+  ),
+  outlinedBtnBg: (
+    greyTheme: transparent,
+    lightTheme: transparent,
+    darkTheme: transparent,
+  ),
+  outlinedBtnBorder: (
+    greyTheme: #000000,
+    lightTheme: #20a8d8,
+    darkTheme: #000000,
+  ),
+  //////////////////////////// Content Pages ////////////////////////////
+  pagesContainerFluidBoxShadow:
+    (
+      greyTheme: none,
+      lightTheme: 0px,
+      darkTheme: none,
+    ),
+  fontColor: (
+    greyTheme: #000000,
+    lightTheme: #000000,
+    darkTheme: #ffffff,
+  ),
+  fontColorWithBg: (
+    greyTheme: #ffffff,
+    lightTheme: #000000,
+    darkTheme: #ffffff,
+  ),
+  pagesContainerFluidBorder: (
+    greyTheme: none,
+    lightTheme: 1px solid #c8ced3,
+    darkTheme: none,
+  ),
+  pagesContainerFluidBg: (
+    greyTheme: #ffffff,
+    lightTheme: #e4e5e6,
+    darkTheme: transparent,
+  ),
+  formItemExplainError: (
+    greyTheme: darkred,
+    lightTheme: darkred,
+    darkTheme: #ff4d4f,
+  ),
+  titleBarBorder: (
+    greyTheme: none,
+    lightTheme: #c8ced3,
+    darkTheme: none,
+  ),
+  titleBarBg: (
+    greyTheme: #085845,
+    lightTheme: #f0f3f5,
+    darkTheme: #085845,
+  ),
+  cardIconBg: (
+    greyTheme: #c9c9c9,
+    lightTheme: #c9c9c9,
+    darkTheme: #2d3546,
+  ),
+  pagesBg: (
+    greyTheme: #ffffff,
+    lightTheme: #e4e5e6,
+    darkTheme: #0e121a,
+  ),
+  tableBorder: (
+    greyTheme: 0px,
+    lightTheme: 1px solid #111,
+    darkTheme: 0px,
+  ),
+  cardBg: (
+    greyTheme: #dddddd,
+    lightTheme: #ffffff,
+    darkTheme: #222a3c,
+  ),
+  cardBorder: (
+    greyTheme: 0px,
+    lightTheme: 2px solid #c8ced3,
+    darkTheme: black,
+  ),
+  footer: (
+    greyTheme: #181f2c,
+    lightTheme: #23282c,
+    darkTheme: #ffffff,
+  ),
+  //////////////////////////// Form Style  ////////////////////////////
+  antFormLabelColor:
+    (
+      greyTheme: #000000,
+      lightTheme: #000000,
+      darkTheme: #ffffff,
+    )
+);
+
+@mixin styles($mode) {
+  @each $key, $map in $themes {
+    @each $prop, $color in $map {
+      @if $prop ==$mode {
+        --#{$key}: #{$color};
+      }
+    }
+  }
+}
+
+.dark-theme {
+  @include styles("darkTheme");
+}
+
+.light-theme {
+  @include styles("lightTheme");
+}
+
+.grey-theme {
+  @include styles("greyTheme");
+}
