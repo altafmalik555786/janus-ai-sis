@@ -29,7 +29,6 @@ const Login = observer(() => {
         <Form
           form={loginForm}
           name={"basic"}
-          onValuesChange={(e) => console.log(e)}
           onFinish={onLogin}
           autoComplete={"off"}
           validateMessages={validateMessages}
@@ -42,6 +41,7 @@ const Login = observer(() => {
             rules={[
               {
                 required: true,
+                type:"email",
                 message: `Please provide a valid email address`,
               },
             ]}

@@ -2,13 +2,12 @@ import { observer } from "mobx-react";
 import { memo } from "react";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import style from "./style.module.scss";
-import { Button, Form, Spin } from "antd";
-import { CommonInput } from "@components/common-components/input";
+import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
 import { useNavigate } from "react-router-dom";
 
-const ForgotPassword = observer(() => {
+const VerifyEmail = observer(() => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const {
@@ -17,14 +16,11 @@ const ForgotPassword = observer(() => {
 
   const onFormSubmit = (values) => {
     onSendResendEmail(values);
-    navigate(constRoute?.checkEmail)
+    navigate(constRoute?.login);
   };
 
   const validateMessages = {
-    required: "email is required!",
-    types: {
-      email: "email is not a valid email!",
-    },
+    required: "Code is required!",
   };
 
   return (
@@ -32,7 +28,7 @@ const ForgotPassword = observer(() => {
       <div className={style.container}>
         <div className={style.headingWrapper}>
           <img src={welcomeLogo} alt="janus-logo" className={style.janusLogo} />
-          <h2 className={style.forgotPassword}>Forgot Password?</h2>
+          <h2 className={style.forgotPassword}>Verification</h2>
           <p className={style.janusText}>
             Don’t sweat it, we will email you reset instructions to set a new
             password.
@@ -48,17 +44,16 @@ const ForgotPassword = observer(() => {
           layout="vertical"
         >
           <Form.Item
-            name={"email"}
-            label="Email Address"
+            name={"code"}
+            label="Please enter code"
             rules={[
               {
                 required: true,
-                type: "email",
-                message: "Please Enter a valid Email",
+                message: "Please Enter a valid code",
               },
             ]}
           >
-            <CommonInput type="email" className={style.emailInput} />
+            <Input type="number" className={style.emailInput} />
           </Form.Item>
           <div className={style.loginWrraper}>
             <Button className={style.resendClickBtn} htmlType="submit">
@@ -66,15 +61,9 @@ const ForgotPassword = observer(() => {
             </Button>
           </div>
         </Form>
-        <div className={style.outerLink}>
-          <p>Back to</p>{" "}
-          <a href="#" className={style.aLink}>
-            Login
-          </a>
-        </div>
       </div>
     </div>
   );
 });
 
-export default memo(ForgotPassword);
+export default memo(VerifyEmail);

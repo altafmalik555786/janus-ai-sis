@@ -2,22 +2,28 @@ import { observer } from "mobx-react";
 import { memo } from "react";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import style from "./style.module.scss";
-import { Button, Form, Spin } from "antd";
-import { CommonInput } from "@components/common-components/input";
+import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
 import { useNavigate } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { notification } from "@utils/notifications";
 
-const ForgotPassword = observer(() => {
+const SetNewPassword = observer(() => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const {
-    user: { onSendResendEmail, isLoadingResendEmail },
+    user: { onResetPassword, isLoadingResetPassword },
   } = useStore(null);
 
   const onFormSubmit = (values) => {
-    onSendResendEmail(values);
-    navigate(constRoute?.checkEmail)
+
+    if (values.password === values.confirmPassword) {
+      onResetPassword(values);
+      navigate(constRoute?.resetPasswordSuccessfully);
+    } else {
+      notification.error("Password should be matched");
+    }
   };
 
   const validateMessages = {
@@ -34,8 +40,7 @@ const ForgotPassword = observer(() => {
           <img src={welcomeLogo} alt="janus-logo" className={style.janusLogo} />
           <h2 className={style.forgotPassword}>Forgot Password?</h2>
           <p className={style.janusText}>
-            Don’t sweat it, we will email you reset instructions to set a new
-            password.
+            Your new password must be different to previously used passwords.{" "}
           </p>
         </div>
         <Form
@@ -48,21 +53,42 @@ const ForgotPassword = observer(() => {
           layout="vertical"
         >
           <Form.Item
-            name={"email"}
-            label="Email Address"
+            label={"Enter Password"}
+            name={"password"}
             rules={[
               {
                 required: true,
-                type: "email",
-                message: "Please Enter a valid Email",
+                message: "Must be at least 8 characters",
               },
             ]}
           >
-            <CommonInput type="email" className={style.emailInput} />
+            <Input.Password
+              placeholder="Enter Password"
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+            />
+          </Form.Item>
+          <Form.Item
+            label={"Confirm Password"}
+            name={"confirmPassword"}
+            rules={[
+              {
+                required: true,
+                message: "invalid password",
+              },
+            ]}
+          >
+            <Input.Password
+              placeholder="Enter Password"
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+            />
           </Form.Item>
           <div className={style.loginWrraper}>
             <Button className={style.resendClickBtn} htmlType="submit">
-              {(isLoadingResendEmail && <Spin />) || "Click me"}{" "}
+              {(isLoadingResetPassword && <Spin />) || "Reset Password"}{" "}
             </Button>
           </div>
         </Form>
@@ -77,4 +103,4 @@ const ForgotPassword = observer(() => {
   );
 });
 
-export default memo(ForgotPassword);
+export default memo(SetNewPassword);

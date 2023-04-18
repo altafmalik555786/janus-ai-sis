@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input, Row } from "antd";
+import { Button, Checkbox, Form, Input, Row, Select, Spin } from "antd";
 import { observer } from "mobx-react";
 import React, { memo } from "react";
 import style from "./style.module.scss";
@@ -9,32 +9,28 @@ import { useStore } from "@stores/root-store";
 import { notification } from "@utils/notifications";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { CheckboxChangeEvent } from "antd/es/checkbox";
 
 const SignUp = observer(() => {
   const [signUpForm] = Form.useForm();
   const navigate = useNavigate();
 
   const {
-    user: { onSignUpUser },
+    user: { onSignUpUser, isLoadingSignup },
   } = useStore(null);
 
   const onFormSubmit = (values) => {
-    const payload = {
-      email: values.email,
-      password: values.password,
-      phone: values.telephone,
-    }
-    if(values.password === values.confirmPassword){
-      onSignUpUser(payload)
-    }else{
+    if (values.password === values.confirmPassword) {
+      onSignUpUser(values);
+      navigate(constRoute?.verifyEmail)
+    } else {
       notification.error("Password should be matched");
     }
   };
 
   const onChange = (e: CheckboxChangeEvent) => {
     // console.log(`checked = ${e.target.checked}`);
-  }; 
+  };
 
   return (
     <div className={style.mainSignUpWrraper}>
@@ -51,20 +47,48 @@ const SignUp = observer(() => {
         <Form
           form={signUpForm}
           name={"basic"}
-          onValuesChange={(e) => console.log(e)}
           onFinish={onFormSubmit}
           autoComplete={"off"}
           validateMessages={validateMessages}
           layout="vertical"
+          onValuesChange={(e) => console.log(e)}
           className={style.signUpForm}
         >
+          <Form.Item label={"First Name"} name={"firstname"}>
+            <Input placeholder="Enter your first name" />
+          </Form.Item>
+          <Form.Item label={"Last Name"} name={"lastname"}>
+            <Input placeholder="Enter your last name" />
+          </Form.Item>
+          <Form.Item label={"Organization Type"} name={"orgtype"}>
+            <Select
+              onChange={() => {}}
+              options={[
+                { value: "NGO", label: "NGO" },
+                { value: "Gouvernment", label: "Gouvernment" },
+                { value: "Foundation", label: "Foundation" },
+                { value: "Bank", label: "Bank" },
+                { value: "Other", label: "Other" },
+              ]}
+            />
+          </Form.Item>
+
+          <Form.Item label={"Organization Name"} name={"orgname"}>
+            <Input placeholder="Enter your organization name" />
+          </Form.Item>
+          <Form.Item label={"Role"} name={"role"}>
+            <Input placeholder="Enter your role" />
+          </Form.Item>
+          <Form.Item label={"Country"} name={"country"}>
+            <Input placeholder="Enter your country" />
+          </Form.Item>
           <Form.Item
             label={"Email Address"}
             name={"email"}
             rules={[
               {
                 required: true,
-                type:"email",
+                type: "email",
                 message: `Please provide a valid email address`,
               },
             ]}
@@ -73,13 +97,7 @@ const SignUp = observer(() => {
           </Form.Item>
           <Form.Item
             label={"Telephone Number"}
-            name={"telephone"}
-            rules={[
-              {
-                required: true,
-                message: "invalid number",
-              },
-            ]}
+            name={"phone"}
           >
             <Input placeholder="Enter number" />
           </Form.Item>
@@ -100,12 +118,6 @@ const SignUp = observer(() => {
               }
             />
           </Form.Item>
-          {/* <Form.Item
-           label={""}
-           name={"PasswordRule"}
-          >
-          <label>Must be at least 8 characters</label>
-          </Form.Item> */}
           <Form.Item
             label={"Confirm Password"}
             name={"confirmPassword"}
@@ -126,16 +138,26 @@ const SignUp = observer(() => {
         </Form>
         <div>
           <div className={style.signUpWrraper}>
-          <Checkbox onChange={onChange}>I accept the <span className={style.termsStyle}>Terms</span> & <span className={style.termsStyle}>Privacy Policy</span></Checkbox>
+            <Checkbox onChange={onChange}>
+              I accept the <span className={style.termsStyle}>Terms</span> &{" "}
+              <span className={style.termsStyle}>Privacy Policy</span>
+            </Checkbox>
             <Form form={signUpForm} onFinish={onFormSubmit}>
               <Button htmlType="submit" className={style.signUpBtn}>
-                Sign Up
+                { isLoadingSignup && <Spin /> || "Sign Up"  }
+                
               </Button>
             </Form>
           </div>
           <div className={style.loginWrraper}>
             <p>Already have an account?</p>
-            <span style={{cursor:'pointer'}} onClick={() => navigate(constRoute?.login)}> Log In</span>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(constRoute?.login)}
+            >
+              {" "}
+              Log In
+            </span>
           </div>
         </div>
       </div>

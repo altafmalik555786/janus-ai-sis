@@ -31,8 +31,12 @@ export const catchError = (
     `| ${LOWER_ERROR} data: `,
     data
   );
-  if (status === 404) {
-    notification.error(data.message);
+  if (status === 401) {
+    notification.error(data?.error?.message);
+  }
+  
+  if (status === 400) {
+    notification.error(data?.error);
   }
   
   data?.errors?.length > 0 &&

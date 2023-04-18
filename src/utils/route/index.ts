@@ -4,6 +4,10 @@ export const constRoute = {
   login: "/login",
   signup: "/signup",
   forgetPassword: "/forget-password",
+  checkEmail: "/check-email",
+  setNewPassword: "/set-new-password",
+  resetPasswordSuccessfully: "/reset-password-successfully",
+  verifyEmail: "/verify-email",
   finalSheet: "/final-sheet",
   forgotPassword: "/forgot-password",
   profile: "/profile",
@@ -27,5 +31,4 @@ export const constRoute = {
   results: "/results",
   marketRules: "/market-rules",
   termsAndConditions: "/terms-and-conditions",
-
 };

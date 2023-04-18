@@ -15,6 +15,9 @@ export const user = types
     userInfo: types.maybeNull(userInfoModel),
     loading: types.optional(types.boolean, false),    
     loadingLogin: types.optional(types.boolean, false),    
+    loadingSignup: types.optional(types.boolean, false),    
+    loadingResendEmail: types.optional(types.boolean, false),    
+    loadingResetPassword: types.optional(types.boolean, false),    
   })
   .views((self) => ({
     get getUserInfo() {
@@ -23,23 +26,25 @@ export const user = types
     get isLoadingLogin() {
       return toJS(self.loadingLogin);
     },
-
+    get isLoadingSignup() {
+      return toJS(self.loadingSignup);
+    },
+    get isLoadingResendEmail() {
+      return toJS(self.loadingResendEmail);
+    },
+    get isLoadingResetPassword() {
+      return toJS(self.loadingResetPassword);
+    },
   }))
   .actions((self) => {
     const onUserLogin = flow(function* (data, navigate) {
       self.loadingLogin = true;
       try {
         const res = yield userApi.onUserLogin(data);
-        console.log("onUserLogin res", res)
-        if (res?.success) {
-          localStorage.setItem(LOWER_TOKEN, res?.token);
+          localStorage.setItem(LOWER_TOKEN, res?.jwt_token);
           localStorage.setItem(LOWER_THEME, res?.defaultTheme);
-          notification.success(res?.message);
-          let resLoadUser = yield loadUserInfo();
-          if (resLoadUser.success) {
-            navigate(`${constRoute.dashboard}`);
-          }
-        }
+          res?.jwt_token && notification.success("Signed in successfully");
+          navigate(`${constRoute.dashboard}`);
       } catch (error) {
         catchError(error, "onUserLogin");
       } finally {
@@ -48,22 +53,47 @@ export const user = types
     });
 
     const onSignUpUser = flow(function* (data) {
-      self.loading = true;
+      self.loadingSignup = true;
       let response = null;
       try {
         const res = yield userApi.onSignUpUser(data);
         response = res;
-        if (res?.success) {
-          notification.success("Signed up successfully");
-        }
+        notification.success("Signed up successfully");
       } catch (error) {
         catchError(error, "onSignUpUser");
       } finally {
-        self.loading = false;
+        self.loadingSignup = false;
         return response;
       }
     });
 
+    const onSendResendEmail = flow(function* (data) {
+      self.loadingResendEmail = true;
+      let response = null;
+      try {
+        const res = yield userApi.sendResendEmail(data);
+        response = res;
+      } catch (error) {
+        catchError(error, "onSendResendEmail");
+      } finally {
+        self.loadingResendEmail = false;
+        return response;
+      }
+    });
+
+    const onResetPassword = flow(function* (data) {
+      self.loadingResetPassword = true;
+      let response = null;
+      try {
+        const res = yield userApi.resetPassword(data);
+        response = res;
+      } catch (error) {
+        catchError(error, "onResetPassword");
+      } finally {
+        self.loadingResetPassword = false;
+        return response;
+      }
+    });
 
     const loadUserInfo = flow(function* (navigate = null) {
       self.loading = true;
@@ -89,6 +119,8 @@ export const user = types
       onUserLogin,
       onSignUpUser,
       loadUserInfo,
+      onSendResendEmail,
+      onResetPassword
      
     };
   });
