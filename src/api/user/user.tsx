@@ -8,8 +8,9 @@ import { BaseApi } from "../baseApi";
 class UserApi extends BaseApi {
   onUserLogin = async (data) => {
     try {
-      const response = await axios.post(`${baseUrl}login`, data, {
+      const response = await axios.post(`${baseUrl}signin`, data, {
         headers: {
+          Authorization: getAuthorizationHeader(),
           "Content-Type": "application/json",
         },
         cancelToken: this.cancelToken,
@@ -22,7 +23,7 @@ class UserApi extends BaseApi {
 
   onSignUpUser = async (data) => {
     try {
-      const response = await axios.post(`${baseUrl}register`, data, {
+      const response = await axios.post(`${baseUrl}signup`, data, {
         headers: {
           Authorization: getAuthorizationHeader(),
           "Content-Type": "application/json",

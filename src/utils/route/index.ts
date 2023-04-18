@@ -2,6 +2,7 @@ export const constRoute = {
   dashboard: "/",
   hash: "#",
   login: "/login",
+  signup: "/signup",
   finalSheet: "/final-sheet",
   forgotPassword: "/forgot-password",
   profile: "/profile",
@@ -25,7 +26,5 @@ export const constRoute = {
   results: "/results",
   marketRules: "/market-rules",
   termsAndConditions: "/terms-and-conditions",
-  cash: "/cash",
-  ledger: "/ledger",
-  creditLedger: "/credit-ledger",
+
 };
