@@ -2,6 +2,7 @@ export const constRoute = {
   dashboard: "/",
   hash: "#",
   login: "/login",
+  signup: "/signup",
   finalSheet: "/final-sheet",
   forgotPassword: "/forgot-password",
   profile: "/profile",
