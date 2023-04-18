@@ -23,11 +23,12 @@
             font-weight: 500;
             line-height: 27px;
             letter-spacing: 0em;
-            text-align: center;    
+            text-align: center;
             margin-bottom: 8px;
-            margin: 0px;        
+            margin: 0px;
         }
-        p{
+
+        p {
             text-align: center;
             font-weight: 400;
             font-size: 16px;
@@ -36,26 +37,38 @@
         }
     }
 
-    .signUpWrraper{
-        .signUpBtn{
+    .signUpWrraper {
+        .termsStyle {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #00B840;
+        }
+
+        .signUpBtn {
             background-color: #00B840;
             width: 100%;
             color: #fff;
             height: 50px;
+            margin-top: 22px;
         }
     }
 
-    .loginWrraper{
+    .loginWrraper {
         display: flex;
         justify-content: center;
         align-items: center;
 
-        p{
+        p {
             font-weight: 400;
             font-size: 16px;
             color: #000000;
         }
-        span{
+
+        span {
             color: #00B840;
             margin-left: 4px;
         }
@@ -63,12 +76,12 @@
 
     .signUpForm {
         :global(.ant-form-item-required) {
-          font-family: "Inter";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 19px;
-          color: #000000;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
         }
-      }
+    }
 }
