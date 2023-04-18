@@ -10,7 +10,7 @@ class UserApi extends BaseApi {
     try {
       const response = await axios.post(`${baseUrl}signin`, data, {
         headers: {
-          Authorization: getAuthorizationHeader(),
+          // Authorization: getAuthorizationHeader(),
           "Content-Type": "application/json",
         },
         cancelToken: this.cancelToken,

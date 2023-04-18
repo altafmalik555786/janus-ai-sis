@@ -3,6 +3,7 @@ export const constRoute = {
   hash: "#",
   login: "/login",
   signup: "/signup",
+  forgetPassword: "/forget-password",
   finalSheet: "/final-sheet",
   forgotPassword: "/forgot-password",
   profile: "/profile",
