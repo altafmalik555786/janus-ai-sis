@@ -72,7 +72,7 @@ const Login = observer(() => {
           </div>
           <div className={style.signupWrraper}>
             <p>Don’t have an account?</p>
-            <span>Sign up</span>
+            <span onClick={() => navigate(constRoute?.signup)}>Sign up</span>
           </div>
         </div>
         </Form>
