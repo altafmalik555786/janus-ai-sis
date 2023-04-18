@@ -7,6 +7,7 @@ import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { validateMessages } from "@utils/json-data";
 import { useStore } from "@stores/root-store";
 import { useNavigate } from "react-router-dom";
+import { constRoute } from "@utils/route";
 
 const Login = observer(() => {
   const [loginForm] = Form.useForm();
@@ -72,7 +73,7 @@ const Login = observer(() => {
           </div>
           <div className={style.signupWrraper}>
             <p>Don’t have an account?</p>
-            <span>Sign up</span>
+            <span onClick={() => navigate(constRoute?.signup)}>Sign up</span>
           </div>
         </div>
         </Form>
