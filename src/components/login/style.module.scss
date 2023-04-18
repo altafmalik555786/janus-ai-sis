@@ -1,0 +1,74 @@
+.mainLoginWrraper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .welcomeWrraper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+
+        h2 {
+            margin: 0px;
+            font-weight: 500;
+            font-size: 30px;
+        }
+    }
+
+    .emailWrraper {
+        margin-top: 20px;
+
+        p {
+            margin-bottom: 8px;
+        }
+    }
+
+    .passwordWrraper {
+        margin-top: 20px;
+
+        p {
+            margin-bottom: 8px;
+        }
+    }
+
+    .loginWrraper{
+        p{
+            margin-bottom: 30px;
+            margin-top: 14px;
+            color: #00B840;
+            font-weight: 400;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .loginBtn{
+            background-color: #00B840;
+            width: 100%;
+            color: #fff;
+            height: 50px;
+        }
+    }
+
+    .signupWrraper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p{
+            font-weight: 400;
+            font-size: 16px;
+            color: #000000;
+        }
+        span{
+            color: #00B840;
+            margin-left: 4px;
+        }
+    }
+}
