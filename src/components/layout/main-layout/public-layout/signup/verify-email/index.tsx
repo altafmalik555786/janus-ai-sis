@@ -6,7 +6,6 @@ import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
 import { useNavigate } from "react-router-dom";
-import { toJS } from "mobx";
 
 const VerifyEmail = observer(() => {
   const [form] = Form.useForm();
@@ -15,16 +14,13 @@ const VerifyEmail = observer(() => {
     user: { isLoadingResendEmail, onSignUpUser, verificationCode },
   } = useStore(null);
 
-  console.log("verificationCode", toJS(verificationCode))
   const onFormSubmit = (values) => {
-    const signupData = JSON.parse(localStorage.getItem('signupPayload'))
-    console.log("signupData", signupData)
-      if( values.code === verificationCode){
-        alert("succs")
-        onSignUpUser(signupData)
-        localStorage.removeItem('signupPayload')
-        navigate(constRoute?.login);
-      }
+    const signupData = JSON.parse(localStorage.getItem("signupPayload"));
+    if (values.code === verificationCode) {
+      onSignUpUser(signupData);
+      localStorage.removeItem("signupPayload");
+      navigate(constRoute?.login);
+    }
   };
 
   const validateMessages = {
@@ -37,10 +33,6 @@ const VerifyEmail = observer(() => {
         <div className={style.headingWrapper}>
           <img src={welcomeLogo} alt="janus-logo" className={style.janusLogo} />
           <h2 className={style.forgotPassword}>Verification</h2>
-          <p className={style.janusText}>
-            Don’t sweat it, we will email you reset instructions to set a new
-            password.
-          </p>
         </div>
         <Form
           className={style.formData}

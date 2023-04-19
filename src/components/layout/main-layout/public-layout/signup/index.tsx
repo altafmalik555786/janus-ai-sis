@@ -1,6 +1,6 @@
-import { Button, Checkbox, Form, Input, Row, Select, Spin } from "antd";
+import { Button, Checkbox, Form, Input, Select, Spin } from "antd";
 import { observer } from "mobx-react";
-import React, { memo } from "react";
+import { memo, useState } from "react";
 import style from "./style.module.scss";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
@@ -14,16 +14,34 @@ import type { CheckboxChangeEvent } from "antd/es/checkbox";
 const SignUp = observer(() => {
   const [signUpForm] = Form.useForm();
   const navigate = useNavigate();
+  const [isOtherType, setisOtherType] = useState(false);
 
   const {
-    user: { onSignUpUser, isLoadingSignup, onSendEmailVerification },
+    user: { isLoadingEmailVerification, onSendEmailVerification },
   } = useStore(null);
-
-  const onFormSubmit = (values) => {
+  const onFormSubmit = async (values) => {
+    const payload = {
+      firstname: values?.firstname,
+      lastname: values?.lastname,
+      orgtype: values?.orgtype,
+      orgname: values?.orgname,
+      role: values?.role,
+      country: values?.country,
+      email: values?.email,
+      phone: values?.phone,
+      password: values?.password,
+      plan: "bronze",
+    };
+    if (isOtherType) {
+      values["orgType"] = values?.orgTypeName;
+    }
     if (values.password === values.confirmPassword) {
-      localStorage.setItem('signupPayload', JSON.stringify(values))
-      onSendEmailVerification({email: values.email, lastname: values.lastname})
-      navigate(constRoute?.verifyEmail)
+      localStorage.setItem("signupPayload", JSON.stringify(values));
+      const res = await onSendEmailVerification({
+        email: values.email,
+        lastname: values.lastname,
+      });
+      res?.verification_code && navigate(constRoute?.verifyEmail);
     } else {
       notification.error("Password should be matched");
     }
@@ -58,12 +76,28 @@ const SignUp = observer(() => {
           <Form.Item label={"First Name"} name={"firstname"}>
             <Input placeholder="Enter your first name" />
           </Form.Item>
-          <Form.Item label={"Last Name"} name={"lastname"}>
+          <Form.Item
+            label={"Last Name"}
+            name={"lastname"}
+            rules={[
+              {
+                required: true,
+                message: "Last name is required",
+              },
+            ]}
+          >
             <Input placeholder="Enter your last name" />
           </Form.Item>
           <Form.Item label={"Organization Type"} name={"orgtype"}>
             <Select
-              onChange={() => {}}
+              onChange={(e) => {
+                console.log("e", e);
+                if (e === "Other") {
+                  setisOtherType(true);
+                } else {
+                  setisOtherType(false);
+                }
+              }}
               options={[
                 { value: "NGO", label: "NGO" },
                 { value: "Gouvernment", label: "Gouvernment" },
@@ -73,7 +107,11 @@ const SignUp = observer(() => {
               ]}
             />
           </Form.Item>
-
+          {isOtherType && (
+            <Form.Item label={"Add Organization Type"} name={"orgTypeName"}>
+              <Input placeholder="Enter your organization type" />
+            </Form.Item>
+          )}
           <Form.Item label={"Organization Name"} name={"orgname"}>
             <Input placeholder="Enter your organization name" />
           </Form.Item>
@@ -96,22 +134,10 @@ const SignUp = observer(() => {
           >
             <Input placeholder="Enter email address" />
           </Form.Item>
-          <Form.Item
-            label={"Telephone Number"}
-            name={"phone"}
-          >
+          <Form.Item label={"Telephone Number"} name={"phone"}>
             <Input placeholder="Enter number" />
           </Form.Item>
-          <Form.Item
-            label={"Password"}
-            name={"password"}
-            rules={[
-              {
-                required: true,
-                message: "Must be at least 8 characters",
-              },
-            ]}
-          >
+          <Form.Item label={"Password"} name={"password"}>
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
@@ -119,16 +145,7 @@ const SignUp = observer(() => {
               }
             />
           </Form.Item>
-          <Form.Item
-            label={"Confirm Password"}
-            name={"confirmPassword"}
-            rules={[
-              {
-                required: true,
-                message: "invalid password",
-              },
-            ]}
-          >
+          <Form.Item label={"Confirm Password"} name={"confirmPassword"}>
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
@@ -145,8 +162,7 @@ const SignUp = observer(() => {
             </Checkbox>
             <Form form={signUpForm} onFinish={onFormSubmit}>
               <Button htmlType="submit" className={style.signUpBtn}>
-                { isLoadingSignup && <Spin /> || "Sign Up"  }
-                
+                {(isLoadingEmailVerification && <Spin />) || "Sign Up"}
               </Button>
             </Form>
           </div>
@@ -156,7 +172,6 @@ const SignUp = observer(() => {
               style={{ cursor: "pointer" }}
               onClick={() => navigate(constRoute?.login)}
             >
-              {" "}
               Log In
             </span>
           </div>

@@ -36,6 +36,9 @@ export const user = types
     get isLoadingResetPassword() {
       return toJS(self.loadingResetPassword);
     },
+    get isLoadingEmailVerification() {
+      return toJS(self.loadingEmailVerification);
+    }, 
   }))
   .actions((self) => {
     const onUserLogin = flow(function* (data, navigate) {
