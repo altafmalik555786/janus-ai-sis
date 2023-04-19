@@ -47,6 +47,20 @@ class UserApi extends BaseApi {
     }
   };
 
+  senddEmailVerification = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}verifyEmail`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cancelToken: this.cancelToken,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
 
   resetPassword = async (data) => {
     try {

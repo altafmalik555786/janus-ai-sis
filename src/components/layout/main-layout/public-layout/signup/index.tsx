@@ -16,12 +16,13 @@ const SignUp = observer(() => {
   const navigate = useNavigate();
 
   const {
-    user: { onSignUpUser, isLoadingSignup },
+    user: { onSignUpUser, isLoadingSignup, onSendEmailVerification },
   } = useStore(null);
 
   const onFormSubmit = (values) => {
     if (values.password === values.confirmPassword) {
-      onSignUpUser(values);
+      localStorage.setItem('signupPayload', JSON.stringify(values))
+      onSendEmailVerification({email: values.email, lastname: values.lastname})
       navigate(constRoute?.verifyEmail)
     } else {
       notification.error("Password should be matched");
