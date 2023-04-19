@@ -8,7 +8,6 @@ import {
   userInfoModel,
 } from "@stores/store-utils";
 import { toJS } from "mobx";
-
 export const user = types
 
   .model({
@@ -17,7 +16,9 @@ export const user = types
     loadingLogin: types.optional(types.boolean, false),    
     loadingSignup: types.optional(types.boolean, false),    
     loadingResendEmail: types.optional(types.boolean, false),    
-    loadingResetPassword: types.optional(types.boolean, false),    
+    loadingResetPassword: types.optional(types.boolean, false),   
+    loadingEmailVerification: types.optional(types.boolean, false),   
+    verificationCode: types.maybeNull(types.string)
   })
   .views((self) => ({
     get getUserInfo() {
@@ -81,6 +82,22 @@ export const user = types
       }
     });
 
+
+    const onSendEmailVerification = flow(function* (data) {
+      self.loadingEmailVerification = true;
+      let response = null;
+      try {
+        const res = yield userApi.senddEmailVerification(data);
+        response = res;
+        self.verificationCode = response?.verification_code;
+      } catch (error) {
+        catchError(error, "onSendResendEmail");
+      } finally {
+        self.loadingEmailVerification = false;
+        return response;
+      }
+    });
+
     const onResetPassword = flow(function* (data) {
       self.loadingResetPassword = true;
       let response = null;
@@ -120,8 +137,8 @@ export const user = types
       onSignUpUser,
       loadUserInfo,
       onSendResendEmail,
-      onResetPassword
-     
+      onResetPassword,
+      onSendEmailVerification
     };
   });
 
