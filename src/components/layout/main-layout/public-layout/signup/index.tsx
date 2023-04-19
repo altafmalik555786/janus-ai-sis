@@ -16,7 +16,7 @@ const SignUp = observer(() => {
   const [signUpForm] = Form.useForm();
   const navigate = useNavigate();
   const [isOtherType, setisOtherType] = useState(false);
-
+  const [isAccept, setIsAccept] = useState(true);
   const {
     user: { isLoadingEmailVerification, onSendEmailVerification },
   } = useStore(null);
@@ -34,11 +34,10 @@ const SignUp = observer(() => {
       plan: "bronze",
     };
     if (isOtherType) {
-      payload["orgType"] = values?.orgTypeName;
+      payload["orgtype"] = values?.orgTypeName;
     }
-    console.log("payload", payload)
     if (values.password === values.confirmPassword) {
-      localStorage.setItem("signupPayload", JSON.stringify(values));
+      localStorage.setItem("signupPayload", JSON.stringify(payload));
       const res = await onSendEmailVerification({
         email: values.email,
         lastname: values.lastname,
@@ -50,7 +49,7 @@ const SignUp = observer(() => {
   };
 
   const onChange = (e: CheckboxChangeEvent) => {
-    // console.log(`checked = ${e.target.checked}`);
+    setIsAccept(e.target.checked);
   };
 
   return (
@@ -72,7 +71,6 @@ const SignUp = observer(() => {
           autoComplete={"off"}
           validateMessages={validateMessages}
           layout="vertical"
-          onValuesChange={(e) => console.log(e)}
           className={style.signUpForm}
         >
           <Form.Item label={"First Name"} name={"firstname"}>
@@ -93,7 +91,6 @@ const SignUp = observer(() => {
           <Form.Item label={"Organization Type"} name={"orgtype"}>
             <Select
               onChange={(e) => {
-                console.log("e", e);
                 if (e === "Other") {
                   setisOtherType(true);
                 } else {
@@ -143,7 +140,11 @@ const SignUp = observer(() => {
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
-                visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
+                visible ? (
+                  <img height={18} width={18} src={Eye} alt="" />
+                ) : (
+                  <img height={18} width={18} src={EyeOff} alt="" />
+                )
               }
             />
           </Form.Item>
@@ -151,19 +152,27 @@ const SignUp = observer(() => {
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
-                visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
+                visible ? (
+                  <img height={18} width={18} src={Eye} alt="" />
+                ) : (
+                  <img height={18} width={18} src={EyeOff} alt="" />
+                )
               }
             />
           </Form.Item>
         </Form>
         <div>
           <div className={style.signUpWrraper}>
-            <Checkbox onChange={onChange}>
+            <Checkbox defaultChecked={true} onChange={onChange}>
               I accept the <span className={style.termsStyle}>Terms</span> &{" "}
               <span className={style.termsStyle}>Privacy Policy</span>
             </Checkbox>
             <Form form={signUpForm} onFinish={onFormSubmit}>
-              <Button htmlType="submit" className={style.signUpBtn}>
+              <Button
+                htmlType="submit"
+                disabled={!isAccept}
+                className={style.signUpBtn}
+              >
                 {(isLoadingEmailVerification && <Spin />) || "Sign Up"}
               </Button>
             </Form>

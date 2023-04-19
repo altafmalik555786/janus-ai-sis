@@ -4,9 +4,21 @@ import welcomeLogo from "@assets/images/welcomeLogo.png";
 import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
+import { useStore } from "@stores/root-store";
 
 const CheckEmail = observer(() => {
   const navigate = useNavigate();
+  const {
+    user: { onSendResendEmail },
+  } = useStore(null);
+
+  const onResend = async () => {
+    const payload = {
+      email: localStorage.getItem("resendEmail"),
+      link: "http://localhost:3000/#/set-new-password",
+    }
+    onSendResendEmail(payload)
+  }
 
   return (
     <div className={style.mainContainer}>
@@ -20,7 +32,7 @@ const CheckEmail = observer(() => {
         </div>
         <div className={style.outerLink}>
           <p>Didn’t receive the email link? Click to resend</p>
-          <span onClick={() => {}} className={style.aLink}>
+          <span onClick={onResend} className={style.aLink}>
             Click to resend
           </span>
         </div>

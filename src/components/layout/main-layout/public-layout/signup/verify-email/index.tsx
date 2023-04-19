@@ -11,15 +11,19 @@ const VerifyEmail = observer(() => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const {
-    user: { isLoadingResendEmail, onSignUpUser, verificationCode },
+    user: { isLoadingSignup, onSignUpUser, verificationCode },
   } = useStore(null);
 
-  const onFormSubmit = (values) => {
+  const onFormSubmit = async (values) => {
     const signupData = JSON.parse(localStorage.getItem("signupPayload"));
     if (values.code === verificationCode) {
-      onSignUpUser(signupData);
+      const res = await onSignUpUser(signupData);
       localStorage.removeItem("signupPayload");
-      navigate(constRoute?.login);
+      if (res) {
+        navigate(constRoute?.login);
+      } else {
+        navigate(constRoute?.signup);
+      }
     }
   };
 
@@ -57,7 +61,7 @@ const VerifyEmail = observer(() => {
           </Form.Item>
           <div className={style.loginWrraper}>
             <Button className={style.resendClickBtn} htmlType="submit">
-              {(isLoadingResendEmail && <Spin />) || "Continue"}{" "}
+              {(isLoadingSignup && <Spin />) || "Continue"}
             </Button>
           </div>
         </Form>

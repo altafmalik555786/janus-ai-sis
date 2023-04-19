@@ -1,11 +1,10 @@
 import { observer } from "mobx-react";
 import React, { memo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import style from "./style.module.scss";
 import a5 from "@assets/images/welcomeWhite.png";
 import { Button } from "antd";
 import { constRoute } from "@utils/route";
-import { useStore } from "@stores/root-store";
 
 const WelcomeScreen = observer(() => {
   const navigate = useNavigate();
@@ -25,7 +24,11 @@ const WelcomeScreen = observer(() => {
             Adaptation/Mitigation projects.
           </p>
           <div className={style.mainButton}>
-            <Button
+           {
+            !localStorage.getItem("token")
+            &&
+            <>
+             <Button
               onClick={() => navigate(constRoute?.login)}
               className={style.LoginButton}
             >
@@ -37,6 +40,18 @@ const WelcomeScreen = observer(() => {
             >
               Sign Up
             </Button>
+            </>
+            ||
+             <Button
+              onClick={() => {
+                localStorage.removeItem("token")
+                navigate(constRoute?.login)
+              }}
+              className={style.LoginButton}
+            >
+              Log out
+            </Button>
+           }
           </div>
         </div>
       </div>

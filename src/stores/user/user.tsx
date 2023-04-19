@@ -77,6 +77,7 @@ export const user = types
       try {
         const res = yield userApi.sendResendEmail(data);
         response = res;
+        notification.success("Email resended successfully");
       } catch (error) {
         catchError(error, "onSendResendEmail");
       } finally {
