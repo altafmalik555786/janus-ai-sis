@@ -54,7 +54,7 @@ const SignUp = observer(() => {
 
   return (
     <div className={style.mainSignUpWrraper}>
-      <div style={{ width: 500, margin: 10 }}>
+      <div style={{ width: 500, margin: 20 }}>
         <div className={style.welcomeWrraper}>
           <img src={welcomeLogo} alt="" />
           <h2>Create Your Account</h2>
