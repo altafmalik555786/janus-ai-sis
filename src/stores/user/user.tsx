@@ -36,6 +36,9 @@ export const user = types
     get isLoadingResetPassword() {
       return toJS(self.loadingResetPassword);
     },
+    get isLoadingEmailVerification() {
+      return toJS(self.loadingEmailVerification);
+    }, 
   }))
   .actions((self) => {
     const onUserLogin = flow(function* (data, navigate) {
@@ -74,6 +77,7 @@ export const user = types
       try {
         const res = yield userApi.sendResendEmail(data);
         response = res;
+        notification.success("Email resended successfully");
       } catch (error) {
         catchError(error, "onSendResendEmail");
       } finally {

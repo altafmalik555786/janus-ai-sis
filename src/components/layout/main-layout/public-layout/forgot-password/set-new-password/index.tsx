@@ -17,11 +17,18 @@ const SetNewPassword = observer(() => {
     user: { onResetPassword, isLoadingResetPassword },
   } = useStore(null);
 
-  const onFormSubmit = (values) => {
-
+  const onFormSubmit = async (values) => {
+    const payload = {
+      email: localStorage.getItem("resendEmail"),
+      password: values?.password,
+    }
     if (values.password === values.confirmPassword) {
-      onResetPassword(values);
-      navigate(constRoute?.resetPasswordSuccessfully);
+      const res = await onResetPassword(payload);
+      if (res?.jwt_token?.length > 0) {
+        localStorage.removeItem("resendEmail")
+        localStorage.setItem("token", res?.jwt_token)
+        navigate(constRoute?.resetPasswordSuccessfully);
+      }
     } else {
       notification.error("Password should be matched");
     }

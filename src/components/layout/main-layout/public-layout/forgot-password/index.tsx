@@ -15,9 +15,16 @@ const ForgotPassword = observer(() => {
     user: { onSendResendEmail, isLoadingResendEmail },
   } = useStore(null);
 
-  const onFormSubmit = (values) => {
-    onSendResendEmail(values);
-    navigate(constRoute?.checkEmail)
+  const onFormSubmit = async (values) => {
+    const payload = {
+      email: values?.email,
+      link: "http://localhost:3000/#/set-new-password",
+    }
+    const res = await onSendResendEmail(payload);
+    if (res?.message?.length > 0) {
+      localStorage.setItem("resendEmail", values?.email)
+      navigate(constRoute?.checkEmail)
+    }
   };
 
   const validateMessages = {
