@@ -52,6 +52,7 @@
       cursor: pointer;
       margin-left: 10px;
     }
+
     .loginBtn {
       background-color: #00b840;
       width: 100%;
@@ -60,6 +61,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 15px;
+      font-weight: 500;
 
       div {
         margin-top: 5px;
@@ -77,12 +80,14 @@
       font-size: 16px;
       color: #000000;
     }
+
     span {
       color: #00b840;
       margin-left: 4px;
       cursor: pointer;
     }
   }
+
   .loginForm {
     :global(.ant-form-item-required) {
       font-family: "Inter";

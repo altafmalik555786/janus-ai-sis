@@ -6,7 +6,8 @@ import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
 import { useNavigate } from "react-router-dom";
-import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import Eye from "@assets/icons/Eye.png";
+import EyeOff from "@assets/icons/EyeOff.png";
 import { notification } from "@utils/notifications";
 
 const SetNewPassword = observer(() => {
@@ -65,7 +66,7 @@ const SetNewPassword = observer(() => {
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
               }
             />
           </Form.Item>
@@ -82,7 +83,7 @@ const SetNewPassword = observer(() => {
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
               }
             />
           </Form.Item>
