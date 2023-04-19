@@ -1,4 +1,4 @@
-import { Button, Form, Input, Row } from "antd";
+import { Button, Form, Input, Row, Spin } from "antd";
 import { observer } from "mobx-react";
 import React, { memo } from "react";
 import style from "./style.module.scss";
@@ -13,10 +13,9 @@ const Login = observer(() => {
   const [loginForm] = Form.useForm();
   const navigate = useNavigate()
 
-  const { user: { onUserLogin } } = useStore(null)
+  const { user: { onUserLogin, isLoadingLogin } } = useStore(null)
 
   const onLogin = (value) => {
-    console.log("value", value)
     onUserLogin(value, navigate)
   }
 
@@ -30,7 +29,6 @@ const Login = observer(() => {
         <Form
           form={loginForm}
           name={"basic"}
-          onValuesChange={(e) => console.log(e)}
           onFinish={onLogin}
           autoComplete={"off"}
           validateMessages={validateMessages}
@@ -43,6 +41,7 @@ const Login = observer(() => {
             rules={[
               {
                 required: true,
+                type:"email",
                 message: `Please provide a valid email address`,
               },
             ]}
@@ -68,8 +67,8 @@ const Login = observer(() => {
           </Form.Item>
         <div>
           <div className={style.loginWrraper}>
-            <p  onClick={() => {}} >Forgot Password?</p>
-            <Button className={style.loginBtn} htmlType="submit" >Log In</Button>
+            <p  onClick={() => {navigate(constRoute.forgetPassword)}} >Forgot Password?</p>
+            <Button className={style.loginBtn} htmlType="submit" > { isLoadingLogin && <Spin /> || "Log In" } </Button>
           </div>
           <div className={style.signupWrraper}>
             <p>Don’t have an account?</p>

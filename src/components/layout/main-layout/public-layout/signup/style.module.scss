@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 
     .welcomeWrraper {
         display: flex;
@@ -54,6 +53,10 @@
             color: #fff;
             height: 50px;
             margin-top: 22px;
+
+            div {
+                margin-top: 5px;
+            }
         }
     }
 

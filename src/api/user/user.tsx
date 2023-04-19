@@ -1,8 +1,6 @@
 import { getAuthorizationHeader } from "../common-utils";
 import axios from "axios";
-import {
-  baseUrl,
-} from "../const";
+import { baseUrl } from "../const";
 import { BaseApi } from "../baseApi";
 
 class UserApi extends BaseApi {
@@ -10,7 +8,6 @@ class UserApi extends BaseApi {
     try {
       const response = await axios.post(`${baseUrl}signin`, data, {
         headers: {
-          Authorization: getAuthorizationHeader(),
           "Content-Type": "application/json",
         },
         cancelToken: this.cancelToken,
@@ -35,6 +32,38 @@ class UserApi extends BaseApi {
     }
   };
 
+  sendResendEmail = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}sendResetEmail`, data, {
+        headers: {
+          Authorization: getAuthorizationHeader(),
+          "Content-Type": "application/json",
+        },
+        cancelToken: this.cancelToken,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+
+  resetPassword = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}resetPassword`, data, {
+        headers: {
+          Authorization: getAuthorizationHeader(),
+          "Content-Type": "application/json",
+        },
+        cancelToken: this.cancelToken,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+  
+
   getCurrentUserDetails = async () => {
     try {
       const response = await axios.get(`${baseUrl}getCurrentUser`, {
@@ -47,9 +76,6 @@ class UserApi extends BaseApi {
       throw error;
     }
   };
-
-  
-
 }
 
 export default UserApi;
