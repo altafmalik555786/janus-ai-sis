@@ -22,6 +22,7 @@
         width: 60px;
         height: 60px;
       }
+
       .janusLogo {
         justify-content: center;
         text-align: center;
@@ -35,11 +36,11 @@
       font-style: normal;
       font-weight: 500;
       font-size: 30px;
-      line-height: 27px;      
+      line-height: 27px;
       text-align: center;
       color: #000000;
     }
-    
+
     .paraText {
       font-family: "Inter";
       font-style: normal;
@@ -59,6 +60,7 @@
         width: 520px;
         border-radius: 4px;
       }
+
       .submitBtn {
         margin-top: 10px;
         height: 50px;
@@ -88,21 +90,24 @@
         }
       }
     }
+
     .outerLink {
       display: flex;
       justify-content: center;
       text-align: center;
       align-items: center;
       gap: 5px;
+
       .aLink {
         color: green;
         cursor: pointer;
       }
     }
+
     .loginWrraper {
 
       margin-top: 15px;
-      
+
       .continue {
         background-color: #00b840;
         width: 100%;
@@ -111,12 +116,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-  
+        font-weight: 500;
+        font-size: 15px;
+
         div {
           margin-top: 5px;
         }
       }
     }
-  
+
   }
 }

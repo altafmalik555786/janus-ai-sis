@@ -62,7 +62,7 @@ const ForgotPassword = observer(() => {
           </Form.Item>
           <div className={style.loginWrraper}>
             <Button className={style.resendClickBtn} htmlType="submit">
-              {(isLoadingResendEmail && <Spin />) || "Click me"}{" "}
+              {(isLoadingResendEmail && <Spin />) || "Continue"}{" "}
             </Button>
           </div>
         </Form>

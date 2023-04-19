@@ -2,7 +2,8 @@ import { Button, Checkbox, Form, Input, Select, Spin } from "antd";
 import { observer } from "mobx-react";
 import { memo, useState } from "react";
 import style from "./style.module.scss";
-import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import Eye from "@assets/icons/Eye.png";
+import EyeOff from "@assets/icons/EyeOff.png";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { validateMessages } from "@utils/json-data";
 import { useStore } from "@stores/root-store";
@@ -33,8 +34,9 @@ const SignUp = observer(() => {
       plan: "bronze",
     };
     if (isOtherType) {
-      values["orgType"] = values?.orgTypeName;
+      payload["orgType"] = values?.orgTypeName;
     }
+    console.log("payload", payload)
     if (values.password === values.confirmPassword) {
       localStorage.setItem("signupPayload", JSON.stringify(values));
       const res = await onSendEmailVerification({
@@ -141,7 +143,7 @@ const SignUp = observer(() => {
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
               }
             />
           </Form.Item>
@@ -149,7 +151,7 @@ const SignUp = observer(() => {
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
               }
             />
           </Form.Item>
