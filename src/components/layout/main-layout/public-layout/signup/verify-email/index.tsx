@@ -6,17 +6,25 @@ import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
 import { useNavigate } from "react-router-dom";
+import { toJS } from "mobx";
 
 const VerifyEmail = observer(() => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const {
-    user: { onSendResendEmail, isLoadingResendEmail },
+    user: { isLoadingResendEmail, onSignUpUser, verificationCode },
   } = useStore(null);
 
+  console.log("verificationCode", toJS(verificationCode))
   const onFormSubmit = (values) => {
-    onSendResendEmail(values);
-    navigate(constRoute?.login);
+    const signupData = JSON.parse(localStorage.getItem('signupPayload'))
+    console.log("signupData", signupData)
+      if( values.code === verificationCode){
+        alert("succs")
+        onSignUpUser(signupData)
+        localStorage.removeItem('signupPayload')
+        navigate(constRoute?.login);
+      }
   };
 
   const validateMessages = {
