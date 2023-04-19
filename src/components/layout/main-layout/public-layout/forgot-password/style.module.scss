@@ -22,6 +22,7 @@
         width: 60px;
         height: 60px;
       }
+
       .janusLogo {
         justify-content: center;
         text-align: center;
@@ -33,9 +34,11 @@
     .forgotPassword {
       margin-top: 0;
     }
+
     .janusText {
       text-align: center;
     }
+
     .formData {
       justify-content: center;
       align-items: center;
@@ -45,6 +48,7 @@
         width: 520px;
         border-radius: 4px;
       }
+
       .submitBtn {
         margin-top: 10px;
         height: 50px;
@@ -67,6 +71,8 @@
           width: 100%;
           color: #fff;
           height: 50px;
+          font-weight: 500;
+          font-size: 15px;
 
           div {
             margin-top: 5px;
@@ -75,12 +81,14 @@
         }
       }
     }
+
     .outerLink {
       display: flex;
       justify-content: center;
       text-align: center;
       align-items: center;
       gap: 5px;
+
       .aLink {
         color: green;
       }
