@@ -1,13 +1,12 @@
 import { Button, Checkbox, Form, Input, Select, Spin } from "antd";
 import { observer } from "mobx-react";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import style from "./style.module.scss";
 import Eye from "@assets/icons/Eye.png";
 import EyeOff from "@assets/icons/EyeOff.png";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { validateMessages } from "@utils/json-data";
 import { useStore } from "@stores/root-store";
-import { notification } from "@utils/notifications";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
@@ -20,6 +19,11 @@ const SignUp = observer(() => {
   const {
     user: { isLoadingEmailVerification, onSendEmailVerification },
   } = useStore(null);
+
+  useEffect(() => {
+    signUpForm.setFieldValue("orgtype", "NGO");
+  }, []);
+
   const onFormSubmit = async (values) => {
     const payload = {
       firstname: values?.firstname,
@@ -86,6 +90,7 @@ const SignUp = observer(() => {
           </Form.Item>
           <Form.Item label={"Organization Type"} name={"orgtype"}>
             <Select
+              defaultValue="NGO"
               onChange={(e) => {
                 if (e === "Other") {
                   setisOtherType(true);
@@ -95,7 +100,7 @@ const SignUp = observer(() => {
               }}
               options={[
                 { value: "NGO", label: "NGO" },
-                { value: "Gouvernment", label: "Gouvernment" },
+                { value: "Government", label: "Government" },
                 { value: "Foundation", label: "Foundation" },
                 { value: "Bank", label: "Bank" },
                 { value: "Other", label: "Other" },
