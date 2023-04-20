@@ -5,8 +5,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--headerBg);
-  min-height: auto;
+  background-color: #FFFFFF;
+  min-height: 80px;
+  border-bottom: 1px solid #dde2e4;
+
 
   .welcomeBox {
     display: flex;
@@ -147,6 +149,7 @@
   .headerContainer {
     display: flex;
     flex-direction: column;
+    
   }
 
   .headerContainer {

@@ -10,6 +10,8 @@ import { useStore } from "@stores/root-store";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@utils/hooks/useTheme";
 import { constRoute } from "@utils/route";
+import UpgradePlanBar from "./upgrade-plan-bar";
+import Footer from "./footer";
 
 const PrivateLayout = observer(() => {
   const { Sider, Content } = Layout;
@@ -18,20 +20,20 @@ const PrivateLayout = observer(() => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
 
-  const {
-    user: { loadUserInfo, getUserInfo },
-  } = useStore(null);
+  // const {
+  //   user: { loadUserInfo, getUserInfo },
+  // } = useStore(null);
 
-  useEffect(() => {
-    if (getUserInfo == null && window.location.pathname !== constRoute.login) {
-      loadUserInfo(navigate);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (getUserInfo == null && window.location.pathname !== constRoute.login) {
+  //     loadUserInfo(navigate);
+  //   }
+  // }, []);
 
   return (
     <div className={theme} >
       <Layout className={style.layoutSetting}>
-        <Sider
+        {/* <Sider
           onFocus={() => setCollapsed(false)}
           className={
             !collapsed
@@ -42,11 +44,13 @@ const PrivateLayout = observer(() => {
           collapsed={collapsed}
         >
           <Sidebar collapsed={collapsed} />
-        </Sider>
+        </Sider> */}
         <Layout>
           <Header setCollapsed={setCollapsed} collapsed={collapsed} />
+          <UpgradePlanBar />
           <Content className={style.routingPagesContainer}>
             <Routing />
+            <Footer />
           </Content>
         </Layout>
       </Layout>

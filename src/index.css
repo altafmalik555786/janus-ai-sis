@@ -1,4 +1,8 @@
 
+* {
+  font-family: "Inter";
+}
+
 .ant-input {
   height: 45px;
   border: 1px solid #E0E0E0;
