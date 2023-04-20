@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const CheckEmail = observer(() => {
   const onResend = async () => {
     const payload = {
       email: localStorage.getItem("resendEmail"),
-      link: "http://localhost:3000/#/set-new-password",
+      link: window.location.href.replace(/check-email/, "set-new-password"),
     };
     onSendResendEmail(payload);
   };
