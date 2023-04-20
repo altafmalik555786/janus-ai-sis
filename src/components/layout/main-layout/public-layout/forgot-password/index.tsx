@@ -18,7 +18,7 @@ const ForgotPassword = observer(() => {
   const onFormSubmit = async (values) => {
     const payload = {
       email: values?.email,
-      link: "http://localhost:3000/#/set-new-password",
+      link: "https://benevolent-sopapillas-c4b1f5.netlify.app/#/set-new-password",
     }
     const res = await onSendResendEmail(payload);
     if (res?.message?.length > 0) {
