@@ -5,7 +5,7 @@ import style from "./style.module.scss";
 import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Eye from "@assets/icons/Eye.png";
 import EyeOff from "@assets/icons/EyeOff.png";
 import { notification } from "@utils/notifications";
@@ -102,9 +102,9 @@ const SetNewPassword = observer(() => {
         </Form>
         <div className={style.outerLink}>
           <p>Back to</p>{" "}
-          <a href="#" className={style.aLink}>
+          <Link to={constRoute?.login} className={style.aLink}>
             Login
-          </a>
+          </Link>
         </div>
       </div>
     </div>
