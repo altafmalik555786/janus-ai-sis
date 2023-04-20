@@ -2,10 +2,17 @@ import { observer } from "mobx-react";
 import React from "react";
 import style from "./style.module.scss";
 import { Col, Row } from "antd";
+import { useNavigate } from "react-router-dom";
+import { constRoute } from "@utils/route";
 
 const Home = observer(() => {
+  const navigate = useNavigate()
+
   return (
     <div className={style.homePagePageContainer}>
+      <Row>
+      <Col md={6} xs={2} ></Col>
+      <Col md={12} xs={20} className={style.homePageContainerCol} >
       <div className={style.homePageContainer}>
         <h1>Welcome to Climate Finance Copilot</h1>
         <div className={style.paraContainer}>
@@ -14,18 +21,21 @@ const Home = observer(() => {
           </div>
 
           <Row className={style.boxesContiner} gutter={20}>
-            <Col span={12} md={24}>
-              <div className={style.newProject} >
+            <Col md={12} xs={24} sm={24} >
+              <div onClick={() => navigate(constRoute?.selectFunction)} className={style.newProject} >
                 <h4> New Project </h4>
               </div>
             </Col>
-            <Col span={12} md={24}>
+            <Col md={12} xs={24} sm={24} >
               <div className={style.existingProject} >
                 <h4>Open Existing Project</h4>
               </div>
             </Col>
           </Row>
       </div>
+      </Col>
+      <Col md={6} xs={2} ></Col>
+      </Row>
     </div>
   );
 });

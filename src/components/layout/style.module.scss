@@ -15,23 +15,14 @@
     align-items: center;
     align-self: center;
 
-    .menuOutlined {
-      color: var(--headerFontColor);
-      padding: 3px;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      margin: 10px;
-    }
+   
 
-    .menuOutlined:hover {
-      color: var(--headerFontColorHover);
-    }
-
+    
     .welcomeText {
-      color: var(--headerFontColor);
-      font-size: 1.2vw;
-      font-family: "Montserrat";
+      color: #000000;
+      font-size: 20px;
+      padding-left: 10px;
+
     }
 
     .textContainer:hover {
@@ -39,21 +30,6 @@
     }
   }
 
-  .userRole {
-    border: 1px solid var(--outlinedBtnBorder);
-    border-radius: 10px;
-
-    h1 {
-      color: var(--headerFontColor);
-      margin: 10px;
-      font-weight: 500;
-      margin: 7px;
-    }
-
-    h1:hover {
-      color: var(--headerFontColorHover);
-    }
-  }
 
   .rightMenuHeader {
     display: flex;
@@ -61,50 +37,6 @@
     padding-left: 10px;
     padding-right: 10px;
     margin: 0px;
-
-    .themeBtnContaienr {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .BLDivContainer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0px 10px;
-      flex-direction: row-reverse;
-      font-size: 16px;
-
-      .Lspan {
-        color: var(--filledBtnBg);
-        font-weight: 600;
-        font-size: 14px;
-      }
-
-      .Bspan {
-        color: var(--fontColor);
-        font-weight: 600;
-        font-size: 14px;
-        padding-right: 10px;
-      }
-    }
-
-    .bellIconLi {
-      display: flex;
-      align-items: center;
-
-      button {
-        display: flex;
-        align-items: center;
-        background-color: transparent;
-      }
-
-      :global(.anticon-bell) {
-        color: blue;
-        font-size: 16px;
-      }
-    }
 
     .userProfileDropDownContainer {
       display: flex;
@@ -115,20 +47,14 @@
         align-items: center;
         gap: 10px;
 
-        .ProfileImageLogo {
-          img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-          }
-        }
+       
 
         .profileUserNameText {
-          color: var(--headerFontColor);
+          color: #000000;
         }
 
         .profileUserNameText:hover {
-          color: var(--headerFontColorHover);
+          color: #000000;
         }
       }
     }
@@ -145,121 +71,7 @@
   }
 }
 
-@media only screen and (max-width: 512px) {
-  .headerContainer {
-    display: flex;
-    flex-direction: column;
-    
-  }
 
-  .headerContainer {
-    margin-right: 0px;
-
-    .welcomeBox {
-      align-self: flex-start;
-
-      .menuOutlined {
-        font-size: 12px;
-        margin-right: 3px;
-        margin-left: 5px;
-      }
-
-      .welcomeText {
-        font-size: 12px;
-      }
-    }
-
-    .userRole {
-      border: 1px solid #07be93;
-      border-radius: 15px;
-      position: absolute;
-      right: 5px;
-      top: 8px;
-
-      h1 {
-        font-size: 10px;
-        margin: 5px;
-        text-align: center;
-      }
-    }
-
-    .rightMenuHeader {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0px !important;
-      margin-top: -12px;
-      margin-bottom: 0px;
-      width: 90%;
-
-      .BLDivContainer {
-        border-right: 1px solid rgba(255, 255, 255, 0.21);
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 0px 0px;
-        flex-direction: row-reverse;
-        font-size: 10px;
-
-        .Lspan {
-          color: #25be5d;
-          padding-right: 5px;
-          font-size: 12px;
-        }
-
-        .Bspan {
-          border-right: 1px solid rgba(255, 255, 255, 0.21);
-          padding-right: 5px;
-          font-size: 12px;
-        }
-      }
-
-      .bellIconLi {
-        display: flex;
-        align-items: center;
-        margin-left: 5px;
-        margin-right: 0px;
-
-        button {
-          display: flex;
-          align-items: center;
-
-          img {
-            width: 15px;
-            height: 15px;
-          }
-        }
-      }
-
-      .userProfileDropDownContainer {
-        display: flex;
-        align-items: center;
-
-        .userProfileDropDownWrapper {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-
-          .ProfileImageLogo {
-            img {
-              width: 25px;
-              height: 25px;
-            }
-          }
-
-          .profileUserNameText {
-            color: var(--headerFontColor);
-          }
-
-          .profileUserNameText:hover {
-            color: var(--headerFontColorHover);
-          }
-        }
-      }
-    }
-  }
-}
 
 .layoutSetting {
   :global(.ant-layout) {
@@ -320,7 +132,7 @@
   .routingPagesContainer {
     background-color: var(--pagesBg);
     width: 100%;
-    min-height: 100vh;
+    min-height: 79vh;
   }
 }
 

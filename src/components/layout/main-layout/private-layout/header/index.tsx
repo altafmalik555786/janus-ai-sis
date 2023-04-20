@@ -126,7 +126,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
       >
         {/* Logo */}
         <div className={style.welcomeBox}>
-          Logo
+          {/* Logo */}
           <Link className={style.welcomeText} to={constRoute.dashboard}>
             <div ref={ref} style={{ fontSize }} className={style.textContainer}>
               Welcome

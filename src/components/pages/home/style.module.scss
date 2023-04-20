@@ -1,43 +1,88 @@
 .homePagePageContainer {
   width: 100%;
-  min-height: 100vh;
+  min-height: 79vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  .homePageContainer {
-    border: 1px solid;
-    width: 50%;
-    min-height: 400px;
-    padding: 10px;
-    margin: auto;
+  .homePageContainerCol {
+    .homePageContainer {
+      min-height: 400px;
+      padding: 10px;
 
-    h1 {
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 34px;
-      line-height: 20px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      color: #000000;
-    }
-
-    .paraContainer {
-        margin-bottom: 20px;
-      p {
+      h1 {
         font-family: "Inter";
         font-style: normal;
-        margin: 0px;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 25px;
-        color: #2e2e2e;
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+      }
+
+      .paraContainer {
+        margin-bottom: 20px;
+        p {
+          font-family: "Inter";
+          font-style: normal;
+          margin: 0px;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 25px;
+          color: #2e2e2e;
+        }
+      }
+
+      .boxesContiner {
+        .newProject {
+          height: 175px;
+          background: #244a32;
+          border: 1px solid #c4c4c4;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 5px;
+          cursor: pointer;
+
+          h4 {
+            position: absolute;
+            bottom: 0;
+            left: 25px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 25px;
+            color: #ffffff;
+          }
+        }
+
+        .existingProject {
+          box-sizing: border-box;
+          min-height: 175px;
+          background: #00b840;
+          border: 1px solid #c4c4c4;
+          border-radius: 5px;
+          cursor: pointer;
+
+          h4 {
+            position: absolute;
+            bottom: 0;
+            left: 25px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 25px;
+            color: #ffffff;
+          }
+        }
       }
     }
+  }
 
-    .boxesContiner {
-        border-radius: 1px;
-        
-    }
+  @media only screen and (max-width: 768px) {
+    height: max-content;
+    margin-bottom: 50px;
   }
 }
