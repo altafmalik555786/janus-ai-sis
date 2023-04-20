@@ -99,4 +99,8 @@
       color: #000000;
     }
   }
+
+  :global(.ant-form-item-control) {
+    margin-bottom: -10px;
+  }
 }

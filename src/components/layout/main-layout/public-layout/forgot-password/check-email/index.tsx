@@ -16,9 +16,9 @@ const CheckEmail = observer(() => {
     const payload = {
       email: localStorage.getItem("resendEmail"),
       link: "http://localhost:3000/#/set-new-password",
-    }
-    onSendResendEmail(payload)
-  }
+    };
+    onSendResendEmail(payload);
+  };
 
   return (
     <div className={style.mainContainer}>
@@ -27,18 +27,22 @@ const CheckEmail = observer(() => {
           <img src={welcomeLogo} alt="janus-logo" className={style.janusLogo} />
           <h2 className={style.checkEmail}>Check Your Email</h2>
           <p className={style.paraText}>
-          Your new password must be different to previously used passwords.
+            We sent a password reset link to{" "}
+            <b>{localStorage.getItem("resendEmail") || "example@example.com"}</b>
           </p>
         </div>
         <div className={style.outerLink}>
-          <p>Didn’t receive the email link? Click to resend</p>
+          <p>Didn’t receive the email link?</p>
           <span onClick={onResend} className={style.aLink}>
             Click to resend
           </span>
         </div>
         <div className={style.outerLink}>
           <p>Back to</p>
-          <span onClick={() => navigate(constRoute.login)} className={style.aLink}>
+          <span
+            onClick={() => navigate(constRoute.login)}
+            className={style.aLink}
+          >
             Login
           </span>
         </div>

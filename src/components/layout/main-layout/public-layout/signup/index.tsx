@@ -36,16 +36,12 @@ const SignUp = observer(() => {
     if (isOtherType) {
       payload["orgtype"] = values?.orgTypeName;
     }
-    if (values.password === values.confirmPassword) {
-      localStorage.setItem("signupPayload", JSON.stringify(payload));
-      const res = await onSendEmailVerification({
-        email: values.email,
-        lastname: values.lastname,
-      });
-      res?.verification_code && navigate(constRoute?.verifyEmail);
-    } else {
-      notification.error("Password should be matched");
-    }
+    localStorage.setItem("signupPayload", JSON.stringify(payload));
+    const res = await onSendEmailVerification({
+      email: values.email,
+      lastname: values.lastname,
+    });
+    res?.verification_code && navigate(constRoute?.verifyEmail);
   };
 
   const onChange = (e: CheckboxChangeEvent) => {
@@ -137,18 +133,6 @@ const SignUp = observer(() => {
             <Input placeholder="Enter number" />
           </Form.Item>
           <Form.Item label={"Password"} name={"password"}>
-            <Input.Password
-              placeholder="Enter Password"
-              iconRender={(visible) =>
-                visible ? (
-                  <img height={18} width={18} src={Eye} alt="" />
-                ) : (
-                  <img height={18} width={18} src={EyeOff} alt="" />
-                )
-              }
-            />
-          </Form.Item>
-          <Form.Item label={"Confirm Password"} name={"confirmPassword"}>
             <Input.Password
               placeholder="Enter Password"
               iconRender={(visible) =>
