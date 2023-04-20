@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div
-      className={theme || LOWER_LIGHT_HYPEN_THEME}
       style={{ position: "relative", overflowX: "hidden" }}
     >
         <DefaultLayout />

@@ -15,6 +15,7 @@ import { observer } from "mobx-react";
 import { Popover, Button } from "antd";
 import ProfileImage from "@assets/images/profile-image.png";
 import BellIconDark from "@assets/icons/bell-icon-dark.png";
+
 import { CAP_HELLO, LOWER_THEME, LOWER_TOKEN, UPPER_O_BET } from "@utils/const";
 import useFitText from "use-fit-text";
 import { resetStore, useStore } from "@stores/root-store";
@@ -30,7 +31,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
   } = useStore(null);
 
   const onLogout = () => {
-    resetStore()
+    resetStore();
     localStorage.removeItem(LOWER_TOKEN);
     localStorage.removeItem(LOWER_THEME);
     navigate(constRoute.login);
@@ -86,9 +87,9 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
         <div className={style.mainDiv}>
           <div className={style.notificationProfile}>
             <div className={style.notificationImage}>
-              <div className={style.avator}>
+              {/* <div className={style.avator}>
                 <img src={ProfileImage} alt={"Profile Img"} />
-              </div>
+              </div> */}
               <div>
                 <div className={style.employeeName}>
                   Corina McCoy
@@ -100,9 +101,9 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
           </div>
           <div className={style.notificationProfile}>
             <div className={style.notificationImage}>
-              <div className={style.avator}>
+              {/* <div className={style.avator}>
                 <img src={ProfileImage} alt={"Profile Img"} />
-              </div>
+              </div> */}
               <div>
                 <div className={style.employeeName}>
                   Corina McCoy
@@ -125,26 +126,21 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
       >
         {/* Logo */}
         <div className={style.welcomeBox}>
-          <MenuOutlined
-            onClick={() => setCollapsed(!collapsed)}
-            className={style.menuOutlined}
-          />
+          {/* Logo */}
           <Link className={style.welcomeText} to={constRoute.dashboard}>
             <div ref={ref} style={{ fontSize }} className={style.textContainer}>
-              Welcome to 1<i>{UPPER_O_BET}</i>
+              Welcome
             </div>
           </Link>
         </div>
 
-        <div className={style.userRole}>
-          <h1>{getUserOnRole(getUserInfo?.role).name}</h1>
-        </div>
+        
 
         {/* /Header Title */}
 
         {/* Header Menu */}
         <ul className={style.rightMenuHeader}>
-          <div className={style.themeBtnContaienr}>
+          {/* <div className={style.themeBtnContaienr}>
             <ToggleTheme />
           </div>
           <div className={style.BLDivContainer}>
@@ -152,7 +148,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
               L: {getUserInfo?.canSettlePL || 0}
             </span>
             <span className={style.Bspan}>B: {getUserInfo?.balance || 0}</span>
-          </div>
+          </div> */}
           {/* <li className={style.bellIconLi}>
           <Button
             type="text"
@@ -160,7 +156,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
             icon={<img src={SettingLight} />}
           />
         </li> */}
-          <Popover
+          {/* <Popover
             content={notificationsContent}
             placement="bottomRight"
             trigger="click"
@@ -173,7 +169,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
                 icon={<img src={BellIconDark} />}
               />
             </li>
-          </Popover>
+          </Popover> */}
           <li className={style.userProfileDropDownContainer}>
             <Row className={style.userProfileDropDownWrapper}>
               {/* <div className={style.ProfileImageLogo}>
@@ -184,10 +180,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className="header-dropdown">
-                    <span className={style.profileUserNameText}>
-                      {" "}
-                      {getUserInfo?.userName || CAP_HELLO + "!"}
-                    </span>
+                    <span className={style.profileUserNameText}>Hi, John</span>
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
                     </span>

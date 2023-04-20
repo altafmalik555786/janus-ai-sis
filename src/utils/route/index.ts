@@ -1,6 +1,8 @@
 export const constRoute = {
-  dashboard: "/",
+  
   hash: "#",
+  dashboard: "/",
+  home: "/home",
   login: "/login",
   signup: "/signup",
   forgetPassword: "/forget-password",
@@ -8,8 +10,8 @@ export const constRoute = {
   setNewPassword: "/set-new-password",
   resetPasswordSuccessfully: "/reset-password-successfully",
   verifyEmail: "/verify-email",
+  selectFunction: "/select-function",
   finalSheet: "/final-sheet",
-  forgotPassword: "/forgot-password",
   profile: "/profile",
   setting: "/setting",
   loadBalance: "/load-balance-form",
