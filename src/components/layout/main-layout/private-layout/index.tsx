@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { useTheme } from "@utils/hooks/useTheme";
 import { constRoute } from "@utils/route";
 import UpgradePlanBar from "./upgrade-plan-bar";
-import Footer from "./footer";
 
 const PrivateLayout = observer(() => {
   const { Sider, Content } = Layout;
@@ -33,24 +32,11 @@ const PrivateLayout = observer(() => {
   return (
     <div className={theme} >
       <Layout className={style.layoutSetting}>
-        {/* <Sider
-          onFocus={() => setCollapsed(false)}
-          className={
-            !collapsed
-              ? classNames(style.mobileHide, style.sidebarSetting)
-              : classNames(style.mobileshow, style.sidebarSetting)
-          }
-          collapsible
-          collapsed={collapsed}
-        >
-          <Sidebar collapsed={collapsed} />
-        </Sider> */}
         <Layout>
           <Header setCollapsed={setCollapsed} collapsed={collapsed} />
           <UpgradePlanBar />
           <Content className={style.routingPagesContainer}>
             <Routing />
-            <Footer />
           </Content>
         </Layout>
       </Layout>

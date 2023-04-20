@@ -217,15 +217,7 @@
   }
 
   @media screen and (max-width: 598px) {
-    // &:global(.ant-layout-sider-collapsed) {
-
-    //   &.mobileshow {
-    //     display: none !important;
-    //   }
-
-    //   display: none !important;
-    // }
-
+ 
     &:global(.ant-layout-sider-has-trigger) {
       &.mobileHide {
         flex: 0 0 250px !important;
