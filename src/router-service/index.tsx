@@ -7,6 +7,7 @@ import Signup from "@components/layout/main-layout/public-layout/signup";
 import VerifyEmail from "@components/layout/main-layout/public-layout/signup/verify-email";
 import StartingPage from "@components/layout/main-layout/public-layout/welcome-screen";
 import Home from "@components/pages/home";
+import Important from "@components/pages/home/important";
 import { constRoute } from "@utils/route";
 import { memo } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -19,6 +20,7 @@ const Routing = () => {
         <Route path={constRoute?.home} element={<Home />} />
         <Route path={constRoute?.login} element={<Login />} />
         <Route path={constRoute?.signup} element={<Signup />} />
+        <Route path={constRoute?.important} element={<Important />} />
         <Route path={constRoute?.forgetPassword} element={<ForgotPassword />} />
         <Route path={constRoute?.checkEmail} element={<CheckEmail />} />
         <Route path={constRoute?.setNewPassword} element={<SetNewPassword />} />

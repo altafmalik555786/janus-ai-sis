@@ -4,6 +4,7 @@ export const constRoute = {
   dashboard: "/",
   home: "/home",
   login: "/login",
+  important: "/important",
   signup: "/signup",
   forgetPassword: "/forget-password",
   checkEmail: "/check-email",
