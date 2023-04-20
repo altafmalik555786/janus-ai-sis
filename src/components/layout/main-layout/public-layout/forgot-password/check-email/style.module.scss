@@ -38,7 +38,7 @@
       line-height: 27px;
       text-align: center;
     }
-    
+
     .paraText {
       font-family: "Inter";
       font-style: normal;
@@ -93,6 +93,13 @@
       text-align: center;
       align-items: center;
       gap: 5px;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: "Inter";
+      font-style: normal;
+      line-height: 27px;
+
+      color: #000000;
       .aLink {
         color: green;
         cursor: pointer;

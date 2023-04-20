@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 10px;
 
     .welcomeWrraper {
         display: flex;
@@ -88,5 +89,9 @@
             line-height: 19px;
             color: #000000;
         }
+    }
+
+    :global(.ant-form-item-control) {
+        margin-bottom: -10px;
     }
 }
