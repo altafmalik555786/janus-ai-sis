@@ -1,78 +1,82 @@
 .main {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #152C1E;
-    padding: 10px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #152c1e;
+  padding: 10px;
 }
 
 .authHeadeer {
-    padding: 1.4rem, 1.5rem, 0.5rem, 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  padding: 1.4rem, 1.5rem, 0.5rem, 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .authHeadeerLogoImg {
-    width: 100px;
+  height: 65px;
+  width: auto;
 }
 
 .authHeaderTitle {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 27px;
-    text-align: center;
-    color: #FFFFFF;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 27px;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #ffffff;
 }
 
-.authHeaderSubtitle {
-    font-family: Inter;
-    font-size: 18px;
+.authHeaderSubtitleWrapper {
+    max-width: 400px;
+  .authHeaderSubtitle {
+    font-family: "Inter";
+    font-style: normal;
     font-weight: 400;
+    font-size: 18px;
     line-height: 27px;
-    letter-spacing: 0em;
     text-align: center;
-    color: #FFFFFF;    
+    color: #ffffff;
+  }
 }
 
 .LoginButton {
-    font-family: 'Inter';
-    width: 86px;
-    height: 38px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 27px;
-    text-align: center;
-    color: #FFFFFF;
-    background-color: #00B840;
-    border: none;
+  font-family: "Inter";
+  width: 86px;
+  height: 38px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #00b840;
+  border: none;
 }
 
 .SignButton {
-    font-family: 'Inter';
-    width: 86px;
-    height: 38px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 27px;
-    text-align: center;
-    color: #FFFFFF;
-    background-color: #00B840;
-    border: none;
-    margin-left: 15px;
+  font-family: "Inter";
+  width: 86px;
+  height: 38px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #00b840;
+  border: none;
+  margin-left: 15px;
 }
 
 .mainButton {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
