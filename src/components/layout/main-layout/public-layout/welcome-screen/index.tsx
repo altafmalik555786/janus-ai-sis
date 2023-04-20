@@ -19,39 +19,39 @@ const WelcomeScreen = observer(() => {
           <h1 className={style.authHeaderTitle}>
             Welcome to Climate Finance Copilot
           </h1>
+          <div className={style.authHeaderSubtitleWrapper} >
           <p className={style.authHeaderSubtitle}>
             Experience a New and Transformational Way to Win Funding For Climate
             Adaptation/Mitigation projects.
           </p>
+          </div>
           <div className={style.mainButton}>
-           {
-            !localStorage.getItem("token")
-            &&
-            <>
-             <Button
-              onClick={() => navigate(constRoute?.login)}
-              className={style.LoginButton}
-            >
-              Log in
-            </Button>
-            <Button
-              onClick={() => navigate(constRoute?.signup)}
-              className={style.SignButton}
-            >
-              Sign Up
-            </Button>
-            </>
-            ||
-             <Button
-              onClick={() => {
-                localStorage.removeItem("token")
-                navigate(constRoute?.login)
-              }}
-              className={style.LoginButton}
-            >
-              Log out
-            </Button>
-           }
+            {(!localStorage.getItem("token") && (
+              <>
+                <Button
+                  onClick={() => navigate(constRoute?.login)}
+                  className={style.LoginButton}
+                >
+                  Log in
+                </Button>
+                <Button
+                  onClick={() => navigate(constRoute?.signup)}
+                  className={style.SignButton}
+                >
+                  Sign Up
+                </Button>
+              </>
+            )) || (
+              <Button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  navigate(constRoute?.login);
+                }}
+                className={style.LoginButton}
+              >
+                Log out
+              </Button>
+            )}
           </div>
         </div>
       </div>
