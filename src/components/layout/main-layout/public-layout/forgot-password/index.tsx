@@ -6,7 +6,7 @@ import { Button, Form, Spin } from "antd";
 import { CommonInput } from "@components/common-components/input";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ForgotPassword = observer(() => {
   const [form] = Form.useForm();
@@ -75,9 +75,9 @@ const ForgotPassword = observer(() => {
         </Form>
         <div className={style.outerLink}>
           <p>Back to</p>{" "}
-          <a href="#" className={style.aLink}>
+          <Link to={constRoute?.login} className={style.aLink}>
             Login
-          </a>
+          </Link>
         </div>
       </div>
     </div>

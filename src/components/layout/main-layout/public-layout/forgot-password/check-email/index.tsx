@@ -15,7 +15,7 @@ const CheckEmail = observer(() => {
   const onResend = async () => {
     const payload = {
       email: localStorage.getItem("resendEmail"),
-      link: window.location.href.replace(/check-email/, "set-new-password"),
+      link: "https://benevolent-sopapillas-c4b1f5.netlify.app/#/set-new-password",
     };
     onSendResendEmail(payload);
   };
