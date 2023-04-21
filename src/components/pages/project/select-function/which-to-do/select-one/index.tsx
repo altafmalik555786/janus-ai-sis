@@ -4,6 +4,7 @@ import { Col, Row } from "antd";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import LeftArrow from '@assets/icons/left-arrow.png'
+import CardItemsFunc from "@components/pages/project/common-components/card-item-func";
 
 const SelectOne = observer(() => {
   const navigate = useNavigate();
@@ -30,20 +31,7 @@ const SelectOne = observer(() => {
             <Row justify="center" className={style.boxesContiner} gutter={20}>
               {btnCardsList?.map((item) => {
                 return (
-                  <Col lg={8} md={12} xs={24}>
-                    <div
-                      onClick={item?.navigate}
-                      className={style.cardItem}
-                    >
-                      {(item?.status === "Most Popular" && (
-                        <div className={style.statusBadge}>
-                          {" "}
-                          <p> {item?.status} </p>{" "}
-                        </div>
-                      )) || <p> {item?.status || " " }</p>}
-                      <h4 className={ !(item?.status?.length) && style.withOutStatus } >{item?.title}</h4>
-                    </div>
-                  </Col>
+                  <CardItemsFunc item={item} />
                 );
               })}
             </Row>
