@@ -10,10 +10,10 @@ import { useForm } from "antd/es/form/Form";
 
 const ProjectName = observer(() => {
   const navigate = useNavigate();
-  const [form] = useForm()
+  const [form] = useForm();
   const onFormSubmit = () => {
-    navigate(constRoute?.importantProjectInfo)
-  }
+    navigate(constRoute?.importantProjectInfo);
+  };
 
   return (
     <div className={style.homePagePageContainer}>
@@ -34,15 +34,19 @@ const ProjectName = observer(() => {
                   <Form.Item
                     name={"projectName"}
                     label="Enter Project Name"
-                    
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter project name",
+                      },
+                    ]}
                   >
-                    <CommonInput  type="text" className={style.emailInput} />
+                    <CommonInput type="text" className={style.emailInput} />
                   </Form.Item>
                   <div className={style.nextButtonDiv}>
-                  <button className={style.nextButton}>Next</button>
-                </div>
+                    <button className={style.nextButton}>Next</button>
+                  </div>
                 </Form>
-               
               </Col>
             </Row>
           </div>

@@ -48,6 +48,9 @@
           :global(.ant-input) {
             border: 1px solid #00b840;
           }
+          :global(.ant-form-item-explain-error) {
+            text-align: left;
+          }
         }
 
         .nextButtonDiv {

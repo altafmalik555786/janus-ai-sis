@@ -1,10 +1,12 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
 import LeftArrow from "@assets/icons/left-arrow.png";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Checkbox } from "antd";
 
 const ImportantProjectInfo = observer(() => {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <div className={style.mainContainer}>
       <div className={style.containerWrapper}>
@@ -38,12 +40,16 @@ const ImportantProjectInfo = observer(() => {
             </p>
           </div>
           <div className={style.checkBoxDiv}>
-            <Checkbox></Checkbox>
+            <Checkbox
+              onChange={(e) => setIsChecked(e.target.checked)}
+            ></Checkbox>
             <p>I agree to the notice and the information provided </p>
           </div>
         </div>
         <div className={style.nextButtonDiv}>
-          <button className={style.nextButton}>Next</button>
+          <Button disabled={!isChecked} className={style.nextButton}>
+            Next
+          </Button>
         </div>
       </div>
       <div className={style.btnDiv}>
