@@ -7,10 +7,14 @@ import Signup from "@components/layout/main-layout/public-layout/signup";
 import VerifyEmail from "@components/layout/main-layout/public-layout/signup/verify-email";
 import StartingPage from "@components/layout/main-layout/public-layout/welcome-screen";
 import Home from "@components/pages/home";
-import SelectFunction from "@components/pages/select-function";
+import SelectFunction from "@components/pages/project/select-function";
+import ImportantProjectInfo from "@components/pages/project/select-function/which-to-do/select-one/project-name/important-project-info";
 import { constRoute } from "@utils/route";
 import { memo } from "react";
 import { Route, Routes } from "react-router-dom";
+import WhichToDo from "@components/pages/project/select-function/which-to-do";
+import SelectOne from "@components/pages/project/select-function/which-to-do/select-one";
+import ProjectName from "@components/pages/project/select-function/which-to-do/select-one/project-name";
 
 const Routing = () => {
   return (
@@ -29,6 +33,11 @@ const Routing = () => {
         <Route path={constRoute?.verifyEmail} element={<VerifyEmail />} />
         <Route path={constRoute?.home} element={<Home />} />
         <Route path={constRoute?.selectFunction} element={<SelectFunction />} />
+        <Route path={constRoute?.whichToDo} element={<WhichToDo />} />
+        <Route path={constRoute?.selectOne} element={<SelectOne />} />
+        <Route path={constRoute?.projectName} element={<ProjectName />} />
+        <Route path={constRoute?.importantProjectInfo} element={<ImportantProjectInfo />} />
+
       </Routes>
     </>
   );

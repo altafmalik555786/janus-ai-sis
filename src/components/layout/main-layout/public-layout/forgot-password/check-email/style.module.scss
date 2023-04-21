@@ -43,6 +43,8 @@
       font-family: "Inter";
       font-style: normal;
       font-weight: 400;
+      margin: 0px;
+      margin-top: 5px;
       font-size: 16px;
       line-height: 25px;
       text-align: center;
@@ -99,6 +101,24 @@
       font-style: normal;
       line-height: 27px;
 
+      color: #000000;
+      .aLink {
+        color: green;
+        cursor: pointer;
+      }
+    }
+    .outerLinkBtn {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 5px;
+      margin-top: -20px;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: "Inter";
+      font-style: normal;
+      line-height: 27px;
       color: #000000;
       .aLink {
         color: green;

@@ -9,10 +9,14 @@
   .homePageContainerCol {
     width: 50%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .homePageContainer {
-      min-height: 400px;
+      margin-bottom: 120px;     min-height: 400px;
       padding: 10px;
+
 
       h1 {
         font-family: "Inter";
@@ -48,7 +52,7 @@
           height: 196px;
           display: flex;
           flex-direction: column;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -99,6 +103,67 @@
           .withOutStatus {
             padding-top: 22px;
           }
+        }
+      }
+    }
+  }
+
+  .btnDiv {
+    margin-bottom: 52px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    .twoBtnDiv {
+      display: flex;
+      padding-inline: 28px;
+      margin-top: 60px;
+
+      justify-content: space-between;
+      .goBtn {
+        height: 50px;
+        width: 134px;
+        color: #808080;
+        background-color: #e6e6e6;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+         
+        img {
+          margin-top: 1px;
+        }
+      }
+      .saveBtn {
+        color: #808080;
+        background-color: #e6e6e6;
+        height: 50px;
+        width: 134px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+    @media only screen and (max-width: 425px) {
+      .twoBtnDiv {
+        padding-inline: 20px;
+        margin-bottom: 0;
+        .goBtn {
+          height: 40px;
+          width: 114px;
+        }
+        .saveBtn {
+          height: 40px;
+          width: 114px;
         }
       }
     }

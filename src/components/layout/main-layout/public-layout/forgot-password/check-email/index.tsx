@@ -37,7 +37,7 @@ const CheckEmail = observer(() => {
             Click to resend
           </span>
         </div>
-        <div className={style.outerLink}>
+        <div className={style.outerLinkBtn}>
           <p>Back to</p>
           <span
             onClick={() => navigate(constRoute.login)}
