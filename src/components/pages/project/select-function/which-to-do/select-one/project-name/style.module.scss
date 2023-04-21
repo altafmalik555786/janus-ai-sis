@@ -1,0 +1,162 @@
+.homePagePageContainer {
+  width: 100%;
+  min-height: 79vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .homePageContainerCol {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .homePageContainer {
+      margin-bottom: 120px;
+      min-height: 400px;
+      padding: 10px;
+
+      h1 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 28px;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+      }
+
+      .paraContainer {
+        margin-bottom: 20px;
+        p {
+          font-family: "Inter";
+          font-style: normal;
+          margin: 0px;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 25px;
+          color: #2e2e2e;
+        }
+      }
+
+      .boxesContiner {
+        display: unset;
+        .formData {
+          :global(.ant-input) {
+            border: 1px solid #00b840;
+          }
+        }
+
+        .nextButtonDiv {
+          max-width: 62%;
+          margin-top: 10px;
+          display: flex;
+
+          .nextButton {
+            margin-top: 25px;
+            height: 50px;
+            width: 134px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            background-color: #00b840;
+            font-family: Inter;
+            font-size: 15px;
+            font-weight: 500;
+          }
+        }
+
+        :globbal(.ant-form-item-explain-error) {
+          display: flex;
+        }
+
+        @media only screen and (max-width: 425px) {
+          .nextButtonDiv {
+            .nextButton {
+              height: 40px;
+              width: 114px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btnDiv {
+    margin-bottom: 52px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    .twoBtnDiv {
+      display: flex;
+      padding-inline: 28px;
+      margin-top: 60px;
+
+      justify-content: space-between;
+      .goBtn {
+        height: 50px;
+        width: 134px;
+        color: #808080;
+        background-color: #e6e6e6;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        img {
+          margin-top: 1px;
+        }
+      }
+      .saveBtn {
+        color: #808080;
+        background-color: #e6e6e6;
+        height: 50px;
+        width: 134px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+    @media only screen and (max-width: 425px) {
+      .twoBtnDiv {
+        padding-inline: 20px;
+        margin-bottom: 0;
+        .goBtn {
+          height: 40px;
+          width: 114px;
+        }
+        .saveBtn {
+          height: 40px;
+          width: 114px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    height: max-content;
+    margin-bottom: 50px;
+
+    .homePageContainerCol {
+      width: 80%;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    .homePageContainerCol {
+      width: 80%;
+    }
+  }
+}

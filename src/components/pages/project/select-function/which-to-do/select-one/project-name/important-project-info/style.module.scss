@@ -1,0 +1,189 @@
+.mainContainer {
+  background-color: #f7f7f7;
+
+  .containerWrapper {
+    max-width: 704px;
+    min-height: 600px;
+    margin: auto;
+    padding-top: 50px;
+
+    .container {
+      background-color: #ffffff;
+      width: 100%;
+      left: 373px;
+
+      border-radius: 5px;
+
+      .hTwo {
+        padding-top: 20px;
+        font-family: "Inter";
+
+        margin: 0px;
+        font-style: normal;
+        padding-top: 52px;
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 20px;
+        text-align: center;
+      }
+      .mainPdiv {
+        .pTagOne {
+          text-align: justify;
+          margin: 20px;
+          padding: 20px;
+          margin-bottom: 0;
+          font-size: 16px;
+          line-height: 1.6;
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 25px;
+          color: #2e2e2e;
+        }
+        .pTagTwo {
+          margin: 20px;
+          margin-top: 0;
+          padding: 20px;
+          text-align: justify;
+          margin-bottom: 0;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 25px;
+          color: #2e2e2e;
+        }
+        .pTagThree {
+          text-align: justify;
+          margin: 20px;
+          margin-top: 0;
+          margin-bottom: 0;
+          padding: 20px;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 25px;
+          color: #2e2e2e;
+        }
+      }
+      @media only screen and (max-width: 425px) {
+        .mainPdiv {
+          .pTagOne {
+            font-size: 14px;
+          }
+          .pTagTwo {
+            font-size: 14px;
+          }
+          .pTagThree {
+            font-size: 14px;
+          }
+        }
+      }
+      .checkBoxDiv {
+        display: flex;
+        justify-content: left;
+        gap: 10px;
+        margin-top: 0;
+        align-items: center;
+        margin-left: 40px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: #2e2e2e;
+      }
+    }
+    .nextButtonDiv {
+      max-width: 62%;
+      margin-top: 10px;
+
+      .nextButton {
+        margin-top: 25px;
+        height: 50px;
+        width: 134px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: #00b840;
+        font-family: Inter;
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+  }
+  .btnDiv {
+    margin-bottom: 52px;
+    width: 100%;
+
+    .twoBtnDiv {
+      display: flex;
+      padding-inline: 28px;
+      margin-top: 60px;
+
+      justify-content: space-between;
+      .goBtn {
+        height: 50px;
+        width: 134px;
+        color: #808080;
+        background-color: #e6e6e6;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        
+        img {
+          margin-top: 1px;
+        }
+      }
+      .saveBtn {
+        color: #808080;
+        background-color: #e6e6e6;
+        height: 50px;
+        width: 134px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+    @media only screen and (max-width: 425px) {
+      .twoBtnDiv {
+        padding-inline: 20px;
+        margin-bottom: 0;
+        .goBtn {
+          height: 40px;
+          width: 114px;
+        }
+        .saveBtn {
+          height: 40px;
+          width: 114px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .nextButtonDiv {
+      .nextButton {
+        height: 40px;
+        width: 114px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .containerWrapper {
+      padding: 0px 40px;
+    }
+  }
+}
