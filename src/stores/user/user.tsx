@@ -3,7 +3,6 @@ import { userApi } from "../../api";
 import { notification } from "../../utils/notifications";
 import { constRoute } from "@utils/route";
 import { catchError, onLogOutClearAll } from "@utils/common-functions";
-import { LOWER_THEME, LOWER_TOKEN } from "@utils/const";
 import {
   userInfoModel,
 } from "@stores/store-utils";
@@ -45,8 +44,7 @@ export const user = types
       self.loadingLogin = true;
       try {
         const res = yield userApi.onUserLogin(data);
-          localStorage.setItem(LOWER_TOKEN, res?.jwt_token);
-          localStorage.setItem(LOWER_THEME, res?.defaultTheme);
+          localStorage.setItem("token", res?.jwt_token);
           res?.jwt_token && notification.success("Signed in successfully");
           navigate(`${constRoute.home}`);
       } catch (error) {
