@@ -1,8 +1,6 @@
-import { DOUBLE_DASH, LOWER_ERROR, LOWER_TOKEN } from "@utils/const";
 import { notification } from "@utils/notifications";
 import { constRoute } from "@utils/route";
 import { resetStore } from "@stores/root-store";
-import { roleNameTypeUserList } from "@utils/json-data";
 // import xls from "xlsx";
 import * as xls from 'xlsx';
 import * as FileSaver from 'file-saver';
@@ -28,7 +26,7 @@ export const catchError = (
     at,
     " | status: ",
     status,
-    `| ${LOWER_ERROR} data: `,
+    `| error data: `,
     data
   );
   if (status === 401) {
@@ -47,19 +45,12 @@ export const catchError = (
 };
 
 export const onLogOutClearAll = (naviagte = null) => {
-  localStorage.removeItem(LOWER_TOKEN);
+  localStorage.removeItem("token");
   naviagte(constRoute.login);
   resetStore();
 };
 
-export const getUserOnRole = (role) => { 
-  return (
-    roleNameTypeUserList?.find((item) => item?.role === role) || {
-      name: DOUBLE_DASH,
-      role: "",
-    }
-  );
-};
+
 
 export const sortCol = (a, b, dataIndex) => {
   if (a[dataIndex]?.length > 0 && b[dataIndex]?.length > 0) {

@@ -1,10 +1,3 @@
-import {
-  CAP_CANCEL_BTN_TITLE,
-  CAP_CONFIRM_BTN_TITLE,
-  LOWER_FILLED,
-  LOWER_OUTLINED,
-  SEN_THIS_ACTION_CONNOT_BE_UNDONE,
-} from "@utils/const";
 import { useTheme } from "@utils/hooks/useTheme";
 import classNames from "classnames";
 import { Modal } from "antd";
@@ -27,10 +20,10 @@ export const ConfirmationModal: React.FC<ModalPropsTypes> = ({
   onConfirm,
   isOpen,
   onCancel,
-  warningText = SEN_THIS_ACTION_CONNOT_BE_UNDONE,
+  warningText = "This action cannot be undo",
   description = "",
-  confirmBtnTitle = CAP_CONFIRM_BTN_TITLE,
-  cancelBtnTitle = CAP_CANCEL_BTN_TITLE,
+  confirmBtnTitle = "Confirm",
+  cancelBtnTitle = "Cancel",
   loadingConfirmBtn = false,
 }) => {
   const theme = useTheme();
@@ -44,12 +37,12 @@ export const ConfirmationModal: React.FC<ModalPropsTypes> = ({
         <div className={style.footerBtnWrapper}>
           <CustomButton
             onClick={onCancel}
-            variant={LOWER_OUTLINED}
+            variant={"outlined"}
             title={cancelBtnTitle}
           />
           <CustomButton
             onClick={onConfirm}
-            variant={LOWER_FILLED}
+            variant={"filled"}
             title={confirmBtnTitle}
             loading={loadingConfirmBtn}
           />

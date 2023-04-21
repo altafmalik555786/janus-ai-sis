@@ -1,16 +1,15 @@
 import { useStore } from "@stores/root-store";
-import { LOWER_LIGHT_HYPEN_THEME, LOWER_THEME } from "@utils/const";
 import { useEffect, useState } from "react";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(LOWER_LIGHT_HYPEN_THEME);
+  const [theme, setTheme] = useState("light-theme");
 
   const {
     theme: {getSelectedTheme},
   } = useStore(null);
 
   useEffect(() => {
-      setTheme(localStorage.getItem(LOWER_THEME))
+      setTheme(localStorage.getItem("theme"))
   }, [])
   
   useEffect(() => {

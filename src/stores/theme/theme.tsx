@@ -1,13 +1,12 @@
 import { flow, types } from "mobx-state-tree";
 import { toJS } from "mobx";
 import { catchError } from "@utils/common-functions";
-import { LOWER_THEME } from "@utils/const";
 import { themeApi } from "@api";
 import { notification } from "@utils/notifications";
 
 export const theme = types
   .model({
-    selectedTheme: types.optional(types.maybeNull(types.string), localStorage.getItem(LOWER_THEME)),
+    selectedTheme: types.optional(types.maybeNull(types.string), localStorage.getItem("theme")),
     loadingChangeTheme: types.optional(types.boolean, false),
 
   })
