@@ -48,7 +48,7 @@ export const user = types
           localStorage.setItem(LOWER_TOKEN, res?.jwt_token);
           localStorage.setItem(LOWER_THEME, res?.defaultTheme);
           res?.jwt_token && notification.success("Signed in successfully");
-          navigate(`${constRoute.dashboard}`);
+          navigate(`${constRoute.home}`);
       } catch (error) {
         catchError(error, "onUserLogin");
       } finally {
