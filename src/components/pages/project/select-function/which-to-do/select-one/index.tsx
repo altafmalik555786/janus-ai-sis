@@ -1,9 +1,9 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import { Col, Row } from "antd";
+import { Row } from "antd";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
-import LeftArrow from '@assets/icons/left-arrow.png'
+import LeftArrow from "@assets/icons/left-arrow.png";
 import CardItemsFunc from "@components/pages/project/common-components/card-item-func";
 
 const SelectOne = observer(() => {
@@ -19,7 +19,6 @@ const SelectOne = observer(() => {
       title: "Open an existing Concept Note Project",
       status: "",
     },
-   
   ];
 
   return (
@@ -30,19 +29,20 @@ const SelectOne = observer(() => {
             <h1>Select From One of The Options Below</h1>
             <Row justify="center" className={style.boxesContiner} gutter={20}>
               {btnCardsList?.map((item) => {
-                return (
-                  <CardItemsFunc item={item} />
-                );
+                return <CardItemsFunc item={item} />;
               })}
             </Row>
           </div>
         </div>
         <div className={style.btnDiv}>
-        <div className={style.twoBtnDiv}>
-          <button className={style.goBtn}> <img src={LeftArrow} alt="left-arrow" /> Go Back</button>
-          <button className={style.saveBtn}>Save & Quit</button>
+          <div className={style.twoBtnDiv}>
+            <button className={style.goBtn}>
+              {" "}
+              <img src={LeftArrow} alt="left-arrow" /> Go Back
+            </button>
+            <button className={style.saveBtn}>Save & Quit</button>
+          </div>
         </div>
-      </div>
       </Row>
     </div>
   );
