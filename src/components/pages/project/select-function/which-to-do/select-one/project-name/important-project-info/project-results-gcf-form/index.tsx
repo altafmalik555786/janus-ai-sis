@@ -11,12 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 
-const ContextAndBaselineForm = observer(() => {
+const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
 
   const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+    navigate(constRoute?.projectResultsGcfResults);
   };
 
   return (
@@ -27,12 +27,13 @@ const ContextAndBaselineForm = observer(() => {
             Project Name: <strong>Brazil Climate Security</strong>
           </p>
           <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
+            Percent Complete: <strong>24%</strong>
           </p>
         </div>
         <div>
           <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
+            Concept Note Section:
+            <strong> B.2. Expected project results aligned with the GCF</strong>
           </p>
         </div>
       </div>
@@ -42,7 +43,7 @@ const ContextAndBaselineForm = observer(() => {
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
-                <p className={style.pTagFour}>Important</p>
+                <p className={style.pTagFour}>Quick Tips</p>
                 <button className={style.btnClass}>
                   <img
                     src={CloseIcon}
@@ -53,18 +54,22 @@ const ContextAndBaselineForm = observer(() => {
               </div>
               <div className={style.pTageGroup}>
                 <p className={style.pTagFive}>
-                  Provide information on which climate risks/impacts the
-                  intervention is designed to address.
+                  Provide quantitative and qualitative information on the
+                  potential impact of project/programme, e.g. tonnes of CO2e
+                  avoided or reduced, number of beneficiaries, number of people
+                  affected by climate impacts. (Be as specific as possible about
+                  who the beneficiaries are.)
                 </p>
-                <p className={style.pTagSix}>
-                  Describe the main root causes and barriers (social, gender,
-                  fiscal, regulatory, technological, financial, ecological,
-                  institutional, etc.) that need to be addressed. 
-                </p>
-                <p className={style.pTagSeven}>
+                {/* <p className={style.pTagSix}>
+                  For the Accredited Entity(ies) section, discuss the
+                  implementation arrangements for project governance,
+                  coordination and management and which organizations were
+                  involved in the process.
+                </p> */}
+                {/* <p className={style.pTagSeven}>
                   Be sure to include the number of beneficiaries the project is
                   expected to help.
-                </p>
+                </p> */}
               </div>
               <Divider />
             </div>
@@ -85,25 +90,29 @@ const ContextAndBaselineForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
+                  label="6. Briefly Describe The Impact Potential of the Project.*"
                   name={"firstField"}
-                 
+                  rules={[
+                    { required: true, message: "This field is required" },
+                  ]}
                 >
                   <CommonInput
                     inputType="textarea"
                     className={style.emailInput}
                   />
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                   label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
                   name={"ies"}
-                
+                  rules={[
+                    { required: true, message: "This field is required" },
+                  ]}
                 >
                   <CommonInput
                     inputType="textarea"
                     className={style.emailInput}
                   />
-                </Form.Item>
+                </Form.Item> */}
               </Form>
             </div>
             <div className={style.footerButtonsDiv}>
@@ -114,7 +123,10 @@ const ContextAndBaselineForm = observer(() => {
               </Form>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
-                  <button className={style.goBtn} onClick={() => navigate(constRoute?.contextAndBaselineForm)} >
+                  <button
+                    className={style.goBtn}
+                    onClick={() => navigate(constRoute?.projectDescriptionResults)}
+                  >
                     {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
@@ -137,4 +149,4 @@ const ContextAndBaselineForm = observer(() => {
   );
 });
 
-export default memo(ContextAndBaselineForm);
+export default memo(ProjectDescriptionForm);

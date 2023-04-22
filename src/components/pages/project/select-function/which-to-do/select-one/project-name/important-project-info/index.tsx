@@ -3,8 +3,11 @@ import style from "./style.module.scss";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import React, { memo, useState } from "react";
 import { Button, Checkbox } from "antd";
+import { useNavigate } from "react-router-dom";
+import { constRoute } from "@utils/route";
 
 const ImportantProjectInfo = observer(() => {
+  const navigate = useNavigate()
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -47,7 +50,7 @@ const ImportantProjectInfo = observer(() => {
           </div>
         </div>
         <div className={style.nextButtonDiv}>
-          <Button disabled={!isChecked} className={style.nextButton}>
+          <Button  onClick={() => navigate(constRoute?.contextAndBaselineForm)} disabled={!isChecked} className={style.nextButton}>
             Next
           </Button>
         </div>

@@ -11,12 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 
-const ContextAndBaselineForm = observer(() => {
+const gcfJustificationForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
 
   const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+    navigate(constRoute?.gcfJustificationResults90);
   };
 
   return (
@@ -27,12 +27,13 @@ const ContextAndBaselineForm = observer(() => {
             Project Name: <strong>Brazil Climate Security</strong>
           </p>
           <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
+            Percent Complete: <strong>64%</strong>
           </p>
         </div>
         <div>
           <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
+            Concept Note Section:
+            <strong> C.2. Justification of GCF funding request</strong>
           </p>
         </div>
       </div>
@@ -42,7 +43,7 @@ const ContextAndBaselineForm = observer(() => {
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
-                <p className={style.pTagFour}>Important</p>
+                <p className={style.pTagFour}>Quick Tips</p>
                 <button className={style.btnClass}>
                   <img
                     src={CloseIcon}
@@ -53,17 +54,26 @@ const ContextAndBaselineForm = observer(() => {
               </div>
               <div className={style.pTageGroup}>
                 <p className={style.pTagFive}>
-                  Provide information on which climate risks/impacts the
-                  intervention is designed to address.
+                  ** The justification for grants and reimbursable grants is
+                  mandatory. **
                 </p>
                 <p className={style.pTagSix}>
-                  Describe the main root causes and barriers (social, gender,
-                  fiscal, regulatory, technological, financial, ecological,
-                  institutional, etc.) that need to be addressed. 
+                  In your discussion on “alternative funding options” Include an
+                  analysis  of the barriers for the potential beneficiaries to
+                  access to finance and the constraints of public and private
+                  sources of  funding. 
                 </p>
                 <p className={style.pTagSeven}>
-                  Be sure to include the number of beneficiaries the project is
-                  expected to help.
+                  In your “rationale and level of concessionality” discussion
+                  justify why this is the minimum required to make the
+                  investment viable and most efficient considering the
+                  incremental cost or risk premium of the Project/ Programme. 
+                </p>
+
+                <p className={style.pTagSeven}>
+                  Lastly, In the case of private sector proposal, concessional
+                  terms should be minimized and justified as per the Guiding
+                  principles applicable to the private sector operations.
                 </p>
               </div>
               <Divider />
@@ -85,9 +95,14 @@ const ContextAndBaselineForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
+                  label="12a) Explain why the project requires GCF funding, i.e. explaining why this is not financed by the public and/ or private sector(s) of the country.*"
                   name={"firstField"}
-                 
+                  rules={[
+                    {
+                      required: true,
+                      message: "This field is required"
+                    },
+                  ]}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -95,12 +110,22 @@ const ContextAndBaselineForm = observer(() => {
                   />
                 </Form.Item>
                 <Form.Item
-                  label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
-                  name={"ies"}
-                
+                  label="12b) Describe alternative funding options for the same activities being proposed."
+                  name={"secondField"}
                 >
                   <CommonInput
                     inputType="textarea"
+                    placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
+                    className={style.emailInput}
+                  />
+                </Form.Item>
+                <Form.Item
+                  label="12c) Justify the rationale and level of concessionality of the GCF financial instrument(s) as well as how this will be passed on to the end-users and beneficiaries."
+                  name={"lastField"}
+                >
+                  <CommonInput
+                    inputType="textarea"
+                    placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -114,8 +139,10 @@ const ContextAndBaselineForm = observer(() => {
               </Form>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
-                  <button className={style.goBtn} onClick={() => navigate(constRoute?.contextAndBaselineForm)} >
-                    {" "}
+                  <button
+                    className={style.goBtn}
+                    onClick={() => navigate(constRoute?.ndaAeResults72)}
+                  >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button
@@ -137,4 +164,4 @@ const ContextAndBaselineForm = observer(() => {
   );
 });
 
-export default memo(ContextAndBaselineForm);
+export default memo(gcfJustificationForm);

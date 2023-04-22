@@ -7,12 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 
-const ContextAndBaselineResults = observer(() => {
+const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
-
-  const onFormSubmit = (values) => {
-    console.log("values", values);
-  };
 
   return (
     <div className={style.mainContainer}>
@@ -22,12 +18,13 @@ const ContextAndBaselineResults = observer(() => {
             Project Name: <strong>Brazil Climate Security</strong>
           </p>
           <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
+            Percent Complete: <strong>90%</strong>
           </p>
         </div>
         <div>
           <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
+            Concept Note Section:
+            <strong> C.2. Justification of GCF funding request</strong>
           </p>
         </div>
       </div>
@@ -42,7 +39,7 @@ const ContextAndBaselineResults = observer(() => {
                   narrative: 
                 </p>
               </div>
-              <div className={style.pTageGroup}>
+              {/* <div className={style.pTageGroup}>
                 <p className={style.pTagFive}>
                   Provide information on which climate risks/impacts the
                   intervention is designed to address.
@@ -56,7 +53,7 @@ const ContextAndBaselineResults = observer(() => {
                   Be sure to include the number of beneficiaries the project is
                   expected to help.
                 </p>
-              </div>
+              </div> */}
               <Divider />
             </div>
           </div>
@@ -72,21 +69,21 @@ const ContextAndBaselineResults = observer(() => {
             <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
                 <Button
-                  onClick={() => navigate(constRoute?.projectDescriptionForm)}
+                  onClick={() => navigate(constRoute?.sustainabilityReplicabilityForm90)}
                   className={style.nextButton}
                 >
                   Next
                 </Button>
-                <Button
-                  onClick={() => {}}
-                  className={style.reGenerate}
-                >
+                <Button onClick={() => {}} className={style.reGenerate}>
                   Regenerate
                 </Button>
               </div>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
-                  <button className={style.goBtn} onClick={() => navigate(constRoute?.home)} >
+                  <button
+                    className={style.goBtn}
+                    onClick={() => navigate(constRoute?.gcfJustificationForm72)}
+                  >
                     {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
@@ -109,4 +106,4 @@ const ContextAndBaselineResults = observer(() => {
   );
 });
 
-export default memo(ContextAndBaselineResults);
+export default memo(ProjectDescriptionResults);
