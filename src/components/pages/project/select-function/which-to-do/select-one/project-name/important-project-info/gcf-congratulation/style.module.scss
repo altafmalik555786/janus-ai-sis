@@ -1,0 +1,86 @@
+.gcfCongratulationContainer {
+  width: 100%;
+  min-height: 79vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .congratulationBox {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 40px 10px;
+
+    h1 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 34px;
+      line-height: 20px;
+      color: #000000;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .firstParaContainer {
+      max-width: 280px;
+      margin: auto;
+      p {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        color: #2e2e2e;
+        margin: 10px 0px;
+      }
+    }
+
+    .exportPdfContainer {
+      max-width: 400px;
+      margin: auto;
+
+      p {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        margin: 5px;
+        color: #2e2e2e;
+
+        span {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 25px;
+          text-align: center;
+          color: #00b840;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .goBtn {
+    height: 50px;
+    width: 80px;
+    color: #808080;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    img {
+      margin-top: 1px;
+    }
+  }
+}

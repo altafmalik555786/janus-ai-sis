@@ -1,0 +1,288 @@
+.mainContainer {
+  .contextBaselineDiv {
+    background-color: #ffffff;
+    min-height: 74px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+
+    .pTageOne {
+      font-family: "Inter";
+      font-style: normal;
+      padding-left: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #2e2e2e;
+    }
+
+    .pTageTwo {
+      margin-left: 10px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #2e2e2e;
+    }
+
+    .pTageThree {
+      font-style: Medium;
+      margin-right: 35px;
+      font-family: "Inter";
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #2e2e2e;
+    }
+  }
+
+  .barContentContainer {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .layoutDiv {
+      display: flex;
+
+      .siderStyle {
+        background-color: #ffffff;
+        border: 1px solid #dde2e4;
+        width: 271px;
+        height: 100%;
+
+        .sideInnerDiv {
+          max-width: 100%;
+          .importantDiv {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+            padding-top: 20px;
+
+            .pTagFour {
+              font-family: Inter;
+              padding-left: 14px;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 20px;
+              letter-spacing: 0em;
+              text-align: left;
+              margin-bottom: 0px;
+            }
+          }
+
+          .pTageGroup {
+            max-width: 90%;
+            margin: auto;
+            padding: 0 20px;
+            text-align: left;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.006em;
+            color: #2e2e2e;
+            opacity: 0.75;
+          }
+        }
+      }
+    }
+
+    .contentContainer {
+      width: 100%;
+
+      .innerContentContainer {
+        width: 90%;
+        margin: auto;
+
+        h1 {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 140%;
+          letter-spacing: -0.006em;
+          text-transform: capitalize;
+          color: #000000;
+        }
+
+        .dataContentBox {
+          background: #ffffff;
+          border: 1px solid #e0e0e0;
+          border-radius: 5px;
+          min-height: 400px;
+          padding: 28px;
+          margin-bottom: 25px;
+
+          p {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            margin-top: 0;
+            font-size: 14px;
+            line-height: 16px;
+            color: #000000;
+          }
+        }
+
+        .footerButtonsDiv {
+          margin: 50px 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .nextButton {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            width: 92px;
+            height: 50px;
+            font-size: 15px;
+            line-height: 27px;
+            border: none;
+            color: #ffffff;
+            background: #00b840;
+            border-radius: 5px;
+            padding: 6px 20px;
+          }
+
+          .reGenerate {
+            height: 50px;
+            width: 134px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            margin-left: 10px;
+            line-height: 27px;
+            color: #808080;
+            background: #e6e6e6;
+            border-radius: 5px;
+            border: none;
+          }
+
+          .btnDiv {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .twoBtnDiv {
+              display: flex;
+              justify-content: center;
+
+              .goBtn {
+                height: 50px;
+                width: 80px;
+                color: #808080;
+                background-color: transparent;
+                border-radius: 5px;
+                cursor: pointer;
+                border: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+
+                img {
+                  margin-top: 1px;
+                }
+              }
+              .saveBtn {
+                height: 50px;
+                width: 90px;
+                color: #808080;
+                font-style: normal;
+                background-color: transparent;
+                border-radius: 5px;
+                cursor: pointer;
+                border: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 27px;
+              }
+            }
+            @media only screen and (max-width: 425px) {
+              .twoBtnDiv {
+                margin-bottom: 0;
+                .goBtn {
+                  height: 40px;
+                  width: 80px;
+                }
+                .saveBtn {
+                  height: 40px;
+                  width: 90px;
+                }
+              }
+            }
+          }
+          @media only screen and (max-width: 425px) {
+            .nextButtonDiv {
+              .nextButton {
+                height: 40px;
+                width: 114px;
+              }
+            }
+          }
+          @media only screen and (max-width: 480px) {
+            flex-direction: column;
+
+            .leftBtnContainer {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+
+            .btnDiv {
+              .twoBtnDiv {
+                justify-content: space-between;
+              }
+            }
+          }
+        }
+      }
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+
+      .layoutDiv {
+        .siderStyle {
+          width: 90%;
+          margin: auto;
+          margin-top: 25px;
+
+          .sideInnerDiv {
+            .importantDiv {
+              width: 90%;
+              margin: auto;
+              padding: 0px;
+
+              .pTagFour {
+                padding: 0;
+              }
+            }
+
+            .pTageGroup {
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .contextBaselineDiv {
+      flex-direction: column-reverse;
+
+      .pTageThree {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

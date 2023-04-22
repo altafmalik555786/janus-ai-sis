@@ -11,12 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 
-const ContextAndBaselineForm = observer(() => {
+const SustainabilityReplicabilityForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
 
   const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+    navigate(constRoute?.sustainabilityReplicabilityResults100);
   };
 
   return (
@@ -27,12 +27,17 @@ const ContextAndBaselineForm = observer(() => {
             Project Name: <strong>Brazil Climate Security</strong>
           </p>
           <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
+            Percent Complete: <strong>90%</strong>
           </p>
         </div>
         <div>
           <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
+            Concept Note Section:
+            <strong>
+              {" "}
+              C.3. Sustainability and replicability of the project (exit
+              strategy){" "}
+            </strong>
           </p>
         </div>
       </div>
@@ -42,7 +47,7 @@ const ContextAndBaselineForm = observer(() => {
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
-                <p className={style.pTagFour}>Important</p>
+                <p className={style.pTagFour}>Quick Tips</p>
                 <button className={style.btnClass}>
                   <img
                     src={CloseIcon}
@@ -53,18 +58,34 @@ const ContextAndBaselineForm = observer(() => {
               </div>
               <div className={style.pTageGroup}>
                 <p className={style.pTagFive}>
-                  Provide information on which climate risks/impacts the
-                  intervention is designed to address.
+                  A climate project/programme sustainability plan is critical
+                  for ensuring the long-term success and impact of a
+                  project/programme. Here are some topics to consider as you
+                  prepare to write this plan:  
                 </p>
                 <p className={style.pTagSix}>
-                  Describe the main root causes and barriers (social, gender,
-                  fiscal, regulatory, technological, financial, ecological,
-                  institutional, etc.) that need to be addressed. 
+                  <ul>
+                    <li>
+                      Identify key sustainability objectives and indicators.
+                    </li>
+                    <li>Develop a sustainability strategy.</li>
+                    <li>Establish partnerships.</li>
+                    <li>Ensure community ownership.</li>
+                    <li>
+                      Develop a robust monitoring and evaluation framework
+                    </li>
+                  </ul>
+                   
                 </p>
+                {/* 
                 <p className={style.pTagSeven}>
-                  Be sure to include the number of beneficiaries the project is
-                  expected to help.
+                  In your “rationale and level of concessionality” discussion
+                  justify why this is the minimum required to make the
+                  investment viable and most efficient considering the
+                  incremental cost or risk premium of the Project/ Programme. 
                 </p>
+
+               */}
               </div>
               <Divider />
             </div>
@@ -85,9 +106,14 @@ const ContextAndBaselineForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
+                  label="13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.*"
                   name={"firstField"}
-                 
+                  rules={[
+                    {
+                      required: true,
+                      message: "This field is required"
+                    },
+                  ]}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -95,15 +121,16 @@ const ContextAndBaselineForm = observer(() => {
                   />
                 </Form.Item>
                 <Form.Item
-                  label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
-                  name={"ies"}
-                
+                  label="13b) For non-grant instruments, explain how the capital invested will be repaid and over what duration of time."
+                  name={"nonGrant"}
                 >
                   <CommonInput
                     inputType="textarea"
+                    placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.emailInput}
                   />
                 </Form.Item>
+              
               </Form>
             </div>
             <div className={style.footerButtonsDiv}>
@@ -114,8 +141,10 @@ const ContextAndBaselineForm = observer(() => {
               </Form>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
-                  <button className={style.goBtn} onClick={() => navigate(constRoute?.contextAndBaselineForm)} >
-                    {" "}
+                  <button
+                    className={style.goBtn}
+                    onClick={() => navigate(constRoute?.sustainabilityReplicabilityForm90)}
+                  >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button
@@ -137,4 +166,4 @@ const ContextAndBaselineForm = observer(() => {
   );
 });
 
-export default memo(ContextAndBaselineForm);
+export default memo(SustainabilityReplicabilityForm);

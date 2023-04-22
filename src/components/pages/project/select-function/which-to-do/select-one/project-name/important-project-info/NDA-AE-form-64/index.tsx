@@ -11,12 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 
-const ContextAndBaselineForm = observer(() => {
+const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
 
   const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+    navigate(constRoute?.ndaAeResults72);
   };
 
   return (
@@ -27,12 +27,13 @@ const ContextAndBaselineForm = observer(() => {
             Project Name: <strong>Brazil Climate Security</strong>
           </p>
           <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
+            Percent Complete: <strong>64%</strong>
           </p>
         </div>
         <div>
           <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
+            Concept Note Section:
+            <strong> B.4  Engagement among the NDA, AE, and/or other </strong>
           </p>
         </div>
       </div>
@@ -42,7 +43,7 @@ const ContextAndBaselineForm = observer(() => {
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
-                <p className={style.pTagFour}>Important</p>
+                <p className={style.pTagFour}>Quick Tips</p>
                 <button className={style.btnClass}>
                   <img
                     src={CloseIcon}
@@ -53,18 +54,20 @@ const ContextAndBaselineForm = observer(() => {
               </div>
               <div className={style.pTageGroup}>
                 <p className={style.pTagFive}>
-                  Provide information on which climate risks/impacts the
-                  intervention is designed to address.
+                  If you want for Climate Finance Copilot to offer a notional
+                  engagement mode for this project/programme, then leave the
+                  input box blank. 
                 </p>
-                <p className={style.pTagSix}>
-                  Describe the main root causes and barriers (social, gender,
-                  fiscal, regulatory, technological, financial, ecological,
-                  institutional, etc.) that need to be addressed. 
-                </p>
-                <p className={style.pTagSeven}>
+                {/* <p className={style.pTagSix}>
+                  Highlight stakeholder engagement with national and local
+                  stakeholders, e.g. national ministries, the Accredited Entity,
+                  the National Designated Authority, as well as civil society,
+                  academia and other stakeholders for the particular project.
+                </p> */}
+                {/* <p className={style.pTagSeven}>
                   Be sure to include the number of beneficiaries the project is
                   expected to help.
-                </p>
+                </p> */}
               </div>
               <Divider />
             </div>
@@ -85,22 +88,12 @@ const ContextAndBaselineForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
+                  label="12. Please describe how engagement among the NDA, AE and/or other relevant stakeholders in the country has taken place."
                   name={"firstField"}
-                 
                 >
                   <CommonInput
                     inputType="textarea"
-                    className={style.emailInput}
-                  />
-                </Form.Item>
-                <Form.Item
-                  label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
-                  name={"ies"}
-                
-                >
-                  <CommonInput
-                    inputType="textarea"
+                    placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -114,7 +107,12 @@ const ContextAndBaselineForm = observer(() => {
               </Form>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
-                  <button className={style.goBtn} onClick={() => navigate(constRoute?.contextAndBaselineForm)} >
+                  <button
+                    className={style.goBtn}
+                    onClick={() =>
+                      navigate(constRoute?.projectResultsGcfResults64)
+                    }
+                  >
                     {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
@@ -137,4 +135,4 @@ const ContextAndBaselineForm = observer(() => {
   );
 });
 
-export default memo(ContextAndBaselineForm);
+export default memo(ProjectDescriptionForm);
