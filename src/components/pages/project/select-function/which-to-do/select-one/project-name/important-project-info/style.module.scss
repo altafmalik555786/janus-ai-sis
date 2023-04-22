@@ -83,10 +83,9 @@
       }
       .checkBoxDiv {
         display: flex;
-        justify-content: left;
+        justify-content: flex-start;
         gap: 10px;
-        margin-top: 0;
-        align-items: center;
+        margin-top: 20px;
         margin-left: 40px;
         font-family: "Inter";
         font-style: normal;
@@ -94,6 +93,10 @@
         font-size: 16px;
         line-height: 26px;
         color: #2e2e2e;
+
+        p {
+          margin: 0;
+        }
       }
     }
     .nextButtonDiv {

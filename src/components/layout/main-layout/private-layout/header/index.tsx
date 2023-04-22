@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   DownOutlined,
   LogoutOutlined,
-  MenuOutlined,
   UserOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
@@ -13,17 +12,9 @@ import useWindowSize from "@utils/hooks/useWindowSize";
 import style from "../../../style.module.scss";
 import { observer } from "mobx-react";
 import { Popover, Button } from "antd";
-import ProfileImage from "@assets/images/profile-image.png";
-import BellIconDark from "@assets/icons/bell-icon-dark.png";
-
-import { CAP_HELLO, LOWER_THEME, LOWER_TOKEN, UPPER_O_BET } from "@utils/const";
-import useFitText from "use-fit-text";
 import { resetStore, useStore } from "@stores/root-store";
-import { getUserOnRole } from "@utils/common-functions";
-import ToggleTheme from "./toggle-theme";
 
 const Header = observer(({ setCollapsed, collapsed }: any) => {
-  const { fontSize, ref } = useFitText();
   const navigate = useNavigate();
 
   const {
@@ -32,8 +23,8 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
 
   const onLogout = () => {
     resetStore();
-    localStorage.removeItem(LOWER_TOKEN);
-    localStorage.removeItem(LOWER_THEME);
+    localStorage.removeItem("token");
+    localStorage.removeItem("theme");
     navigate(constRoute.login);
   };
   const data = useWindowSize().width;
@@ -45,7 +36,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
   }, [data]);
 
   useEffect(() => {
-    if (!localStorage.getItem(LOWER_TOKEN)) {
+    if (!localStorage.getItem("token")) {
       navigate(constRoute.login);
     }
   }, []);
@@ -87,9 +78,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
         <div className={style.mainDiv}>
           <div className={style.notificationProfile}>
             <div className={style.notificationImage}>
-              {/* <div className={style.avator}>
-                <img src={ProfileImage} alt={"Profile Img"} />
-              </div> */}
+             
               <div>
                 <div className={style.employeeName}>
                   Corina McCoy
@@ -128,9 +117,7 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
         <div className={style.welcomeBox}>
           {/* Logo */}
           <Link className={style.welcomeText} to={constRoute.dashboard}>
-            <div ref={ref} style={{ fontSize }} className={style.textContainer}>
               Welcome
-            </div>
           </Link>
         </div>
 
@@ -140,43 +127,8 @@ const Header = observer(({ setCollapsed, collapsed }: any) => {
 
         {/* Header Menu */}
         <ul className={style.rightMenuHeader}>
-          {/* <div className={style.themeBtnContaienr}>
-            <ToggleTheme />
-          </div>
-          <div className={style.BLDivContainer}>
-            <span className={style.Lspan}>
-              L: {getUserInfo?.canSettlePL || 0}
-            </span>
-            <span className={style.Bspan}>B: {getUserInfo?.balance || 0}</span>
-          </div> */}
-          {/* <li className={style.bellIconLi}>
-          <Button
-            type="text"
-            shape="circle"
-            icon={<img src={SettingLight} />}
-          />
-        </li> */}
-          {/* <Popover
-            content={notificationsContent}
-            placement="bottomRight"
-            trigger="click"
-            overlayClassName="noti-wrapper"
-          >
-            <li className={style.bellIconLi}>
-              <Button
-                type="text"
-                shape="circle"
-                icon={<img src={BellIconDark} />}
-              />
-            </li>
-          </Popover> */}
           <li className={style.userProfileDropDownContainer}>
             <Row className={style.userProfileDropDownWrapper}>
-              {/* <div className={style.ProfileImageLogo}>
-              <Tooltip title={getUserInfo?.userName || CAP_HELLO + "!"}>
-                <img src={""} />
-              </Tooltip>
-            </div> */}
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className="header-dropdown">

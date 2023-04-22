@@ -1,0 +1,81 @@
+.cardItem {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 20px;
+  height: 196px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+
+  p {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    color: #4e4e4e;
+    margin: 0;
+    padding: 0px 12px;
+    text-align: left;
+    position: absolute;
+    top: 22px;
+  }
+
+  .statusBadge {
+    width: 92px;
+    height: 24px;
+    background: #ebfae2;
+    border-radius: 4px;
+    position: absolute;
+    top: 22px;
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      margin: 0;
+      padding: 0px 12px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 24px;
+      color: #4f9c20;
+      position: absolute;
+      top: 0px;
+    }
+  }
+
+  h4 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1919;
+    order: 0;
+  }
+
+  .withOutStatus {
+    padding-top: 22px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    // p {
+    //   right: 28px !important;
+    // }
+
+    // .statusBadge {
+    //     right: 28px;
+    //     width: 145px;
+
+    //     p {
+    //         left: 20;
+    //     }
+    // } 
+  }
+
+}

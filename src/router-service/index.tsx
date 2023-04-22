@@ -16,6 +16,7 @@ import WhichToDo from "@components/pages/project/select-function/which-to-do";
 import SelectOne from "@components/pages/project/select-function/which-to-do/select-one";
 import ProjectName from "@components/pages/project/select-function/which-to-do/select-one/project-name";
 import ContextAndBaselineForm from "@components/pages/project/select-function/which-to-do/select-one/project-name/important-project-info/context-and-baseline-form";
+import ContextAndBaselineResults from "@components/pages/project/select-function/which-to-do/select-one/project-name/important-project-info/context-and-baseline-form/context-and-baseline-results";
 
 const Routing = () => {
   return (
@@ -39,6 +40,9 @@ const Routing = () => {
         <Route path={constRoute?.projectName} element={<ProjectName />} />
         <Route path={constRoute?.importantProjectInfo} element={<ImportantProjectInfo />} />
         <Route path={constRoute?.contextAndBaselineForm} element={<ContextAndBaselineForm />} />
+        <Route path={constRoute?.contextAndBaselineResults} element={<ContextAndBaselineResults />} />
+        <Route path={constRoute?.projectDescription} element={<ContextAndBaselineResults />} />
+
         
 
       </Routes>

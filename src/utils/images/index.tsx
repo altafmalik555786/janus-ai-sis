@@ -1,5 +1,5 @@
-import LiveTvIcon from '@assets/images/live_tv.png';
+import icon from '@assets/images/live_tv.png';
 
 export const constImages = {
-    liveTvIcon: LiveTvIcon,
+    icon: icon,
 }

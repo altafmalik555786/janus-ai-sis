@@ -5,7 +5,6 @@ import { ButtonType, ButtonShape, ButtonHTMLType } from "antd/lib/button";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import classNames from "classnames";
 import useFitText from "use-fit-text";
-import { LOWER_OUTLINED } from "@utils/const";
 import { useTheme } from "@utils/hooks/useTheme";
 import { observer } from "mobx-react";
 
@@ -38,7 +37,7 @@ const CustomButton = observer((props: buttonProps) => {
     <div className={theme}>
       <Button
         className={classNames(
-          props.variant === LOWER_OUTLINED
+          props.variant === "outlined"
             ? style.outLinedCommonButton
             : style.filledCommonButton,
           props.className

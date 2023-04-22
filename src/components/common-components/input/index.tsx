@@ -2,7 +2,6 @@ import { Input } from 'antd'
 import { Label } from '../label'
 import styles from './styles.module.scss'
 import classnames from 'classnames'
-import { LOWER_DARK, LOWER_LIGHT, LOWER_NUMBER, LOWER_PASSWORD, LOWER_TEXT, LOWER_TEXT_AREA, LOWER_TRANSPARENT } from '@utils/const'
 
 const { TextArea } = Input
 
@@ -110,7 +109,7 @@ export const CommonInput: React.FC<CommonInputProps> = (
           {label}
         </Label>
       )}
-      {props.inputType === LOWER_TEXT_AREA ? (
+      {props.inputType === "textarea" ? (
         <TextArea
           name={props.name}
           value={props.value}
@@ -124,15 +123,15 @@ export const CommonInput: React.FC<CommonInputProps> = (
           disabled={props.disabled}
           className={classnames(
             {
-              [styles.light]: props.variant === LOWER_LIGHT,
-              [styles.dark]: props.variant === LOWER_DARK,
-              [styles.transparent]: props.variant === LOWER_TRANSPARENT,
+              [styles.light]: props.variant === "light",
+              [styles.dark]: props.variant === "dark",
+              [styles.transparent]: props.variant === "transparent",
             },
             styles.roundInput,
             props.className
           )}
         />
-      ) : props.inputType === LOWER_NUMBER ? (
+      ) : props.inputType === "number" ? (
         <Input
           data-cy={props.cyId}
           onPressEnter={props.onPressEnter}
@@ -140,7 +139,7 @@ export const CommonInput: React.FC<CommonInputProps> = (
           onBlur={props.onBlur ? props.onBlur : null}
           onKeyDown={props.onKeyDown}
           onFocus={props.onFocus ? props.onFocus : null}
-          type={LOWER_NUMBER}
+          type={"number"}
           name={props.name}
           value={props.value || props.defaultValue}
           defaultValue={props.defaultValue}
@@ -158,9 +157,9 @@ export const CommonInput: React.FC<CommonInputProps> = (
           onWheel={!props.incrementOnWheel ? event => event.currentTarget.blur() : () => null}
           className={classnames(
             {
-              [styles.light]: props.variant === LOWER_LIGHT,
-              [styles.dark]: props.variant === LOWER_DARK,
-              [styles.transparent]: props.variant === LOWER_TRANSPARENT,
+              [styles.light]: props.variant === "light",
+              [styles.dark]: props.variant === "dark",
+              [styles.transparent]: props.variant === "transparent",
             },
             styles.roundInput,
             props.className
@@ -168,14 +167,14 @@ export const CommonInput: React.FC<CommonInputProps> = (
           disabled={props.disabled}
           required={props.isRequired}
         />
-      ) : props.inputType === LOWER_PASSWORD ? (
+      ) : props.inputType === "password" ? (
         <Input.Password
           data-cy={props.cyId}
           onPressEnter={props.onPressEnter}
           onInput={props.onInput ? props.onInput : null}
           onBlur={props.onBlur ? props.onBlur : null}
           onFocus={props.onFocus ? props.onFocus : null}
-          type={props.inputType || LOWER_TEXT}
+          type={props.inputType || "text"}
           name={props.name}
           prefix={props.prefix || null}
           suffix={props.suffix || null}
@@ -190,9 +189,9 @@ export const CommonInput: React.FC<CommonInputProps> = (
           ref={props.ref}
           className={classnames(
             {
-              [styles.light]: props.variant === LOWER_LIGHT,
-              [styles.dark]: props.variant === LOWER_DARK,
-              [styles.transparent]: props.variant === LOWER_TRANSPARENT,
+              [styles.light]: props.variant === "light",
+              [styles.dark]: props.variant === "dark",
+              [styles.transparent]: props.variant === "transparent",
             },
             styles.roundInput,
             props.className
@@ -207,7 +206,7 @@ export const CommonInput: React.FC<CommonInputProps> = (
           onInput={props.onInput ? props.onInput : null}
           onBlur={props.onBlur ? props.onBlur : null}
           onFocus={props.onFocus ? props.onFocus : null}
-          type={props.inputType || LOWER_TEXT}
+          type={props.inputType || "text"}
           name={props.name}
           value={props.value || props.defaultValue}
           defaultValue={props.defaultValue}
@@ -223,9 +222,9 @@ export const CommonInput: React.FC<CommonInputProps> = (
           allowClear={props.allowClear}
           className={classnames(
             {
-              [styles.light]: props.variant === LOWER_LIGHT,
-              [styles.dark]: props.variant === LOWER_DARK,
-              [styles.transparent]: props.variant === LOWER_TRANSPARENT,
+              [styles.light]: props.variant === "light",
+              [styles.dark]: props.variant === "dark",
+              [styles.transparent]: props.variant === "transparent",
             },
             styles.roundInput,
             props.className

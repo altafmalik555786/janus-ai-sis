@@ -39,6 +39,7 @@
 
   .barContentContainer {
     display: flex;
+    flex-direction: row-reverse;
 
     .layoutDiv {
       display: flex;
@@ -46,7 +47,7 @@
       .siderStyle {
         background-color: #ffffff;
         border: 1px solid #dde2e4;
-        width: 289px;
+        width: 271px;
         height: 100%;
 
         .sideInnerDiv {
@@ -55,28 +56,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #dde2e4;
-            padding: 0 20px;
-            padding-bottom: 10px;
+            padding: 0px 20px;
+            padding-top: 20px;
 
             .pTagFour {
-              font-size: 18px;
+              font-family: Inter;
+              padding-left: 14px;
+              font-size: 14px;
               font-weight: 500;
-              padding-left: 10px;
-            }
-            .btnClass {
-              background-color: #ffffff;
-              height: 40px;
-              margin-top: 10px;
-              text-align: center;
-              align-items: center;
-              width: 40px;
-              border-radius: 50px;
-              cursor: pointer;
-              border: 1px solid #e0e0e0;
-            }
-            .closeIconImg {
-              margin-top: 5px;
+              line-height: 20px;
+              letter-spacing: 0em;
+              text-align: left;
+              margin-bottom: 0px;
             }
           }
 
@@ -104,7 +95,6 @@
       .innerContentContainer {
         width: 90%;
         margin: auto;
-        padding: 25px 0px;
 
         h1 {
           font-family: "Inter";
@@ -115,7 +105,6 @@
           letter-spacing: -0.006em;
           text-transform: capitalize;
           color: #000000;
-
         }
 
         .dataContentBox {
@@ -123,32 +112,17 @@
           border: 1px solid #e0e0e0;
           border-radius: 5px;
           min-height: 400px;
-          padding: 40px 60px 60px 40px;
+          padding: 28px;
           margin-bottom: 25px;
 
-          .formData {
-            :global(.ant-input) {
-              min-height: 150px;
-              padding: 16px;
-              background: #ffffff;
-              border: 1px solid #e0e0e0;
-              border-radius: 5px;
-              margin-bottom: 25px;
-            }
-
-            :global(.ant-form-item-label > label) {
-              font-family: "Inter";
-              font-style: normal;
-              font-weight: 500;
-              font-size: 16px;
-              line-height: 22px;
-              color: #000000;
-            }
-            
-            :global(.ant-form-item-explain-error) {
-              margin-bottom: 25px;
-            }
-
+          p {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            margin-top: 0;
+            font-size: 14px;
+            line-height: 16px;
+            color: #000000;
           }
         }
 
@@ -171,6 +145,21 @@
             background: #00b840;
             border-radius: 5px;
             padding: 6px 20px;
+          }
+
+          .reGenerate {
+            height: 50px;
+            width: 134px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            margin-left: 10px;
+            line-height: 27px;
+            color: #808080;
+            background: #e6e6e6;
+            border-radius: 5px;
+            border: none;
           }
 
           .btnDiv {
@@ -240,10 +229,25 @@
               }
             }
           }
+          @media only screen and (max-width: 480px) {
+            flex-direction: column;
+
+            .leftBtnContainer {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+
+            .btnDiv {
+              .twoBtnDiv {
+                justify-content: space-between;
+              }
+            }
+          }
         }
       }
     }
-
+    //////////////////////////////////////////////////////////////////////////////////////////////
     @media only screen and (max-width: 768px) {
       flex-direction: column;
 
@@ -252,6 +256,22 @@
           width: 90%;
           margin: auto;
           margin-top: 25px;
+
+          .sideInnerDiv {
+            .importantDiv {
+              width: 90%;
+              margin: auto;
+              padding: 0px;
+
+              .pTagFour {
+                padding: 0;
+              }
+            }
+
+            .pTageGroup {
+              padding: 0;
+            }
+          }
         }
       }
     }

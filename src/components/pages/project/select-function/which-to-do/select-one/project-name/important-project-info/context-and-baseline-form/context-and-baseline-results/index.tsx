@@ -3,19 +3,14 @@ import style from "./style.module.scss";
 import React, { memo } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
-import CloseIcon from "@assets/icons/closeIcon.png";
-import { useForm } from "antd/es/form/Form";
-import { CommonInput } from "@components/common-components/input";
-import { validateMessages } from "@utils/json-data";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 
-const ContextAndBaselineForm = observer(() => {
-  const [form] = useForm();
-  const navigate = useNavigate();
+const ContextAndBaselineResults = observer(() => {
+  const navigate = useNavigate()
 
   const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+    console.log("values", values);
   };
 
   return (
@@ -41,14 +36,10 @@ const ContextAndBaselineForm = observer(() => {
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
-                <p className={style.pTagFour}>Important</p>
-                <button className={style.btnClass}>
-                  <img
-                    src={CloseIcon}
-                    className={style.closeIconImg}
-                    alt="fd"
-                  />
-                </button>
+                <p className={style.pTagFour}>
+                  Below is a list of sources which informed the generated
+                  narrative: 
+                </p>
               </div>
               <div className={style.pTageGroup}>
                 <p className={style.pTagFive}>
@@ -72,49 +63,16 @@ const ContextAndBaselineForm = observer(() => {
 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
-            <h1>Please Fill In the Blanks Below:</h1>
+            <h1>Your Results</h1>
 
             <div className={style.dataContentBox}>
-              <Form
-                className={style.formData}
-                form={form}
-                autoComplete="false"
-                onFinish={onFormSubmit}
-                validateMessages={validateMessages}
-                layout="vertical"
-              >
-                <Form.Item
-                  label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
-                  name={"firstField"}
-                  rules={[
-                    { required: true, message: "This field is required" },
-                  ]}
-                >
-                  <CommonInput
-                    inputType="textarea"
-                    className={style.emailInput}
-                  />
-                </Form.Item>
-                <Form.Item
-                  label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
-                  name={"ies"}
-                  rules={[
-                    { required: true, message: "This field is required" },
-                  ]}
-                >
-                  <CommonInput
-                    inputType="textarea"
-                    className={style.emailInput}
-                  />
-                </Form.Item>
-              </Form>
+              <p>GPT-4 Response here...</p>
             </div>
             <div className={style.footerButtonsDiv}>
-              <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
-                  Submit
-                </Button>
-              </Form>
+              <div className={style.leftBtnContainer} >
+                <Button onClick={() => navigate(constRoute?.projectDescription)} className={style.nextButton}>Next</Button>
+                <Button onClick={() => navigate(constRoute?.contextAndBaselineForm)} className={style.reGenerate}>Regenerate</Button>
+              </div>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
                   <button className={style.goBtn}>
@@ -132,4 +90,4 @@ const ContextAndBaselineForm = observer(() => {
   );
 });
 
-export default memo(ContextAndBaselineForm);
+export default memo(ContextAndBaselineResults);
