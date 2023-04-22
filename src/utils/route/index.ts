@@ -5,7 +5,7 @@ export const constRoute = {
   home: "/home",
   login: "/login",
   importantProjectInfo: "/important-project-info",
-  contextAndBaselineForm: "/context-and-baseline-form",
+  contextAndBaselineForm: "/context-and-baseline",
   signup: "/signup",
   forgetPassword: "/forget-password",
   checkEmail: "/check-email",

@@ -1,21 +1,31 @@
 .mainContainer {
   .contextBaselineDiv {
-    // border: 2px solid;
     background-color: #ffffff;
     min-height: 74px;
     display: flex;
     justify-content: space-between;
+    padding: 0px 20px;
 
     .pTageOne {
-      font-style: Medium;
+      font-family: "Inter";
+      font-style: normal;
+      padding-left: 10px;
+      font-weight: 500;
       font-size: 14px;
-      margin-left: 10px;
+      line-height: 24px;
+      color: #2e2e2e;
     }
+
     .pTageTwo {
-      font-style: Medium;
-      font-size: 14px;
       margin-left: 10px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #2e2e2e;
     }
+
     .pTageThree {
       font-style: Medium;
       font-size: 14px;
@@ -23,35 +33,44 @@
     }
   }
 
-  .spaceTag {
-    width: "100%";
+  .barContentContainer {
+    display: flex;
+
     .layoutDiv {
       display: flex;
-      margin-top: 1px;
+
       .siderStyle {
         background-color: #ffffff;
+        border: 1px solid #dde2e4;
+        width: 289px;
+        height: 70vh;
+
+
         .sideInnerDiv {
-          max-width: 90%;
+          max-width: 100%;
           .importantDiv {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            border-bottom: 1px solid #dde2e4;
+            padding: 0 20px;
+            padding-bottom: 10px;
+
             .pTagFour {
               font-size: 18px;
-              margin-left: 20px;
               font-weight: 500;
+              padding-left: 10px;
             }
             .btnClass {
               background-color: #ffffff;
-              border: 1px solid #e0e0e0;
               height: 40px;
               margin-top: 10px;
               text-align: center;
               align-items: center;
               width: 40px;
-              border-radius: 96px;
+              border-radius: 50px;
               cursor: pointer;
+              border: 1px solid #e0e0e0;
             }
             .closeIconImg {
               margin-top: 5px;
@@ -61,14 +80,42 @@
           .pTageGroup {
             max-width: 90%;
             margin: auto;
-            color: #2e2e2e;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 22px;
-            letter-spacing: -0.006em;
+            padding: 0 20px;
             text-align: left;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.006em;
+            color: #2e2e2e;
+            opacity: 0.75;
           }
         }
+      }
+    }
+
+    .contentContainer {
+      width: 100%;
+      padding: 25px 50px;
+
+      h1 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 140%;
+        letter-spacing: -0.006em;
+        text-transform: capitalize;
+        color: #000000;
+      }
+
+      .formBox {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        min-height: 400px;
+        padding: 40px 60px 60px 40px;
       }
     }
   }
