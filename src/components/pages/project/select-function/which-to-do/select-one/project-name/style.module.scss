@@ -59,6 +59,9 @@
           display: flex;
 
           .nextButton {
+ &:disabled {
+          background-color: gray;
+        }
             margin-top: 25px;
             height: 50px;
             width: 134px;
@@ -79,6 +82,9 @@
         @media only screen and (max-width: 425px) {
           .nextButtonDiv {
             .nextButton {
+ &:disabled {
+          background-color: gray;
+        }
               height: 40px;
               width: 114px;
             }
