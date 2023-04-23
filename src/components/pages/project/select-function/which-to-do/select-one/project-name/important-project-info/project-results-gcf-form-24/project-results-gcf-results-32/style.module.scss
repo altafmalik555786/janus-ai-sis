@@ -135,6 +135,9 @@
           justify-content: space-between;
 
           .nextButton {
+ &:disabled {
+          background-color: gray;
+        }
             font-family: "Inter";
             font-style: normal;
             font-weight: 500;
@@ -226,6 +229,9 @@
           @media only screen and (max-width: 425px) {
             .nextButtonDiv {
               .nextButton {
+ &:disabled {
+          background-color: gray;
+        }
                 height: 40px;
                 width: 114px;
               }
