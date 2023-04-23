@@ -1,0 +1,84 @@
+.topHeaderBar {
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dde2e4;
+  
+  .headerContainer {
+    min-height: 50px;
+    background-color: #ffffff;
+    color: #000000;
+    padding-right: 10px;
+
+    .headerMenuContainer {
+      display: inline;
+      float: left;
+      .welcomeText {
+        color: #000000;
+        font-size: 20px;
+        display: inline;
+
+        img {
+          height: 38px;
+          margin-top: 8px;
+          width: 38px;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .menuHeader {
+      padding-left: 10px;
+      display: inline;
+      float: left;
+
+      :global(.ant-menu-item) {
+        width: auto;
+        margin: 5px 10px;
+        padding: 0px;
+      }
+    }
+
+    .rightMenuHeader {
+      display: inline;
+      float: right;
+      list-style: none;
+      margin-top: 20px;
+
+      .userProfileDropDownContainer {
+        .userProfileDropDownWrapper {
+          .profileUserNameText {
+            color: #000000;
+          }
+
+          .profileUserNameText:hover {
+            color: #000000;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 576px) {
+
+        .menuHeader {
+            display: block;
+            float: none;
+            width: 100%;
+        }
+
+        .headerMenuContainer {
+            display: block;
+            width: 100%;
+        }
+
+        .rightMenuHeader {
+            position: absolute;
+            right: 0;
+            padding-right: 10px;
+            top: 0;
+            
+        }
+    }
+  }
+}

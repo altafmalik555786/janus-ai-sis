@@ -14,7 +14,6 @@ const PrivateLayout = observer(() => {
 
   const theme = useTheme();
   const navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false);
 
   // const {
   //   user: { loadUserInfo, getUserInfo },
@@ -30,7 +29,7 @@ const PrivateLayout = observer(() => {
     <div className={theme} >
       <Layout className={style.layoutSetting}>
         <Layout>
-          <Header setCollapsed={setCollapsed} collapsed={collapsed} />
+          <Header />
           <UpgradePlanBar />
           <Content className={style.routingPagesContainer}>
             <Routing />
