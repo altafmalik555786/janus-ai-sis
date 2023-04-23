@@ -1,6 +1,6 @@
 import { constRoute } from "@utils/route";
 import { Dropdown, Menu, Row, Space } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -8,6 +8,7 @@ import {
   LogoutOutlined,
   UserOutlined,
   SettingOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 import useWindowSize from "@utils/hooks/useWindowSize";
 import type { MenuProps } from "antd";
@@ -18,11 +19,7 @@ import { resetStore, useStore } from "@stores/root-store";
 const Header = observer(() => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const [current, setCurrent] = useState("mail");
-
-  const {
-    user: { getUserInfo },
-  } = useStore(null);
+  const [current, setCurrent] = useState("");
 
   const onLogout = () => {
     resetStore();
@@ -40,7 +37,6 @@ const Header = observer(() => {
     }
   }, [data]);
 
-  console.log("data", data);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -97,9 +93,22 @@ const Header = observer(() => {
     </Menu>
   );
 
-  console.log("collapsed", collapsed);
-
   const styles = { background: `linear-gradient(to right,#00c5fb, 0%, 100%)` };
+
+  const menuMemoized = useMemo(
+    () =>
+      !collapsed && (
+        <Menu
+          onClick={onClick}
+          selectedKeys={[current]}
+          mode={ (data > 576) ? "horizontal" : "vertical" }
+          className={style.menuHeader}
+          inlineCollapsed={false}
+          items={items}
+        />
+      ),
+    [collapsed]
+  );
 
   return (
     <div className={style.topHeaderBar}>
@@ -108,19 +117,19 @@ const Header = observer(() => {
         style={{ right: "0px", ...styles }}
       >
         <div className={style.headerMenuContainer}>
+          { ( data < 576 ||
+            collapsed ) && (
+              <MenuOutlined
+                onClick={() => setCollapsed(!collapsed)}
+                className={style.menuOutlinedIcon}
+              />
+            )}
           <Link className={style.welcomeText} to={constRoute?.dashboard}>
             <img src={welcomeLogo} alt="logo" />
           </Link>
         </div>
 
-        <Menu
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode="horizontal"
-          className={style.menuHeader}
-          inlineCollapsed={false}
-          items={items}
-        />
+        {menuMemoized}
 
         <ul className={style.rightMenuHeader}>
           <li className={style.userProfileDropDownContainer}>
