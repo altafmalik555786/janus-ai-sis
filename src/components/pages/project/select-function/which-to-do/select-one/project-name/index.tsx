@@ -7,12 +7,24 @@ import LeftArrow from "@assets/icons/left-arrow.png";
 import { CommonInput } from "@components/common-components/input";
 import { validateMessages } from "@utils/json-data";
 import { useForm } from "antd/es/form/Form";
+import { useState } from "react";
 
 const ProjectName = observer(() => {
   const navigate = useNavigate();
   const [form] = useForm();
+  const [inputValue, setInputValue] = useState(true)
   const onFormSubmit = () => {
     navigate(constRoute?.importantProjectInfo);
+  };
+
+  const handleInputChange = (event) => {
+    console.log(event.target.value);
+    if(event.target.value.length > 0){
+      setInputValue(false)
+    }
+    else{
+      setInputValue(true)
+    }
   };
 
   return (
@@ -41,10 +53,10 @@ const ProjectName = observer(() => {
                       },
                     ]}
                   >
-                    <CommonInput type="text" className={style.emailInput} />
+                    <CommonInput onChange={handleInputChange} type="text" className={style.emailInput} />
                   </Form.Item>
                   <div className={style.nextButtonDiv}>
-                    <button className={style.nextButton}>Next</button>
+                    <button disabled={inputValue} className={style.nextButton}>Next</button>
                   </div>
                 </Form>
               </Col>

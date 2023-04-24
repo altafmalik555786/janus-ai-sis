@@ -17,6 +17,7 @@
     .headerMenuContainer {
       display: inline;
       float: left;
+
       .welcomeText {
         color: #000000;
         font-size: 20px;
@@ -35,11 +36,26 @@
       padding-left: 10px;
       display: inline;
       float: left;
+      border: none;
 
       :global(.ant-menu-item) {
         width: auto;
         margin: 5px 10px;
         padding: 0px;
+
+        &::after {
+          border: none;
+        }
+      }
+
+      :global(.ant-menu-item-selected) {
+        // font-family: Inter;
+        // font-size: 15px;
+        // font-weight: 600;
+        // text-align: left;
+        color: #000000;
+        // background: #F5F5F5;
+        // padding: 0px 16px;
       }
     }
 
@@ -109,15 +125,15 @@
         margin-bottom: 20px;
         margin-top: -40px;
         height: -webkit-fill-available;
-       
+
         li {
-            width: 100%;
-            display: block;
-            border: 1px solid #dde2e4;
-            text-align: center;
-          }
+          width: 100%;
+          display: block;
+          border: 1px solid #dde2e4;
+          text-align: center;
+        }
       }
-      
+
     }
   }
 }
