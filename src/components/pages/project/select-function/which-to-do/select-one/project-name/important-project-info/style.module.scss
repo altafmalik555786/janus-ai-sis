@@ -72,12 +72,15 @@
         .mainPdiv {
           .pTagOne {
             font-size: 14px;
+            text-align: left;
           }
           .pTagTwo {
             font-size: 14px;
+            text-align: left;
           }
           .pTagThree {
             font-size: 14px;
+            text-align: left;
           }
         }
       }
@@ -86,7 +89,7 @@
         justify-content: flex-start;
         gap: 10px;
         margin-top: 20px;
-        margin-left: 40px;
+        margin-left: 20px;
         font-family: "Inter";
         font-style: normal;
         font-weight: 400;
@@ -102,6 +105,19 @@
     .nextButtonDiv {
       max-width: 62%;
       margin-top: 10px;
+
+      .nextDisableBtn{
+        margin-top: 25px;
+        height: 50px;
+        width: 134px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: gray;
+        font-family: Inter;
+        font-size: 15px;
+        font-weight: 500;
+      }
 
       .nextButton {
         &:disabled {

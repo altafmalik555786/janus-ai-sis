@@ -59,9 +59,9 @@
           display: flex;
 
           .nextButton {
- &:disabled {
-          background-color: gray;
-        }
+          &:disabled {
+                    background-color: gray;
+                  }
             margin-top: 25px;
             height: 50px;
             width: 134px;
@@ -72,6 +72,7 @@
             font-family: Inter;
             font-size: 15px;
             font-weight: 500;
+            cursor: pointer;
           }
         }
 

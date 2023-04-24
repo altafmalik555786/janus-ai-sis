@@ -107,7 +107,7 @@ const Header = observer(() => {
           items={items}
         />
       ),
-    [collapsed]
+    [collapsed, items]
   );
 
   return (

@@ -9,7 +9,15 @@ import { constRoute } from "@utils/route";
 const ImportantProjectInfo = observer(() => {
   const navigate = useNavigate()
   const [isChecked, setIsChecked] = useState(false);
+  const [error, setError] = useState(false);
 
+  const nextSubmitHandler = () => {
+    if(isChecked){
+      navigate(constRoute?.contextAndBaselineForm)
+    }else{
+      setError(true)
+    }
+  }
   return (
     <div className={style.mainContainer}>
       <div className={style.containerWrapper}>
@@ -44,13 +52,17 @@ const ImportantProjectInfo = observer(() => {
           </div>
           <div className={style.checkBoxDiv}>
             <Checkbox
-              onChange={(e) => setIsChecked(e.target.checked)}
+              onChange={(e) => {
+                setIsChecked(e.target.checked);
+                setError(false)
+              }}
             ></Checkbox>
             <p>I agree to the notice and the information provided </p>
           </div>
+          {error && <p style={{color:'red', marginLeft:20, paddingBottom:10}}>Please Check the checkbox </p>}
         </div>
         <div className={style.nextButtonDiv}>
-          <Button  onClick={() => navigate(constRoute?.contextAndBaselineForm)} disabled={!isChecked} className={style.nextButton}>
+          <Button onClick={nextSubmitHandler}  className={isChecked ? style.nextButton : style.nextDisableBtn}>
             Next
           </Button>
         </div>
