@@ -10,7 +10,7 @@ export interface itemPropsTypes {
 const CardItemsFunc = observer(({ item }: itemPropsTypes ) => {
   return (
     <Col lg={8} md={12} xs={24}>
-      <div onClick={item.navigate} className={style.cardItem}>
+      <div onClick={item.navigate} className={item.disable ? style.disableCards : style.cardItem}>
         {(item?.status === "Most Popular" && (
           <div className={style.statusBadge}>
             {" "}
