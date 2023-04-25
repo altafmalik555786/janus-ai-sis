@@ -158,3 +158,61 @@
     }
   }
 }
+
+.profileDropDonwMenu {
+  background: #ffffff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding-bottom: 15px;
+
+  .userData {
+    padding: 11px 18px;
+    border-bottom: 1px solid #dde2e4;
+    margin-top: 18px;
+
+    b {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 25px;
+      color: #000000;
+    }
+
+    p {
+      font-family: "Inter";
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      margin-top: -5px;
+      margin-bottom: 0;
+      font-size: 12px;
+      line-height: 20px;
+      color: #2e2e2e;
+    }
+  }
+
+  :global(.ant-dropdown-menu) {
+    box-shadow: none;
+    padding: 0px 9px;
+    font-family: "Inter";
+  }
+
+  :global(.ant-dropdown-menu-item) {
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 25px;
+      color: #000000;
+    }
+  }
+
+  .itemWithImgIcon {
+    span {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+  }
+}

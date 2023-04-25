@@ -5,9 +5,6 @@ import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import {
   DownOutlined,
-  LogoutOutlined,
-  UserOutlined,
-  SettingOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
 import useWindowSize from "@utils/hooks/useWindowSize";
@@ -16,11 +13,12 @@ import style from "./style.module.scss";
 import { observer } from "mobx-react";
 import { resetStore, useStore } from "@stores/root-store";
 import CustomButton from "@components/common-components/custom-button";
+import LogoutIcon from '@assets/icons/log-out.png'
 
 const Header = observer(() => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const [current, setCurrent] = useState("");
+  const [current, setCurrent] = useState("/home");
 
   const onLogout = () => {
     resetStore();
@@ -47,50 +45,55 @@ const Header = observer(() => {
   const items: MenuProps["items"] = [
     {
       label: "Home",
-      key: "home",
+      key: "/home",
     },
     {
       label: "My Projects",
-      key: "myProjects",
+      key: "/myProjects",
     },
     {
       label: "FAQs",
-      key: "FAQs",
+      key: "/FAQs",
     },
     {
       label: "Get Expert Help",
-      key: "getExpertHelp",
+      key: "/getExpertHelp",
     },
   ];
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
+    navigate(e.key);
   };
 
   const dropdownMenu = (
-    <Menu className="nav-dropdown">
-      <Menu.Item
-        onClick={() => {
-          navigate(constRoute.profile);
-        }}
-      >
-        <UserOutlined style={{ marginRight: "5px" }} />
-        Profile
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          navigate(constRoute?.setting);
-        }}
-      >
-        <SettingOutlined style={{ marginRight: "5px" }} />
-        Setting
-      </Menu.Item>
-      <Menu.Item onClick={onLogout}>
-        <LogoutOutlined style={{ marginRight: "5px" }} />
-        Logout
-      </Menu.Item>
-    </Menu>
+    <div className={style.profileDropDonwMenu}>
+      <div className={style.userData}>
+        <b>John Doe</b>
+        <p>example@example.com</p>
+      </div>
+
+      <Menu>
+        <Menu.Item
+          onClick={() => {
+            navigate(constRoute.profile);
+          }}
+        >
+          Profile
+        </Menu.Item>
+        <Menu.Item
+          onClick={() => {
+            navigate(constRoute?.setting);
+          }}
+        >
+          Setting
+        </Menu.Item>
+        <Menu.Item className={style.itemWithImgIcon} onClick={onLogout}>
+          <img src={LogoutIcon} alt="logout" />
+          Logout
+        </Menu.Item>
+      </Menu>
+    </div>
   );
 
   const styles = { background: `linear-gradient(to right,#00c5fb, 0%, 100%)` };
