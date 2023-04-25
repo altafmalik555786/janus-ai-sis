@@ -15,6 +15,7 @@ import type { MenuProps } from "antd";
 import style from "./style.module.scss";
 import { observer } from "mobx-react";
 import { resetStore, useStore } from "@stores/root-store";
+import CustomButton from "@components/common-components/custom-button";
 
 const Header = observer(() => {
   const navigate = useNavigate();
@@ -30,13 +31,12 @@ const Header = observer(() => {
   const data = useWindowSize().width;
 
   useEffect(() => {
-    if (data < 576) {
+    if (data < 768) {
       setCollapsed(true);
     } else {
       setCollapsed(false);
     }
   }, [data]);
-
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -101,7 +101,7 @@ const Header = observer(() => {
         <Menu
           onClick={onClick}
           selectedKeys={[current]}
-          mode={ (data > 576) ? "horizontal" : "vertical" }
+          mode={data > 576 ? "horizontal" : "vertical"}
           className={style.menuHeader}
           inlineCollapsed={false}
           items={items}
@@ -117,13 +117,12 @@ const Header = observer(() => {
         style={{ right: "0px", ...styles }}
       >
         <div className={style.headerMenuContainer}>
-          { ( data < 576 ||
-            collapsed ) && (
-              <MenuOutlined
-                onClick={() => setCollapsed(!collapsed)}
-                className={style.menuOutlinedIcon}
-              />
-            )}
+          {(data < 768 || collapsed) && (
+            <MenuOutlined
+              onClick={() => setCollapsed(!collapsed)}
+              className={style.menuOutlinedIcon}
+            />
+          )}
           <Link className={style.welcomeText} to={constRoute?.dashboard}>
             <img src={welcomeLogo} alt="logo" />
           </Link>
@@ -133,10 +132,14 @@ const Header = observer(() => {
 
         <ul className={style.rightMenuHeader}>
           <li className={style.userProfileDropDownContainer}>
-            <Row className={style.userProfileDropDownWrapper}>
+            <Row gutter={20} className={style.userProfileDropDownWrapper}>
+              <CustomButton
+                title="Add billing info"
+                className={style.billingInfo}
+              />
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>
-                  <Space className="header-dropdown">
+                  <Space className={style.spaceUserProfile}>
                     <span className={style.profileUserNameText}>Hi, John</span>
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
