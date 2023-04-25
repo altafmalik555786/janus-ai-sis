@@ -151,6 +151,7 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
+        white-space: nowrap;
       }
     }
     @media only screen and (max-width: 425px) {

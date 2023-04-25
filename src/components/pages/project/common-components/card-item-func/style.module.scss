@@ -45,7 +45,11 @@
       line-height: 24px;
       color: #4f9c20;
       position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       top: 0px;
+      white-space: nowrap;
     }
   }
 
@@ -78,4 +82,39 @@
     // } 
   }
 
+}
+
+.disableCards {
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  padding: 20px;
+  padding-top: 0px;
+  height: 196px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  justify-content: center;
+
+  p {
+    background: rgba(255, 255, 255, 0.2);
+    width: 100px;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4E4E4E;
+    margin-top: 0px;
+  }
+
+  h4{
+    color: rgba(0, 0, 0, 0.5);
+  }
 }

@@ -13,6 +13,7 @@ const WhichToDo = observer(() => {
     {
       title: "Draft a GCF Proposal",
       status: "Coming Soon",
+      disable:true
     },
     {
       title: "Draft a GCF Concept Note",
