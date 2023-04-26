@@ -14,7 +14,7 @@
       font-size: 14px;
       line-height: 24px;
       color: #2e2e2e;
-     margin-left: -10px;
+      margin-left: -10px;
     }
 
     .pTageTwo {
@@ -117,7 +117,6 @@
           letter-spacing: -0.006em;
           text-transform: capitalize;
           color: #000000;
-
         }
 
         .dataContentBox {
@@ -146,11 +145,10 @@
               line-height: 22px;
               color: #000000;
             }
-            
+
             :global(.ant-form-item-explain-error) {
               margin-bottom: 25px;
             }
-
           }
         }
 
@@ -161,9 +159,9 @@
           justify-content: space-between;
 
           .nextButton {
- &:disabled {
-          background-color: gray;
-        }
+            &:disabled {
+              background-color: gray;
+            }
             font-family: "Inter";
             font-style: normal;
             font-weight: 500;
@@ -241,9 +239,9 @@
           @media only screen and (max-width: 425px) {
             .nextButtonDiv {
               .nextButton {
- &:disabled {
-          background-color: gray;
-        }
+                &:disabled {
+                  background-color: gray;
+                }
                 height: 40px;
                 width: 114px;
               }
