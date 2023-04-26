@@ -15,7 +15,7 @@ const ProjectGCFResults = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-      <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
+      <CommonHeaderPercentCycle  percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
 
 
       <div className={style.barContentContainer}>

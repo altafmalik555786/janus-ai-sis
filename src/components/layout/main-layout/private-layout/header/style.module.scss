@@ -102,10 +102,10 @@
 
     @media screen and (max-width: 855px) {
       .menuHeader {
-        position: absolute;
+        display: block;
         width: 95%;
         left: 0;
-        top: 45px;
+        top: 55px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
