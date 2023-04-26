@@ -37,7 +37,7 @@ const ProjectDescriptionForm = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'64%'} conceptNoteSection={'B.4 Engagement Among the NDA, AE and/or other'}/> 
+     <CommonHeaderPercentCycle  percent={'64%'} conceptNoteSection={'B.4 Engagement Among the NDA, AE and/or other'}/> 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
@@ -93,6 +93,8 @@ const ProjectDescriptionForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.emailInput}
                   />

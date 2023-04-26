@@ -17,7 +17,7 @@ const ContextAndBaselineResults = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-        <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'8%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
+        <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
 
       <div className={style.barContentContainer}>
         {/* <div className={style.layoutDiv}>

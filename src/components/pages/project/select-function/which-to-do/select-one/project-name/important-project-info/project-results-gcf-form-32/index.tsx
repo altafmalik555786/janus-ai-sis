@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -11,18 +11,33 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
-
+import { useStore } from "@stores/root-store";
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
+  const {
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+  } = useStore(null);
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const onFormSubmit = async(values) => {
+    const question ={
+      q8: values?.q8||'',
 
-  const onFormSubmit = (values) => {
-    navigate(constRoute?.projectResultsGcfResults40);
+    }
+    const payload = {
+      section: `B_3_32`,
+      questions: question,
+      project_name: projectName || ''
+    }
+    const response = await conceptNote(payload)
+    if(response?.response){
+      navigate(constRoute?.projectResultsGcfResults40,  { state: { response: response?.response} });
+    }
   };
 
   return (
     <div className={style.mainContainer}>
-       <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
+       <CommonHeaderPercentCycle  percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
@@ -76,13 +91,15 @@ const ProjectGCFForm = observer(() => {
               >
                 <Form.Item
                   label="8. Briefly Describe The Sustainable Development Potential of the Project (< 300 words)."
-                  name={"firstField"}
+                  name={"q8"}
                   rules={[
                     { required: true, message: "This field is required" },
                   ]}
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.emailInput}
                   />
@@ -96,6 +113,8 @@ const ProjectGCFForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item> */}
@@ -103,7 +122,7 @@ const ProjectGCFForm = observer(() => {
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
+                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
                 </Button>
               </Form>

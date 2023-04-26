@@ -14,7 +14,7 @@ const ProjectDescriptionResults = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'16%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
+     <CommonHeaderPercentCycle  percent={'16%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
 
       <div className={style.barContentContainer}>
         {/* <div className={style.layoutDiv}>

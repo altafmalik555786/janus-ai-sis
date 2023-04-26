@@ -38,7 +38,7 @@ useEffect(()=>{
   }
 }, [])
   useEffect(() => {
-    if (data < 768) {
+    if (data < 855) {
       setCollapsed(true);
     } else {
       setCollapsed(false);
@@ -129,7 +129,7 @@ useEffect(()=>{
         style={{ right: "0px", ...styles }}
       >
         <div className={style.headerMenuContainer}>
-          {(data < 768 || collapsed) && (
+          {(data < 855 || collapsed) && (
             <MenuOutlined
               onClick={() => setCollapsed(!collapsed)}
               className={style.menuOutlinedIcon}
@@ -144,7 +144,7 @@ useEffect(()=>{
 
         <ul className={style.rightMenuHeader}>
           <li className={style.userProfileDropDownContainer}>
-            <Row gutter={20} className={style.userProfileDropDownWrapper}>
+            <Row  className={style.userProfileDropDownWrapper}>
               <CustomButton
                 title="Add billing info"
                 className={style.billingInfo}

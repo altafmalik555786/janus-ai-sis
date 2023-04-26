@@ -94,6 +94,7 @@ const ContextAndBaselineForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -104,6 +105,8 @@ const ContextAndBaselineForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -114,6 +117,8 @@ const ContextAndBaselineForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item>
