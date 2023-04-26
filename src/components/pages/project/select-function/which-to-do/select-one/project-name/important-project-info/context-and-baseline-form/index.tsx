@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -17,15 +17,28 @@ const ContextAndBaselineForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData },
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
-  const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const onFormSubmit = async(values) => {
+    const question ={
+      q1: values?.q1||'',
+      q2: values?.q2||'',
+      q3: values?.q3||''
+    }
+    const payload = {
+      section: `B_1_0`,
+      questions: question,
+      project_name: projectName || ''
+    }
+    const response = await conceptNote(payload)
+    if(response?.response){
+    navigate(constRoute?.contextAndBaselineResults,  { state: { response: response?.response} });
+    }
   };
-console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle projectName="Brazil Climate Security" percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
+     <CommonHeaderPercentCycle percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
@@ -76,7 +89,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
               >
                 <Form.Item
                   label="1. Project/Programme Region or country name."
-                  name={"firstField"}
+                  name={"q1"}
                  
                 >
                   <CommonInput
@@ -86,7 +99,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 </Form.Item>
                 <Form.Item
                   label="2. Describe the climate vulnerabilities and impacts, GHG emissions profile, and mitigation and adaptation needs that the prospective intervention is envisaged to address."
-                  name={"ies"}
+                  name={"q2"}
                 
                 >
                   <CommonInput
@@ -96,7 +109,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 </Form.Item>
                 <Form.Item
                   label="3. Describe the main root causes and barriers (social, gender, fiscal, regulatory, technological, financial,   ecological, institutional, etc.) that need to be addressed."
-                  name={"thirdField"}
+                  name={"q3"}
                 
                 >
                   <CommonInput
@@ -108,7 +121,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
+                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
                 </Button>
               </Form>
