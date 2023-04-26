@@ -13,12 +13,11 @@ const ProjectName = observer(() => {
   const navigate = useNavigate();
   const [form] = useForm();
   const [inputValue, setInputValue] = useState(true)
-  const onFormSubmit = () => {
-    navigate(constRoute?.importantProjectInfo);
+  const onFormSubmit = (value) => {
+    navigate(constRoute?.importantProjectInfo,  { state: { projectName: value.projectName} });
   };
 
   const handleInputChange = (event) => {
-    console.log(event.target.value);
     if(event.target.value.length > 0){
       setInputValue(false)
     }

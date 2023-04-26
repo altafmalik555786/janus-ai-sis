@@ -17,7 +17,9 @@ export const user = types
     loadingResendEmail: types.optional(types.boolean, false),    
     loadingResetPassword: types.optional(types.boolean, false),   
     loadingEmailVerification: types.optional(types.boolean, false),   
-    verificationCode: types.maybeNull(types.string)
+    verificationCode: types.maybeNull(types.string),
+    loadingProjectSave: types.optional(types.boolean, false),
+    projectNameData: types.maybeNull(types.string),
   })
   .views((self) => ({
     get getUserInfo() {
@@ -37,6 +39,12 @@ export const user = types
     },
     get isLoadingEmailVerification() {
       return toJS(self.loadingEmailVerification);
+    },
+    get isLoadingProjectSave() {
+      return toJS(self.loadingProjectSave);
+    }, 
+    get getProjectNameData() {
+      return toJS(self.projectNameData);
     }, 
   }))
   .actions((self) => {
@@ -113,6 +121,23 @@ export const user = types
         return response;
       }
     });
+    const projectSave = flow(function* (data) {
+      self.loadingProjectSave = true;
+      let response = null;
+      try {
+        const res = yield userApi.onProjectSave(data);
+        if(res?.message?.includes('project saved successfully')){
+          notification.success(res?.message);
+          self.projectNameData = JSON.stringify(data)
+        }
+        response = res;
+      } catch (error) {
+        catchError(error, "onProjectSave");
+      } finally {
+        self.loadingProjectSave = false;
+        return response;
+      }
+    });
 
     const loadUserInfo = flow(function* (navigate = null) {
       self.loading = true;
@@ -140,7 +165,8 @@ export const user = types
       loadUserInfo,
       onSendResendEmail,
       onResetPassword,
-      onSendEmailVerification
+      onSendEmailVerification,
+      projectSave
     };
   });
 
