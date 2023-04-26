@@ -6,44 +6,15 @@ import LeftArrow from "@assets/icons/left-arrow.png";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
+import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 
 const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
 
   return (
     <div className={style.mainContainer}>
-      <div className={style.contextBaselineDiv}>
-        <div>
-          <p className={style.pTageOne}>
-            Project Name: <strong>Brazil Climate Security</strong>
-          </p>
-          <p className={style.pTageTwo}>
-            Percent Complete: <strong>90%</strong>
-          </p>
-        </div>
-        <div>
-          <p className={style.pTageThree}>
-            Concept Note Section:
-            <strong> C.2. Justification of GCF funding request</strong>
-          </p>
-        </div>
-      </div>
-
+      <CommonHeaderPercentCycle conceptNoteSection="C.2 Justification of GCF Funding Request" percent="90%" />
       <div className={style.barContentContainer}>
-        {/* <div className={style.layoutDiv}>
-          <div className={style.siderStyle}>
-            <div className={style.sideInnerDiv}>
-              <div className={style.importantDiv}>
-                <p className={style.pTagFour}>
-                  Below is a list of sources which informed the generated
-                  narrative: 
-                </p>
-              </div>
-              <Divider />
-            </div>
-          </div>
-        </div> */}
-
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Your Results</h1>
