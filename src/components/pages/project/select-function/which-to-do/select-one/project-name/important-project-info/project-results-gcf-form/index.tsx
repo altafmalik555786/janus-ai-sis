@@ -98,6 +98,8 @@ const ProjectDescriptionForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -110,6 +112,8 @@ const ProjectDescriptionForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item> */}

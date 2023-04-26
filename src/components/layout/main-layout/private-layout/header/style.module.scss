@@ -12,7 +12,6 @@
     min-height: 50px;
     background-color: #ffffff;
     color: #000000;
-    padding-right: 10px;
 
     .headerMenuContainer {
       display: inline;
@@ -24,6 +23,8 @@
           margin-top: 8px;
           width: 38px;
           margin-left: 20px;
+          margin-right: 54px;
+
         }
       }
     }
@@ -36,7 +37,7 @@
 
       :global(.ant-menu-item) {
         width: auto;
-        margin: 5px 10px;
+        margin: 5px 5px;
         padding: 0px 16px;
 
         &::after {
@@ -63,12 +64,12 @@
       margin-top: 7px;
 
       .userProfileDropDownContainer {
-        margin-right: 10px;
+        margin-right: 24px;
 
         .userProfileDropDownWrapper {
           display: flex;
           flex-direction: row;
-          gap: 10px;
+          gap: 24px;
           align-items: center;
 
           .billingInfo {
@@ -99,7 +100,7 @@
       }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 855px) {
       .menuHeader {
         position: absolute;
         width: 95%;
@@ -113,8 +114,7 @@
       .headerMenuContainer {
         .menuOutlinedIcon {
           font-size: 25px;
-          margin-left: 10px;
-          margin-top: 7px;
+          margin: 7px 20px;
         }
 
         .welcomeText {
@@ -122,6 +122,8 @@
             position: absolute;
             margin-left: 10px;
             margin-top: 0px;
+            margin-right: 25px;
+
           }
         }
       }
