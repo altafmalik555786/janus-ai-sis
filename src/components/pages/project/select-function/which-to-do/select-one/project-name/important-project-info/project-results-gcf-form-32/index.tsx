@@ -37,7 +37,7 @@ const ProjectGCFForm = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-       <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
+       <CommonHeaderPercentCycle  percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
@@ -98,6 +98,8 @@ const ProjectGCFForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.emailInput}
                   />
@@ -111,6 +113,8 @@ const ProjectGCFForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item> */}

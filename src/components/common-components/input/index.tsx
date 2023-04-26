@@ -70,7 +70,7 @@ export interface CommonInputProps {
   prefix?: string | React.ReactNode ;
   suffix?: string | React.ReactNode ;
   label?: string;
-  autoSizeCheck?: boolean;
+  autoSizeCheck?: boolean | any;
   name?: string;
   id?: string;
   autoFocus?: boolean;
