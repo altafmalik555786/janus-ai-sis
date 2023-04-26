@@ -10,6 +10,7 @@ import { validateMessages } from "@utils/json-data";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
+import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 
 const gcfJustificationForm = observer(() => {
   const [form] = useForm();
@@ -21,23 +22,7 @@ const gcfJustificationForm = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-      <div className={style.contextBaselineDiv}>
-        <div>
-          <p className={style.pTageOne}>
-            Project Name: <strong>Brazil Climate Security</strong>
-          </p>
-          <p className={style.pTageTwo}>
-            Percent Complete: <strong>64%</strong>
-          </p>
-        </div>
-        <div>
-          <p className={style.pTageThree}>
-            Concept Note Section:
-            <strong> C.2. Justification of GCF funding request</strong>
-          </p>
-        </div>
-      </div>
-
+     <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
