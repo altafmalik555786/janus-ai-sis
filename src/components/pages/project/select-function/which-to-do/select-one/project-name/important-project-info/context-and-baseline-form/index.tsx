@@ -25,7 +25,7 @@ const ContextAndBaselineForm = observer(() => {
 console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle />
+     <CommonHeaderPercentCycle projectName="Brazil Climate Security" percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>

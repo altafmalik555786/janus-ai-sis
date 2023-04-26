@@ -4,6 +4,7 @@ import { Col, Row } from "antd";
 import ProjectName from '@assets/icons/todo-list.png'
 import NoteIcon from '@assets/icons/note.png'
 import TimerIcon from '@assets/icons/timer.png'
+import { useStore } from "@stores/root-store";
 
 export interface HeaderTypes {
   projectName?: string;
@@ -16,19 +17,22 @@ const CommonHeaderPercentCycle = ({
   percent = "--%",
   conceptNoteSection = "Your Concept Note Section",
 }: HeaderTypes) => {
+
+  const { user: { getProjectNameData } } = useStore(null)
+
   return (
     <Row className={style.contextBaselineDiv}>
-      <Col sm={8} xs={24}>
+      <Col md={8} xs={24}>
         <p className={style.pTageOne}>Project Name</p>
-        <strong>{projectName}</strong>
+        <strong>{JSON.parse(getProjectNameData)?.project_name || projectName }</strong>
         <img src={ProjectName} alt="icon" />
       </Col>
-      <Col sm={8} xs={24}>
+      <Col md={8} xs={24}>
         <p className={style.pTageThree}>Concept Note Section</p>
         <strong> {conceptNoteSection} </strong>
         <img src={NoteIcon} alt="icon" />
       </Col>
-      <Col sm={8} xs={24}>
+      <Col md={8} xs={24}>
         <p className={style.pTageTwo}>Percent Complete</p>
         <strong>{percent}</strong>
         <img src={TimerIcon} alt="icon" />
