@@ -1,6 +1,9 @@
 import React from "react";
 import style from "./style.module.scss";
 import { Col, Row } from "antd";
+import ProjectName from '@assets/icons/todo-list.png'
+import NoteIcon from '@assets/icons/note.png'
+import TimerIcon from '@assets/icons/timer.png'
 
 export interface HeaderTypes {
   projectName?: string;
@@ -15,17 +18,20 @@ const CommonHeaderPercentCycle = ({
 }: HeaderTypes) => {
   return (
     <Row className={style.contextBaselineDiv}>
-      <Col md={8} sm={24}>
+      <Col sm={8} xs={24}>
         <p className={style.pTageOne}>Project Name</p>
         <strong>{projectName}</strong>
+        <img src={ProjectName} alt="icon" />
       </Col>
-      <Col md={8} sm={24}>
+      <Col sm={8} xs={24}>
         <p className={style.pTageThree}>Concept Note Section</p>
-        <strong> B.1. Context And Baseline</strong>
+        <strong> {conceptNoteSection} </strong>
+        <img src={NoteIcon} alt="icon" />
       </Col>
-      <Col md={8} sm={24}>
+      <Col sm={8} xs={24}>
         <p className={style.pTageTwo}>Percent Complete</p>
-        <strong>0%</strong>
+        <strong>{percent}</strong>
+        <img src={TimerIcon} alt="icon" />
       </Col>
     </Row>
   );

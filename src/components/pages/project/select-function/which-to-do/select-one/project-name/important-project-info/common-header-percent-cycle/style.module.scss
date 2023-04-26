@@ -5,46 +5,45 @@
   justify-content: space-between;
   padding: 0px 20px;
 
-
   :global(.ant-col) {
     padding: 0px 20px;
+    margin: auto;
+
+    p {
+      margin: 0;
+      margin-bottom: 5px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: #7c7c7c;
+    }
+
+    strong {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: #000000;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 10px;
+    }
   }
 
   :global(.ant-col:nth-child(1)) {
-    border-right: 1px solid #EAEBF0;
+    border-right: 1px solid #eaebf0;
   }
 
-  // .pTageOne {
-  //   font-family: "Inter";
-  //   font-style: normal;
-  //   padding-left: 10px;
-  //   font-weight: 500;
-  //   font-size: 14px;
-  //   line-height: 24px;
-  //   color: #2e2e2e;
-  //   margin-left: -10px;
-  // }
-
-  // .pTageTwo {
-  //   margin-left: 10px;
-  //   font-family: "Inter";
-  //   font-style: normal;
-  //   font-weight: 500;
-  //   font-size: 14px;
-  //   line-height: 24px;
-  //   color: #2e2e2e;
-  //   margin-left: 0px;
-  // }
-
-  // .pTageThree {
-  //   font-style: Medium;
-  //   margin-right: 35px;
-  //   font-family: "Inter";
-  //   font-weight: 500;
-  //   font-size: 14px;
-  //   line-height: 24px;
-  //   color: #2e2e2e;
-  // }
+  :global(.ant-col:nth-child(2)) {
+    border-right: 1px solid #eaebf0;
+  }
 }
 
 @media only screen and (max-width: 425px) {
