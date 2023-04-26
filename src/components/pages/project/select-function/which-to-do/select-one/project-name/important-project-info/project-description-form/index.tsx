@@ -96,6 +96,7 @@ const ProjectDescriptionForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    placeholder= "Leave blank if you want Climate Finance Co-pilot to supply suggested components/outputs and subcomponents"
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -106,6 +107,7 @@ const ProjectDescriptionForm = observer(() => {
                 >
                   <CommonInput
                     inputType="textarea"
+                    placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested components/outputs and subcomponents"
                     className={style.emailInput}
                   />
                 </Form.Item>

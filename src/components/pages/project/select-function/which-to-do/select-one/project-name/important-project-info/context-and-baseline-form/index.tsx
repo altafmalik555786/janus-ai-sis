@@ -87,7 +87,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 layout="vertical"
               >
                 <Form.Item
-                  label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
+                  label="1. Project/Programme Region or country name."
                   name={"firstField"}
                  
                 >
@@ -97,8 +97,18 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                   />
                 </Form.Item>
                 <Form.Item
-                  label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
+                  label="2. Describe the climate vulnerabilities and impacts, GHG emissions profile, and mitigation and adaptation needs that the prospective intervention is envisaged to address."
                   name={"ies"}
+                
+                >
+                  <CommonInput
+                    inputType="textarea"
+                    className={style.emailInput}
+                  />
+                </Form.Item>
+                <Form.Item
+                  label="3. Describe the main root causes and barriers (social, gender, fiscal, regulatory, technological, financial,   ecological, institutional, etc.) that need to be addressed."
+                  name={"thirdField"}
                 
                 >
                   <CommonInput
