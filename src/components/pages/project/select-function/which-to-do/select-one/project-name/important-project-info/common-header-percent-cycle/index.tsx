@@ -15,23 +15,18 @@ const CommonHeaderPercentCycle = ({
 }: HeaderTypes) => {
   return (
     <Row className={style.contextBaselineDiv}>
-        <Col md={8} sm={24} >
-          <p className={style.pTageOne}>
-            Project Name: <strong>{projectName}</strong>
-          </p>
-        </Col>
-        <Col md={8} sm={24} >
-          {" "}
-          <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
-          </p>
-        </Col>
-        <Col md={8} sm={24} >
-          {" "}
-          <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
-          </p>
-        </Col>
+      <Col md={8} sm={24}>
+        <p className={style.pTageOne}>Project Name</p>
+        <strong>{projectName}</strong>
+      </Col>
+      <Col md={8} sm={24}>
+        <p className={style.pTageThree}>Concept Note Section</p>
+        <strong> B.1. Context And Baseline</strong>
+      </Col>
+      <Col md={8} sm={24}>
+        <p className={style.pTageTwo}>Percent Complete</p>
+        <strong>0%</strong>
+      </Col>
     </Row>
   );
 };
