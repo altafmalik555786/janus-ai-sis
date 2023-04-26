@@ -10,6 +10,7 @@ import { validateMessages } from "@utils/json-data";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
+import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 
 const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
@@ -21,22 +22,7 @@ const ProjectDescriptionForm = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-      <div className={style.contextBaselineDiv}>
-        <div>
-          <p className={style.pTageOne}>
-            Project Name: <strong>Brazil Climate Security</strong>
-          </p>
-          <p className={style.pTageTwo}>
-            Percent Complete: <strong>8%</strong>
-          </p>
-        </div>
-        <div>
-          <p className={style.pTageThree}>
-            Concept Note Section:
-            <strong> B.3. Project/Programme Description</strong>
-          </p>
-        </div>
-      </div>
+      <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'8%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
