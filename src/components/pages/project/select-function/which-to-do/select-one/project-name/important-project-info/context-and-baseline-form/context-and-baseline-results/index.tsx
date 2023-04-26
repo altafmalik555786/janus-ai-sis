@@ -3,14 +3,14 @@ import style from "./style.module.scss";
 import React, { memo } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 
 const ContextAndBaselineResults = observer(() => {
   const navigate = useNavigate();
-
+  const {state} = useLocation();
   const onFormSubmit = (values) => {
     console.log("values", values);
   };
@@ -54,7 +54,7 @@ const ContextAndBaselineResults = observer(() => {
             <h1>Your Results</h1>
 
             <div className={style.dataContentBox}>
-              <p>GPT-4 Response here...</p>
+              <p>{state?.response || ''}</p>
             </div>
             <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>

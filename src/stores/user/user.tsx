@@ -23,7 +23,8 @@ export const user = types
     loadingProjectSave: types.optional(types.boolean, false),
     projectNameData: types.maybeNull(types.string),
     loadingCurrentUser: types.optional(types.boolean, false), 
-    currentUserData: types.maybeNull(currentUserModel)
+    currentUserData: types.maybeNull(currentUserModel),
+    loadingConceptNote: types.optional(types.boolean, false), 
   })
   .views((self) => ({
     get getUserInfo() {
@@ -52,6 +53,9 @@ export const user = types
     }, 
     get getCurrentUserData(){
       return toJS(self.currentUserData)
+    },
+    get getLoadingConceptNote(){
+      return toJS(self.loadingConceptNote);
     }
   }))
   .actions((self) => {
@@ -139,7 +143,7 @@ export const user = types
       try {
         const res = yield userApi.onProjectSave(data);
         if(res?.message?.includes('project saved successfully')){
-          notification.success(res?.message);
+          notification.success('Project saved successfully');
           self.projectNameData = JSON.stringify(data)
         }
         response = res;
@@ -150,7 +154,23 @@ export const user = types
         return response;
       }
     });
-
+    const conceptNote = flow(function* (data) {
+      self.loadingConceptNote = true;
+      let response = null;
+      try {
+        const res = yield userApi.onConceptNote(data);
+        console.log('=======res', res);
+        // if(res?.message?.includes('project saved successfully')){
+        //   notification.success(res?.message);
+        // }
+        response = res;
+      } catch (error) {
+        catchError(error, "conceptNote");
+      } finally {
+        self.loadingConceptNote = false;
+        return response;
+      }
+    });
     const loadUserInfo = flow(function* (navigate = null) {
       self.loadingCurrentUser = true;
       let response = null;
@@ -179,7 +199,8 @@ export const user = types
       onSendResendEmail,
       onResetPassword,
       onSendEmailVerification,
-      projectSave
+      projectSave,
+      conceptNote
     };
   });
 
