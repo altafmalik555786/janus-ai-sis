@@ -30,11 +30,11 @@ export const catchError = (
     data
   );
   if (status === 401) {
-    notification.error(data?.error?.message);
+    notification.error(data?.error?.message || data?.message);
   }
   
   if (status === 400) {
-    notification.error(data?.error);
+    notification.error(data?.error || data?.message);
   }
   
   data?.errors?.length > 0 &&

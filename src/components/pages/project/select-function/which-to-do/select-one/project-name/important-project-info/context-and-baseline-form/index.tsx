@@ -17,7 +17,7 @@ const ContextAndBaselineForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData },
+    user: {getProjectNameData, getLoadingConceptNote },
   } = useStore(null);
   const [projectName, setProjectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   console.log('==projectName', projectName)
@@ -30,7 +30,7 @@ const ContextAndBaselineForm = observer(() => {
       }
     })
     const payload = {
-      section: 'B_1_0',
+      section: `B_1_${0}`,
       questions: question,
       project_name: projectName || ''
     }
@@ -40,7 +40,7 @@ console.log('===========question', question)
 console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle projectName="Brazil Climate Security" percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
+     <CommonHeaderPercentCycle percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
@@ -123,7 +123,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
+                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
                 </Button>
               </Form>
