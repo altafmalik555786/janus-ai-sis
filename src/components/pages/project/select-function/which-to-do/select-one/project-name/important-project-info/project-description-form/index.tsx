@@ -37,7 +37,7 @@ const ProjectDescriptionForm = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-      <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'8%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
+      <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>

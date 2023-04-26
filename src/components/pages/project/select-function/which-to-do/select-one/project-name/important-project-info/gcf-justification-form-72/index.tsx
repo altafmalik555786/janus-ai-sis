@@ -22,7 +22,7 @@ const gcfJustificationForm = observer(() => {
 
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle projectName={"Brazil Climate Security"} percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
+     <CommonHeaderPercentCycle  percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
