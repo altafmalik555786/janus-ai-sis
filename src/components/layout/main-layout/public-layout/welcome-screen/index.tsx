@@ -17,7 +17,7 @@ const WelcomeScreen = observer(() => {
             <img className={style.authHeadeerLogoImg} src={a5}></img>
           </div>
           <h1 className={style.authHeaderTitle}>
-            Welcome to Climate Finance Copilot
+            Welcome to Climate Finance Co-pilot
           </h1>
           <div className={style.authHeaderSubtitleWrapper} >
           <p className={style.authHeaderSubtitle}>
