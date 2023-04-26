@@ -29,7 +29,11 @@ export const userInfoModel = types.model({
     _id: types.maybeNull(types.string),
 
   });
-
+export const currentUserModel = types.model({
+  email: types.maybeNull(types.string),
+  firstname: types.maybeNull(types.string),
+  lastname: types.maybeNull(types.string)
+})
   export const marketTypesModel = types.model({
     createdAt: types.maybeNull(types.number),
     marketId: types.maybeNull(types.number),

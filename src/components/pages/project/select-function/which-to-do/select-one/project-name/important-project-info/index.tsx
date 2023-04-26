@@ -3,18 +3,30 @@ import style from "./style.module.scss";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import React, { memo, useState } from "react";
 import { Button, Checkbox } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
+import { useStore } from "@stores/root-store";
 
 const ImportantProjectInfo = observer(() => {
   const navigate = useNavigate()
   const [isChecked, setIsChecked] = useState(false);
+  const {
+    user: { projectSave, isLoadingProjectSave },
+  } = useStore(null);
+// console.log('isLoadingProjectSave===', isLoadingProjectSave)
   const [error, setError] = useState(false);
-
-  const nextSubmitHandler = () => {
+  const {state} = useLocation();
+  const nextSubmitHandler =async() => {
     if(isChecked){
-      navigate(constRoute?.contextAndBaselineForm)
-    }else{
+const payload = {
+  project_name: state?.projectName,
+  functionality: 'concept note'
+}
+const response =  await projectSave(payload)
+if(response?.message?.includes('project saved successfully')){
+  navigate(constRoute?.contextAndBaselineForm)}
+}
+    else{
       setError(true)
     }
   }
@@ -62,7 +74,7 @@ const ImportantProjectInfo = observer(() => {
           {error && <p style={{color:'red', marginLeft:20, paddingBottom:10}}>Please Check the checkbox </p>}
         </div>
         <div className={style.nextButtonDiv}>
-          <Button onClick={nextSubmitHandler}  className={isChecked ? style.nextButton : style.nextDisableBtn}>
+          <Button loading={isLoadingProjectSave} disabled={isLoadingProjectSave} onClick={nextSubmitHandler}  className={isChecked ? style.nextButton : style.nextDisableBtn}>
             Next
           </Button>
         </div>

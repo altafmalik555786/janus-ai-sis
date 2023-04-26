@@ -19,7 +19,9 @@ const Header = observer(() => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState("/home");
-
+  const {
+    user: {loadUserInfo, getCurrentUserData },
+  } = useStore(null);
   const onLogout = () => {
     resetStore();
     localStorage.removeItem("token");
@@ -27,7 +29,14 @@ const Header = observer(() => {
     navigate(constRoute.login);
   };
   const data = useWindowSize().width;
-
+  const handleLoadUserInfoDetal=async()=>{
+   await loadUserInfo()
+  }
+useEffect(()=>{
+  if(!getCurrentUserData?.email||!getCurrentUserData?.firstname||!getCurrentUserData?.lastname){
+    handleLoadUserInfoDetal()
+  }
+}, [])
   useEffect(() => {
     if (data < 768) {
       setCollapsed(true);
@@ -69,8 +78,8 @@ const Header = observer(() => {
   const dropdownMenu = (
     <div className={style.profileDropDonwMenu}>
       <div className={style.userData}>
-        <b>John Doe</b>
-        <p>example@example.com</p>
+        <b>{`${getCurrentUserData?.firstname || ' '}  ${getCurrentUserData?.lastname|| ''}`}</b>
+        <p>{getCurrentUserData?.email || ''}</p>
       </div>
 
       <Menu>
@@ -143,7 +152,7 @@ const Header = observer(() => {
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className={style.spaceUserProfile}>
-                    <span className={style.profileUserNameText}>Hi, John</span>
+                    <span className={style.profileUserNameText}>Hi, {getCurrentUserData?.firstname|| ' '}</span>
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
                     </span>

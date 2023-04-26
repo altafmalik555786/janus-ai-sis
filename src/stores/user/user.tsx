@@ -4,6 +4,8 @@ import { notification } from "../../utils/notifications";
 import { constRoute } from "@utils/route";
 import { catchError, onLogOutClearAll } from "@utils/common-functions";
 import {
+  
+  currentUserModel,
   userInfoModel,
 } from "@stores/store-utils";
 import { toJS } from "mobx";
@@ -17,7 +19,11 @@ export const user = types
     loadingResendEmail: types.optional(types.boolean, false),    
     loadingResetPassword: types.optional(types.boolean, false),   
     loadingEmailVerification: types.optional(types.boolean, false),   
-    verificationCode: types.maybeNull(types.string)
+    verificationCode: types.maybeNull(types.string),
+    loadingProjectSave: types.optional(types.boolean, false),
+    projectNameData: types.maybeNull(types.string),
+    loadingCurrentUser: types.optional(types.boolean, false), 
+    currentUserData: types.maybeNull(currentUserModel)
   })
   .views((self) => ({
     get getUserInfo() {
@@ -37,7 +43,16 @@ export const user = types
     },
     get isLoadingEmailVerification() {
       return toJS(self.loadingEmailVerification);
+    },
+    get isLoadingProjectSave() {
+      return toJS(self.loadingProjectSave);
     }, 
+    get getProjectNameData() {
+      return toJS(self.projectNameData);
+    }, 
+    get getCurrentUserData(){
+      return toJS(self.currentUserData)
+    }
   }))
   .actions((self) => {
     const onUserLogin = flow(function* (data, navigate) {
@@ -45,8 +60,13 @@ export const user = types
       try {
         const res = yield userApi.onUserLogin(data);
           localStorage.setItem("token", res?.jwt_token);
-          res?.jwt_token && notification.success("Signed in successfully");
-          navigate(`${constRoute.home}`);
+          if(res?.jwt_token){
+           loadUserInfo().then(() => {
+            notification.success("Signed in successfully");
+            navigate(`${constRoute.home}`);
+          });
+         
+      }
       } catch (error) {
         catchError(error, "onUserLogin");
       } finally {
@@ -113,15 +133,33 @@ export const user = types
         return response;
       }
     });
-
-    const loadUserInfo = flow(function* (navigate = null) {
-      self.loading = true;
+    const projectSave = flow(function* (data) {
+      self.loadingProjectSave = true;
       let response = null;
       try {
-        self.loading = true;
+        const res = yield userApi.onProjectSave(data);
+        if(res?.message?.includes('project saved successfully')){
+          notification.success(res?.message);
+          self.projectNameData = JSON.stringify(data)
+        }
+        response = res;
+      } catch (error) {
+        catchError(error, "projectSave");
+      } finally {
+        self.loadingProjectSave = false;
+        return response;
+      }
+    });
+
+    const loadUserInfo = flow(function* (navigate = null) {
+      self.loadingCurrentUser = true;
+      let response = null;
+      self.currentUserData =null;
+      try {
+        self.loadingCurrentUser = true;
         const res = yield userApi.getCurrentUserDetails();
         response = res;
-        self.userInfo = res?.results;
+        self.currentUserData = res;
       } catch (error) {
         catchError(error, "loadUserInfo");
         response = error.response;
@@ -129,7 +167,7 @@ export const user = types
           onLogOutClearAll(navigate);
         }
       } finally {
-        self.loading = false;
+        self.loadingCurrentUser = false;
         return response;
       }
     });
@@ -140,7 +178,8 @@ export const user = types
       loadUserInfo,
       onSendResendEmail,
       onResetPassword,
-      onSendEmailVerification
+      onSendEmailVerification,
+      projectSave
     };
   });
 
