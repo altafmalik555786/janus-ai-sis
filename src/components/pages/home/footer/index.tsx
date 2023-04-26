@@ -5,7 +5,7 @@ const Footer = () => {
     <div className={style.footerContainer} >
       <p >
         {" "}
-        © 2023 Janus. All rights reserved.{" "}
+        © 2023 Janus Advisory Services. All rights reserved.{" "}
       </p>
     </div>
   );

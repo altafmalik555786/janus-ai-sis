@@ -11,7 +11,7 @@ const SelectFunction = observer(() => {
 
   const btnCardsList = [
     {
-      title: "Draft a GCF Concept Note Or Proposal",
+      title: "Draft a GCF Concept Note or Proposal",
       status: "",
       navigate: () => navigate(constRoute?.whichToDo),
     },
@@ -46,7 +46,7 @@ const SelectFunction = observer(() => {
       <Row>
         <div className={style.homePageContainerCol}>
           <div className={style.homePageContainer}>
-            <h1>Select a Function Below</h1>
+            <h1>Select A Function Below</h1>
             <Row justify="center" className={style.boxesContiner} gutter={20}>
               {btnCardsList?.map((item) => {
                 return (

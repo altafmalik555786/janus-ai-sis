@@ -36,7 +36,10 @@ const ProjectDescriptionResults = observer(() => {
             <h1>Your Results</h1>
 
             <div className={style.dataContentBox}>
-              <p>{state?.response || ''}</p>
+            <div className={style.htmlContent}
+      dangerouslySetInnerHTML={{__html: state?.response}}
+    />
+              {/* <p>{state?.response || ''}</p> */}
             </div>
             <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
