@@ -143,7 +143,7 @@ export const user = types
       try {
         const res = yield userApi.onProjectSave(data);
         if(res?.message?.includes('project saved successfully')){
-          notification.success(res?.message);
+          notification.success('Project saved successfully');
           self.projectNameData = JSON.stringify(data)
         }
         response = res;
@@ -165,7 +165,7 @@ export const user = types
         // }
         response = res;
       } catch (error) {
-        catchError(error, "projectSave");
+        catchError(error, "conceptNote");
       } finally {
         self.loadingConceptNote = false;
         return response;

@@ -17,27 +17,25 @@ const ContextAndBaselineForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData, getLoadingConceptNote },
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
-  const [projectName, setProjectName] = useState(JSON.parse(getProjectNameData)?.project_name)
-  console.log('==projectName', projectName)
-  const onFormSubmit = (values) => {
-    console.log('this is values', values)
-    const question ={}
-    Object.keys(values)?.forEach((item, index)=>{
-      if(item){
-        question[`q${index+1}`] = values[item]|| ''
-      }
-    })
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const onFormSubmit = async(values) => {
+    const question ={
+      q1: values?.q1||'',
+      q2: values?.q2||'',
+      q3: values?.q3||''
+    }
     const payload = {
-      section: `B_1_${0}`,
+      section: `B_1_0`,
       questions: question,
       project_name: projectName || ''
     }
-console.log('===========question', question)
-    // navigate(constRoute?.contextAndBaselineResults);
+    const response = await conceptNote(payload)
+    if(response?.response){
+    navigate(constRoute?.contextAndBaselineResults,  { state: { response: response?.response} });
+    }
   };
-console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
@@ -91,7 +89,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
               >
                 <Form.Item
                   label="1. Project/Programme Region or country name."
-                  name={"firstField"}
+                  name={"q1"}
                  
                 >
                   <CommonInput
@@ -101,7 +99,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 </Form.Item>
                 <Form.Item
                   label="2. Describe the climate vulnerabilities and impacts, GHG emissions profile, and mitigation and adaptation needs that the prospective intervention is envisaged to address."
-                  name={"ies"}
+                  name={"q2"}
                 
                 >
                   <CommonInput
@@ -111,7 +109,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 </Form.Item>
                 <Form.Item
                   label="3. Describe the main root causes and barriers (social, gender, fiscal, regulatory, technological, financial,   ecological, institutional, etc.) that need to be addressed."
-                  name={"thirdField"}
+                  name={"q3"}
                 
                 >
                   <CommonInput

@@ -30,7 +30,7 @@ export const catchError = (
     data
   );
   if (status === 401) {
-    notification.error(data?.error?.message || data?.message);
+    notification.error(data?.error || data?.message);
   }
   
   if (status === 400) {
