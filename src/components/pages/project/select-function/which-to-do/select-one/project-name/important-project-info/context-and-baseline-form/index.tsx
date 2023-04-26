@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import { useStore } from "@stores/root-store";
+import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+
 const ContextAndBaselineForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
@@ -23,21 +25,7 @@ const ContextAndBaselineForm = observer(() => {
 console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
     <div className={style.mainContainer}>
-      <div className={style.contextBaselineDiv}>
-        <div>
-          <p className={style.pTageOne}>
-            Project Name: <strong>Brazil Climate Security</strong>
-          </p>
-          <p className={style.pTageTwo}>
-            Percent Complete: <strong>0%</strong>
-          </p>
-        </div>
-        <div>
-          <p className={style.pTageThree}>
-            Concept Note Section:<strong> B.1. Context And Baseline</strong>
-          </p>
-        </div>
-      </div>
+     <CommonHeaderPercentCycle />
 
       <div className={style.barContentContainer}>
         <div className={style.layoutDiv}>
