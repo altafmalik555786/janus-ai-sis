@@ -33,7 +33,7 @@ const ContextAndBaselineResults = observer(() => {
       </div>
 
       <div className={style.barContentContainer}>
-        <div className={style.layoutDiv}>
+        {/* <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
@@ -60,7 +60,7 @@ const ContextAndBaselineResults = observer(() => {
               <Divider />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
