@@ -32,7 +32,7 @@
 
     img {
       position: absolute;
-      top: 0;
+      top: 5px;
       right: 10px;
     }
   }
@@ -43,15 +43,5 @@
 
   :global(.ant-col:nth-child(2)) {
     border-right: 1px solid #eaebf0;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .contextBaselineDiv {
-    flex-direction: column-reverse;
-
-    .pTageThree {
-      margin-bottom: 0px;
-    }
   }
 }

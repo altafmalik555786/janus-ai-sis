@@ -6,31 +6,18 @@ import LeftArrow from "@assets/icons/left-arrow.png";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
+import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 
 const SustainabilityReplicabilityResult = observer(() => {
   const navigate = useNavigate();
 
   return (
     <div className={style.mainContainer}>
-      <div className={style.contextBaselineDiv}>
-        <div>
-          <p className={style.pTageOne}>
-            Project Name: <strong>Brazil Climate Security</strong>
-          </p>
-          <p className={style.pTageTwo}>
-            Percent Complete: <strong>100%</strong>
-          </p>
-        </div>
-        <div>
-          <p className={style.pTageThree}>
-            Concept Note Section:
-            <strong>
-              C.3. Sustainability and replicability of the
-              project (exit strategy)
-            </strong>
-          </p>
-        </div>
-      </div>
+      <CommonHeaderPercentCycle
+        conceptNoteSection="C.3 Sustainability and Replicability of the Project 
+(exit strategy)"
+        percent="100%"
+      />
 
       <div className={style.barContentContainer}>
         {/* <div className={style.layoutDiv}>
@@ -70,7 +57,9 @@ const SustainabilityReplicabilityResult = observer(() => {
                 <div className={style.twoBtnDiv}>
                   <button
                     className={style.goBtn}
-                    onClick={() => navigate(constRoute?.sustainabilityReplicabilityForm90)}
+                    onClick={() =>
+                      navigate(constRoute?.sustainabilityReplicabilityForm90)
+                    }
                   >
                     {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
