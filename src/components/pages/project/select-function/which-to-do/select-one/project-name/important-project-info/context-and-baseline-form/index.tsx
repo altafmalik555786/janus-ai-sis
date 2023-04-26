@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -19,8 +19,23 @@ const ContextAndBaselineForm = observer(() => {
   const {
     user: {getProjectNameData },
   } = useStore(null);
+  const [projectName, setProjectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  console.log('==projectName', projectName)
   const onFormSubmit = (values) => {
-    navigate(constRoute?.contextAndBaselineResults);
+    console.log('this is values', values)
+    const question ={}
+    Object.keys(values)?.forEach((item, index)=>{
+      if(item){
+        question[`q${index+1}`] = values[item]|| ''
+      }
+    })
+    const payload = {
+      section: 'B_1_0',
+      questions: question,
+      project_name: projectName || ''
+    }
+console.log('===========question', question)
+    // navigate(constRoute?.contextAndBaselineResults);
   };
 console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
