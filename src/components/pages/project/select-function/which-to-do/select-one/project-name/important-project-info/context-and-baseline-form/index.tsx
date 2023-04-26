@@ -81,6 +81,7 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -91,6 +92,8 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item>
@@ -101,6 +104,8 @@ console.log('getProjectNameData', JSON.parse(getProjectNameData))
                 >
                   <CommonInput
                     inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+
                     className={style.emailInput}
                   />
                 </Form.Item>
