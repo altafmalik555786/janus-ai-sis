@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -11,15 +11,31 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+import { useStore } from "@stores/root-store";
 
 const SustainabilityReplicabilityForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
 
-  const onFormSubmit = (values) => {
-    navigate(constRoute?.sustainabilityReplicabilityResults100);
+  const {
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+  } = useStore(null);
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const onFormSubmit = async(values) => {
+    const question ={
+      q13a: values?.q13a||'',
+      q13b: values?.q13b||'',
+    }
+    const payload = {
+      section: `C_3_90`,
+      questions: question,
+      project_name: projectName || ''
+    }
+    const response = await conceptNote(payload)
+    if(response?.response){
+    navigate(constRoute?.sustainabilityReplicabilityResults100,  { state: { response: response?.response} });
+    }
   };
-
   return (
     <div className={style.mainContainer}>
 
@@ -91,7 +107,7 @@ const SustainabilityReplicabilityForm = observer(() => {
               >
                 <Form.Item
                   label="13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.*"
-                  name={"firstField"}
+                  name={"13a"}
                   rules={[
                     {
                       required: true,
@@ -106,7 +122,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                 </Form.Item>
                 <Form.Item
                   label="13b) For non-grant instruments, explain how the capital invested will be repaid and over what duration of time."
-                  name={"nonGrant"}
+                  name={"13b"}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -119,7 +135,7 @@ const SustainabilityReplicabilityForm = observer(() => {
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
+                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
                 </Button>
               </Form>

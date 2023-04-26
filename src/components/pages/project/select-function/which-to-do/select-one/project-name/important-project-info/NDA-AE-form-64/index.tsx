@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -11,13 +11,28 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+import { useStore } from "@stores/root-store";
 
 const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
-
-  const onFormSubmit = (values) => {
-    navigate(constRoute?.ndaAeResults72);
+  const {
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+  } = useStore(null);
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const onFormSubmit = async(values) => {
+    const question ={
+      q12: values?.q12||'',
+    }
+    const payload = {
+      section: `B_4_64`,
+      questions: question,
+      project_name: projectName || ''
+    }
+    const response = await conceptNote(payload)
+    if(response?.response){
+    navigate(constRoute?.ndaAeResults72,  { state: { response: response?.response} });
+    }
   };
 
   return (
@@ -74,7 +89,7 @@ const ProjectDescriptionForm = observer(() => {
               >
                 <Form.Item
                   label="12. Please describe how engagement among the NDA, AE and/or other relevant stakeholders in the country has taken place."
-                  name={"firstField"}
+                  name={"q12"}
                 >
                   <CommonInput
                     inputType="textarea"
