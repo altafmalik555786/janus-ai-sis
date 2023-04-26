@@ -4,6 +4,8 @@ import { notification } from "../../utils/notifications";
 import { constRoute } from "@utils/route";
 import { catchError, onLogOutClearAll } from "@utils/common-functions";
 import {
+  
+  currentUserModel,
   userInfoModel,
 } from "@stores/store-utils";
 import { toJS } from "mobx";
@@ -20,6 +22,8 @@ export const user = types
     verificationCode: types.maybeNull(types.string),
     loadingProjectSave: types.optional(types.boolean, false),
     projectNameData: types.maybeNull(types.string),
+    loadingCurrentUser: types.optional(types.boolean, false), 
+    currentUserData: types.maybeNull(currentUserModel)
   })
   .views((self) => ({
     get getUserInfo() {
@@ -46,6 +50,9 @@ export const user = types
     get getProjectNameData() {
       return toJS(self.projectNameData);
     }, 
+    get getCurrentUserData(){
+      return toJS(self.currentUserData)
+    }
   }))
   .actions((self) => {
     const onUserLogin = flow(function* (data, navigate) {
@@ -53,8 +60,13 @@ export const user = types
       try {
         const res = yield userApi.onUserLogin(data);
           localStorage.setItem("token", res?.jwt_token);
-          res?.jwt_token && notification.success("Signed in successfully");
-          navigate(`${constRoute.home}`);
+          if(res?.jwt_token){
+           loadUserInfo().then(() => {
+            notification.success("Signed in successfully");
+            navigate(`${constRoute.home}`);
+          });
+         
+      }
       } catch (error) {
         catchError(error, "onUserLogin");
       } finally {
@@ -132,7 +144,7 @@ export const user = types
         }
         response = res;
       } catch (error) {
-        catchError(error, "onProjectSave");
+        catchError(error, "projectSave");
       } finally {
         self.loadingProjectSave = false;
         return response;
@@ -140,13 +152,14 @@ export const user = types
     });
 
     const loadUserInfo = flow(function* (navigate = null) {
-      self.loading = true;
+      self.loadingCurrentUser = true;
       let response = null;
+      self.currentUserData =null;
       try {
-        self.loading = true;
+        self.loadingCurrentUser = true;
         const res = yield userApi.getCurrentUserDetails();
         response = res;
-        self.userInfo = res?.results;
+        self.currentUserData = res;
       } catch (error) {
         catchError(error, "loadUserInfo");
         response = error.response;
@@ -154,7 +167,7 @@ export const user = types
           onLogOutClearAll(navigate);
         }
       } finally {
-        self.loading = false;
+        self.loadingCurrentUser = false;
         return response;
       }
     });
