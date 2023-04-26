@@ -10,16 +10,19 @@ import { validateMessages } from "@utils/json-data";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
+import { useStore } from "@stores/root-store";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 
 const ContextAndBaselineForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
-
+  const {
+    user: {getProjectNameData },
+  } = useStore(null);
   const onFormSubmit = (values) => {
     navigate(constRoute?.contextAndBaselineResults);
   };
-
+console.log('getProjectNameData', JSON.parse(getProjectNameData))
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle />
