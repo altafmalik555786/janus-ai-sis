@@ -159,7 +159,6 @@ export const user = types
       let response = null;
       try {
         const res = yield userApi.onConceptNote(data);
-        console.log('=======res', res);
         // if(res?.message?.includes('project saved successfully')){
         //   notification.success(res?.message);
         // }
