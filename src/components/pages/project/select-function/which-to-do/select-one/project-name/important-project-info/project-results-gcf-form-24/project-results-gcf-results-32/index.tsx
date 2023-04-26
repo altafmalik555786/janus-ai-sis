@@ -31,7 +31,7 @@ const ProjectGCFResults = observer(() => {
       </div>
 
       <div className={style.barContentContainer}>
-        <div className={style.layoutDiv}>
+        {/* <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
@@ -40,25 +40,10 @@ const ProjectGCFResults = observer(() => {
                   narrative: 
                 </p>
               </div>
-              {/* <div className={style.pTageGroup}>
-                <p className={style.pTagFive}>
-                  Provide information on which climate risks/impacts the
-                  intervention is designed to address.
-                </p>
-                <p className={style.pTagSix}>
-                  Describe the main root causes and barriers (social, gender,
-                  fiscal, regulatory, technological, financial, ecological,
-                  institutional, etc.) that need to be addressed. 
-                </p>
-                <p className={style.pTagSeven}>
-                  Be sure to include the number of beneficiaries the project is
-                  expected to help.
-                </p>
-              </div> */}
               <Divider />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
@@ -70,7 +55,7 @@ const ProjectGCFResults = observer(() => {
             <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
                 <Button
-                  onClick={() => navigate(constRoute?.projectResultsGcfForm40)}
+                  onClick={() => navigate(constRoute?.projectResultsGcfForm32)}
                   className={style.nextButton}
                 >
                   Next
