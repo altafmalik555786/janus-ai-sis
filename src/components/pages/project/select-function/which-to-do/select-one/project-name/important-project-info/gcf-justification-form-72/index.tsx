@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -11,13 +11,31 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+import { useStore } from "@stores/root-store";
 
 const gcfJustificationForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
 
-  const onFormSubmit = (values) => {
-    navigate(constRoute?.gcfJustificationResults90);
+  const {
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+  } = useStore(null);
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const onFormSubmit = async(values) => {
+    const question ={
+      q12a: values?.q12a||'',
+      q12b: values?.q12b||'',
+      q12c: values?.q12c||''
+    }
+    const payload = {
+      section: `C_2_72`,
+      questions: question,
+      project_name: projectName || ''
+    }
+    const response = await conceptNote(payload)
+    if(response?.response){
+    navigate(constRoute?.gcfJustificationResults90,  { state: { response: response?.response} });
+    }
   };
 
   return (
@@ -81,7 +99,7 @@ const gcfJustificationForm = observer(() => {
               >
                 <Form.Item
                   label="12a) Explain why the project requires GCF funding, i.e. explaining why this is not financed by the public and/ or private sector(s) of the country.*"
-                  name={"firstField"}
+                  name={"12a"}
                   rules={[
                     {
                       required: true,
@@ -98,7 +116,7 @@ const gcfJustificationForm = observer(() => {
                 </Form.Item>
                 <Form.Item
                   label="12b) Describe alternative funding options for the same activities being proposed."
-                  name={"secondField"}
+                  name={"12b"}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -110,7 +128,7 @@ const gcfJustificationForm = observer(() => {
                 </Form.Item>
                 <Form.Item
                   label="12c) Justify the rationale and level of concessionality of the GCF financial instrument(s) as well as how this will be passed on to the end-users and beneficiaries."
-                  name={"lastField"}
+                  name={"12c"}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -124,7 +142,7 @@ const gcfJustificationForm = observer(() => {
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
+                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
                 </Button>
               </Form>

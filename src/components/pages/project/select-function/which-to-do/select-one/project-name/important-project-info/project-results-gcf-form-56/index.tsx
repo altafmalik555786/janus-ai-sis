@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -11,13 +11,29 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+import { useStore } from "@stores/root-store";
 
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
+  const {
+    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+  } = useStore(null);
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
 
-  const onFormSubmit = (values) => {
-    navigate(constRoute?.projectResultsGcfResults64);
+  const onFormSubmit = async(values) => {
+    const question ={
+      q11: values?.q11||'',
+    }
+    const payload = {
+      section: `B_3_56`,
+      questions: question,
+      project_name: projectName || ''
+    }
+    const response = await conceptNote(payload)
+    if(response?.response){
+    navigate(constRoute?.projectResultsGcfResults64,  { state: { response: response?.response} });
+    }
   };
 
   return (
@@ -77,7 +93,7 @@ const ProjectGCFForm = observer(() => {
               >
                 <Form.Item
                   label="11. Briefly Discuss The Project’s Efficiency and Effectiveness."
-                  name={"firstField"}
+                  name={"q11"}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -92,7 +108,7 @@ const ProjectGCFForm = observer(() => {
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button htmlType="submit" className={style.nextButton}>
+                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
                 </Button>
               </Form>
