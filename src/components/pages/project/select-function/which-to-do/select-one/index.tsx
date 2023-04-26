@@ -16,7 +16,7 @@ const SelectOne = observer(() => {
       navigate: () => navigate(constRoute?.projectName),
     },
     {
-      title: "Open an existing Concept Note Project",
+      title: "Open an Existing Concept Note Project",
       status: "",
     },
   ];

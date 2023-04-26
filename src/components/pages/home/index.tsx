@@ -14,7 +14,7 @@ const Home = observer(() => {
         <Col md={6} xs={2}></Col>
         <Col md={12} xs={20} className={style.homePageContainerCol}>
           <div className={style.homePageContainer}>
-            <h1>Welcome to Climate Finance Copilot</h1>
+            <h1>Welcome to Climate Finance Co-pilot</h1>
             <div className={style.paraContainer}>
               <p>Your expert advisor for all things climate finance.</p>
               <p>Start by selecting one of the options below.</p>
