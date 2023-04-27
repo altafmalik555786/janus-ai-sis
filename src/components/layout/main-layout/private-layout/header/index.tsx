@@ -3,24 +3,21 @@ import { Dropdown, Menu, Row, Space } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  DownOutlined,
-  MenuOutlined,
-} from "@ant-design/icons";
+import { DownOutlined, MenuOutlined } from "@ant-design/icons";
 import useWindowSize from "@utils/hooks/useWindowSize";
 import type { MenuProps } from "antd";
 import style from "./style.module.scss";
 import { observer } from "mobx-react";
 import { resetStore, useStore } from "@stores/root-store";
 import CustomButton from "@components/common-components/custom-button";
-import LogoutIcon from '@assets/icons/log-out.png'
+import LogoutIcon from "@assets/icons/log-out.png";
 
 const Header = observer(() => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState("/home");
   const {
-    user: {loadUserInfo, getCurrentUserData },
+    user: { loadUserInfo, getCurrentUserData },
   } = useStore(null);
   const onLogout = () => {
     resetStore();
@@ -32,9 +29,9 @@ const Header = observer(() => {
   // const handleLoadUserInfoDetal=async()=>{
   //  await loadUserInfo(navigate)
   // }
-// useEffect(()=>{
-//     handleLoadUserInfoDetal()
-// }, [navigate])
+  // useEffect(()=>{
+  //     handleLoadUserInfoDetal()
+  // }, [navigate])
   useEffect(() => {
     if (data < 855) {
       setCollapsed(true);
@@ -76,8 +73,10 @@ const Header = observer(() => {
   const dropdownMenu = (
     <div className={style.profileDropDonwMenu}>
       <div className={style.userData}>
-        <b>{`${getCurrentUserData?.firstname || ' '}  ${getCurrentUserData?.lastname|| ''}`}</b>
-        <p>{getCurrentUserData?.email || ''}</p>
+        <b>{`${getCurrentUserData?.firstname || " "}  ${
+          getCurrentUserData?.lastname || ""
+        }`}</b>
+        <p>{getCurrentUserData?.email || ""}</p>
       </div>
 
       <Menu>
@@ -142,7 +141,7 @@ const Header = observer(() => {
 
         <ul className={style.rightMenuHeader}>
           <li className={style.userProfileDropDownContainer}>
-            <Row  className={style.userProfileDropDownWrapper}>
+            <Row className={style.userProfileDropDownWrapper}>
               <CustomButton
                 title="Add billing info"
                 className={style.billingInfo}
@@ -150,7 +149,9 @@ const Header = observer(() => {
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className={style.spaceUserProfile}>
-                    <span className={style.profileUserNameText}>Hi, {getCurrentUserData?.firstname|| ' '}</span>
+                    <span className={style.profileUserNameText}>
+                      Hi, {getCurrentUserData?.firstname || " "}
+                    </span>
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
                     </span>

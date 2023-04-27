@@ -40,7 +40,7 @@ const ExistingProject = observer(() => {
         dataIndex: 'test',
         render: (_, data)=>{
           return <div>
-            {data?.status=='Complete'? <div  className={style.completeClass}>{data?.status}</div> : <div className={style.inprocessClass}>{data?.status}</div>}
+            {data?.status==='Complete'? <div  className={style.completeClass}>{data?.status}</div> : <div className={style.inprocessClass}>{data?.status}</div>}
           </div>
         }
       },
