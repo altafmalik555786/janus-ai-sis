@@ -29,7 +29,7 @@ const Home = observer(() => {
                 </div>
               </Col>
               <Col md={12} xs={24} sm={24}>
-                <div className={style.existingProject}>
+                <div onClick={() => navigate(constRoute?.existingProject)} className={style.existingProject}>
                   <h4>Open Existing Project</h4>
                 </div>
               </Col>

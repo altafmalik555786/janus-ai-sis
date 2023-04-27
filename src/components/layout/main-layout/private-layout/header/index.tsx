@@ -29,14 +29,12 @@ const Header = observer(() => {
     navigate(constRoute.login);
   };
   const data = useWindowSize().width;
-  const handleLoadUserInfoDetal=async()=>{
-   await loadUserInfo()
-  }
-useEffect(()=>{
-  if(!getCurrentUserData?.email||!getCurrentUserData?.firstname||!getCurrentUserData?.lastname){
-    handleLoadUserInfoDetal()
-  }
-}, [])
+  // const handleLoadUserInfoDetal=async()=>{
+  //  await loadUserInfo(navigate)
+  // }
+// useEffect(()=>{
+//     handleLoadUserInfoDetal()
+// }, [navigate])
   useEffect(() => {
     if (data < 855) {
       setCollapsed(true);
@@ -135,7 +133,7 @@ useEffect(()=>{
               className={style.menuOutlinedIcon}
             />
           )}
-          <Link className={style.welcomeText} to={constRoute?.dashboard}>
+          <Link className={style.welcomeText} to={constRoute?.home}>
             <img src={welcomeLogo} alt="logo" />
           </Link>
         </div>
