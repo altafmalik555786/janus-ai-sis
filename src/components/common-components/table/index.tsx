@@ -33,6 +33,7 @@ interface Props extends TableProps<any> {
   setResetTable?: React.Dispatch<React.SetStateAction<boolean>>;
   setTotalRecordRemaining?: React.Dispatch<React.SetStateAction<number>>;
   setPageNumber?: React.Dispatch<React.SetStateAction<number>>;
+  isShowHeader?: boolean;
 }
 
 interface TableResponse {
@@ -53,6 +54,7 @@ const Table = observer(
         setPageNumber,
         responseCountParam = "",
         refreshTable = false,
+        isShowHeader=true,
         columns,
         queryParam,
         resetTable,
@@ -228,6 +230,7 @@ const Table = observer(
             pagination={false}
             className={style.table}
             onChange={handleTableChange}
+            showHeader={isShowHeader}
             colSpan={props?.colSpan}
             scroll={{ x: "auto" }}
             {...props}

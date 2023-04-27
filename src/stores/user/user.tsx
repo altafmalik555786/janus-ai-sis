@@ -65,9 +65,15 @@ export const user = types
         const res = yield userApi.onUserLogin(data);
           localStorage.setItem("token", res?.jwt_token);
           if(res?.jwt_token){
-           loadUserInfo().then(() => {
-            notification.success("Signed in successfully");
-            navigate(`${constRoute.home}`);
+           loadUserInfo().then((data) => {
+            if(data?.data?.error?.includes('Invalid token')){
+              catchError(data, "loadUserInfo");  
+              navigate(`${constRoute.login}`);
+            } else{
+              notification.success("Signed in successfully");
+              navigate(`${constRoute.home}`);
+            }
+            
           });
          
       }
@@ -173,7 +179,7 @@ export const user = types
     const loadUserInfo = flow(function* (navigate = null) {
       self.loadingCurrentUser = true;
       let response = null;
-      self.currentUserData =null;
+      // self.currentUserData =null;
       try {
         self.loadingCurrentUser = true;
         const res = yield userApi.getCurrentUserDetails();
@@ -182,7 +188,7 @@ export const user = types
       } catch (error) {
         catchError(error, "loadUserInfo");
         response = error.response;
-        if (response?.status === 404) {
+        if (error?.response?.data?.error?.includes('Invalid token')) {
           onLogOutClearAll(navigate);
         }
       } finally {

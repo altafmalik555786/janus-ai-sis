@@ -6,12 +6,14 @@ import { Button, Form, Input, Spin } from "antd";
 import { useStore } from "@stores/root-store";
 import { constRoute } from "@utils/route";
 import { useNavigate } from "react-router-dom";
+import { notification } from "@utils/notifications";
+import { catchError } from "@utils/common-functions";
 
 const VerifyEmail = observer(() => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const {
-    user: { isLoadingSignup, onSignUpUser, verificationCode },
+    user: { isLoadingSignup, onSignUpUser, verificationCode, loadUserInfo },
   } = useStore(null);
 
   const onFormSubmit = async (values) => {
@@ -19,8 +21,19 @@ const VerifyEmail = observer(() => {
     if (values.code === verificationCode) {
       const res = await onSignUpUser(signupData);
       localStorage.removeItem("signupPayload");
-      if (res) {
-        navigate(constRoute?.login);
+      if(res?.jwt_token){
+        localStorage.setItem("token", res?.jwt_token);
+        setTimeout(() => {
+          loadUserInfo().then((data) => {
+        if(data?.data?.error?.includes('Invalid token')){
+          catchError(data, "loadUserInfo");  
+          navigate(`${constRoute.login}`);
+        } else{
+          navigate(`${constRoute.home}`);
+}
+           
+           });
+        }, 1000);
       } else {
         navigate(constRoute?.signup);
       }
