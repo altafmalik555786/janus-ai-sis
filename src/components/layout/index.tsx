@@ -2,11 +2,12 @@ import { observer } from "mobx-react-lite";
 import PublicLayout from "./main-layout/public-layout";
 import PrivateLayout from "./main-layout/private-layout";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { useStore } from "@stores/root-store";
 const DefaultLayout = observer(() => {
   const navigate = useNavigate()
+  const location = useLocation();
  const [isToken, setIsToken] = useState(localStorage.getItem("token"))
  const {
   user: {loadUserInfo, getCurrentUserData },
@@ -25,8 +26,9 @@ const DefaultLayout = observer(() => {
   const handleLoadUserInfoDetal=async()=>{
     await loadUserInfo(navigate)
    }
+   console.log('=====', location?.pathname)
  useEffect(()=>{
-     handleLoadUserInfoDetal()
+  if(!location.pathname?.includes(constRoute.login)&& location.pathname!=='/'&&!location.pathname?.includes(constRoute.signup)&&!location.pathname?.includes(constRoute.verifyEmail)) handleLoadUserInfoDetal()
  }, [navigate])
   return !(isToken) && <PublicLayout /> || <PrivateLayout /> ;
 });
