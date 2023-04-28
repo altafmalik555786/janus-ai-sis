@@ -8,32 +8,6 @@ setOpenModal?: any;
 }
 
 const SignupTrialModal: React.FC<modalProps> = ({open, setOpenModal}) => {
-  //   const showModal = () => {
-  //     setIsModalOpen(true);
-  //   };
-
-  //   const handleOk = () => {
-  //     setIsModalOpen(false);
-  //   };
-
-  //   const handleCancel = () => {
-  //     setIsModalOpen(false);
-  //   };
-
-  // onOk={handleOk} onCancel={handleCancel}
-
-  // useEffect(() => {
-  //   isModalOpen();
-  // }, [openModal])
-
-  // const isModalOpen = () => {
-  //   localStorage.getItem('trialModal')
-  //   if (open === 'true') {
-  //     setOpenModal(true)
-  //   }else{
-  //     setOpenModal(false)
-  //   }
-  // }
 
   return (
     <Modal title="" footer={null} open={open} onCancel={() => {
