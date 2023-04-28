@@ -39,6 +39,7 @@
         width: auto;
         margin: 5px 5px;
         padding: 0px 16px;
+        font-size: 18px;
 
         &::after {
           border: none;
@@ -47,7 +48,7 @@
 
       :global(.ant-menu-item-selected) {
         font-family: "Inter";
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 600;
         text-align: left;
         color: #000000;
