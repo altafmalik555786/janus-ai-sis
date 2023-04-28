@@ -26,7 +26,6 @@ const DefaultLayout = observer(() => {
   const handleLoadUserInfoDetal=async()=>{
     await loadUserInfo(navigate)
    }
-   console.log('=====', location?.pathname)
  useEffect(()=>{
   if(!location.pathname?.includes(constRoute.login)&& location.pathname!=='/'&&!location.pathname?.includes(constRoute.signup)&&!location.pathname?.includes(constRoute.verifyEmail)) handleLoadUserInfoDetal()
  }, [navigate])

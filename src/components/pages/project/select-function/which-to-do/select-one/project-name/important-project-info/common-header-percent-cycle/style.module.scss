@@ -1,8 +1,9 @@
 .contextBaselineDiv {
-  background-color: #ffffff;
+  background-color: #D7FFE540 ;
   min-height: 74px;
   display: flex;
   justify-content: space-between;
+  border: 1px solid #EAEBF0;
   padding: 0px 20px;
 
   :global(.ant-col) {
