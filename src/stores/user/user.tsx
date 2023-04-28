@@ -28,6 +28,7 @@ export const user = types
     loadExistingProject: types.optional(types.boolean, false), 
     loadingDeleteRecord: types.optional(types.boolean, false), 
     projectList: types.maybeNull(types.string),
+    loadingGenerateReport: types.optional(types.boolean, false), 
   })
   .views((self) => ({
     get getUserInfo() {
@@ -68,6 +69,9 @@ export const user = types
     },
     get getLoadingExistingProject(){
       return toJS(self.loadExistingProject)
+    },
+    get getLoadingGenerateReport (){
+      return toJS(self.loadingGenerateReport)
     }
   }))
   .actions((self) => {
@@ -252,6 +256,26 @@ export const user = types
         return response;
       }
     });
+    const generateReport = flow(function* (data, navigate=null) {
+      self.loadingGenerateReport = true;
+      let response = null;
+      try {
+        const res = yield userApi.onGenerateProject(data);
+        console.log('=====resfdsdfsf', res)
+        if(res?.message?.includes('project deleted')){
+          notification.success('Generated Report');
+        }
+        response = res;
+      } catch (error) {
+        catchError(error, "generateReport");
+        if (error?.response?.data?.error?.includes('Invalid token') || error?.response?.data?.error?.includes('Token has expired')) {
+          onLogOutClearAll(navigate);
+        }
+      } finally {
+        self.loadingGenerateReport = false;
+        return response;
+      }
+    });
 
     return {
       onUserLogin,
@@ -263,7 +287,8 @@ export const user = types
       projectSave,
       conceptNote,
       loadGetExistingProject,
-      projectDelete
+      projectDelete, 
+      generateReport
     };
   });
 
