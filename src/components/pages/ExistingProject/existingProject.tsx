@@ -74,7 +74,7 @@ const ExistingProject = observer(() => {
       <div className={style.projectHeading}>My Projects</div>
       <p className={style.firstdivaragraph}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <p  className={style.secondParahGraph}> Grade a GCF Concept Note or Proposal</p>
-      {/* <div className={style.scrollClass}> */}
+      <div className={style.responsiveTable}>
        <Table
         responseData={dummyArray}
         className={style.tableStyle}
@@ -83,7 +83,7 @@ const ExistingProject = observer(() => {
         checkPagination={false}
         isShowHeader= {false}
       />
-      {/* </div> */}
+      </div>
       <p className={style.thirdPara}> Draft a GCF Concept Note or Proposal
         </p>
         <p className={style.lastPara}>Climate Rationale Advisor</p>
