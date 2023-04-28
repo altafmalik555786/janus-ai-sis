@@ -21,6 +21,7 @@ const ExistingProject = observer(() => {
       {
         title: 'test',
         dataIndex: 'test',
+        width: 5,
         render: ()=>{
           return<img src={folderIcon}/>
         },
@@ -28,12 +29,20 @@ const ExistingProject = observer(() => {
       {
         title: 'para',
         dataIndex: 'para',
-        render: ColTextCheck,
+        render: (_, data)=>{
+          return <div>
+           <div className={style.tablepara}>{_}</div>
+          </div>
+        }
       },
       {
         title: 'Citerion',
         dataIndex: 'citerion',
-        render: ColTextCheck,
+        render: (_)=>{
+          return <div className={style.cretionPara}>
+            {_}
+          </div>
+        }
       },
       {
         title: 'test',
@@ -46,8 +55,8 @@ const ExistingProject = observer(() => {
       },
 
       {
-        width: 100,
         title: 'test',
+        width: 25,
         render: (_, row) => {
           return (
             <div className={style.flexWrapper} >
@@ -62,7 +71,7 @@ const ExistingProject = observer(() => {
   return (
     <div className={style.homePagePageContainer}>
       <div className={style.responsive}>
-      <div className={style.projectHeading}>Project</div>
+      <div className={style.projectHeading}>My Projects</div>
       <p className={style.firstdivaragraph}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <p  className={style.secondParahGraph}> Grade a GCF Concept Note or Proposal</p>
       {/* <div className={style.scrollClass}> */}

@@ -30,9 +30,11 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  padding-top: 0px;
+  margin-top: 23px;
   line-height: 16px;
   color: #000000;
-  padding: 23px 10px 10px 0px;
+  // padding: 23px 10px 10px 0px;
   // width:100%;
   // width: 
   // padding-top: 23px;
@@ -43,12 +45,15 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
-  padding-top: 30px;
+  padding-top: 0px;
+  margin-top: 42px;
   color: #000000;
+  margin-bottom: 19px;
  }
  .flexWrapper{
   display: flex;
   gap: 8px;
+  margin-right: 26px;
   
  }
 //  .scrollClass{
@@ -65,6 +70,8 @@
   font-size: 16px;
   line-height: 16px;
   color: #000000;
+  margin-top: 42px;
+  padding-top: 0px;
  }
  .lastPara{
   font-family: 'Inter';
@@ -73,7 +80,8 @@
   font-size: 16px;
   line-height: 16px;
   color: #000000;
-  padding-top: 100px;
+ margin-top: 164px;
+ padding-top: 0px;
  }
  .completeClass{
   background: #C7FEC6;
@@ -103,4 +111,20 @@ color: #039700;
  }
 
 
+}
+.tablepara{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #000000;
+}
+.cretionPara{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2E2E2E;
 }
