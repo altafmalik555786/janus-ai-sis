@@ -15,7 +15,7 @@ const ExistingProject = observer(() => {
   const navigate = useNavigate();
   const [data, setData] = useState(null)
   const {
-    user: {loadGetExistingProject, projectDelete, getProjectListData, getLoadingExistingProject, getLoadingDeleteRecord },
+    user: {loadGetExistingProject, projectDelete, generateReport, getProjectListData, getLoadingGenerateReport, getLoadingExistingProject, getLoadingDeleteRecord },
   } = useStore(null);
   const [openModel, setOpenModel] = useState(false)
   const [projectData, setProjectData] = useState([])
@@ -39,6 +39,14 @@ const ExistingProject = observer(() => {
             handleLoadProject()
             setOpenModel(false)
     }    
+  }
+  const handleGenerateReport = async(data)=>{
+    console.log('called')
+    const payload={
+      "project_name": data?.projectName,
+      "functionality":"concept note"
+    }
+    await generateReport(payload, navigate)
   }
   useEffect(()=>{
     handleLoadProject()
@@ -93,7 +101,9 @@ const ExistingProject = observer(() => {
              <img src={trashIcon} className={style.imgClass} onClick={()=>{
               setData(data);
               setOpenModel(true)}}/>
-             <img src={uploadIcon} className={style.imgClass}/>
+             <img style={{pointerEvents: getLoadingGenerateReport ?'none': 'auto'}} src={uploadIcon} className={style.imgClass} onClick={()=>{
+              handleGenerateReport(data);
+             }}/>
             </div>
           );
         },
