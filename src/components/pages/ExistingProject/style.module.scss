@@ -14,6 +14,11 @@
       padding-right: 188px; 
     }
   }
+  @media only screen and (min-width: 1300px) {
+    .responsiveTable {
+    width: 1104px
+    }
+  }
 .projectHeading{
   
   font-family: 'Inter';
@@ -86,7 +91,7 @@
  .completeClass{
   background: #C7FEC6;
 border-radius: 32px;
-padding: 8px 10px;
+height: 23px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -99,7 +104,7 @@ color: #039700;
  .inprocessClass{
   background: #FFEBC5;
   border-radius: 32px;
-  padding: 8px 10px;
+  height: 23px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
