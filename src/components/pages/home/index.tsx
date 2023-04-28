@@ -4,10 +4,25 @@ import { Col, Row } from "antd";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import Footer from "./footer";
+import SignupTrialModal from "@components/layout/main-layout/public-layout/signup-trial-modal";
+import { useEffect, useState } from "react";
 
 const Home = observer(() => {
   const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState(false)
 
+
+  useEffect(() => {
+    isModalOpen();
+  }, [openModal])
+
+  const isModalOpen = () => {
+    if (localStorage.getItem('trialModal') === 'true') {
+      setOpenModal(true)
+    }else{
+      setOpenModal(false)
+    }
+  }
   return (
     <div className={style.homePagePageContainer}>
       <Row>
@@ -38,6 +53,7 @@ const Home = observer(() => {
         </Col>
         <Col md={6} xs={2}></Col>
       </Row>
+      <SignupTrialModal open={openModal} setOpenModal={setOpenModal}/>
       <Footer />
     </div>
   );

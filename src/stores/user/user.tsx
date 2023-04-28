@@ -71,6 +71,7 @@ export const user = types
               navigate(`${constRoute.login}`);
             } else{
               notification.success("Signed in successfully");
+              localStorage.setItem('trialModal', 'true')
               navigate(`${constRoute.home}`);
             }
             
