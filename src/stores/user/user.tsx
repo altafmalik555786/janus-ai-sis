@@ -188,7 +188,7 @@ export const user = types
       } catch (error) {
         catchError(error, "loadUserInfo");
         response = error.response;
-        if (error?.response?.data?.error?.includes('Invalid token')) {
+        if (error?.response?.data?.error?.includes('Invalid token') || error?.response?.data?.error?.includes('Token has expired')) {
           onLogOutClearAll(navigate);
         }
       } finally {
