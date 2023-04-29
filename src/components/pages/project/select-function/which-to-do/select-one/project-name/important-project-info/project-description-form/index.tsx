@@ -14,6 +14,7 @@ import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
 const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
+  const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
@@ -40,12 +41,13 @@ const ProjectDescriptionForm = observer(() => {
       <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
 
       <div className={style.barContentContainer}>
+      {show && ( 
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
                 <p className={style.pTagFour}>Important</p>
-                <button className={style.btnClass}>
+                <button className={style.btnClass}  onClick={() => setShow(!show)}>
                   <img
                     src={CloseIcon}
                     className={style.closeIconImg}
@@ -76,7 +78,7 @@ const ProjectDescriptionForm = observer(() => {
             </div>
           </div>
         </div>
-
+     )}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -89,7 +91,7 @@ const ProjectDescriptionForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
-              >
+              > 
                 <Form.Item
                   label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."
                   name={"q4"}

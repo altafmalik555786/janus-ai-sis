@@ -15,6 +15,7 @@ import { useStore } from "@stores/root-store";
 
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
+  const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
@@ -44,12 +45,13 @@ const ProjectGCFForm = observer(() => {
     <CommonHeaderPercentCycle  percent={'48%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
 
       <div className={style.barContentContainer}>
+      {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
                 <p className={style.pTagFour}>Quick Tips</p>
-                <button className={style.btnClass}>
+                <button className={style.btnClass} onClick={() => setShow(!show)}>
                   <img
                     src={CloseIcon}
                     className={style.closeIconImg}
@@ -78,7 +80,7 @@ const ProjectGCFForm = observer(() => {
             </div>
           </div>
         </div>
-
+      )}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>

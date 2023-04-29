@@ -91,7 +91,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 140%;
             letter-spacing: -0.006em;
             color: #000000;
@@ -167,7 +167,7 @@
             font-weight: 500;
             // width: 92px;
             height: 40px;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 27px;
             border: none;
             color: #ffffff;
@@ -212,7 +212,7 @@
               .saveBtn {
                 width: 116px;
                 height: 40px;
-                color: #2E2E2E;
+                color: #2E2E2E; 
                 white-space: nowrap;
                 background: #ECECF1;
                 border-radius: 5px;
@@ -249,11 +249,13 @@
           @media only screen and (max-width: 425px) {
             .nextButtonDiv {
               .nextButton {
+               
                 &:disabled {
                   background-color: gray;
                 }
                 height: 40px;
                 width: 114px;
+               
               }
             }
           }
@@ -289,8 +291,10 @@
   min-height: 83px !important;
   max-height: 83px !important;
   width: 50% !important;
+  font-family: "Inter";
   font-size: 18px !important;
 }
 .fontSizeInput{
   font-size: 16px !important;
+  font-family: "Inter";
 }
