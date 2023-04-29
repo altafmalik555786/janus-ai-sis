@@ -47,9 +47,15 @@
         .formData {
           :global(.ant-input) {
             border: 1px solid #00b840;
+            font-size: 18px !important;
           }
           :global(.ant-form-item-explain-error) {
             text-align: left;
+          }
+          :global(.ant-form-item-label > label) {
+            
+            font-size: 18px;
+            
           }
         }
 

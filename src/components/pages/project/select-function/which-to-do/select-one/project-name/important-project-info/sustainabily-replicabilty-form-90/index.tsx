@@ -106,7 +106,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.*"
+                  label= {<span>{'13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.'}<span style={{color: 'red'}}>*</span></span>}
                   name={"13a"}
                   rules={[
                     {
@@ -119,7 +119,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                     inputType="textarea"
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
-                    className={style.emailInput}
+                    className={style.fontSizeInput}
                   />
                 </Form.Item>
                 <Form.Item
@@ -131,7 +131,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
-                    className={style.emailInput}
+                    className={style.fontSizeInput}
                   />
                 </Form.Item>
               

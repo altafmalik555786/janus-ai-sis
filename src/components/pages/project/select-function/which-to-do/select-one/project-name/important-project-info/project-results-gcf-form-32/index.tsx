@@ -90,7 +90,7 @@ const ProjectGCFForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="8. Briefly Describe The Sustainable Development Potential of the Project (< 300 words)."
+                  label= {<span>{`8. Briefly Describe The Sustainable Development Potential of the Project (< 300 words). `}<span style={{color: 'red'}}>*</span></span>}
                   name={"q8"}
                   rules={[
                     { required: true, message: "This field is required" },
@@ -101,7 +101,7 @@ const ProjectGCFForm = observer(() => {
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
-                    className={style.emailInput}
+                    className={style.fontSizeInput}
                   />
                 </Form.Item>
                 {/* <Form.Item

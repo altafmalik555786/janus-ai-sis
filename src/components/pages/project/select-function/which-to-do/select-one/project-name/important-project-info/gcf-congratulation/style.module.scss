@@ -66,10 +66,10 @@
   }
 
   .goBtn {
-    height: 50px;
-    width: 80px;
-    color: #808080;
-    background-color: transparent;
+    // height: 50px;
+    // width: 80px;
+    color: #2e2e2e;
+    background: #ececf1;
     border-radius: 5px;
     cursor: pointer;
     border: none;
@@ -78,7 +78,14 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    width: 116px;
+    height: 40px;
+    margin-top: 20px;
     img {
       margin-top: 1px;
     }

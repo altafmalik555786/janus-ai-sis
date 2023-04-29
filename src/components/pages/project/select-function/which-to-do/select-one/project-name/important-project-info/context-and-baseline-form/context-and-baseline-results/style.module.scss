@@ -141,7 +141,7 @@
             font-style: normal;
             font-weight: 500;
             width: 92px;
-            height: 50px;
+            height: 40px;
             font-size: 15px;
             line-height: 27px;
             border: none;
@@ -152,7 +152,7 @@
           }
 
           .reGenerate {
-            height: 50px;
+            height: 40px;
             width: 134px;
             font-family: "Inter";
             font-style: normal;
@@ -174,12 +174,12 @@
             .twoBtnDiv {
               display: flex;
               justify-content: center;
-
+              gap: 11px;
               .goBtn {
-                height: 50px;
-                width: 80px;
-                color: #808080;
-                background-color: transparent;
+                // height: 50px;
+                // width: 80px;
+                color: #2e2e2e;
+                background: #ececf1;
                 border-radius: 5px;
                 cursor: pointer;
                 border: none;
@@ -188,18 +188,23 @@
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
-
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 27px;
+                width: 116px;
+                height: 40px;
                 img {
                   margin-top: 1px;
                 }
               }
               .saveBtn {
-                height: 50px;
-                width: 90px;
+                width: 116px;
+                height: 40px;
                 color: #808080;
-                font-style: normal;
                 white-space: nowrap;
-                background-color: transparent;
+                background: #ececf1;
                 border-radius: 5px;
                 cursor: pointer;
                 border: none;
@@ -209,6 +214,11 @@
                 align-items: center;
                 font-weight: 500;
                 font-size: 15px;
+                line-height: 27px;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
                 line-height: 27px;
               }
             }
@@ -296,8 +306,11 @@
 }
 
 .htmlContent{
-font-size: 16px;
+font-size: 18px;
 a {
   color: red;
 }
+}
+.fontSizeInput{
+  font-size: 18px !important;
 }

@@ -98,7 +98,7 @@ const gcfJustificationForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="12a) Explain why the project requires GCF funding, i.e. explaining why this is not financed by the public and/ or private sector(s) of the country.*"
+                  label= {<span>{'12a) Explain why the project requires GCF funding, i.e. explaining why this is not financed by the public and/ or private sector(s) of the country.'}<span style={{color: 'red'}}>*</span></span>}
                   name={"12a"}
                   rules={[
                     {
@@ -111,7 +111,7 @@ const gcfJustificationForm = observer(() => {
                     inputType="textarea"
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
-                    className={style.emailInput}
+                    className={style.fontsizeInput}
                   />
                 </Form.Item>
                 <Form.Item
@@ -123,7 +123,7 @@ const gcfJustificationForm = observer(() => {
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
-                    className={style.emailInput}
+                    className={style.fontsizeInput}
                   />
                 </Form.Item>
                 <Form.Item
@@ -135,7 +135,7 @@ const gcfJustificationForm = observer(() => {
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
-                    className={style.emailInput}
+                    className={style.fontsizeInput}
                   />
                 </Form.Item>
               </Form>

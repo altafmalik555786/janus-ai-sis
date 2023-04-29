@@ -21,8 +21,7 @@ const WelcomeScreen = observer(() => {
           </h1>
           <div className={style.authHeaderSubtitleWrapper} >
           <p className={style.authHeaderSubtitle}>
-            Experience a New and Transformational Way to Win Funding For Climate
-            Adaptation/Mitigation projects.
+          Experience a new and transformational way to win funding for climate adaptation/mitigation projects.
           </p>
           </div>
           <div className={style.mainButton}>

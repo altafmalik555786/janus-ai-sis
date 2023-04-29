@@ -100,7 +100,7 @@ const ProjectDescriptionForm = observer(() => {
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
                     placeholder= "Leave blank if you want Climate Finance Co-pilot to supply suggested components/outputs and subcomponents"
-                    className={style.emailInput}
+                    className={style.fontSizeInput}
                   />
                 </Form.Item>
                 <Form.Item
@@ -113,7 +113,7 @@ const ProjectDescriptionForm = observer(() => {
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
 
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested components/outputs and subcomponents"
-                    className={style.emailInput}
+                    className={style.fontSizeInput}
                   />
                 </Form.Item>
               </Form>
