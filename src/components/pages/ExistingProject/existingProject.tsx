@@ -136,12 +136,12 @@ const ExistingProject = observer(() => {
                 setOpenModel(true);
               }}
             />
-            {downloadLoading == data?.projectName ? (
+            {downloadLoading === data?.projectName ? (
               <Spin indicator={antIcon} />
             ) : (
               <img
                 style={{
-                  pointerEvents: downloadLoading == data?.projectName ? "none" : "auto",
+                  pointerEvents: downloadLoading === data?.projectName ? "none" : "auto",
                 }}
                 src={uploadIcon}
                 className={style.imgClass}
