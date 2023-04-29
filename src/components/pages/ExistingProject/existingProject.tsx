@@ -13,6 +13,7 @@ import ProjectDeleteModelData from "./projectDeleteModel";
 import { useStore } from "@stores/root-store";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { constRoute } from "@utils/route";
 
 const ExistingProject = observer(() => {
   const navigate = useNavigate();
@@ -25,15 +26,19 @@ const ExistingProject = observer(() => {
       loadGetExistingProject,
       projectDelete,
       generateReport,
+      getSingleProjectData,
       getProjectListData,
       getLoadingGenerateReport,
       getLoadingExistingProject,
       getLoadingDeleteRecord,
+      setProjectName
+      
     },
   } = useStore(null);
   const [openModel, setOpenModel] = useState(false);
   const [projectData, setProjectData] = useState(null);
   const [downloadLoading, setDownloadLoading] = useState("");
+  const [editLoading, setEditLoading]=  useState('')
   const handleLoadProject = async () => {
     setProjectData(null);
     const result = await loadGetExistingProject(navigate);
@@ -75,7 +80,17 @@ const ExistingProject = observer(() => {
   useEffect(() => {
     handleLoadProject();
   }, []);
-
+const handleGetData =async (item) => {
+  setProjectName(item?.projectName)
+  const payload = {
+    project_name: item?.projectName,
+    section:"B_1_0",
+    functionality: "concept note",
+  };
+  await getSingleProjectData(payload, navigate);
+  setEditLoading('');
+  navigate(constRoute?.contextAndBaselineForm, { state: { projectName: data?.projectName, isEdit: true} })
+}
   const columns = [
     {
       title: "test",
@@ -127,7 +142,13 @@ const ExistingProject = observer(() => {
       render: (_, data) => {
         return (
           <div className={style.flexWrapper}>
-            <img src={pencilIcon} className={style.imgClass} />
+            {editLoading=== data?.projectName ? (
+              <Spin indicator={antIcon} />
+            ) : (<img src={pencilIcon} className={style.imgClass} onClick={()=>{
+              setEditLoading(data?.projectName)
+              handleGetData(data)
+              // navigate(constRoute?.contextAndBaselineForm, { state: { projectName: data?.projectName, isEdit: true} })
+            }}/>)}
             <img
               src={trashIcon}
               className={style.imgClass}

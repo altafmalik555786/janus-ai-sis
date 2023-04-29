@@ -75,7 +75,7 @@ if(response?.message?.includes('project saved successfully')){
         </div>
         <div className={style.nextButtonDiv}>
           <Button loading={isLoadingProjectSave} disabled={isLoadingProjectSave} onClick={nextSubmitHandler}  className={isChecked ? style.nextButton : style.nextDisableBtn}>
-            Nextt
+            Next
           </Button>
         </div>
       </div>
