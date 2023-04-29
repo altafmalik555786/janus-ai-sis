@@ -260,10 +260,9 @@ export const user = types
       let response = null;
       try {
         const res = yield userApi.onGenerateProject(data);
-        console.log('=====resfdsdfsf', res)
-        if(res?.message?.includes('project deleted')){
-          notification.success('Generated Report');
-        }
+        // if(res?.message?.includes('project deleted')){
+        //   notification.success('Generated Report');
+        // }
         response = res;
       } catch (error) {
         catchError(error, "generateReport");

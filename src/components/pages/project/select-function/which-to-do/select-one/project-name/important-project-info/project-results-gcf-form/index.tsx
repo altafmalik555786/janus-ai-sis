@@ -90,7 +90,7 @@ const ProjectDescriptionForm = observer(() => {
                 layout="vertical"
               >
                 <Form.Item
-                  label="6. Briefly Describe The Impact Potential of the Project.*"
+                  label= {<span>6. Briefly Describe The Impact Potential of the Project.<span style={{color:'red'}}>*</span></span>}
                   name={"q6"}
                   rules={[
                     { required: true, message: "This field is required" },
@@ -99,8 +99,7 @@ const ProjectDescriptionForm = observer(() => {
                   <CommonInput
                     inputType="textarea"
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}
-
-                    className={style.emailInput}
+                    className={style.fontSizeInput}
                   />
                 </Form.Item>
                 {/* <Form.Item

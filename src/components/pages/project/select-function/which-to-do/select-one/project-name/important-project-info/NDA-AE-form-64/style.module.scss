@@ -65,6 +65,7 @@
               font-size: 18px;
               font-weight: 600;
               padding-left: 10px;
+              margin-top: 30px;
             }
             .btnClass {
               background-color: #ffffff;
@@ -174,8 +175,8 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 500;
-            width: 92px;
-            height: 50px;
+            // width: 92px;
+            height: 40px;
             font-size: 15px;
             line-height: 27px;
             border: none;
@@ -193,12 +194,12 @@
             .twoBtnDiv {
               display: flex;
               justify-content: center;
-
+              gap: 11px;
               .goBtn {
-                height: 50px;
-                width: 80px;
-                color: #808080;
-                background-color: transparent;
+                // height: 50px;
+                // width: 80px;
+                color: #2e2e2e;
+                background: #ececf1;
                 border-radius: 5px;
                 cursor: pointer;
                 border: none;
@@ -207,19 +208,24 @@
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
-
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 27px;
+                width: 116px;
+                height: 40px;
                 img {
                   margin-top: 1px;
                 }
               }
               .saveBtn {
-                height: 50px;
-                width: 90px;
+                width: 116px;
+                height: 40px;
                 color: #808080;
-                font-style: normal;
-                background-color: transparent;
-                border-radius: 5px;
                 white-space: nowrap;
+                background: #ececf1;
+                border-radius: 5px;
                 cursor: pointer;
                 border: none;
                 display: flex;
@@ -228,6 +234,11 @@
                 align-items: center;
                 font-weight: 500;
                 font-size: 15px;
+                line-height: 27px;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
                 line-height: 27px;
               }
             }
@@ -281,4 +292,7 @@
       }
     }
   }
+}
+.fontSizeInput{
+  font-size: 16px !important;
 }

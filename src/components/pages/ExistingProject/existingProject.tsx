@@ -11,6 +11,8 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ProjectDeleteModelData from "./projectDeleteModel";
 import { useStore } from "@stores/root-store";
+import FileSaver from 'file-saver';
+
 const ExistingProject = observer(() => {
   const navigate = useNavigate();
   const [data, setData] = useState(null)
@@ -41,12 +43,13 @@ const ExistingProject = observer(() => {
     }    
   }
   const handleGenerateReport = async(data)=>{
-    console.log('called')
     const payload={
       "project_name": data?.projectName,
       "functionality":"concept note"
     }
-    await generateReport(payload, navigate)
+ const result=   await generateReport(payload, navigate)
+ const filename = result?.headers['content-disposition']?.split('filename=')[1];
+      FileSaver.saveAs(result.data, filename);
   }
   useEffect(()=>{
     handleLoadProject()
