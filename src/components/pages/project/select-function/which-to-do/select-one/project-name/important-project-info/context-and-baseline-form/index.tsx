@@ -13,40 +13,55 @@ import { notification } from "@utils/notifications";
 import { useStore } from "@stores/root-store";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 
-const ContextAndBaselineForm = observer(() => {
+const ContextAndBaselineForm = observer(() => { 
   const [form] = useForm();
+  const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData, getLoadingConceptNote, getProjectDataList, conceptNote },
+    user: {
+      getProjectNameData,
+      getLoadingConceptNote,
+      getProjectDataList,
+      conceptNote,
+    },
   } = useStore(null);
-  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
-  const onFormSubmit = async(values) => {
-    const question ={
-      q1: values?.q1||'',
-      q2: values?.q2||'',
-      q3: values?.q3||''
-    }
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
+  const onFormSubmit = async (values) => {
+    const question = {
+      q1: values?.q1 || "",
+      q2: values?.q2 || "",
+      q3: values?.q3 || "",
+    };
     const payload = {
       section: `B_1_0`,
       questions: question,
-      project_name: projectName || ''
-    }
-    const response = await conceptNote(payload)
-    if(response?.response){
-    navigate(constRoute?.contextAndBaselineResults,  { state: { response: response?.response} });
+      project_name: projectName || "",
+    };
+    const response = await conceptNote(payload);
+    if (response?.response) {
+      navigate(constRoute?.contextAndBaselineResults, {
+        state: { response: response?.response },
+      });
     }
   };
   return (
     <div className={style.mainContainer}>
-     <CommonHeaderPercentCycle percent={'0%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
+      <CommonHeaderPercentCycle
+        percent={"0%"}
+        conceptNoteSection={"B.1 Context and Baseline"}
+      />
 
       <div className={style.barContentContainer}>
+      {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
                 <p className={style.pTagFour}>Important</p>
-                <button className={style.btnClass}>
+                <button
+                  className={style.btnClass}
+                  onClick={() => setShow(!show)}
+                >
                   <img
                     src={CloseIcon}
                     className={style.closeIconImg}
@@ -54,26 +69,28 @@ const ContextAndBaselineForm = observer(() => {
                   />
                 </button>
               </div>
-              <div className={style.pTageGroup}>
-                <p className={style.pTagFive}>
-                  Provide information on which climate risks/impacts the
-                  intervention is designed to address.
-                </p>
-                <p className={style.pTagSix}>
-                  Describe the main root causes and barriers (social, gender,
-                  fiscal, regulatory, technological, financial, ecological,
-                  institutional, etc.) that need to be addressed. 
-                </p>
-                <p className={style.pTagSeven}>
-                  Be sure to include the number of beneficiaries the project is
-                  expected to help.
-                </p>
-              </div>
+            
+                <div className={style.pTageGroup}>
+                  <p className={style.pTagFive}>
+                    Provide information on which climate risks/impacts the
+                    intervention is designed to address.
+                  </p>
+                  <p className={style.pTagSix}>
+                    Describe the main root causes and barriers (social, gender,
+                    fiscal, regulatory, technological, financial, ecological,
+                    institutional, etc.) that need to be addressed. 
+                  </p>
+                  <p className={style.pTagSeven}>
+                    Be sure to include the number of beneficiaries the project
+                    is expected to help.
+                  </p>
+                </div>
+              
               <Divider />
             </div>
           </div>
         </div>
-
+        )}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -87,16 +104,14 @@ const ContextAndBaselineForm = observer(() => {
                 validateMessages={validateMessages}
                 layout="vertical"
                 initialValues={{
-                  'q1': getProjectDataList?.q1 || '' ,
-                  'q2': getProjectDataList?.q2 || '' ,
-                  'q3': getProjectDataList?.q3 || '' ,
-                  
-                }} 
+                  q1: getProjectDataList?.q1 || "",
+                  q2: getProjectDataList?.q2 || "",
+                  q3: getProjectDataList?.q3 || "",
+                }}
               >
                 <Form.Item
                   label="1. Project/Programme Region or country name."
                   name={"q1"}
-                 
                 >
                   <CommonInput
                     inputType="textarea"
@@ -107,7 +122,6 @@ const ContextAndBaselineForm = observer(() => {
                 <Form.Item
                   label="2. Describe the climate vulnerabilities and impacts, GHG emissions profile, and mitigation and adaptation needs that the prospective intervention is envisaged to address."
                   name={"q2"}
-                
                 >
                   <CommonInput
                     inputType="textarea"
@@ -118,7 +132,6 @@ const ContextAndBaselineForm = observer(() => {
                 <Form.Item
                   label="3. Describe the main root causes and barriers (social, gender, fiscal, regulatory, technological, financial,   ecological, institutional, etc.) that need to be addressed."
                   name={"q3"}
-                
                 >
                   <CommonInput
                     inputType="textarea"
@@ -130,14 +143,21 @@ const ContextAndBaselineForm = observer(() => {
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
-                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
+                <Button
+                  loading={getLoadingConceptNote}
+                  disabled={getLoadingConceptNote}
+                  htmlType="submit"
+                  className={style.nextButton}
+                >
                   Submit
                 </Button>
               </Form>
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
-                  <button className={style.goBtn} onClick={() => navigate(constRoute?.contextAndBaselineForm)} >
-                    {" "}
+                  <button
+                    className={style.goBtn}
+                    onClick={() => navigate(constRoute?.importantProjectInfo)}
+                  >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button

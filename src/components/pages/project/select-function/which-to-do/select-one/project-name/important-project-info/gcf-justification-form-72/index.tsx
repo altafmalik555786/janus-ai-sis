@@ -15,6 +15,7 @@ import { useStore } from "@stores/root-store";
 
 const gcfJustificationForm = observer(() => {
   const [form] = useForm();
+  const [show, setShow] = useState(true);
   const navigate = useNavigate();
 
   const {
@@ -42,12 +43,13 @@ const gcfJustificationForm = observer(() => {
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
       <div className={style.barContentContainer}>
+      {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
               <div className={style.importantDiv}>
                 <p className={style.pTagFour}>Quick Tips</p>
-                <button className={style.btnClass}>
+                <button className={style.btnClass} onClick={() => setShow(!show)}>
                   <img
                     src={CloseIcon}
                     className={style.closeIconImg}
@@ -83,7 +85,7 @@ const gcfJustificationForm = observer(() => {
             </div>
           </div>
         </div>
-
+      )}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
