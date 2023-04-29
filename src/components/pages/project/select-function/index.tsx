@@ -17,7 +17,7 @@ const SelectFunction = observer(() => {
     },
     {
       title: "Climate Rationale Advisor",
-      status: "",
+      status: "Coming Soon",
       disable:true,
     },
     {
@@ -26,17 +26,17 @@ const SelectFunction = observer(() => {
     },
     {
       title: "Create Project Structure Plan",
-      status: "",
+      status: "Coming Soon",
       disable:true,
     },
     {
       title: "Funder Matchmaker ",
-      status: "",
+      status: "Coming Soon",
       disable:true,
     },
     {
       title: "Draft An Annex",
-      status: "",
+      status: "Coming Soon",
       disable:true,
     },
   ];
