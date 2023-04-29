@@ -117,6 +117,46 @@ class UserApi extends BaseApi {
       throw error;
     }
   };
+  onGetExistingProject = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}getProjects`, {
+        headers: { Authorization: getAuthorizationHeader() },
+        cancelToken: this.cancelToken,
+      });
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+  onDeleteProject = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}deleteProject`, data, {
+        headers: {
+          Authorization: getAuthorizationHeader(),
+          "Content-Type": "application/json",
+        },
+        cancelToken: this.cancelToken,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+  onGenerateProject = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}generateReport`, data, {
+        headers: {
+          Authorization: getAuthorizationHeader(),
+          "Content-Type": "application/json",
+        },
+        cancelToken: this.cancelToken,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
 }
 
 export default UserApi;

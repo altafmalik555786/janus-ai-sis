@@ -8,14 +8,51 @@ import pencilIcon from "../../../assets/icons/pencilIcon.png"
 import trashIcon from "../../../assets/icons/trashIcon.png"
 import uploadIcon from "../../../assets/icons/uploadIcon.png"
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import ProjectDeleteModelData from "./projectDeleteModel";
+import { useStore } from "@stores/root-store";
 const ExistingProject = observer(() => {
   const navigate = useNavigate();
-  const dummyArray=[
-    {para: 'Small Farmers of Morocco Solar Farm', citerion: '2/6 Criterion Completed', status: 'In Progress'}, 
-  {para: 'Lorem ipsum dolor sit amet', citerion: '6/6 Criterion Completed', status: 'Complete'},
-  {para: 'Lorem ipsum dolor sit amet', citerion: '3/6 Criterion Completed', status: 'In Progress'}, 
-  {para: 'Lorem ipsum dolor sit amet', citerion: '6/6 Criterion Completed', status: 'Complete'},
-]
+  const [data, setData] = useState(null)
+  const {
+    user: {loadGetExistingProject, projectDelete, generateReport, getProjectListData, getLoadingGenerateReport, getLoadingExistingProject, getLoadingDeleteRecord },
+  } = useStore(null);
+  const [openModel, setOpenModel] = useState(false)
+  const [projectData, setProjectData] = useState([])
+  const handleLoadProject= async()=>{
+    setProjectData([])
+   const result =  await loadGetExistingProject(navigate)
+   const dummyArray=[];
+   result?.projects['concept note']?.forEach(item => {
+     dummyArray?.push({'projectName': item})
+   });
+   setProjectData(dummyArray)
+  }
+  const deleteProjectData = async()=>{
+    const payload={
+      "project_name": data?.projectName,
+      "functionality":"concept note"
+    }
+    const res=  await projectDelete(payload, navigate)
+    if(res?.error?.includes('Invalid token')||res?.error?.includes('Token has expired')){}
+    else{
+            handleLoadProject()
+            setOpenModel(false)
+    }    
+  }
+  const handleGenerateReport = async(data)=>{
+    console.log('called')
+    const payload={
+      "project_name": data?.projectName,
+      "functionality":"concept note"
+    }
+    await generateReport(payload, navigate)
+  }
+  useEffect(()=>{
+    handleLoadProject()
+  }, [])
+  
+
   const columns =  [
 
       {
@@ -28,28 +65,28 @@ const ExistingProject = observer(() => {
       },
       {
         title: 'para',
-        dataIndex: 'para',
+        dataIndex: 'projectName',
         render: (_, data)=>{
           return <div>
            <div className={style.tablepara}>{_}</div>
           </div>
         }
       },
-      {
-        title: 'Citerion',
-        dataIndex: 'citerion',
-        render: (_)=>{
-          return <div className={style.cretionPara}>
-            {_}
-          </div>
-        }
-      },
+      // {
+      //   title: 'Citerion',
+      //   dataIndex: 'citerion',
+      //   render: (_)=>{
+      //     return <div className={style.cretionPara}>
+      //       {_}
+      //     </div>
+      //   }
+      // },
       {
         title: 'test',
         dataIndex: 'test',
         render: (_, data)=>{
           return <div>
-            {data?.status==='Complete'? <div  className={style.completeClass}>{data?.status}</div> : <div className={style.inprocessClass}>{data?.status}</div>}
+            {data?.status==='Complete'? <div  className={style.completeClass}>{data?.status}</div> : <div className={style.inprocessClass}>{'In Progress'}</div>}
           </div>
         }
       },
@@ -57,18 +94,23 @@ const ExistingProject = observer(() => {
       {
         title: 'test',
         width: 25,
-        render: (_, row) => {
+        render: (_, data) => {
           return (
             <div className={style.flexWrapper} >
               <img src={pencilIcon} className={style.imgClass}/>
-             <img src={trashIcon} className={style.imgClass}/>
-             <img src={uploadIcon} className={style.imgClass}/>
+             <img src={trashIcon} className={style.imgClass} onClick={()=>{
+              setData(data);
+              setOpenModel(true)}}/>
+             <img style={{pointerEvents: getLoadingGenerateReport ?'none': 'auto'}} src={uploadIcon} className={style.imgClass} onClick={()=>{
+              handleGenerateReport(data);
+             }}/>
             </div>
           );
         },
       },
     ];
   return (
+    <>
     <div className={style.homePagePageContainer}>
       <div className={style.responsive}>
       <div className={style.projectHeading}>My Projects</div>
@@ -76,19 +118,27 @@ const ExistingProject = observer(() => {
       <p  className={style.secondParahGraph}> Grade a GCF Concept Note or Proposal</p>
       <div className={style.responsiveTable}>
        <Table
-        responseData={dummyArray}
+        dataSource={projectData}
         className={style.tableStyle}
         columns={columns}
-        loading={false}
+        loading={getLoadingExistingProject}
         checkPagination={false}
         isShowHeader= {false}
       />
       </div>
-      <p className={style.thirdPara}> Draft a GCF Concept Note or Proposal
-        </p>
+      {projectData?.length ? projectData?.map((item, index)=>{
+        return <p key={index} className={style.thirdPara}>
+          {item?.projectName}
+          </p>
+      }): 
+      <p className={style.thirdPara}>       
+       Draft a GCF Concept Note or Proposal
+        </p>}
         <p className={style.lastPara}>Climate Rationale Advisor</p>
     </div>
+    <ProjectDeleteModelData loading={getLoadingDeleteRecord} isOpen={openModel} closeModal={()=>setOpenModel(false)} onDeleteRecord={deleteProjectData}/>
     </div>
+    </>
   );
 });
 
