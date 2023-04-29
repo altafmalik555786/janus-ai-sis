@@ -34,6 +34,11 @@ export const currentUserModel = types.model({
   firstname: types.maybeNull(types.string),
   lastname: types.maybeNull(types.string)
 })
+export const getProjectModel = types.model({
+  q1: types.maybeNull(types.string),
+  q2: types.maybeNull(types.string),
+  q3: types.maybeNull(types.string)
+})
 export const ProjectsModel = types.model({
   projectName: types.maybeNull(types.string)
 })

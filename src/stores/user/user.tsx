@@ -6,6 +6,7 @@ import { catchError, onLogOutClearAll } from "@utils/common-functions";
 import {
   
   currentUserModel,
+  getProjectModel,
   userInfoModel,
 } from "@stores/store-utils";
 import { toJS } from "mobx";
@@ -27,8 +28,11 @@ export const user = types
     loadingConceptNote: types.optional(types.boolean, false), 
     loadExistingProject: types.optional(types.boolean, false), 
     loadingDeleteRecord: types.optional(types.boolean, false), 
+    loadingProjectData: types.optional(types.boolean, false), 
     projectList: types.maybeNull(types.string),
     loadingGenerateReport: types.optional(types.boolean, false), 
+    getProjectData: types.maybeNull(getProjectModel),
+    loadingSingleProjectData: types.optional(types.boolean, false),
   })
   .views((self) => ({
     get getUserInfo() {
@@ -72,6 +76,12 @@ export const user = types
     },
     get getLoadingGenerateReport (){
       return toJS(self.loadingGenerateReport)
+    },
+    get getProjectDataList(){
+      return toJS(self.getProjectData)
+    },
+    get getLoadingGetProject(){
+      return toJS(self.loadingSingleProjectData)
     }
   }))
   .actions((self) => {
@@ -255,11 +265,29 @@ export const user = types
         return response;
       }
     });
+    const getSingleProjectData = flow(function* (data, navigate=null) {
+      self.loadingSingleProjectData = true;
+      let response = null;
+      try {
+        const res = yield userApi.onGetData(data);        
+        response = res;
+        self.getProjectData= res
+      } catch (error) {
+        catchError(error, "getData");
+        if (error?.response?.data?.error?.includes('Invalid token') || error?.response?.data?.error?.includes('Token has expired')) {
+          onLogOutClearAll(navigate);
+        }
+      } finally {
+        self.loadingSingleProjectData = false;
+        return response;
+      }
+    });
     const generateReport = flow(function* (data, navigate=null) {
       self.loadingGenerateReport = true;
       let response = null;
       try {
         const res = yield userApi.onGenerateProject(data);
+        self.getProjectData= res;
         // if(res?.message?.includes('project deleted')){
         //   notification.success('Generated Report');
         // }
@@ -274,6 +302,12 @@ export const user = types
         return response;
       }
     });
+    const setProjectName =  (projectName='')=>{
+      const data={
+        project_name  : projectName
+      };
+      self.projectNameData = JSON?.stringify(data)
+      }
 
     return {
       onUserLogin,
@@ -286,7 +320,9 @@ export const user = types
       conceptNote,
       loadGetExistingProject,
       projectDelete, 
-      generateReport
+      generateReport,
+      getSingleProjectData,
+      setProjectName
     };
   });
 

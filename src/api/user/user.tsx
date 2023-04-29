@@ -143,6 +143,20 @@ class UserApi extends BaseApi {
       throw error;
     }
   };
+  onGetData = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}getData`, data, {
+        headers: {
+          Authorization: getAuthorizationHeader(),
+          "Content-Type": "application/json",
+        },
+        cancelToken: this.cancelToken,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
   onGenerateProject = async (data) => {
     try {
       const response = await axios.post(`${baseUrl}generateReport`, data, {

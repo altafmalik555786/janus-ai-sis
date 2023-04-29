@@ -17,7 +17,7 @@ const ContextAndBaselineForm = observer(() => {
   const [form] = useForm();
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+    user: {getProjectNameData, getLoadingConceptNote, getProjectDataList, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const onFormSubmit = async(values) => {
@@ -86,6 +86,12 @@ const ContextAndBaselineForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  'q1': getProjectDataList?.q1 || '' ,
+                  'q2': getProjectDataList?.q2 || '' ,
+                  'q3': getProjectDataList?.q3 || '' ,
+                  
+                }} 
               >
                 <Form.Item
                   label="1. Project/Programme Region or country name."
