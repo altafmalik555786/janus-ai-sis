@@ -71,11 +71,11 @@ if(response?.message?.includes('project saved successfully')){
             ></Checkbox>
             <p>I agree to the notice and the information provided </p>
           </div>
-          {error && <p style={{color:'red', marginLeft:20, paddingBottom:10}}>Please Check the checkbox </p>}
+          {error && <p style={{color:'red', marginLeft:40, paddingBottom:10, marginTop: '4px'}}>Please Check the checkbox </p>}
         </div>
         <div className={style.nextButtonDiv}>
           <Button loading={isLoadingProjectSave} disabled={isLoadingProjectSave} onClick={nextSubmitHandler}  className={isChecked ? style.nextButton : style.nextDisableBtn}>
-            Next
+            Nextt
           </Button>
         </div>
       </div>
