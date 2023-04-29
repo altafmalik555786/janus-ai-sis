@@ -3,7 +3,7 @@
   border: 1px solid #e0e0e0;
   // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  padding: 20px;
+  padding: 18px 19px;
   height: 196px;
   display: flex;
   flex-direction: column;
@@ -31,18 +31,19 @@
   }
 
   .statusBadge {
-    width: 92px;
+    width: 100px;
     height: 24px;
     background: #ebfae2;
     border-radius: 4px;
     position: absolute;
-    top: 22px;
+    top: 20px;
+    margin-left: -7px;
 
     p {
       font-family: "Inter";
       font-style: normal;
       margin: 0;
-      padding: 0px 12px;
+      padding: 0px 18px ;
       font-weight: 500;
       font-size: 12px;
       line-height: 24px;
@@ -102,7 +103,7 @@
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  padding: 20px;
+  padding: 18px 19px;
   height: 196px;
   display: flex;
   flex-direction: column;
@@ -111,28 +112,29 @@
   flex-direction: column;
   justify-content: center;
 
-  // p {
-  //   background: rgba(255, 255, 255, 0.2);
-  //   width: 100px;
-  //   height: 24px;
-  //   font-family: 'Inter';
-  //   font-style: normal;
-  //   font-weight: 500;
-  //   font-size: 12px;
-  //   border: 1px solid #E0E0E0;
-  //   border-radius: 5px;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   color: #4E4E4E;
-  //     margin-top: 20px;
-  //     position: absolute;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     top: 0px;
-  //     white-space: nowrap;
-  // }
+  p {
+    background: rgba(255, 255, 255, 0.2);
+    width: 100px;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    margin-left: -7px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4E4E4E;
+      margin-top: 20px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0px;
+      white-space: nowrap;
+  }
 
   h4{
     color: rgba(0, 0, 0, 0.5);

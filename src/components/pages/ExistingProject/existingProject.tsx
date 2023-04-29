@@ -32,16 +32,16 @@ const ExistingProject = observer(() => {
     },
   } = useStore(null);
   const [openModel, setOpenModel] = useState(false);
-  const [projectData, setProjectData] = useState([]);
+  const [projectData, setProjectData] = useState(null);
   const [downloadLoading, setDownloadLoading] = useState("");
   const handleLoadProject = async () => {
-    setProjectData([]);
+    setProjectData(null);
     const result = await loadGetExistingProject(navigate);
     const dummyArray = [];
     result?.projects["concept note"]?.forEach((item) => {
       dummyArray?.push({ projectName: item });
     });
-    setProjectData(dummyArray);
+    setProjectData({conceptNote: dummyArray, grading: []});
   };
   const deleteProjectData = async () => {
     const payload = {
@@ -171,7 +171,7 @@ const ExistingProject = observer(() => {
           </p>
           <div className={style.responsiveTable}>
             <Table
-              dataSource={projectData}
+              dataSource={projectData?.grading||[]}
               className={style.tableStyle}
               columns={columns}
               loading={getLoadingExistingProject}
@@ -179,19 +179,19 @@ const ExistingProject = observer(() => {
               isShowHeader={false}
             />
           </div>
-          {projectData?.length ? (
-            projectData?.map((item, index) => {
-              return (
-                <p key={index} className={style.thirdPara}>
-                  {item?.projectName}
-                </p>
-              );
-            })
-          ) : (
             <p className={style.thirdPara}>
               Draft a GCF Concept Note or Proposal
             </p>
-          )}
+            <div className={style.responsiveTable}>
+            <Table
+              dataSource={projectData?.conceptNote||[]}
+              className={style.tableStyle}
+              columns={columns}
+              loading={getLoadingExistingProject}
+              checkPagination={false}
+              isShowHeader={false}
+            />
+          </div>
           <p className={style.lastPara}>Climate Rationale Advisor</p>
         </div>
         <ProjectDeleteModelData
