@@ -11,16 +11,19 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ProjectDeleteModelData from "./projectDeleteModel";
 import { useStore } from "@stores/root-store";
-import FileSaver from 'file-saver';
+import { Spin } from 'antd'
+import { LoadingOutlined } from '@ant-design/icons';
 
 const ExistingProject = observer(() => {
   const navigate = useNavigate();
   const [data, setData] = useState(null)
+  const antIcon = <LoadingOutlined  style={{ fontSize: 16, color: '#121212' }} spin />;
   const {
     user: {loadGetExistingProject, projectDelete, generateReport, getProjectListData, getLoadingGenerateReport, getLoadingExistingProject, getLoadingDeleteRecord },
   } = useStore(null);
   const [openModel, setOpenModel] = useState(false)
   const [projectData, setProjectData] = useState([])
+  const [downloadLoading, setDownloadLoading] =  useState('');
   const handleLoadProject= async()=>{
     setProjectData([])
    const result =  await loadGetExistingProject(navigate)
@@ -48,8 +51,13 @@ const ExistingProject = observer(() => {
       "functionality":"concept note"
     }
  const result=   await generateReport(payload, navigate)
- const filename = result?.headers['content-disposition']?.split('filename=')[1];
-      FileSaver.saveAs(result.data, filename);
+ const blob = new Blob([result], {type: 'application/pdf'});
+ const link = document.createElement('a');
+ link.href = window.URL.createObjectURL(blob);
+ link.download = 'project.pdf';
+ document.body.appendChild(link);
+ link.click();
+ setDownloadLoading('')
   }
   useEffect(()=>{
     handleLoadProject()
@@ -104,9 +112,10 @@ const ExistingProject = observer(() => {
              <img src={trashIcon} className={style.imgClass} onClick={()=>{
               setData(data);
               setOpenModel(true)}}/>
-             <img style={{pointerEvents: getLoadingGenerateReport ?'none': 'auto'}} src={uploadIcon} className={style.imgClass} onClick={()=>{
+             {downloadLoading==data?.projectName ? <Spin indicator={antIcon} />:<img style={{pointerEvents: getLoadingGenerateReport ?'none': 'auto'}} src={uploadIcon} className={style.imgClass} onClick={()=>{
+              setDownloadLoading(data?.projectName)
               handleGenerateReport(data);
-             }}/>
+             }}/>}
             </div>
           );
         },
