@@ -25,10 +25,11 @@ const VerifyEmail = observer(() => {
         localStorage.setItem("token", res?.jwt_token);
         setTimeout(() => {
           loadUserInfo().then((data) => {
-        if(data?.data?.error?.includes('Invalid token')){
+        if(data?.data?.error?.includes('Invalid token')|| data?.data?.error?.includes('Token has expired')){
           catchError(data, "loadUserInfo");  
           navigate(`${constRoute.login}`);
         } else{
+          localStorage.setItem('trialModal', 'true')
           navigate(`${constRoute.home}`);
 }
            
