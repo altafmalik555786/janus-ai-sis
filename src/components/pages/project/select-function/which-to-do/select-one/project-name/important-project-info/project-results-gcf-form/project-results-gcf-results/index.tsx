@@ -34,7 +34,7 @@ const ProjectDescriptionResults = observer(() => {
             </div>
           </div>
         </div> */}
-
+ 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Your Results</h1>

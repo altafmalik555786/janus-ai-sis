@@ -38,7 +38,7 @@ const ProjectGCFResults = observer(() => {
             <h1>Your Results</h1>
 
             <div className={style.dataContentBox}>
-            <div className={style.htmlContent}
+            <div className={style.htmlContent} 
       dangerouslySetInnerHTML={{__html: state?.response}}
     />
               {/* <p>{state?.response || ''}</p> */}
@@ -61,7 +61,6 @@ const ProjectGCFResults = observer(() => {
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
                   <button className={style.goBtn} onClick={() => navigate(constRoute?.projectResultsGcfForm48)} >
-                    {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button

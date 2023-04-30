@@ -81,7 +81,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 140%;
             letter-spacing: -0.006em;
             color: #000000;
@@ -138,11 +138,11 @@
           background-color: gray;
         }
             font-family: "Inter";
-            font-style: normal;
+            font-style: normal; 
             font-weight: 500;
             width: 92px;
             height: 40px;
-            font-size: 15px;
+            font-size: 20px;
             line-height: 27px;
             border: none;
             color: #ffffff;
@@ -191,7 +191,7 @@
                 font-family: "Inter";
                 font-style: normal;
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 20px;
                 line-height: 27px;
                 width: 116px;
                 height: 40px;
@@ -213,12 +213,12 @@
                 justify-content: center;
                 align-items: center;
                 font-weight: 500;
-                font-size: 15px;
+                font-size: 20px;
                 line-height: 27px;
                 font-family: "Inter";
                 font-style: normal;
                 font-weight: 500;
-                font-size: 16px;
+
                 line-height: 27px;
               }
             }
@@ -312,4 +312,5 @@
   }
   .fontSizeInput{
     font-size: 18px !important;
+    font-family: "Inter";
   }

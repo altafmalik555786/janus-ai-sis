@@ -73,7 +73,7 @@ const ProjectDescriptionForm = observer(() => {
                   expected to help.
                 </p> */}
               </div>
-              <Divider />
+              <Divider /> 
             </div>
           </div>
         </div>

@@ -29,7 +29,7 @@ const WelcomeScreen = observer(() => {
               <>
                 <Button
                   onClick={() => navigate(constRoute?.login)}
-                  className={style.LoginButton}
+                  className={style.LoginButton} 
                 >
                   Log in
                 </Button>
