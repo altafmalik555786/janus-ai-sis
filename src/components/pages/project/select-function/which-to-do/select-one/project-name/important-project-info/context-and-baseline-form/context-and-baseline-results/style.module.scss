@@ -126,7 +126,7 @@
             color: #000000;
           }
         }
-
+ 
         .footerButtonsDiv {
           margin: 50px 0;
           display: flex;
@@ -157,7 +157,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 20px;
             margin-left: 10px;
             line-height: 27px;
             color: #808080;
@@ -191,7 +191,7 @@
                 font-family: "Inter";
                 font-style: normal;
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 20px;
                 line-height: 27px;
                 width: 116px;
                 height: 40px;
@@ -213,12 +213,11 @@
                 justify-content: center;
                 align-items: center;
                 font-weight: 500;
-                font-size: 15px;
+                font-size: 20px;
                 line-height: 27px;
                 font-family: "Inter";
                 font-style: normal;
                 font-weight: 500;
-                font-size: 16px;
                 line-height: 27px;
               }
             }
@@ -313,4 +312,5 @@ a {
 }
 .fontSizeInput{
   font-size: 18px !important;
+  font-family: "Inter";
 }

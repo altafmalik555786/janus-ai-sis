@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0px 20px;
-
+ 
     .pTageOne {
       font-family: "Inter";
       font-style: normal;
@@ -81,7 +81,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 140%;
             letter-spacing: -0.006em;
             color: #000000;
@@ -121,7 +121,7 @@
             font-style: normal;
             font-weight: 400;
             margin-top: 0;
-            font-size: 14px;
+            font-size: 18px;
             line-height: 16px;
             color: #000000;
           }
@@ -132,7 +132,7 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-
+ 
           .nextButton {
  &:disabled {
           background-color: gray;
@@ -157,7 +157,7 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 20px;
             margin-left: 10px;
             line-height: 27px;
             color: #808080;
@@ -312,4 +312,5 @@
   }
   .fontSizeInput{
     font-size: 18px !important;
+    font-family: "Inter";
   }

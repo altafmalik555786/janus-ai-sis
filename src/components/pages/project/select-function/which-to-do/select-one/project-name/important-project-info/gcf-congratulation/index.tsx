@@ -7,16 +7,16 @@ import { useNavigate } from "react-router-dom";
 
 const GCFCongratulation = () => {
   const navigate = useNavigate();
-
+ 
   return (
     <div className={style.gcfCongratulationContainer}>
-      <Row>
+      <Row> 
         <Col xs={1} md={4} sm={2} ></Col>
         <Col xs={22} md={16} sm={20}>
           <div className={style.congratulationBox}>
             <h1>Congratulations!</h1>
             <div className={style.firstParaContainer}>
-              <p>
+              <p className={style.pOne}>
                 You have successfully completed the  Concept Note questionnaire.
               </p>
             </div>
