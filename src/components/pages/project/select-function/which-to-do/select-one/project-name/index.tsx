@@ -64,11 +64,15 @@ const ProjectName = observer(() => {
         </div>
         <div className={style.btnDiv}>
           <div className={style.twoBtnDiv}>
-            <button className={style.goBtn}>
+            <button 
+             onClick={() =>
+              navigate(constRoute?.selectOne)
+            }
+            className={style.goBtn}>
               {" "}
               <img src={LeftArrow} alt="left-arrow" /> Go Back
             </button>
-            <button className={style.saveBtn}>Save & Quit</button>
+             
           </div>
         </div>
       </Row>

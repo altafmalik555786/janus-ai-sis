@@ -36,11 +36,14 @@ const SelectOne = observer(() => {
         </div>
         <div className={style.btnDiv}>
           <div className={style.twoBtnDiv}>
-            <button className={style.goBtn}>
-              {" "}
+            <button className={style.goBtn}  onClick={() =>
+              navigate(constRoute?.whichToDo)
+            }
+>
+          
               <img src={LeftArrow} alt="left-arrow" /> Go Back
             </button>
-            <button className={style.saveBtn}>Save & Quit</button>
+             
           </div>
         </div>
       </Row>
