@@ -73,6 +73,7 @@ const SignUp = observer(() => {
           layout="vertical"
           className={style.signUpForm}
         >
+          
           <Form.Item label={"First Name"} name={"firstname"}>
             <Input placeholder="Enter your first name" />
           </Form.Item>
@@ -148,14 +149,18 @@ const SignUp = observer(() => {
                 )
               }
             />
-          </Form.Item>
+          </Form.Item> 
+      
         </Form>
         <div>
           <div className={style.signUpWrraper}>
-            <Checkbox defaultChecked={true} onChange={onChange}>
-              I accept the <span className={style.termsStyle}>Terms</span> &{" "}
+           <div className={style.checkBox}>
+            <Checkbox defaultChecked={true} onChange={onChange}/>
+            <p style={{fontSize:"20px"}}>
+              I accept the <span className={style.termsStyle}>Terms</span> &
               <span className={style.termsStyle}>Privacy Policy</span>
-            </Checkbox>
+              </p>
+              </div>
             <Form form={signUpForm} onFinish={onFormSubmit}>
               <Button
                 htmlType="submit"
@@ -180,5 +185,5 @@ const SignUp = observer(() => {
     </div>
   );
 });
-
+ 
 export default memo(SignUp);

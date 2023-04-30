@@ -89,7 +89,7 @@ const ProjectDescriptionForm = observer(() => {
                 validateMessages={validateMessages}
                 layout="vertical"
               >
-                <Form.Item
+                <Form.Item 
                   label="12. Please describe how engagement among the NDA, AE and/or other relevant stakeholders in the country has taken place."
                   name={"q12"}
                 >
@@ -101,7 +101,7 @@ const ProjectDescriptionForm = observer(() => {
                     className={style.fontSizeInput}
                   />
                 </Form.Item>
-              </Form>
+              </Form> 
             </div>
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
@@ -116,8 +116,7 @@ const ProjectDescriptionForm = observer(() => {
                     onClick={() =>
                       navigate(constRoute?.projectResultsGcfResults64)
                     }
-                  >
-                    {" "}
+                  > 
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button

@@ -11,7 +11,7 @@ import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
   const {state} = useLocation();
-
+ 
   return (
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle conceptNoteSection="C.2 Justification of GCF Funding Request" percent="90%" />
@@ -63,6 +63,6 @@ const ProjectDescriptionResults = observer(() => {
       </div>
     </div>
   );
-});
+}); 
 
 export default memo(ProjectDescriptionResults);

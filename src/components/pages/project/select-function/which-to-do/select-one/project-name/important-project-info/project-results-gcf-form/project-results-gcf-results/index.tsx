@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
-
+ 
 const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
   const {state} = useLocation();
@@ -81,7 +81,7 @@ const ProjectDescriptionResults = observer(() => {
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   );
 });
 

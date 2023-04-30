@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
-
+ 
 const ContextAndBaselineResults = observer(() => {
   const navigate = useNavigate();
   const {state} = useLocation();
@@ -47,7 +47,7 @@ const ContextAndBaselineResults = observer(() => {
               <Divider />
             </div>
           </div>
-        </div> */}
+        </div> */} 
 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>

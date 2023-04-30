@@ -55,7 +55,7 @@ const ProjectDescriptionForm = observer(() => {
                   />
                 </button>
               </div>
-              <div className={style.pTageGroup}>
+              <div className={style.pTageGroup}> 
                 <p className={style.pTagFive}>
                   Based on the information you supplied, CFC will formulate the
                   theory of change and provide information on how it serves to
