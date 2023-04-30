@@ -81,13 +81,14 @@
             font-family: "Inter";
             font-style: normal;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 20px;
             line-height: 20px;
             color: #2e2e2e;
           }
 
           .profileUserNameText {
             color: #000000;
+            font-size: 16px;
           }
 
           .profileUserNameText:hover {
@@ -170,6 +171,7 @@
 
   .userData {
     padding: 11px 18px;
+
     border-bottom: 1px solid #dde2e4;
     margin-top: 18px;
 
@@ -177,7 +179,7 @@
       font-family: "Inter";
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 25px;
       color: #000000;
     }
@@ -189,7 +191,7 @@
       font-weight: 400;
       margin-top: -5px;
       margin-bottom: 0;
-      font-size: 12px;
+      font-size: 16px;
       line-height: 20px;
       color: #2e2e2e;
     }

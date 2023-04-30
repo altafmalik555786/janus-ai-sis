@@ -144,7 +144,7 @@ const Header = observer(() => {
             <Row className={style.userProfileDropDownWrapper}>
               <CustomButton
                 title="Add billing info"
-                className={style.billingInfo}
+                className={style.billingInfo} 
               />
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>

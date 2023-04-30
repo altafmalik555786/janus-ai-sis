@@ -35,7 +35,7 @@ if(response?.message?.includes('project saved successfully')){
       <div className={style.containerWrapper}>
         <div className={style.container}>
           <h2 className={style.hTwo}>Important</h2>
-          <div className={style.mainPdiv}>
+          <div className={style.mainPdiv}> 
             <p className={style.pTagOne}> 
               Please be advised that the narratives produced by Climate Finance
               Copilot are intended to serve as informative and thought-provoking

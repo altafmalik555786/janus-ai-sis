@@ -47,7 +47,7 @@ const SetNewPassword = observer(() => {
         <div className={style.headingWrapper}>
           <img src={welcomeLogo} alt="janus-logo" className={style.janusLogo} />
           <h2 className={style.forgotPassword}>Forgot Password?</h2>
-          <p className={style.janusText}>
+          <p className={style.janusText}> 
             Your new password must be different to previously used passwords.{" "}
           </p>
         </div>
