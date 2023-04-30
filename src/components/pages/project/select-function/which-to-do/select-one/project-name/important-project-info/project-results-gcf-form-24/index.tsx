@@ -133,9 +133,8 @@ const ProjectGCFForm = observer(() => {
                     className={style.goBtn}
                     onClick={() =>
                       navigate(constRoute?.projectResultsGcfResults)
-                    }
+                    } 
                   >
-                    {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button

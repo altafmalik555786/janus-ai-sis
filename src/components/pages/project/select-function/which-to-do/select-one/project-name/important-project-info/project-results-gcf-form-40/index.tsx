@@ -36,7 +36,7 @@ const ProjectGCFForm = observer(() => {
     }
   };
 
-  return (
+  return ( 
     <div className={style.mainContainer}>
        <CommonHeaderPercentCycle  percent={'40%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
 

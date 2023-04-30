@@ -150,7 +150,7 @@ const ProjectGCFForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>

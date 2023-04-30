@@ -37,7 +37,7 @@ const ProjectGCFResults = observer(() => {
             <h1>Your Results</h1>
 
             <div className={style.dataContentBox}>
-            <div className={style.htmlContent}
+            <div className={style.htmlContent} 
       dangerouslySetInnerHTML={{__html: state?.response}}
     />
               {/* <p>{state?.response || ''}</p> */}
