@@ -32,7 +32,7 @@
           margin: 20px;
           padding: 20px;
           margin-bottom: 0;
-          font-size: 16px;
+          font-size: 18px;
           line-height: 1.6;
           font-family: Inter;
           font-style: normal;
@@ -50,7 +50,7 @@
           font-family: "Inter";
           font-style: normal;
           font-weight: 600;
-          font-size: 16px;
+          font-size: 18px;
           line-height: 25px;
           color: #2e2e2e;
         }
@@ -63,7 +63,7 @@
           font-family: "Inter";
           font-style: normal;
           font-weight: 400;
-          font-size: 16px;
+          font-size: 18px;
           line-height: 25px;
           color: #2e2e2e;
         }
@@ -93,11 +93,17 @@
         font-family: "Inter";
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 26px;
         color: #2e2e2e;
         padding-bottom: 20px;
 
+        .checkBox {
+          margin-top: 2px;
+        }
+        @media only screen and (max-width: 425px) {
+          font-size: 13px;
+        }
         p {
           margin: 0;
         }
@@ -107,7 +113,7 @@
       max-width: 62%;
       margin-top: 10px;
 
-      .nextDisableBtn{
+      .nextDisableBtn {
         margin-top: 25px;
         height: 50px;
         width: 134px;
@@ -116,11 +122,12 @@
         color: white;
         background-color: gray;
         font-family: Inter;
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 500;
       }
 
       .nextButton {
+        font-size: 18px;
         &:disabled {
           background-color: gray;
         }
@@ -132,7 +139,7 @@
         color: white;
         background-color: #00b840;
         font-family: Inter;
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 500;
       }
     }
@@ -150,7 +157,8 @@
       .goBtn {
         height: 50px;
         width: 134px;
-        color: #2E2E2E;
+        font-size: 20px;
+        color: #2e2e2e;
         background-color: #e6e6e6;
         border-radius: 5px;
         cursor: pointer;
@@ -166,12 +174,13 @@
         }
       }
       .saveBtn {
-        color: #2E2E2E;
+        color: #2e2e2e;
         background-color: #e6e6e6;
         height: 50px;
         width: 134px;
         border: none;
         cursor: pointer;
+        font-size: 20px;
         white-space: nowrap;
         border-radius: 5px;
         display: flex;
