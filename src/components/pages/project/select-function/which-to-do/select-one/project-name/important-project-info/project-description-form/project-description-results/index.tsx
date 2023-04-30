@@ -12,7 +12,7 @@ const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
   const {state} = useLocation();
 
-  return (
+  return ( 
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'16%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
 

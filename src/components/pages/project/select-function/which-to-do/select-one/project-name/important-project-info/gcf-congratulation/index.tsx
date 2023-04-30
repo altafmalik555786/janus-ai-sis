@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const GCFCongratulation = () => {
   const navigate = useNavigate();
- 
+  
   return (
     <div className={style.gcfCongratulationContainer}>
       <Row> 

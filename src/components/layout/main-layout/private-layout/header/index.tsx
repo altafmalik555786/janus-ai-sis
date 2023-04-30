@@ -86,7 +86,7 @@ const Header = observer(() => {
           }}
         >
           Profile
-        </Menu.Item>
+        </Menu.Item> 
         <Menu.Item
           onClick={() => {
             navigate(constRoute?.setting);

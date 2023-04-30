@@ -81,6 +81,6 @@ const ProjectGCFResults = observer(() => {
       </div>
     </div>
   );
-});
+}); 
 
 export default memo(ProjectGCFResults);

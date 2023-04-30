@@ -152,6 +152,6 @@ const ProjectDescriptionForm = observer(() => {
       </div>
     </div>
   );
-});
+}); 
 
 export default memo(ProjectDescriptionForm);

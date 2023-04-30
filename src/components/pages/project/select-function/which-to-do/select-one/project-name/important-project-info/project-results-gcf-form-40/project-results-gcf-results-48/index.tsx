@@ -69,7 +69,7 @@ const ProjectGCFResults = observer(() => {
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
-                  >
+                  > 
                     Save & Quit
                   </button>
                 </div>
