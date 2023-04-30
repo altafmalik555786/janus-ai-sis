@@ -6,7 +6,7 @@ import style from './style.module.scss'
 export interface itemPropsTypes {
     item: any;
 }
-
+ 
 const CardItemsFunc = observer(({ item }: itemPropsTypes ) => {
   return (
     <Col lg={8} md={12} xs={24}>

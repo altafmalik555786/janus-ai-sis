@@ -41,7 +41,7 @@ const ProjectName = observer(() => {
                   onFinish={onFormSubmit}
                   validateMessages={validateMessages}
                   layout="vertical"
-                >
+                > 
                   <Form.Item
                     name={"projectName"}
                     label="Enter Project Name"
@@ -51,7 +51,7 @@ const ProjectName = observer(() => {
                         message: "Please enter project name",
                       },
                     ]}
-                  >
+                  > 
                     <CommonInput onChange={handleInputChange} type="text" className={style.emailInput} />
                   </Form.Item>
                   <div className={style.nextButtonDiv}>

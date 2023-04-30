@@ -44,13 +44,16 @@
 
       .boxesContiner {
         display: unset;
-        .formData {
+        .formData { 
+         
           :global(.ant-input) {
             border: 1px solid #00b840;
             font-size: 18px !important;
+            font-family: "Inter";
           }
           :global(.ant-form-item-explain-error) {
             text-align: left;
+            font-size: 16px !important;
           }
           :global(.ant-form-item-label > label) {
             

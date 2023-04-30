@@ -35,7 +35,7 @@ const ProjectDescriptionForm = observer(() => {
     navigate(constRoute?.ndaAeResults72,  { state: { response: response?.response} });
     }
   };
-
+ 
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'64%'} conceptNoteSection={'B.4 Engagement Among the NDA, AE and/or other'}/> 

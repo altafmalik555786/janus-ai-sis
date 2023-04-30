@@ -31,7 +31,7 @@ const CheckEmail = observer(() => {
             <b>{localStorage.getItem("resendEmail") || "example@example.com"}</b>
           </p>
         </div>
-        <div className={style.outerLink}>
+        <div className={style.outerLink}> 
           <p>Didn’t receive the email link?</p>
           <span onClick={onResend} className={style.aLink}>
             Click to resend

@@ -122,7 +122,7 @@ const ContextAndBaselineForm = observer(() => {
                 <Form.Item
                   label="2. Describe the climate vulnerabilities and impacts, GHG emissions profile, and mitigation and adaptation needs that the prospective intervention is envisaged to address."
                   name={"q2"}
-                >
+                > 
                   <CommonInput
                     inputType="textarea"
                     autoSizeCheck={{ minRows: 7, maxRows: 7 }}

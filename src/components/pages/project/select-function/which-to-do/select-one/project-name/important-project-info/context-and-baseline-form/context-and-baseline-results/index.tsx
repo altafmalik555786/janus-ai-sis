@@ -43,7 +43,7 @@ const ContextAndBaselineResults = observer(() => {
                   Be sure to include the number of beneficiaries the project is
                   expected to help.
                 </p>
-              </div>
+              </div> 
               <Divider />
             </div>
           </div>

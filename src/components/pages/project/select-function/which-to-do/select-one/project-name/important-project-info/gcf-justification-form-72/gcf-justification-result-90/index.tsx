@@ -19,7 +19,7 @@ const ProjectDescriptionResults = observer(() => {
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Your Results</h1>
-
+ 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
       dangerouslySetInnerHTML={{__html: state?.response}}
@@ -44,7 +44,6 @@ const ProjectDescriptionResults = observer(() => {
                     className={style.goBtn}
                     onClick={() => navigate(constRoute?.gcfJustificationForm72)}
                   >
-                    {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button

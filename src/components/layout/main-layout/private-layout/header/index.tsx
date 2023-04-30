@@ -51,7 +51,7 @@ const Header = observer(() => {
       label: "Home",
       key: "/home",
     },
-    {
+    { 
       label: "My Projects",
       key: "/myProjects",
     },
@@ -124,7 +124,7 @@ const Header = observer(() => {
       <div
         className={style.headerContainer}
         style={{ right: "0px", ...styles }}
-      >
+      > 
         <div className={style.headerMenuContainer}>
           {(data < 855 || collapsed) && (
             <MenuOutlined

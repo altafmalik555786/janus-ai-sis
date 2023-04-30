@@ -46,7 +46,7 @@ const ProjectDescriptionResults = observer(() => {
                 <Button
                   onClick={() => navigate(constRoute?.projectResultsGcfForm)}
                   className={style.nextButton}
-                >
+                > 
                   Next
                 </Button>
                 <Button
@@ -59,7 +59,6 @@ const ProjectDescriptionResults = observer(() => {
               <div className={style.btnDiv}>
                 <div className={style.twoBtnDiv}>
                   <button className={style.goBtn} onClick={() => navigate(constRoute?.projectDescriptionForm)} >
-                    {" "}
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                   <button
