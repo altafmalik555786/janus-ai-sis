@@ -36,7 +36,7 @@ if(response?.message?.includes('project saved successfully')){
         <div className={style.container}>
           <h2 className={style.hTwo}>Important</h2>
           <div className={style.mainPdiv}>
-            <p className={style.pTagOne}>
+            <p className={style.pTagOne}> 
               Please be advised that the narratives produced by Climate Finance
               Copilot are intended to serve as informative and thought-provoking
               tools during the drafting of your Concept Note/Proposal. They
@@ -63,13 +63,14 @@ if(response?.message?.includes('project saved successfully')){
             </p>
           </div>
           <div className={style.checkBoxDiv}>
-            <Checkbox
+            <Checkbox 
+            className={style.checkBox}
               onChange={(e) => {
                 setIsChecked(e.target.checked);
                 setError(false)
               }}
             ></Checkbox>
-            <p>I agree to the notice and the information provided </p>
+            <p className={style.checkBoxPTag}>I agree to the notice and the information provided </p>
           </div>
           {error && <p style={{color:'red', marginLeft:40, paddingBottom:10, marginTop: '4px'}}>Please Check the checkbox </p>}
         </div>
@@ -82,7 +83,6 @@ if(response?.message?.includes('project saved successfully')){
       <div className={style.btnDiv}>
         <div className={style.twoBtnDiv}>
           <button className={style.goBtn}>
-            {" "}
             <img src={LeftArrow} alt="left-arrow" /> Go Back
           </button>
           <button className={style.saveBtn}>Save & Quit</button>
