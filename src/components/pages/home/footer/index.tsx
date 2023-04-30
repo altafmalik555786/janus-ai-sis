@@ -3,9 +3,8 @@ import style from "./style.module.scss";
 const Footer = () => {
   return (
     <div className={style.footerContainer} >
-      <p >
-        {" "}
-        © 2023 Janus Advisory Services. All rights reserved.{" "}
+      <p className={style.footerP} >
+        © 2023 Janus Advisory Services. All rights reserved.
       </p>
     </div>
   );

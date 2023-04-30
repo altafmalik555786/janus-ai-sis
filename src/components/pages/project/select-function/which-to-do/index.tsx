@@ -21,7 +21,7 @@ const WhichToDo = observer(() => {
       navigate: () => navigate(constRoute?.selectOne),
     },
   ];
-
+ 
   return (
     <div className={style.homePagePageContainer}>
       <Row>
@@ -37,11 +37,14 @@ const WhichToDo = observer(() => {
         </div>
         <div className={style.btnDiv}>
           <div className={style.twoBtnDiv}>
-            <button className={style.goBtn}>
-              {" "}
+            <button className={style.goBtn}  onClick={() =>
+              navigate(constRoute?.selectFunction)
+            }
+>
+            
               <img src={LeftArrow} alt="left-arrow" /> Go Back
             </button>
-            <button className={style.saveBtn}>Save & Quit</button>
+             
           </div>
         </div>
       </Row>

@@ -17,7 +17,7 @@ const SelectFunction = observer(() => {
     },
     {
       title: "Climate Rationale Advisor",
-      status: "Coming Soon",
+      status: "Coming Soon", 
       disable:true,
     },
     {
@@ -58,8 +58,11 @@ const SelectFunction = observer(() => {
         </div>
         <div className={style.btnDiv}>
         <div className={style.twoBtnDiv}>
-          <button className={style.goBtn}> <img src={LeftArrow} alt="left-arrow" /> Go Back</button>
-          <button className={style.saveBtn}>Save & Quit</button>
+          <button className={style.goBtn}  onClick={() =>
+              navigate(constRoute?.home)
+            }
+ > <img src={LeftArrow} alt="left-arrow" /> Go Back</button>
+           
         </div>
       </div>
       </Row>
