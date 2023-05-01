@@ -39,7 +39,7 @@ export const constRoute = {
   projectName: "/project-name",
   finalSheet: "/final-sheet",
   profile: "/profile",
-  setting: "/setting",
+  setting: "/setting", 
   loadBalance: "/load-balance-form",
   users: "/users",
   userBetForm: "/user-bet-form",
