@@ -14,6 +14,8 @@ import { useStore } from "@stores/root-store";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { constRoute } from "@utils/route";
+import { getAuthorizationHeader } from "@api/common-utils";
+import { baseUrl } from "@api/const";
 
 const ExistingProject = observer(() => {
   const navigate = useNavigate();
@@ -63,18 +65,44 @@ const ExistingProject = observer(() => {
       setOpenModel(false);
     }
   };
+  function download(blob, filename) {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
   const handleGenerateReport = async (data) => {
     const payload = {
       project_name: data?.projectName,
       functionality: "concept note",
     };
-    const result = await generateReport(payload, navigate);
-    const blob = new Blob([result], { type: "application/pdf" });
-    const link = document.createElement("a");
-    link.href = window.URL.createObjectURL(blob);
-    link.download = "project.pdf";
-    document.body.appendChild(link);
-    link.click();
+   
+   await fetch(`${baseUrl}/generateReport`, {
+        method: 'POST',
+        headers: {
+           'Content-Type': 'application/json',
+           'Authorization':getAuthorizationHeader()
+        },
+        body: JSON.stringify(
+          payload
+         )
+      })
+      .then(response => {response.blob().then(blob => download(blob, 'project'))
+      })
+
+
+    // await generateReport(payload, navigate).then(response => {response.blob().then(blob => download(blob, 'project'))});
+    // const blob = new Blob([result], { type: "application/pdf" });
+    // const link = document.createElement("a");
+    // link.href = window.URL.createObjectURL(blob);
+    // link.download = "project.pdf";
+    // document.body.appendChild(link);
+    // link.click();
     setDownloadLoading("");
   };
   useEffect(() => {
