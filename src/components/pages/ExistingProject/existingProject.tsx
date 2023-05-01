@@ -80,6 +80,7 @@ const ExistingProject = observer(() => {
   useEffect(() => {
     handleLoadProject();
   }, []);
+  console.log('test')
 const handleGetData =async (item) => {
   setProjectName(item?.projectName)
   const payload = {
