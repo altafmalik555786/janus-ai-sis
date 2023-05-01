@@ -132,7 +132,7 @@ const ProjectDescriptionForm = observer(() => {
                     className={style.goBtn}
                     onClick={() => navigate(constRoute?.contextAndBaselineResults)}
                   >
-                    {" "}
+                   
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
                  
