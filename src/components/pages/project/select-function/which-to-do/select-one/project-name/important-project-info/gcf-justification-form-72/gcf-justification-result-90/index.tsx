@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
 const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
+  const [generateResult, setRegenrateResult] = useState('')
   const {state} = useLocation();
   const {
     user: {
@@ -20,7 +21,8 @@ const ProjectDescriptionResults = observer(() => {
   } = useStore(null);
   const handleRegenratePayload=async()=>{
     const payload=  localStorage.getItem('conceptPayload')
-    await conceptNote(JSON.parse(payload), navigate);
+   const res = await conceptNote(JSON.parse(payload), navigate);
+    setRegenrateResult(res?.response)
   }
   return (
     <div className={style.mainContainer}>
@@ -32,7 +34,7 @@ const ProjectDescriptionResults = observer(() => {
  
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html: getconceptNotedataList}}
+      dangerouslySetInnerHTML={{__html: state?.response||generateResult||''}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
