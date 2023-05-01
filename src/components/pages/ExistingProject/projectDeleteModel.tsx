@@ -75,7 +75,7 @@ const DeleteButton = styled(Button)`
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 17px;
   border-radius: 5px;
   &:hover {
@@ -93,7 +93,7 @@ const BackButton = styled(Button)`
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 17px;
   width: 251px;
   height: 44px;
@@ -131,14 +131,14 @@ const Message = styled.div`
 const WarningMessage = styled.div`
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 18px;
   line-height: 22px;
   color: #2e2e2e;
   margin-top: 8px;
 `;
 const ModalWrapper = styled.div`
-  padding: 10px 30px 10px 32px;
+  padding: 10px 0px 10px 0px;
 `;
 const FlexWrapper = styled.div`
   display: flex;
@@ -150,4 +150,5 @@ const FlexWrapperSpaceBetween = styled.div`
   margin-top: 24px;
   alin-items: center;
   gap: 24px;
+  flex-wrap: wrap;
 `;
