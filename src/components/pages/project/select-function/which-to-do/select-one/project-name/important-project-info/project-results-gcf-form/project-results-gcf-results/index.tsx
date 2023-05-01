@@ -51,7 +51,7 @@ const ProjectDescriptionResults = observer(() => {
 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-        dangerouslySetInnerHTML={{__html: getconceptNotedataList}}
+        dangerouslySetInnerHTML={{__html: state?.response}}
       />
               {/* <p>{state?.response || ''}</p> */}
             </div>
