@@ -54,7 +54,7 @@ const handleRegenratePayload=async()=>{
 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html: state?.response || generateResult|| ''}}
+      dangerouslySetInnerHTML={{__html:  generateResult || state?.response ||''}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
