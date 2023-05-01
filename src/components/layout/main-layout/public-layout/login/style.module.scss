@@ -40,6 +40,7 @@
 
     p {
       margin-bottom: 8px;
+      font-family: "Inter";
     }
   }
 
@@ -49,7 +50,8 @@
       margin-top: 14px;
       color: #00b840;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
+      font-family: "Inter";
       cursor: pointer;
       margin-left: 10px;
     }
@@ -78,13 +80,16 @@
 
     p {
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
+      font-family: "Inter";
       color: #000000;
     }
 
     span {
       color: #00b840;
       margin-left: 4px;
+      font-size: 18px;
+      font-family: "Inter";
       cursor: pointer;
     }
   }
@@ -94,13 +99,28 @@
       font-family: "Inter";
       font-style: normal;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 19px;
       color: #000000;
+
+      
+    }
+    .passwordInput{
+      font-size: 16px;
     }
   }
 
   :global(.ant-form-item-control) {
     margin-bottom: -10px;
+    font-size: 18px;
+    font-family: "Inter";
   }
+
+  :global(.ant-input) {
+    font-size: 16px;
+  }
+  :global(.ant-form-item-explain-error){
+    font-size: 15px;
+  }
+  
 }
