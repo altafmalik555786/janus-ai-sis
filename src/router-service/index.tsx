@@ -53,7 +53,7 @@ const Routing = () => {
         <Route
           path={constRoute?.resetPasswordSuccessfully}
           element={<ResetPasswordSuccessfully />}
-        />
+        /> 
         <Route path={constRoute?.verifyEmail} element={<VerifyEmail />} />
         <Route path={constRoute?.home} element={<Home />} />
         <Route path={constRoute?.selectFunction} element={<SelectFunction />} />
@@ -84,7 +84,7 @@ const Routing = () => {
         <Route path={constRoute?.sustainabilityReplicabilityForm90} element={<SustainabilyReplicabiltyForm90 />} />
         <Route path={constRoute?.sustainabilityReplicabilityResults100} element={<SustainabilyReplicabiltyResults100 />} />
         <Route path={constRoute?.gcfCongratulation} element={<GCFCongratulation />} />
-        <Route path={constRoute?.existingProject} element={<ExistingProject />} />
+        <Route path={constRoute?.existingProject} element={<ExistingProject />} /> 
       </Routes>
     </>
   );
