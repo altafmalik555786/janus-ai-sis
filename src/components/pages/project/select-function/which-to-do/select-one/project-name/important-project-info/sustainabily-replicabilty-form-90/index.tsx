@@ -22,6 +22,7 @@ const SustainabilityReplicabilityForm = observer(() => {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
     const question ={
       q13a: values?.q13a||'',
@@ -30,9 +31,10 @@ const SustainabilityReplicabilityForm = observer(() => {
     const payload = {
       section: `C_3_90`,
       questions: question,
-      project_name: projectName || ''
+      project_name: projectName || getProjectName|| ''
     }
-    const response = await conceptNote(payload)
+    localStorage.setItem('conceptPayload', JSON.stringify(payload))
+    const response = await conceptNote(payload, navigate)
     if(response?.response){
     navigate(constRoute?.sustainabilityReplicabilityResults100,  { state: { response: response?.response} });
     }

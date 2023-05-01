@@ -89,7 +89,8 @@ const handleGetData =async (item) => {
   };
   await getSingleProjectData(payload, navigate);
   setEditLoading('');
-  navigate(constRoute?.contextAndBaselineForm, { state: { projectName: data?.projectName, isEdit: true} })
+  localStorage.setItem('projectName', item?.projectName)
+  navigate(constRoute?.contextAndBaselineForm, { state: { projectName: item?.projectName, isEdit: true} })
 }
   const columns = [
     {

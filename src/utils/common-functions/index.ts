@@ -49,6 +49,13 @@ export const onLogOutClearAll = (naviagte = null) => {
   naviagte(constRoute.login);
   resetStore();
 };
+export const truncate = function(str: string, length: number=16, ending: string='...') {
+  if (str?.length > length) {
+    return str.substring(0, length - ending.length) + ending;
+  } else {
+    return str;
+  }
+};
 
 
 

@@ -21,6 +21,8 @@ const ProjectDescriptionForm = observer(() => {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const getProjectName = localStorage.getItem('projectName')
+
   const onFormSubmit = async(values) => {
     const question ={
       q12: values?.q12||'',
@@ -28,9 +30,10 @@ const ProjectDescriptionForm = observer(() => {
     const payload = {
       section: `B_4_64`,
       questions: question,
-      project_name: projectName || ''
+      project_name: projectName ||getProjectName|| ''
     }
-    const response = await conceptNote(payload)
+    localStorage.setItem('conceptPayload', JSON.stringify(payload))
+    const response = await conceptNote(payload, navigate)
     if(response?.response){
     navigate(constRoute?.ndaAeResults72,  { state: { response: response?.response} });
     }

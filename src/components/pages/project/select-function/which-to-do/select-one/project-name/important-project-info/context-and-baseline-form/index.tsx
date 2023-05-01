@@ -26,6 +26,8 @@ const ContextAndBaselineForm = observer(() => {
     },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
+  const getProjectName = localStorage.getItem('projectName')
+
   const onFormSubmit = async (values) => {
     const question = {
       q1: values?.q1 || "",
@@ -35,9 +37,10 @@ const ContextAndBaselineForm = observer(() => {
     const payload = {
       section: `B_1_0`,
       questions: question,
-      project_name: projectName || "",
+      project_name: projectName || getProjectName || "",
     };
-    const response = await conceptNote(payload);
+    localStorage.setItem('conceptPayload', JSON.stringify(payload))
+    const response = await conceptNote(payload, navigate);
     if (response?.response) {
       navigate(constRoute?.contextAndBaselineResults, {
         state: { response: response?.response },
@@ -156,7 +159,7 @@ const ContextAndBaselineForm = observer(() => {
                 <div className={style.twoBtnDiv}>
                   <button
                     className={style.goBtn}
-                    onClick={() => navigate(constRoute?.importantProjectInfo)}
+                    onClick={() => navigate(constRoute?.projectName)}
                   >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>

@@ -11,11 +11,10 @@ import { observer } from "mobx-react";
 import { resetStore, useStore } from "@stores/root-store";
 import CustomButton from "@components/common-components/custom-button";
 import LogoutIcon from "@assets/icons/log-out.png";
-
 const Header = observer(() => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const [current, setCurrent] = useState("/home");
+  const [current, setCurrent] = useState( localStorage.getItem('currentPage')||"/home");
   const {
     user: { loadUserInfo, getCurrentUserData },
   } = useStore(null);
@@ -66,6 +65,7 @@ const Header = observer(() => {
   ];
 
   const onClick: MenuProps["onClick"] = (e) => {
+    localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
     navigate(e.key);
   };
@@ -132,7 +132,7 @@ const Header = observer(() => {
               className={style.menuOutlinedIcon}
             />
           )}
-          <Link className={style.welcomeText} to={constRoute?.home}>
+          <Link className={style.welcomeText} to={constRoute?.home} onClick={()=>{setCurrent('/home')}}>
             <img src={welcomeLogo} alt="logo" />
           </Link>
         </div>

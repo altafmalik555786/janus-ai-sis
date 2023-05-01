@@ -22,6 +22,7 @@ const gcfJustificationForm = observer(() => {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
     const question ={
       q12a: values?.q12a||'',
@@ -31,9 +32,10 @@ const gcfJustificationForm = observer(() => {
     const payload = {
       section: `C_2_72`,
       questions: question,
-      project_name: projectName || ''
+      project_name: projectName|| getProjectName || ''
     }
-    const response = await conceptNote(payload)
+    localStorage.setItem('conceptPayload', JSON.stringify(payload))
+    const response = await conceptNote(payload, navigate)
     if(response?.response){
     navigate(constRoute?.gcfJustificationResults90,  { state: { response: response?.response} });
     }

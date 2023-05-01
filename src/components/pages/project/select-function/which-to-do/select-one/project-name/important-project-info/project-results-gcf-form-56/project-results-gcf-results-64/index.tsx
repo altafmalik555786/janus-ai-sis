@@ -7,11 +7,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
-
+import { useStore } from "@stores/root-store";
 const ProjectGCFResults = observer(() => {
   const navigate = useNavigate();
   const {state} = useLocation();
-
+  const {
+    user: {
+      getconceptNotedataList,
+      conceptNote,
+      getLoadingConceptNote
+    },
+  } = useStore(null);
+  const handleRegenratePayload=async()=>{
+    const payload=  localStorage.getItem('conceptPayload')
+    await conceptNote(JSON.parse(payload), navigate);
+  }
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'64%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -36,7 +46,7 @@ const ProjectGCFResults = observer(() => {
 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html: state?.response}}
+      dangerouslySetInnerHTML={{__html: getconceptNotedataList}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
@@ -49,8 +59,10 @@ const ProjectGCFResults = observer(() => {
                   Next
                 </Button>
                 <Button
-                  onClick={() => {}}
+                  onClick={() => handleRegenratePayload()}
                   className={style.reGenerate}
+                  loading={getLoadingConceptNote}
+                  disabled={getLoadingConceptNote}
                 >
                   Regenerate
                 </Button>
