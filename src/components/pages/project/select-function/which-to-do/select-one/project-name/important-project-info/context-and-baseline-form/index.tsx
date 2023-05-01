@@ -3,7 +3,6 @@ import style from "./style.module.scss";
 import React, { memo, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
-import CloseIcon from "@assets/icons/closeIcon.png";
 import { useForm } from "antd/es/form/Form";
 import { CommonInput } from "@components/common-components/input";
 import { validateMessages } from "@utils/json-data";
@@ -12,6 +11,7 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import { useStore } from "@stores/root-store";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+import LeftSideBarInfo from "../left-sideBar-info";
 
 const ContextAndBaselineForm = observer(() => { 
   const [form] = useForm();
@@ -53,43 +53,44 @@ const ContextAndBaselineForm = observer(() => {
 
       <div className={style.barContentContainer}>
       {show && (
-        <div className={style.layoutDiv}>
-          <div className={style.siderStyle}>
-            <div className={style.sideInnerDiv}>
-              <div className={style.importantDiv}>
-                <p className={style.pTagFour}>Important</p>
-                <button
-                  className={style.btnClass}
-                  onClick={() => setShow(!show)}
-                >
-                  <img
-                    src={CloseIcon}
-                    className={style.closeIconImg}
-                    alt="fd"
-                  />
-                </button>
-              </div>
+        <LeftSideBarInfo />
+        // <div className={style.layoutDiv}>
+        //   <div className={style.siderStyle}>
+        //     <div className={style.sideInnerDiv}>
+        //       <div className={style.importantDiv}>
+        //         <p className={style.pTagFour}>Important</p>
+        //         <button
+        //           className={style.btnClass}
+        //           onClick={() => setShow(!show)}
+        //         >
+        //           <img
+        //             src={CloseIcon}
+        //             className={style.closeIconImg}
+        //             alt="fd"
+        //           />
+        //         </button>
+        //       </div>
             
-                <div className={style.pTageGroup}>
-                  <p className={style.pTagFive}>
-                    Provide information on which climate risks/impacts the
-                    intervention is designed to address.
-                  </p>
-                  <p className={style.pTagSix}>
-                    Describe the main root causes and barriers (social, gender,
-                    fiscal, regulatory, technological, financial, ecological,
-                    institutional, etc.) that need to be addressed. 
-                  </p>
-                  <p className={style.pTagSeven}>
-                    Be sure to include the number of beneficiaries the project
-                    is expected to help.
-                  </p>
-                </div>
+        //         <div className={style.pTageGroup}>
+        //           <p className={style.pTagFive}>
+        //             Provide information on which climate risks/impacts the
+        //             intervention is designed to address.
+        //           </p>
+        //           <p className={style.pTagSix}>
+        //             Describe the main root causes and barriers (social, gender,
+        //             fiscal, regulatory, technological, financial, ecological,
+        //             institutional, etc.) that need to be addressed. 
+        //           </p>
+        //           <p className={style.pTagSeven}>
+        //             Be sure to include the number of beneficiaries the project
+        //             is expected to help.
+        //           </p>
+        //         </div>
               
-              <Divider />
-            </div>
-          </div>
-        </div>
+        //       <Divider />
+        //     </div>
+        //   </div>
+        // </div>
         )}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>

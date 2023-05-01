@@ -1,0 +1,59 @@
+.mainWrraper{
+    .layoutDiv {
+        display: flex;
+  
+        .siderStyle {
+          background-color: #ffffff;
+          border: 1px solid #dde2e4;
+          width: 289px;
+          height: 100%;
+  
+          .sideInnerDiv {
+            max-width: 100%;
+            .importantDiv {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 1px solid #dde2e4;
+              padding: 0 20px;
+              padding-bottom: 10px;
+  
+              .pTagFour {
+                font-size: 20px;
+                font-weight: 600;
+                padding-left: 10px;
+                margin-top: 30px;
+              }
+              .btnClass {
+                background-color: #ffffff;
+                height: 40px;
+                margin-top: 10px;
+                text-align: center;
+                align-items: center;
+                width: 40px;
+                border-radius: 50px;
+                cursor: pointer;
+                border: 1px solid #e0e0e0;
+              }
+              .closeIconImg {
+                margin-top: 5px;
+              }
+            }
+  
+            .pTageGroup {
+              max-width: 90%;
+              margin: auto;
+              padding: 0 20px;
+              text-align: left;
+              font-family: "Inter";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 20px;
+              line-height: 140%;
+              letter-spacing: -0.006em;
+              color: #000000;
+            }
+          }
+        }
+      }
+}
