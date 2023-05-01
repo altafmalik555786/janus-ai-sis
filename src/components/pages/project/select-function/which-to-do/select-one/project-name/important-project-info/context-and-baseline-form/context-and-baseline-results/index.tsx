@@ -7,14 +7,24 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
- 
+ import { useStore } from "@stores/root-store";
 const ContextAndBaselineResults = observer(() => {
+  const {
+    user: {
+      getconceptNotedataList,
+      conceptNote,
+      getLoadingConceptNote
+    },
+  } = useStore(null);
   const navigate = useNavigate();
   const {state} = useLocation();
   const onFormSubmit = (values) => {
     console.log("values", values);
   };
-
+const handleRegenratePayload=async()=>{
+  const payload=  localStorage.getItem('conceptPayload')
+  await conceptNote(JSON.parse(payload), navigate);
+}
   return (
     <div className={style.mainContainer}>
         <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
@@ -55,7 +65,7 @@ const ContextAndBaselineResults = observer(() => {
 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html: state?.response}}
+      dangerouslySetInnerHTML={{__html: getconceptNotedataList}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
@@ -68,8 +78,10 @@ const ContextAndBaselineResults = observer(() => {
                   Next
                 </Button>
                 <Button
-                  onClick={() => {}}
+                  onClick={() => handleRegenratePayload()}
                   className={style.reGenerate}
+                  loading={getLoadingConceptNote}
+                  disabled={getLoadingConceptNote}
                 >
                   Regenerate
                 </Button>

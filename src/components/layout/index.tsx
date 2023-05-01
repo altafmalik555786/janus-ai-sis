@@ -15,7 +15,7 @@ const DefaultLayout = observer(() => {
   useEffect(() => {
     if (localStorage.getItem("token")?.length > 0) {
       setIsToken(localStorage.getItem("token"))
-      navigate(constRoute?.home)
+      // navigate(constRoute?.home)
     } else { 
       localStorage.removeItem("token")
       navigate(constRoute?.dashboard)

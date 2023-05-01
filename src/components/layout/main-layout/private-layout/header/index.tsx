@@ -132,7 +132,7 @@ const Header = observer(() => {
               className={style.menuOutlinedIcon}
             />
           )}
-          <Link className={style.welcomeText} to={constRoute?.home}>
+          <Link className={style.welcomeText} to={constRoute?.home} onClick={()=>{setCurrent('/home')}}>
             <img src={welcomeLogo} alt="logo" />
           </Link>
         </div>

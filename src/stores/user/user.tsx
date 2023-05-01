@@ -33,6 +33,7 @@ export const user = types
     loadingGenerateReport: types.optional(types.boolean, false), 
     getProjectData: types.maybeNull(getProjectModel),
     loadingSingleProjectData: types.optional(types.boolean, false),
+    conceptNoteData: types.maybeNull(types.string),
   })
   .views((self) => ({
     get getUserInfo() {
@@ -82,6 +83,9 @@ export const user = types
     },
     get getLoadingGetProject(){
       return toJS(self.loadingSingleProjectData)
+    },
+    get getconceptNotedataList(){
+      return toJS(self.conceptNoteData)
     }
   }))
   .actions((self) => {
@@ -186,17 +190,23 @@ export const user = types
         return response;
       }
     });
-    const conceptNote = flow(function* (data) {
+    const conceptNote = flow(function* (data, navigate=null) {
       self.loadingConceptNote = true;
       let response = null;
       try {
         const res = yield userApi.onConceptNote(data);
+        console.log('res', res)
+        self.conceptNoteData = res?.response
+        
         // if(res?.message?.includes('project saved successfully')){
         //   notification.success(res?.message);
         // }
         response = res;
       } catch (error) {
         catchError(error, "conceptNote");
+        if (error?.response?.data?.error?.includes('Invalid token') || error?.response?.data?.error?.includes('Token has expired')) {
+          onLogOutClearAll(navigate);
+        }
       } finally {
         self.loadingConceptNote = false;
         return response;

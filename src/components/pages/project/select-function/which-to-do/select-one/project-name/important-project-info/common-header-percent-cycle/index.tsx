@@ -19,12 +19,12 @@ const CommonHeaderPercentCycle = ({
 }: HeaderTypes) => {
 
   const { user: { getProjectNameData } } = useStore(null)
-
+const getProjectName = localStorage.getItem('projectName')
   return (
     <Row className={style.contextBaselineDiv}>
       <Col md={8} xs={24}>
         <p className={style.pTageOne}>Project Name</p>
-        <strong>{JSON.parse(getProjectNameData)?.project_name || projectName }</strong>
+        <strong>{JSON.parse(getProjectNameData)?.project_name || getProjectName || projectName }</strong>
         <img src={ProjectName} alt="icon" />
       </Col>
       <Col md={8} xs={24}>

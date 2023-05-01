@@ -16,6 +16,7 @@ const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
+  const getProjectName = localStorage.getItem('projectName')
   const {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
@@ -28,9 +29,10 @@ const ProjectDescriptionForm = observer(() => {
     const payload = {
       section: `B_3_16`,
       questions: question,
-      project_name: projectName || ''
+      project_name: projectName ||getProjectName || ''
     }
-    const response = await conceptNote(payload)
+    localStorage.setItem('conceptPayload', JSON.stringify(payload))
+    const response = await conceptNote(payload, navigate)
     navigate(constRoute?.projectResultsGcfResults,  { state: { response: response?.response} });
     // navigate(constRoute?.projectResultsGcfResults);
   };

@@ -14,6 +14,7 @@ const ProjectName = observer(() => {
   const [form] = useForm();
   const [inputValue, setInputValue] = useState(true)
   const onFormSubmit = (value) => {
+    localStorage.setItem('projectName', value.projectName)
     navigate(constRoute?.importantProjectInfo,  { state: { projectName: value.projectName} });
   };
 
