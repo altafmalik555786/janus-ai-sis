@@ -34,7 +34,7 @@ const ForgotPassword = observer(() => {
     },
   };
 
-  return (
+  return ( 
     <div className={style.mainContainer}>
       <div className={style.container}>
         <div className={style.headingWrapper}>
@@ -55,6 +55,7 @@ const ForgotPassword = observer(() => {
           layout="vertical"
         >
           <Form.Item
+          className={style.enterEmail}
             name={"email"}
             label="Email Address"
             rules={[
@@ -65,7 +66,7 @@ const ForgotPassword = observer(() => {
               },
             ]}
           >
-            <CommonInput type="email" className={style.emailInput} />
+            <CommonInput type="email" className={style.emailInput} /> 
           </Form.Item>
           <div className={style.loginWrraper}>
             <Button className={style.resendClickBtn} htmlType="submit">

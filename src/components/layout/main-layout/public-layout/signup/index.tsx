@@ -71,7 +71,7 @@ const SignUp = observer(() => {
           autoComplete={"off"}
           validateMessages={validateMessages}
           layout="vertical"
-          className={style.signUpForm}
+          className={style.signUpForm} 
         >
           
           <Form.Item label={"First Name"} name={"firstname"}>

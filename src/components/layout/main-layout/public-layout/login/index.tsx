@@ -27,7 +27,7 @@ const Login = observer(() => {
         <div className={style.welcomeWrraper}>
           <img src={welcomeLogo} alt="welcom logo" />
           <h2>Welcome Back</h2>
-        </div>
+        </div> 
         <Form
           form={loginForm}
           name={"basic"}
@@ -42,7 +42,7 @@ const Login = observer(() => {
             name={"email"}
             rules={[
               {
-                required: true,
+                required: true, 
                 type:"email",
                 message: `Please provide a valid email address`,
               },
@@ -62,6 +62,7 @@ const Login = observer(() => {
           >
             <Input.Password
               placeholder="Enter Password"
+              className={style.passwordInput}
               iconRender={(visible) =>
                 visible ? <img height={18}  width={18} src={Eye} alt='' /> : <img height={18}  width={18} src={EyeOff} alt='' />
               }
@@ -72,7 +73,7 @@ const Login = observer(() => {
             <p  onClick={() => {navigate(constRoute.forgetPassword)}} >Forgot Password?</p>
             <Button className={style.loginBtn} htmlType="submit" >  { isLoadingLogin && <Spin /> || "Log In" } </Button>
           </div>
-          <div className={style.signupWrraper}>
+          <div className={style.signupWrraper}> 
             <p>Don’t have an account?</p>
             <span onClick={() => navigate(constRoute?.signup)}>Sign up</span>
           </div>

@@ -34,10 +34,12 @@
 
     .forgotPassword {
       margin-top: 0;
+      font-size: 22px;
     }
 
     .janusText {
       text-align: center;
+      font-size: 18px;
     }
 
     .formData {
@@ -47,6 +49,8 @@
 
       .emailInput {
         width: 520px;
+        font-size: 16px !important ;
+        font-family: "Inter";
         border-radius: 4px;
       }
 
@@ -61,9 +65,13 @@
         font-family: "Inter";
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 19px;
         color: #000000;
+      }
+
+      .enterEmail{
+        font-size: 40px;
       }
 
       .loginWrraper {
@@ -74,7 +82,7 @@
           color: #fff;
           height: 45px;
           font-weight: 500;
-          font-size: 15px;
+          font-size: 20px;
 
           div {
             margin-top: 5px;
@@ -89,6 +97,7 @@
       justify-content: center;
       text-align: center;
       align-items: center;
+      font-size: 18px;
       gap: 5px;
 
       .aLink {
