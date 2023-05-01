@@ -229,7 +229,7 @@ const handleGetData =async (item) => {
               isShowHeader={false}
             />
           </div>
-            <p className={style.thirdPara}>
+            <p className={style.thirdPara}> 
               Draft a GCF Concept Note or Proposal
             </p>
             <div className={style.responsiveTable}>
