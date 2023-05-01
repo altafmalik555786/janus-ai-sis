@@ -11,19 +11,21 @@ const ImportantProjectInfo = observer(() => {
   const navigate = useNavigate()
   const [isChecked, setIsChecked] = useState(false);
   const {
-    user: { projectSave, isLoadingProjectSave },
+    user: { projectSave, isLoadingProjectSave, resetProjectData },
   } = useStore(null);
 // console.log('isLoadingProjectSave===', isLoadingProjectSave)
   const [error, setError] = useState(false);
   const {state} = useLocation();
   const nextSubmitHandler =async() => {
     if(isChecked){
+      resetProjectData()
 const payload = {
   project_name: state?.projectName,
   functionality: 'concept note'
 }
-const response =  await projectSave(payload)
+const response =  await projectSave(payload, navigate)
 if(response?.message?.includes('project saved successfully')){
+  
   navigate(constRoute?.contextAndBaselineForm)}
 }
     else{

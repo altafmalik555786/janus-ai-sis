@@ -159,7 +159,7 @@ const ContextAndBaselineForm = observer(() => {
                 <div className={style.twoBtnDiv}>
                   <button
                     className={style.goBtn}
-                    onClick={() => navigate(constRoute?.importantProjectInfo)}
+                    onClick={() => navigate(constRoute?.projectName)}
                   >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>

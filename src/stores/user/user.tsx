@@ -96,7 +96,7 @@ export const user = types
           localStorage.setItem("token", res?.jwt_token);
           if(res?.jwt_token){
            loadUserInfo().then((data) => {
-            if(data?.data?.error?.includes('Invalid token')){
+            if(data?.data?.error?.includes('Invalid token') || data?.data?.error?.includes('Token has expired')){
               catchError(data, "loadUserInfo");  
               navigate(`${constRoute.login}`);
             } else{
@@ -173,7 +173,7 @@ export const user = types
         return response;
       }
     });
-    const projectSave = flow(function* (data) {
+    const projectSave = flow(function* (data, navigate='null') {
       self.loadingProjectSave = true;
       let response = null;
       try {
@@ -185,6 +185,9 @@ export const user = types
         response = res;
       } catch (error) {
         catchError(error, "projectSave");
+        if (error?.response?.data?.error?.includes('Invalid token') || error?.response?.data?.error?.includes('Token has expired')) {
+          onLogOutClearAll(navigate);
+        }
       } finally {
         self.loadingProjectSave = false;
         return response;
@@ -195,12 +198,7 @@ export const user = types
       let response = null;
       try {
         const res = yield userApi.onConceptNote(data);
-        console.log('res', res)
         self.conceptNoteData = res?.response
-        
-        // if(res?.message?.includes('project saved successfully')){
-        //   notification.success(res?.message);
-        // }
         response = res;
       } catch (error) {
         catchError(error, "conceptNote");
@@ -292,6 +290,9 @@ export const user = types
         return response;
       }
     });
+    const resetProjectData =  ()=>{
+      self.getProjectData = null;
+    }
     const generateReport = flow(function* (data, navigate=null) {
       self.loadingGenerateReport = true;
       let response = null;
@@ -332,7 +333,8 @@ export const user = types
       projectDelete, 
       generateReport,
       getSingleProjectData,
-      setProjectName
+      setProjectName,
+      resetProjectData
     };
   });
 
