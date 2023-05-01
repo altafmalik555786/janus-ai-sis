@@ -111,7 +111,7 @@ const SustainabilityReplicabilityForm = observer(() => {
               >
                 <Form.Item
                   label= {<span>{'13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.'}<span style={{color: 'red'}}>*</span></span>}
-                  name={"13a"}
+                  name={"q13a"}
                   rules={[
                     {
                       required: true,
@@ -128,7 +128,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                 </Form.Item>
                 <Form.Item
                   label="13b) For non-grant instruments, explain how the capital invested will be repaid and over what duration of time."
-                  name={"13b"}
+                  name={"q13b"}
                 >
                   <CommonInput
                     inputType="textarea"
