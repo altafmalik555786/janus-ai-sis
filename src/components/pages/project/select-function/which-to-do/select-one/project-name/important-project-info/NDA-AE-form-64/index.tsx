@@ -52,7 +52,9 @@ const ProjectDescriptionForm = observer(() => {
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'64%'} conceptNoteSection={'B.4 Engagement Among the NDA, AE and/or other'}/> 
       <div className={style.barContentContainer}>
-        <CommonImportantSideBar fristPara={`  If you want for Climate Finance Copilot to offer a notional
+        <CommonImportantSideBar
+        title={'Quick Tips'}
+        fristPara={`  If you want for Climate Finance Copilot to offer a notional
                   engagement mode for this project/programme, then leave the
                   input box blank. `}/>
       {/* {show && (

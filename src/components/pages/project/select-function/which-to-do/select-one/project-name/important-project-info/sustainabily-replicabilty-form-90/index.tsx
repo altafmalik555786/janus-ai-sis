@@ -63,6 +63,7 @@ const SustainabilityReplicabilityForm = observer(() => {
 
       <div className={style.barContentContainer}>
         <CommonImportantSideBar
+        title={'Quick Tips'}
         fristPara={` A climate project/programme sustainability plan is critical
         for ensuring the long-term success and impact of a
         project/programme. Here are some topics to consider as you

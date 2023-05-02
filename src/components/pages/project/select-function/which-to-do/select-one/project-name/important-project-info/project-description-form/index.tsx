@@ -52,6 +52,7 @@ const ProjectDescriptionForm = observer(() => {
  
       <div className={style.barContentContainer}>
         <CommonImportantSideBar
+        title={'Important'}
         fristPara={`Based on the information you supplied, CFC will formulate the
         theory of change and provide information on how it serves to
         shift the development pathway toward a more low-emissions

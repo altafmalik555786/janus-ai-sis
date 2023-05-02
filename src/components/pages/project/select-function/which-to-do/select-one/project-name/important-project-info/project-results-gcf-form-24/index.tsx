@@ -55,6 +55,7 @@ const ProjectGCFForm = observer(() => {
 
       <div className={style.barContentContainer}>
         <CommonImportantSideBar 
+        title={'Quick Tips'}
         fristPara={`Describe the potential for project to catalyse action beyond
                   the GCF-funded project.`}
         secondParagraph={`Climate Finance Co-pilot (CFC) will generate suggestions on 

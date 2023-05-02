@@ -54,7 +54,9 @@ const ProjectGCFForm = observer(() => {
 
 
       <div className={style.barContentContainer}>
-        <CommonImportantSideBar fristPara={` Discuss vulnerabilities and exposure of the target areas or
+        <CommonImportantSideBar
+        title={'Quick Tips'}
+        fristPara={` Discuss vulnerabilities and exposure of the target areas or
                   populations, highlight financing barriers and need for
                   institutional capacity building, and such information should
                   be backed by sound evidence.`}/>
