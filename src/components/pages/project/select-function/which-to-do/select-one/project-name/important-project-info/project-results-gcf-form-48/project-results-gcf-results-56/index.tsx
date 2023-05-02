@@ -77,7 +77,15 @@ const ProjectGCFResults = observer(() => {
                   <button className={style.goBtn} onClick={() => navigate(constRoute?.projectResultsGcfForm48)} >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
-               
+                  <button
+                    onClick={() => {
+                      notification.success("Saved and quitted");
+                      navigate(constRoute?.home);
+                    }}
+                    className={style.saveBtn}
+                  >
+                    Save & Quit
+                  </button>
                 </div>
               </div>
             </div>

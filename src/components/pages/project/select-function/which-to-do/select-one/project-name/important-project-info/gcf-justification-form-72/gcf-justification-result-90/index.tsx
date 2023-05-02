@@ -58,7 +58,15 @@ const ProjectDescriptionResults = observer(() => {
                   >
                     <img src={LeftArrow} alt="left-arrow" /> Go Back
                   </button>
-                
+                  <button
+                    onClick={() => {
+                      notification.success("Saved and quitted");
+                      navigate(constRoute?.home);
+                    }}
+                    className={style.saveBtn}
+                  >
+                    Save & Quit
+                  </button>
                 </div>
               </div>
             </div>

@@ -36,10 +36,11 @@ const Login = observer(() => {
           validateMessages={validateMessages}
           className={style.loginForm}
           layout="vertical"
-        >
+        > 
           <Form.Item
             label={"Email Address"}
             name={"email"}
+            
             rules={[
               {
                 required: true, 

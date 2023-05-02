@@ -6,6 +6,7 @@ import { Button, Checkbox } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { useStore } from "@stores/root-store";
+import { notification } from "@utils/notifications";
 
 const ImportantProjectInfo = observer(() => {
   const navigate = useNavigate()
@@ -90,7 +91,15 @@ if(response?.message?.includes('project saved successfully')){
  >
             <img src={LeftArrow} alt="left-arrow" /> Go Back
           </button>
-           
+          <button
+                    onClick={() => {
+                      notification.success("Saved and quitted");
+                      navigate(constRoute?.home);
+                    }}
+                    className={style.saveBtn}
+                  >
+                    Save & Quit
+                  </button>
         </div>
       </div>
     </div>
