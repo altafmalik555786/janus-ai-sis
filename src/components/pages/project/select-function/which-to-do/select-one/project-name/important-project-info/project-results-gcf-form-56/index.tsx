@@ -51,7 +51,9 @@ const ProjectGCFForm = observer(() => {
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'56%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
       <div className={style.barContentContainer}>
-        <CommonImportantSideBar fristPara={` Explain the economic and financial viability of the
+        <CommonImportantSideBar
+        title={'Quick Tips'}
+        fristPara={` Explain the economic and financial viability of the
                   project/programme by including economic and financial
                   analyses, to include: internal rate of return; Financial
                   viability in the long run;  business and strategy for phasing

@@ -54,6 +54,7 @@ const gcfJustificationForm = observer(() => {
      <CommonHeaderPercentCycle  percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
       <div className={style.barContentContainer}>
         <CommonImportantSideBar
+        title={'Quick Tips'}
          fristPara={` ** The justification for grants and reimbursable grants is
          mandatory. **`} 
          secondParagraph={` In your discussion on “alternative funding options” Include an

@@ -11,6 +11,7 @@ export interface ImportantSidebarProps {
     forthParagraph?: string;
     isList?: boolean;
     listArray?: any;
+    title?: string
 }
 
 
@@ -20,7 +21,8 @@ const CommonImportantSideBar = ({
     thirdParagraph,
     forthParagraph,
     isList = false,
-    listArray
+    listArray,
+    title
 }: ImportantSidebarProps) => {
     const [show, setShow] = useState(true);
 
@@ -32,7 +34,7 @@ const CommonImportantSideBar = ({
         <div className={style.siderStyle}>
           <div className={style.sideInnerDiv}>
             <div className={style.importantDiv}>
-              <p className={style.pTagFour}>Quick Tips</p>
+              <p className={style.pTagFour}>{title || ''}</p>
               <button className={style.btnClass} onClick={() => setShow(!show)}>
                 <img
                   src={CloseIcon}

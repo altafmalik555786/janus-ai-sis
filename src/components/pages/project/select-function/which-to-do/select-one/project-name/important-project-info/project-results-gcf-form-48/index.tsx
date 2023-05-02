@@ -54,7 +54,9 @@ const ProjectGCFForm = observer(() => {
     <CommonHeaderPercentCycle  percent={'48%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
 
       <div className={style.barContentContainer}>
-        <CommonImportantSideBar fristPara={` Demonstrate how the intervention aligns with national
+        <CommonImportantSideBar
+        title={'Quick Tips'}
+        fristPara={` Demonstrate how the intervention aligns with national
                   policies, strategies and/or frameworks, e.g. alignment of
                   project activities with achievement of the NDC.`}
                   secondParagraph={` Highlight stakeholder engagement with national and local

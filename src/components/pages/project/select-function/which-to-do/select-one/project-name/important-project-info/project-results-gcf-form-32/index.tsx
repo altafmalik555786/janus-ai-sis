@@ -51,7 +51,9 @@ const ProjectGCFForm = observer(() => {
     <div className={style.mainContainer}>
        <CommonHeaderPercentCycle  percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
       <div className={style.barContentContainer}>
-        <CommonImportantSideBar fristPara={`Include quantitative information, backed by solid evidence, of
+        <CommonImportantSideBar
+        title={'Quick Tips'}
+        fristPara={`Include quantitative information, backed by solid evidence, of
                   the social, environmental and economic benefits of the
                   project, e.g. number of jobs created, number of women and
                   girls benefited.`}/>

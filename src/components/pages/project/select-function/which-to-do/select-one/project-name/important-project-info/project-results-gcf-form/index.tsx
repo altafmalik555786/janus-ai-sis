@@ -50,7 +50,9 @@ const ProjectDescriptionForm = observer(() => {
      <CommonHeaderPercentCycle  percent={'16%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
 
       <div className={style.barContentContainer}>
-        <CommonImportantSideBar fristPara={` Provide quantitative and qualitative information on the
+        <CommonImportantSideBar
+        title={'Quick Tips'}
+        fristPara={` Provide quantitative and qualitative information on the
                   potential impact of project/programme, e.g. tonnes of CO2e
                   avoided or reduced, number of beneficiaries, number of people
                   affected by climate impacts. (Be as specific as possible about

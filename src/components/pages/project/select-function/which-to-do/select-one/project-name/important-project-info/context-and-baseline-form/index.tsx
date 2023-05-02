@@ -66,6 +66,7 @@ const ContextAndBaselineForm = observer(() => {
 
       <div className={style.barContentContainer}>
         <CommonImportantSideBar 
+        title={'Important'}
         fristPara={` Provide information on which climate risks/impacts the
         intervention is designed to address.`}
         secondParagraph={`  Describe the main root causes and barriers (social, gender,
