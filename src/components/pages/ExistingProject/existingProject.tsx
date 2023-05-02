@@ -2,12 +2,10 @@ import { observer } from "mobx-react";
 import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
 import Table from "@components/common-components/table";
-import { ColTextCheck } from "@components/common-components/export-common-components/table-columns-text-check";
 import folderIcon from "../../../assets/icons/folderIcon.png";
 import pencilIcon from "../../../assets/icons/pencilIcon.png";
 import trashIcon from "../../../assets/icons/trashIcon.png";
 import uploadIcon from "../../../assets/icons/uploadIcon.png";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ProjectDeleteModelData from "./projectDeleteModel";
 import { useStore } from "@stores/root-store";
@@ -16,7 +14,6 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { constRoute } from "@utils/route";
 import { getAuthorizationHeader } from "@api/common-utils";
 import { baseUrl } from "@api/const";
-
 const ExistingProject = observer(() => {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
@@ -27,20 +24,16 @@ const ExistingProject = observer(() => {
     user: {
       loadGetExistingProject,
       projectDelete,
-      generateReport,
       getSingleProjectData,
-      getProjectListData,
-      getLoadingGenerateReport,
       getLoadingExistingProject,
       getLoadingDeleteRecord,
-      setProjectName
-      
+      setProjectName,
     },
   } = useStore(null);
   const [openModel, setOpenModel] = useState(false);
   const [projectData, setProjectData] = useState(null);
   const [downloadLoading, setDownloadLoading] = useState("");
-  const [editLoading, setEditLoading]=  useState('')
+  const [editLoading, setEditLoading] = useState("");
   const handleLoadProject = async () => {
     setProjectData(null);
     const result = await loadGetExistingProject(navigate);
@@ -48,7 +41,7 @@ const ExistingProject = observer(() => {
     result?.projects["concept note"]?.forEach((item) => {
       dummyArray?.push({ projectName: item });
     });
-    setProjectData({conceptNote: dummyArray, grading: []});
+    setProjectData({ conceptNote: dummyArray, grading: [] });
   };
   const deleteProjectData = async () => {
     const payload = {
@@ -67,8 +60,8 @@ const ExistingProject = observer(() => {
   };
   function download(blob, filename) {
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.style.display = 'none';
+    const a = document.createElement("a");
+    a.style.display = "none";
     a.href = url;
     a.download = filename;
     document.body.appendChild(a);
@@ -81,20 +74,16 @@ const ExistingProject = observer(() => {
       project_name: data?.projectName,
       functionality: "concept note",
     };
-   
-   await fetch(`${baseUrl}/generateReport`, {
-        method: 'POST',
-        headers: {
-           'Content-Type': 'application/json',
-           'Authorization':getAuthorizationHeader()
-        },
-        body: JSON.stringify(
-          payload
-         )
-      })
-      .then(response => {response.blob().then(blob => download(blob, 'project'))
-      })
-
+    await fetch(`${baseUrl}/generateReport`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getAuthorizationHeader(),
+      },
+      body: JSON.stringify(payload),
+    }).then((response) => {
+      response.blob().then((blob) => download(blob, "project"));
+    });
 
     // await generateReport(payload, navigate).then(response => {response.blob().then(blob => download(blob, 'project'))});
     // const blob = new Blob([result], { type: "application/pdf" });
@@ -108,21 +97,24 @@ const ExistingProject = observer(() => {
   useEffect(() => {
     handleLoadProject();
   }, []);
-const handleGetData =async (item) => {
-  setProjectName(item?.projectName)
-  const payload = {
-    project_name: item?.projectName,
-    section:"B_1_0",
-    functionality: "concept note",
+  const handleGetData = async (item) => {
+    setProjectName(item?.projectName);
+    const payload = {
+      project_name: item?.projectName,
+      section: "B_1_0",
+      functionality: "concept note",
+    };
+    await getSingleProjectData(payload, navigate);
+    setEditLoading("");
+    localStorage.setItem("projectName", item?.projectName);
+    localStorage.setItem('currentPage', '/home')
+    navigate(constRoute?.contextAndBaselineForm, {
+      state: { projectName: item?.projectName, isEdit: true },
+    });
   };
-  await getSingleProjectData(payload, navigate);
-  setEditLoading('');
-  localStorage.setItem('projectName', item?.projectName)
-  navigate(constRoute?.contextAndBaselineForm, { state: { projectName: item?.projectName, isEdit: true} })
-}
   const columns = [
     {
-      title: "test",
+      title: "",
       dataIndex: "test",
       width: 5,
       render: () => {
@@ -130,7 +122,7 @@ const handleGetData =async (item) => {
       },
     },
     {
-      title: "para",
+      title: "",
       dataIndex: "projectName",
       render: (_, data) => {
         return (
@@ -150,8 +142,8 @@ const handleGetData =async (item) => {
     //   }
     // },
     {
-      title: "test",
-      dataIndex: "test",
+      title: "",
+      dataIndex: "status",
       render: (_, data) => {
         return (
           <div>
@@ -166,18 +158,24 @@ const handleGetData =async (item) => {
     },
 
     {
-      title: "test",
+      title: "",
       width: 25,
       render: (_, data) => {
         return (
           <div className={style.flexWrapper}>
-            {editLoading=== data?.projectName ? (
+            {editLoading === data?.projectName ? (
               <Spin indicator={antIcon} />
-            ) : (<img src={pencilIcon} className={style.imgClass} onClick={()=>{
-              setEditLoading(data?.projectName)
-              handleGetData(data)
-              // navigate(constRoute?.contextAndBaselineForm, { state: { projectName: data?.projectName, isEdit: true} })
-            }}/>)}
+            ) : (
+              <img
+                src={pencilIcon}
+                className={style.imgClass}
+                onClick={() => {
+                  setEditLoading(data?.projectName);
+                  handleGetData(data);
+                  // navigate(constRoute?.contextAndBaselineForm, { state: { projectName: data?.projectName, isEdit: true} })
+                }}
+              />
+            )}
             <img
               src={trashIcon}
               className={style.imgClass}
@@ -191,7 +189,8 @@ const handleGetData =async (item) => {
             ) : (
               <img
                 style={{
-                  pointerEvents: downloadLoading === data?.projectName ? "none" : "auto",
+                  pointerEvents:
+                    downloadLoading === data?.projectName ? "none" : "auto",
                 }}
                 src={uploadIcon}
                 className={style.imgClass}
@@ -221,7 +220,7 @@ const handleGetData =async (item) => {
           </p>
           <div className={style.responsiveTable}>
             <Table
-              dataSource={projectData?.grading||[]}
+              dataSource={projectData?.grading || []}
               className={style.tableStyle}
               columns={columns}
               loading={getLoadingExistingProject}
@@ -229,12 +228,12 @@ const handleGetData =async (item) => {
               isShowHeader={false}
             />
           </div>
-            <p className={style.thirdPara}> 
-              Draft a GCF Concept Note or Proposal
-            </p>
-            <div className={style.responsiveTable}>
+          <p className={style.thirdPara}>
+            Draft a GCF Concept Note or Proposal
+          </p>
+          <div className={style.responsiveTable}>
             <Table
-              dataSource={projectData?.conceptNote||[]}
+              dataSource={projectData?.conceptNote || []}
               className={style.tableStyle}
               columns={columns}
               loading={getLoadingExistingProject}
