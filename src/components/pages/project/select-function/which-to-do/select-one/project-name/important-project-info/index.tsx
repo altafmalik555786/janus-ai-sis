@@ -14,7 +14,6 @@ const ImportantProjectInfo = observer(() => {
   const {
     user: { projectSave, isLoadingProjectSave, resetProjectData },
   } = useStore(null);
-// console.log('isLoadingProjectSave===', isLoadingProjectSave)
   const [error, setError] = useState(false);
   const {state} = useLocation();
   const nextSubmitHandler =async() => {

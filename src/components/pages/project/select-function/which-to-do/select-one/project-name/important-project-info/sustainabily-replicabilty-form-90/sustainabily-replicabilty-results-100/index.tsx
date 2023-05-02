@@ -26,7 +26,6 @@ const handleNext = ()=>{
 const handleRegenratePayload=async()=>{
   const payload=  localStorage.getItem('conceptPayload')
  const res= await conceptNote(JSON.parse(payload), navigate);
- console.log('==rerert',res)
  setRegenrateResult(res?.response)
 }
 const handleGoBack=()=>{navigate(constRoute?.sustainabilityReplicabilityForm90)}
