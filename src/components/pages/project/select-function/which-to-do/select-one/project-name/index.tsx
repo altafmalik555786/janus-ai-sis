@@ -76,7 +76,7 @@ const ProjectName = observer(() => {
             </button>
             <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}

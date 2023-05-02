@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import { useStore } from "@stores/root-store";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 
 const ContextAndBaselineForm = observer(() => { 
   const [form] = useForm();
@@ -47,6 +49,14 @@ const ContextAndBaselineForm = observer(() => {
       });
     }
   };
+  
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.projectName)
+  }
   return (
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle
@@ -55,7 +65,16 @@ const ContextAndBaselineForm = observer(() => {
       />
 
       <div className={style.barContentContainer}>
-      {show && (
+        <CommonImportantSideBar 
+        fristPara={` Provide information on which climate risks/impacts the
+        intervention is designed to address.`}
+        secondParagraph={`  Describe the main root causes and barriers (social, gender,
+          fiscal, regulatory, technological, financial, ecological,
+          institutional, etc.) that need to be addressed. `}
+          thirdParagraph={`Be sure to include the number of beneficiaries the project
+          is expected to help.`}
+        />
+      {/* {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -93,7 +112,7 @@ const ContextAndBaselineForm = observer(() => {
             </div>
           </div>
         </div>
-        )}
+        )} */}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -144,7 +163,17 @@ const ContextAndBaselineForm = observer(() => {
                 </Form.Item>
               </Form>
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+
+
+            {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button
                   loading={getLoadingConceptNote}
@@ -165,7 +194,7 @@ const ContextAndBaselineForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -174,7 +203,7 @@ const ContextAndBaselineForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

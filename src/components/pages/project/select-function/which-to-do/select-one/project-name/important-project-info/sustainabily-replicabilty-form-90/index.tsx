@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 
 const SustainabilityReplicabilityForm = observer(() => {
   const [form] = useForm();
@@ -22,7 +24,14 @@ const SustainabilityReplicabilityForm = observer(() => {
     user: {getProjectNameData, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
-  const getProjectName = localStorage.getItem('projectName')
+  const getProjectName = localStorage.getItem('projectName');
+  const dummyArrayOfImportantSIdeBarList = [
+    `Identify key sustainability objectives and indicators.`,
+    `Develop a sustainability strategy.`,
+    `Establish partnerships.`,
+    `Ensure community ownership.`,
+    ` Develop a robust monitoring and evaluation framework`
+  ];
   const onFormSubmit = async(values) => {
     const question ={
       q13a: values?.q13a||'',
@@ -39,6 +48,13 @@ const SustainabilityReplicabilityForm = observer(() => {
     navigate(constRoute?.sustainabilityReplicabilityResults100,  { state: { response: response?.response} });
     }
   };
+  const handleback=()=>{
+    navigate(constRoute?.gcfJustificationResults90)
+  }
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
   return (
     <div className={style.mainContainer}>
 
@@ -46,7 +62,15 @@ const SustainabilityReplicabilityForm = observer(() => {
 (exit strategy)" percent="90%" />
 
       <div className={style.barContentContainer}>
-      {show && (
+        <CommonImportantSideBar
+        fristPara={` A climate project/programme sustainability plan is critical
+        for ensuring the long-term success and impact of a
+        project/programme. Here are some topics to consider as you
+        prepare to write this plan:  `}
+        isList={true}
+        listArray={dummyArrayOfImportantSIdeBarList}
+        />
+      {/* {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -76,26 +100,17 @@ const SustainabilityReplicabilityForm = observer(() => {
                     <li>Establish partnerships.</li>
                     <li>Ensure community ownership.</li>
                     <li>
-                      Develop a robust monitoring and evaluation framework
+                      Develop a robust monitoring and evaluation framework.
                     </li>
                   </ul>
                    
                 </p>
-                {/* 
-                <p className={style.pTagSeven}>
-                  In your “rationale and level of concessionality” discussion
-                  justify why this is the minimum required to make the
-                  investment viable and most efficient considering the
-                  incremental cost or risk premium of the Project/ Programme. 
-                </p>
-
-               */}
               </div>
               <Divider />
             </div>
           </div>
         </div>
-      )}
+      )} */}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -141,7 +156,16 @@ const SustainabilityReplicabilityForm = observer(() => {
               
               </Form>
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+
+            {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
@@ -157,7 +181,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -166,7 +190,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

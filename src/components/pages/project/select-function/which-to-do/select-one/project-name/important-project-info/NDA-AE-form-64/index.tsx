@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 
 const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
@@ -38,12 +40,22 @@ const ProjectDescriptionForm = observer(() => {
     navigate(constRoute?.ndaAeResults72,  { state: { response: response?.response} });
     }
   };
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.projectResultsGcfResults64)
+  }
  
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'64%'} conceptNoteSection={'B.4 Engagement Among the NDA, AE and/or other'}/> 
       <div className={style.barContentContainer}>
-      {show && (
+        <CommonImportantSideBar fristPara={`  If you want for Climate Finance Copilot to offer a notional
+                  engagement mode for this project/programme, then leave the
+                  input box blank. `}/>
+      {/* {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -63,22 +75,24 @@ const ProjectDescriptionForm = observer(() => {
                   engagement mode for this project/programme, then leave the
                   input box blank. 
                 </p>
-                {/* <p className={style.pTagSix}>
+                // this text is not showing in this page
+                <p className={style.pTagSix}>
                   Highlight stakeholder engagement with national and local
                   stakeholders, e.g. national ministries, the Accredited Entity,
                   the National Designated Authority, as well as civil society,
                   academia and other stakeholders for the particular project.
-                </p> */}
-                {/* <p className={style.pTagSeven}>
+                </p>
+                <p className={style.pTagSeven}>
                   Be sure to include the number of beneficiaries the project is
                   expected to help.
-                </p> */}
+                </p>
+                // uper code is comment that not show on this page  these two paragreaph
               </div>
               <Divider />
             </div>
           </div>
         </div>
-      )}
+      )} */}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -106,7 +120,15 @@ const ProjectDescriptionForm = observer(() => {
                 </Form.Item>
               </Form> 
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+            {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
@@ -124,7 +146,7 @@ const ProjectDescriptionForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -133,7 +155,7 @@ const ProjectDescriptionForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

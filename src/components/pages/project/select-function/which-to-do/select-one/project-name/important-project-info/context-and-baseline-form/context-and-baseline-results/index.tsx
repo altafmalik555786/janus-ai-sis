@@ -8,6 +8,7 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
  import { useStore } from "@stores/root-store";
+import CommonFooterButton from "../../commonfooterbutton";
 const ContextAndBaselineResults = observer(() => {
   const {
     user: {
@@ -27,6 +28,16 @@ const handleRegenratePayload=async()=>{
   const payload=  localStorage.getItem('conceptPayload')
 const res=  await conceptNote(JSON.parse(payload), navigate);
 setRegenrateResult(res?.response)
+}
+const handleSave = ()=>{
+  notification.success("Save and Quit");
+  navigate(constRoute?.home);
+}
+const handleback=()=>{
+  navigate(constRoute?.contextAndBaselineForm)
+}
+const handleNext = ()=>{
+  navigate(constRoute?.projectDescriptionForm)
 }
   return (
     <div className={style.mainContainer}>
@@ -72,7 +83,16 @@ setRegenrateResult(res?.response)
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+              handleGoNext={handleNext}
+             handleRegenrate={handleRegenratePayload}
+             handlegoback={handleback}
+             handleSaveAndQuit={handleSave}
+             isResult={true}
+             isLoadingRegenrate={getLoadingConceptNote}
+             />
+
+            {/* <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
                 <Button
                   onClick={() => navigate(constRoute?.projectDescriptionForm)}
@@ -100,7 +120,7 @@ setRegenrateResult(res?.response)
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -109,7 +129,7 @@ setRegenrateResult(res?.response)
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

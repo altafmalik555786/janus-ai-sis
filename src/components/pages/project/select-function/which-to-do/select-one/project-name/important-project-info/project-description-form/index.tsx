@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
@@ -37,13 +39,30 @@ const ProjectDescriptionForm = observer(() => {
     navigate(constRoute?.projectDescriptionResults,  { state: { response: response?.response} });
     }
   };
-
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.contextAndBaselineResults)
+  }
   return (
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
  
       <div className={style.barContentContainer}>
-      {show && ( 
+        <CommonImportantSideBar
+        fristPara={`Based on the information you supplied, CFC will formulate the
+        theory of change and provide information on how it serves to
+        shift the development pathway toward a more low-emissions
+        and/or climate resilient direction, in line with the Fund’s
+        goals and objectives. `}
+        secondParagraph={` For the Accredited Entity(ies) section, discuss the
+        implementation arrangements for project governance,
+        coordination and management and which organizations were
+        involved in the process.`}
+        />
+      {/* {show && ( 
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -71,16 +90,13 @@ const ProjectDescriptionForm = observer(() => {
                   coordination and management and which organizations were
                   involved in the process.
                 </p>
-                {/* <p className={style.pTagSeven}>
-                  Be sure to include the number of beneficiaries the project is
-                  expected to help.
-                </p> */}
+               
               </div>
               <Divider />
             </div>
           </div>
         </div>
-     )}
+     )} */}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -122,6 +138,18 @@ const ProjectDescriptionForm = observer(() => {
                 </Form.Item>
               </Form>
             </div>
+            
+  <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+
+
+{/*  
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
@@ -139,7 +167,7 @@ const ProjectDescriptionForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -148,7 +176,7 @@ const ProjectDescriptionForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

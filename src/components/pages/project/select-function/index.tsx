@@ -65,7 +65,7 @@ const SelectFunction = observer(() => {
  > <img src={LeftArrow} alt="left-arrow" /> Go Back</button>
             <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}

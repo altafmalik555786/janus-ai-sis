@@ -8,7 +8,9 @@ export interface ImportantSidebarProps {
     fristPara?: string;
     secondParagraph?: string;
     thirdParagraph?: string;
-    lastParagraph?: string
+    forthParagraph?: string;
+    isList?: boolean;
+    listArray?: any;
 }
 
 
@@ -16,13 +18,48 @@ const CommonImportantSideBar = ({
     fristPara,
     secondParagraph,
     thirdParagraph,
-    lastParagraph
+    forthParagraph,
+    isList = false,
+    listArray
 }: ImportantSidebarProps) => {
     const [show, setShow] = useState(true);
 
   return (
   <>
-   {show && ( 
+   {isList ? 
+    show && (
+      <div className={style.layoutDiv}>
+        <div className={style.siderStyle}>
+          <div className={style.sideInnerDiv}>
+            <div className={style.importantDiv}>
+              <p className={style.pTagFour}>Quick Tips</p>
+              <button className={style.btnClass} onClick={() => setShow(!show)}>
+                <img
+                  src={CloseIcon}
+                  className={style.closeIconImg}
+                  alt="fd"
+                />
+              </button>
+            </div>
+            <div className={style.pTageGroup}>
+              <p className={style.pTagFive}> 
+                {fristPara || ''}
+              </p>
+              <p className={style.pTagSix}>
+                <ul>
+                  {listArray?.map((item, index)=>{
+                    return <li key = {index}>{item}</li>
+                  })}
+                </ul>
+                 
+              </p>
+            </div>
+            <Divider />
+          </div>
+        </div>
+      </div>
+    ):
+    show && ( 
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -48,7 +85,7 @@ const CommonImportantSideBar = ({
                 </p>
 
                 <p className={style.pTagSeven}>
-                  {lastParagraph || ''}
+                  {forthParagraph || ''}
                 </p>
               </div>
               <Divider />

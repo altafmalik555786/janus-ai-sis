@@ -1,0 +1,149 @@
+
+ .footerButtonsDiv {
+          margin: 50px 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+ 
+          .nextButton {
+ &:disabled {
+          background-color: gray;
+        }
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            // width: 92px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 27px;
+            border: none;
+            color: #ffffff;
+            background: #00b840;
+            border-radius: 5px;
+            padding: 6px 20px;
+            &:hover{
+              color: #ffffff;
+              background: #00b840;
+            }
+          }
+
+          .reGenerate {
+            height: 40px;
+            // width: 134px;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            margin-left: 10px;
+            line-height: 27px;
+            color: #808080;
+            background: #e6e6e6;
+            border-radius: 5px;
+            border: none;
+            &:hover{
+              color: #808080;
+            background: #e6e6e6;
+            }
+          }
+
+          .btnDiv {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .twoBtnDiv {
+              display: flex;
+              justify-content: center;
+              gap: 11px;
+              .goBtn {
+                // height: 50px;
+                // width: 80px;
+                color: #2e2e2e;
+                background: #ececf1;
+                border-radius: 5px;
+                cursor: pointer;
+                border: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 27px;
+                width: 116px;
+                height: 40px;
+                img {
+                  margin-top: 1px;
+                }
+              }
+              .saveBtn {
+                width: 116px;
+                height: 40px;
+                color: #2E2E2E;
+                white-space: nowrap;
+                background: #ececf1;
+                border-radius: 5px;
+                cursor: pointer;
+                border: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 27px;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+
+                line-height: 27px;
+              }
+            }
+            @media only screen and (max-width: 425px) {
+              .twoBtnDiv {
+                margin-bottom: 0;
+                .goBtn {
+                  height: 40px;
+                  width: 80px;
+                }
+                .saveBtn {
+                  height: 40px;
+                  width: 90px;
+                }
+              }
+            }
+          }
+          @media only screen and (max-width: 425px) {
+            .nextButtonDiv {
+              .nextButton {
+ &:disabled {
+          background-color: gray;
+        }
+                height: 40px;
+                width: 114px;
+              }
+            }
+          }
+          @media only screen and (max-width: 480px) {
+            flex-direction: column;
+
+            .leftBtnContainer {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+
+            .btnDiv {
+              .twoBtnDiv {
+                justify-content: space-between;
+              }
+            }
+          }
+        }
+     
+ 
+  
+
