@@ -66,10 +66,9 @@ const Header = observer(() => {
   ];
 
   useEffect(() => {
-    console.log('=====', location?.pathname)
     if(location?.pathname=== '/myProjects') setCurrent('/myProjects');
     else if(location?.pathname==='/FAQs') setCurrent('/FAQs')
-    else if(location?.pathname=='/getExpertHelp') setCurrent('/getExpertHelp')
+    else if(location?.pathname==='/getExpertHelp') setCurrent('/getExpertHelp')
     else setCurrent('/home')
     // setCurrent(localStorage.getItem('currentPage'));
   }, [location?.pathname, localStorage.getItem('currentPage')]);
