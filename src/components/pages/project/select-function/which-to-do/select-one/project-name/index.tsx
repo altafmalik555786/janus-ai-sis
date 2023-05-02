@@ -8,6 +8,7 @@ import { CommonInput } from "@components/common-components/input";
 import { validateMessages } from "@utils/json-data";
 import { useForm } from "antd/es/form/Form";
 import { useState } from "react";
+import { notification } from "@utils/notifications";
 
 const ProjectName = observer(() => {
   const navigate = useNavigate();
@@ -73,7 +74,15 @@ const ProjectName = observer(() => {
               {" "}
               <img src={LeftArrow} alt="left-arrow" /> Go Back
             </button>
-             
+            <button
+                    onClick={() => {
+                      notification.success("Saved and quitted");
+                      navigate(constRoute?.home);
+                    }}
+                    className={style.saveBtn}
+                  >
+                    Save & Quit
+                  </button>
           </div>
         </div>
       </Row>

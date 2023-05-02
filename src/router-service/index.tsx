@@ -57,7 +57,7 @@ const Routing = () => {
         <Route path={constRoute?.verifyEmail} element={<VerifyEmail />} />
         <Route path={constRoute?.home} element={<Home />} />
         <Route path={constRoute?.selectFunction} element={<SelectFunction />} />
-        <Route path={constRoute?.whichToDo} element={<WhichToDo />} />
+        <Route path={constRoute?.whichToDo} element={<WhichToDo />} /> 
         <Route path={constRoute?.selectOne} element={<SelectOne />} />
         <Route path={constRoute?.projectName} element={<ProjectName />} />
         <Route path={constRoute?.importantProjectInfo} element={<ImportantProjectInfo />} />
