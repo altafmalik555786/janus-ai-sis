@@ -70,7 +70,6 @@ const Header = observer(() => {
     else if(location?.pathname==='/FAQs') setCurrent('/FAQs')
     else if(location?.pathname==='/getExpertHelp') setCurrent('/getExpertHelp')
     else setCurrent('/home')
-    // setCurrent(localStorage.getItem('currentPage'));
   }, [location?.pathname, localStorage.getItem('currentPage')]);
 
   const onClick: MenuProps["onClick"] = (e) => {
