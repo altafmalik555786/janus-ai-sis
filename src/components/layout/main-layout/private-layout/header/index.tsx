@@ -2,7 +2,7 @@ import { constRoute } from "@utils/route";
 import { Dropdown, Menu, Row, Space } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import welcomeLogo from "@assets/images/welcomeLogo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { DownOutlined, MenuOutlined } from "@ant-design/icons";
 import useWindowSize from "@utils/hooks/useWindowSize";
 import type { MenuProps } from "antd";
@@ -13,6 +13,7 @@ import CustomButton from "@components/common-components/custom-button";
 import LogoutIcon from "@assets/icons/log-out.png";
 const Header = observer(() => {
   const navigate = useNavigate();
+  const location =  useLocation()
   const [collapsed, setCollapsed] = useState(false);
   const [current, setCurrent] = useState( localStorage.getItem('currentPage')||"/home");
   const {
@@ -65,8 +66,13 @@ const Header = observer(() => {
   ];
 
   useEffect(() => {
-    setCurrent(localStorage.getItem('currentPage'));
-  }, [localStorage.getItem('currentPage')]);
+    console.log('=====', location?.pathname)
+    if(location?.pathname=== '/myProjects') setCurrent('/myProjects');
+    else if(location?.pathname==='/FAQs') setCurrent('/FAQs')
+    else if(location?.pathname=='/getExpertHelp') setCurrent('/getExpertHelp')
+    else setCurrent('/home')
+    // setCurrent(localStorage.getItem('currentPage'));
+  }, [location?.pathname, localStorage.getItem('currentPage')]);
 
   const onClick: MenuProps["onClick"] = (e) => {
     localStorage?.setItem('currentPage', e?.key)
