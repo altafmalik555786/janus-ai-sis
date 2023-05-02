@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 
 const gcfJustificationForm = observer(() => {
   const [form] = useForm();
@@ -40,12 +42,34 @@ const gcfJustificationForm = observer(() => {
     navigate(constRoute?.gcfJustificationResults90,  { state: { response: response?.response} });
     }
   };
-
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.ndaAeResults72)
+  }
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
       <div className={style.barContentContainer}>
-      {show && ( 
+        <CommonImportantSideBar
+         fristPara={` ** The justification for grants and reimbursable grants is
+         mandatory. **`} 
+         secondParagraph={` In your discussion on “alternative funding options” Include an
+                  analysis  of the barriers for the potential beneficiaries to
+                  access to finance and the constraints of public and private
+                  sources of  funding. `}
+         thirdParagraph ={ `In your “rationale and level of concessionality” discussion
+         justify why this is the minimum required to make the
+         investment viable and most efficient considering the
+         incremental cost or risk premium of the Project/ Programme. `}
+         forthParagraph={` Lastly, In the case of private sector proposal, concessional
+         terms should be minimized and justified as per the Guiding
+         principles applicable to the private sector operations.`}
+
+         />
+      {/* {show && ( 
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -87,7 +111,7 @@ const gcfJustificationForm = observer(() => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -103,7 +127,7 @@ const gcfJustificationForm = observer(() => {
               >
                 <Form.Item
                   label= {<span>{'12a) Explain why the project requires GCF funding, i.e. explaining why this is not financed by the public and/ or private sector(s) of the country.'}<span style={{color: 'red'}}>*</span></span>}
-                  name={"12a"}
+                  name={"q12a"}
                   rules={[
                     {
                       required: true,
@@ -120,7 +144,7 @@ const gcfJustificationForm = observer(() => {
                 </Form.Item>
                 <Form.Item
                   label="12b) Describe alternative funding options for the same activities being proposed."
-                  name={"12b"}
+                  name={"q12b"}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -132,7 +156,7 @@ const gcfJustificationForm = observer(() => {
                 </Form.Item>
                 <Form.Item
                   label="12c) Justify the rationale and level of concessionality of the GCF financial instrument(s) as well as how this will be passed on to the end-users and beneficiaries."
-                  name={"12c"}
+                  name={"q12c"}
                 >
                   <CommonInput
                     inputType="textarea"
@@ -144,7 +168,18 @@ const gcfJustificationForm = observer(() => {
                 </Form.Item>
               </Form>
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+
+
+
+            {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
@@ -160,7 +195,7 @@ const gcfJustificationForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -169,7 +204,7 @@ const gcfJustificationForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

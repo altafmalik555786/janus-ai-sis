@@ -91,15 +91,15 @@ if(response?.message?.includes('project saved successfully')){
  >
             <img src={LeftArrow} alt="left-arrow" /> Go Back
           </button>
-          <button
+          {/* <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
                   >
                     Save & Quit
-                  </button>
+                  </button> */}
         </div>
       </div>
     </div>

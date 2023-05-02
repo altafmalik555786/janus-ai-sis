@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
@@ -37,12 +39,23 @@ const ProjectGCFForm = observer(() => {
       navigate(constRoute?.projectResultsGcfResults40,  { state: { response: response?.response} });
     }
   };
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.projectResultsGcfResults32)
+  }
 
   return (
     <div className={style.mainContainer}>
        <CommonHeaderPercentCycle  percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
       <div className={style.barContentContainer}>
-      {show && (
+        <CommonImportantSideBar fristPara={`Include quantitative information, backed by solid evidence, of
+                  the social, environmental and economic benefits of the
+                  project, e.g. number of jobs created, number of women and
+                  girls benefited.`}/>
+      {/* {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -63,23 +76,13 @@ const ProjectGCFForm = observer(() => {
                   project, e.g. number of jobs created, number of women and
                   girls benefited.
                 </p>
-                {/* <p className={style.pTagSix}>
-                  Climate Finance Co-pilot (CFC) will generate suggestions on 
-                  how the project or its activities can be scaled up or
-                  replicated, as well as generate plans for knowledge sharing
-                  and how the project contributes to national policies and
-                  strategies or regulatory frameworks.
-                </p> */}
-                {/* <p className={style.pTagSeven}>
-                  Be sure to include the number of beneficiaries the project is
-                  expected to help.
-                </p> */}
+               
               </div>
               <Divider />
             </div>
           </div>
         </div>
-)}
+)} */}
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Please Fill In the Blanks Below:</h1>
@@ -124,7 +127,17 @@ const ProjectGCFForm = observer(() => {
                 </Form.Item> */}
               </Form>
             </div>
-            <div className={style.footerButtonsDiv}>
+            
+  <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+  
+            {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
@@ -143,7 +156,7 @@ const ProjectGCFForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -152,7 +165,7 @@ const ProjectGCFForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div> 
+            </div>  */}
           </div>
         </div>
       </div>

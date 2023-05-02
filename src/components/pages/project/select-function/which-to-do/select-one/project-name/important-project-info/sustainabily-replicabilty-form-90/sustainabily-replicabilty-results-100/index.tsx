@@ -8,6 +8,7 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonFooterButton from "../../commonfooterbutton";
 const SustainabilityReplicabilityResult = observer(() => {
   const navigate = useNavigate();
 const {state} = useLocation();
@@ -19,11 +20,19 @@ const {
     getLoadingConceptNote
   },
 } = useStore(null);
+const handleNext = ()=>{
+  navigate(constRoute?.gcfCongratulation)
+}
 const handleRegenratePayload=async()=>{
   const payload=  localStorage.getItem('conceptPayload')
  const res= await conceptNote(JSON.parse(payload), navigate);
  console.log('==rerert',res)
  setRegenrateResult(res?.response)
+}
+const handleGoBack=()=>{navigate(constRoute?.sustainabilityReplicabilityForm90)}
+const handleSaveAndQuit = ()=> {
+  notification.success("Save and Quit");
+  navigate(constRoute?.home);
 }
   return (
     <div className={style.mainContainer}>
@@ -58,7 +67,15 @@ const handleRegenratePayload=async()=>{
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+              handleGoNext={handleNext}
+             handleRegenrate={handleRegenratePayload}
+             handlegoback={handleGoBack}
+             handleSaveAndQuit={handleSaveAndQuit}
+             isResult={true}
+             isLoadingRegenrate={getLoadingConceptNote}
+             />
+            {/* <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
                 <Button
                   onClick={() => navigate(constRoute?.gcfCongratulation)}
@@ -87,7 +104,7 @@ const handleRegenratePayload=async()=>{
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -96,7 +113,7 @@ const handleRegenratePayload=async()=>{
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

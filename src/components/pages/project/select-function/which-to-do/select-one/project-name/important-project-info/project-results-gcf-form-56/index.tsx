@@ -12,6 +12,8 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
+import CommonFooterButton from "../commonfooterbutton";
 
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
@@ -38,11 +40,24 @@ const ProjectGCFForm = observer(() => {
     }
   };
 
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.projectResultsGcfResults56)
+  }
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'56%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
       <div className={style.barContentContainer}>
-      {show && (
+        <CommonImportantSideBar fristPara={` Explain the economic and financial viability of the
+                  project/programme by including economic and financial
+                  analyses, to include: internal rate of return; Financial
+                  viability in the long run;  business and strategy for phasing
+                  out GCF capital AND the Application of best practices and
+                  degree of innovation`}/>
+      {/* {show && (
         <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
             <div className={style.sideInnerDiv}>
@@ -65,22 +80,23 @@ const ProjectGCFForm = observer(() => {
                   out GCF capital AND the Application of best practices and
                   degree of innovation
                 </p>
-                {/* <p className={style.pTagSix}>
+                here also below two p tag does not show on this page
+                <p className={style.pTagSix}>
                   Highlight stakeholder engagement with national and local
                   stakeholders, e.g. national ministries, the Accredited Entity,
                   the National Designated Authority, as well as civil society,
                   academia and other stakeholders for the particular project.
-                </p> */}
-                {/* <p className={style.pTagSeven}>
+                </p>
+                <p className={style.pTagSeven}>
                   Be sure to include the number of beneficiaries the project is
                   expected to help.
-                </p> */}
+                </p>
               </div>
               <Divider />
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
@@ -110,7 +126,15 @@ const ProjectGCFForm = observer(() => {
                
               </Form>
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+
+            />
+            {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
                   Submit
@@ -129,7 +153,7 @@ const ProjectGCFForm = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -138,7 +162,7 @@ const ProjectGCFForm = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

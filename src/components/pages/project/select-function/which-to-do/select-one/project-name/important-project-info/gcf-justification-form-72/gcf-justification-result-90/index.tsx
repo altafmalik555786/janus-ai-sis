@@ -8,6 +8,7 @@ import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import CommonHeaderPercentCycle from "../../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
+import CommonFooterButton from "../../commonfooterbutton";
 const ProjectDescriptionResults = observer(() => {
   const navigate = useNavigate();
   const [generateResult, setRegenrateResult] = useState('')
@@ -24,6 +25,16 @@ const ProjectDescriptionResults = observer(() => {
    const res = await conceptNote(JSON.parse(payload), navigate);
     setRegenrateResult(res?.response)
   }
+  const handleSave = ()=>{
+    notification.success("Save and Quit");
+    navigate(constRoute?.home);
+  }
+  const handleback=()=>{
+    navigate(constRoute?.gcfJustificationForm72)
+  }
+  const handleNext = ()=>{
+    navigate(constRoute?.sustainabilityReplicabilityForm90)
+  }
   return (
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle conceptNoteSection="C.2 Justification of GCF Funding Request" percent="90%" />
@@ -38,7 +49,15 @@ const ProjectDescriptionResults = observer(() => {
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
-            <div className={style.footerButtonsDiv}>
+            <CommonFooterButton
+              handleGoNext={handleNext}
+             handleRegenrate={handleRegenratePayload}
+             handlegoback={handleback}
+             handleSaveAndQuit={handleSave}
+             isResult={true}
+             isLoadingRegenrate={getLoadingConceptNote}
+             />
+            {/* <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
                 <Button
                   onClick={() => navigate(constRoute?.sustainabilityReplicabilityForm90)}
@@ -60,7 +79,7 @@ const ProjectDescriptionResults = observer(() => {
                   </button>
                   <button
                     onClick={() => {
-                      notification.success("Saved and quitted");
+                      notification.success("Save and Quit");
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
@@ -69,7 +88,7 @@ const ProjectDescriptionResults = observer(() => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
