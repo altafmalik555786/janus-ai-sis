@@ -64,6 +64,10 @@ const Header = observer(() => {
     },
   ];
 
+  useEffect(() => {
+    setCurrent(localStorage.getItem('currentPage'));
+  }, [localStorage.getItem('currentPage')]);
+
   const onClick: MenuProps["onClick"] = (e) => {
     localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
