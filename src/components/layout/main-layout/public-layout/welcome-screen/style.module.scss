@@ -48,7 +48,7 @@
 
 .LoginButton {
   font-family: "Inter";
-  width: 86px;
+  // width: 86px;
   height: 38px;
   font-style: normal;
   font-weight: 500;
@@ -62,7 +62,7 @@
 
 .SignButton {
   font-family: "Inter";
-  width: 90px;
+  // width: 90px;
   height: 38px;
   font-style: normal;
   font-weight: 500;
@@ -73,6 +73,9 @@
   background-color: #00b840;
   border: none;
   margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainButton {
