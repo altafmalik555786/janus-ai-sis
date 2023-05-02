@@ -171,6 +171,27 @@
         img {
           margin-top: 1px;
         }
+
+      }
+      .saveBtn {
+        width: 116px;
+        height: 40px;
+        color: #2E2E2E;
+        white-space: nowrap; 
+        background: #ececf1;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        font-family: "Inter";
+        font-style: normal;
+        line-height: 27px;
       }
       
     }

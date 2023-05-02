@@ -4,6 +4,7 @@ import { Col, Row } from "antd";
 import { constRoute } from "@utils/route";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import { useNavigate } from "react-router-dom";
+import { notification } from "@utils/notifications";
 
 const GCFCongratulation = () => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const GCFCongratulation = () => {
             {" "}
             <img src={LeftArrow} alt="left-arrow" /> Go Back
           </button>
+          
         </Col>
         <Col xs={1} md={4} sm={2}></Col>
       </Row>

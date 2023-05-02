@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import LeftArrow from '@assets/icons/left-arrow.png'
 import CardItemsFunc from "../common-components/card-item-func";
+import { notification } from "@utils/notifications";
 
 const SelectFunction = observer(() => {
   const navigate = useNavigate();
@@ -62,7 +63,15 @@ const SelectFunction = observer(() => {
               navigate(constRoute?.home)
             }
  > <img src={LeftArrow} alt="left-arrow" /> Go Back</button>
-           
+            <button
+                    onClick={() => {
+                      notification.success("Saved and quitted");
+                      navigate(constRoute?.home);
+                    }}
+                    className={style.saveBtn}
+                  >
+                    Save & Quit
+                  </button>
         </div>
       </div>
       </Row>
