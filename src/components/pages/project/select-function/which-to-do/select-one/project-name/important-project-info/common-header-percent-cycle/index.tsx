@@ -26,7 +26,7 @@ const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProje
     <Row className={style.contextBaselineDiv}>
       <Col md={8} xs={24}>
         <p className={style.pTageOne}>Project Name</p>
-        <strong title={projectNameData?.length > 48 ? projectNameData : ''}>{ truncate(projectNameData, 48)  }</strong>
+        <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>{projectNameData}</strong>
         <img src={ProjectName} alt="icon" />
       </Col>
       <Col md={8} xs={24}>

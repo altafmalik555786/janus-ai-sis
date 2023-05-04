@@ -29,8 +29,8 @@
       .mainPdiv {
         .pTagOne {
           text-align: justify;
-          margin: 20px;
-          padding: 20px;
+          // margin: 20px;
+          // padding: 20px;
           margin-bottom: 0;
           font-size: 20px;
           line-height: 1.6;
@@ -39,11 +39,15 @@
           font-weight: 400;
           line-height: 25px;
           color: #2e2e2e;
+          margin-top: 27px;
+          padding: 0px 47px 0px 49px;
         }
         .pTagTwo {
-          margin: 20px;
+          // margin: 20px;
           margin-top: 0;
-          padding: 20px;
+          margin-top: 27px;
+          padding: 0px 47px 0px 49px;
+          // padding: 20px;
           text-align: justify;
           margin-bottom: 0;
           font-family: "Inter";
@@ -55,10 +59,12 @@
         }
         .pTagThree {
           text-align: justify;
-          margin: 20px;
+          // margin: 20px;
           margin-top: 0;
           margin-bottom: 0;
-          padding: 20px;
+          // padding: 20px;
+          margin-top: 27px;
+          padding: 0px 47px 0px 49px;
           font-family: "Inter";
           font-style: normal;
           font-weight: 400;

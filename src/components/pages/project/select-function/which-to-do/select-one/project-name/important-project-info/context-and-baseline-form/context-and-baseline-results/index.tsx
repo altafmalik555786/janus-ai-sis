@@ -14,6 +14,7 @@ const ContextAndBaselineResults = observer(() => {
     user: {
       getconceptNotedataList,
       conceptNote,
+      setConceptNoteLoading,
       getLoadingConceptNote
     },
   } = useStore(null);
@@ -32,12 +33,15 @@ setRegenrateResult(res?.response)
 }
 const handleSave = ()=>{
   notification.success("Save and Quit");
+  setConceptNoteLoading(false)
   navigate(constRoute?.home);
 }
 const handleback=()=>{
+  setConceptNoteLoading(false)
   navigate(constRoute?.contextAndBaselineForm)
 }
 const handleNext = ()=>{
+  setConceptNoteLoading(false)
   navigate(constRoute?.projectDescriptionForm)
 }
   return (
