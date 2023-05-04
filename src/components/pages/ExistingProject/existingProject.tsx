@@ -1,7 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
-import Table from "@components/common-components/table";
 import folderIcon from "../../../assets/icons/folderIcon.png";
 import pencilIcon from "../../../assets/icons/pencilIcon.png";
 import trashIcon from "../../../assets/icons/trashIcon.png";
@@ -9,7 +8,7 @@ import uploadIcon from "../../../assets/icons/uploadIcon.png";
 import { useEffect, useState } from "react";
 import ProjectDeleteModelData from "./projectDeleteModel";
 import { useStore } from "@stores/root-store";
-import { Spin } from "antd";
+import { Spin, Table } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { constRoute } from "@utils/route";
 import { getAuthorizationHeader } from "@api/common-utils";
@@ -223,8 +222,6 @@ const ExistingProject = observer(() => {
               className={style.tableStyle}
               columns={columns}
               loading={getLoadingExistingProject}
-              checkPagination={false}
-              isShowHeader={false}
             />
           </div>
           <p className={style.thirdPara}>
@@ -236,8 +233,7 @@ const ExistingProject = observer(() => {
               className={style.tableStyle}
               columns={columns}
               loading={getLoadingExistingProject}
-              checkPagination={false}
-              isShowHeader={false}
+              pagination={false}
             />
           </div>
           <p className={style.lastPara}>Climate Rationale Advisor</p>

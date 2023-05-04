@@ -19,9 +19,10 @@ const ContextAndBaselineResults = observer(() => {
     },
   } = useStore(null);
   const [generateResult, setRegenrateResult] = useState('')
-
-  const navigate = useNavigate();
   const {state} = useLocation();
+
+const [responseData] = useState(generateResult || state?.response)
+  const navigate = useNavigate();
   const onFormSubmit = (values) => {
     console.log("values", values);
   };
@@ -45,7 +46,10 @@ const handleNext = ()=>{
 }
   return (
     <div className={style.mainContainer}>
-        <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.1 Context and Baseline'}/> 
+      <CommonHeaderPercentCycle
+        percent={"8%"}
+        conceptNoteSection={"B.1 Context and Baseline"}
+      />
 
       <div className={style.barContentContainer}>
         {/* <div className={style.layoutDiv}>
@@ -75,26 +79,30 @@ const handleNext = ()=>{
               <Divider />
             </div>
           </div>
-        </div> */} 
+        </div> */}
 
         <div className={style.contentContainer}>
           <div className={style.innerContentContainer}>
             <h1>Your Results</h1>
 
             <div className={style.dataContentBox}>
-            <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html: generateResult || state?.response|| ''}}
-    />
+              <div
+                className={style.htmlContent}
+                dangerouslySetInnerHTML={{ __html: responseData || "" }}
+              />
               {/* <p>{state?.response || ''}</p> */}
             </div>
+            <div className={style.wordCountWrraper}>
+                <p>Word Count: {responseData ? responseData?.split(' ')?.length : '0'}/1000</p>
+              </div>
             <CommonFooterButton
               handleGoNext={handleNext}
-             handleRegenrate={handleRegenratePayload}
-             handlegoback={handleback}
-             handleSaveAndQuit={handleSave}
-             isResult={true}
-             isLoadingRegenrate={getLoadingConceptNote}
-             />
+              handleRegenrate={handleRegenratePayload}
+              handlegoback={handleback}
+              handleSaveAndQuit={handleSave}
+              isResult={true}
+              isLoadingRegenrate={getLoadingConceptNote}
+            />
 
             {/* <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
