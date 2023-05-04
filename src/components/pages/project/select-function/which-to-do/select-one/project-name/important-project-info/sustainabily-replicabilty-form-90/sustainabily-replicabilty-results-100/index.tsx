@@ -20,6 +20,7 @@ const {
     getLoadingConceptNote
   },
 } = useStore(null);
+const [responseData] = useState(generateResult || state?.response);
 const handleNext = ()=>{
   navigate(constRoute?.gcfCongratulation)
 }
@@ -62,10 +63,13 @@ const handleSaveAndQuit = ()=> {
 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html:  generateResult || state?.response ||''}}
+      dangerouslySetInnerHTML={{__html:  responseData ||''}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
+            <div className={style.wordCountWrraper}>
+                  <p>Word Count: {responseData ? responseData?.split(' ')?.length : '0'}/1000</p>
+              </div>
             <CommonFooterButton
               handleGoNext={handleNext}
              handleRegenrate={handleRegenratePayload}

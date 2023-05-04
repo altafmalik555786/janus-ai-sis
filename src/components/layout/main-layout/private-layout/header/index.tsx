@@ -93,14 +93,14 @@ const Header = observer(() => {
             navigate(constRoute.profile);
           }}
         >
-          Profile
+          Terms
         </Menu.Item> 
         <Menu.Item
           onClick={() => {
             navigate(constRoute?.setting);
           }}
         >
-          Setting
+          Privacy Policy
         </Menu.Item>
         <Menu.Item className={style.itemWithImgIcon} onClick={onLogout}>
           <img src={LogoutIcon} alt="logout" />
