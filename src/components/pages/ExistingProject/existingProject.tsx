@@ -210,8 +210,7 @@ const ExistingProject = observer(() => {
         <div className={style.responsive}>
           <div className={style.projectHeading}>My Projects</div>
           <p className={style.firstdivaragraph}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Find all the project you've created below.
           </p>
           <p className={style.secondParahGraph}>
             {" "}

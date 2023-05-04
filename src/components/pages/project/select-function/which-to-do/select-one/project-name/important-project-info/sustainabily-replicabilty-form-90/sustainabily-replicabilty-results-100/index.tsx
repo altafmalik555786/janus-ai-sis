@@ -17,11 +17,13 @@ const {
   user: {
     getconceptNotedataList,
     conceptNote,
+    setConceptNoteLoading,
     getLoadingConceptNote
   },
 } = useStore(null);
 const [responseData] = useState(generateResult || state?.response);
 const handleNext = ()=>{
+  setConceptNoteLoading(false)
   navigate(constRoute?.gcfCongratulation)
 }
 const handleRegenratePayload=async()=>{
@@ -29,8 +31,11 @@ const handleRegenratePayload=async()=>{
  const res= await conceptNote(JSON.parse(payload), navigate);
  setRegenrateResult(res?.response)
 }
-const handleGoBack=()=>{navigate(constRoute?.sustainabilityReplicabilityForm90)}
+const handleGoBack=()=>{
+  setConceptNoteLoading(false)
+  navigate(constRoute?.sustainabilityReplicabilityForm90)}
 const handleSaveAndQuit = ()=> {
+  setConceptNoteLoading(false)
   notification.success("Save and Quit");
   navigate(constRoute?.home);
 }

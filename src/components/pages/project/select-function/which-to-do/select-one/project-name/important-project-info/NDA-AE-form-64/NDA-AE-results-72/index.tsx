@@ -18,6 +18,7 @@ const ProjectDescriptionResults = observer(() => {
     user: {
       getconceptNotedataList,
       conceptNote,
+      setConceptNoteLoading,
       getLoadingConceptNote
     },
   } = useStore(null);
@@ -29,13 +30,16 @@ const [responseData] = useState(generateResult || state?.response);
   }
   
   const handleSave = ()=>{
+    setConceptNoteLoading(false)
     notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
   const handleback=()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.ndaAe64Form)
   }
   const handleNext = ()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.gcfJustificationForm72)
   }
   return (

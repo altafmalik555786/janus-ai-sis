@@ -45,7 +45,7 @@ const WhichToDo = observer(() => {
             
               <img src={LeftArrow} alt="left-arrow" /> Go Back
             </button>
-            <button
+            {/* <button
                     onClick={() => {
                       notification.success("Save and Quit");
                       navigate(constRoute?.home);
@@ -53,7 +53,7 @@ const WhichToDo = observer(() => {
                     className={style.saveBtn}
                   >
                     Save & Quit
-                  </button>
+                  </button> */}
           </div>
         </div>
       </Row>

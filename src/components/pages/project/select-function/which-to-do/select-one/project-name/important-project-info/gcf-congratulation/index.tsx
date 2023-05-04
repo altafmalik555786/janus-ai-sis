@@ -5,10 +5,14 @@ import { constRoute } from "@utils/route";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import { useNavigate } from "react-router-dom";
 import { notification } from "@utils/notifications";
-
+import { useStore } from "@stores/root-store";
 const GCFCongratulation = () => {
   const navigate = useNavigate();
-  
+  const {
+    user: {
+      setConceptNoteLoading,
+    },
+  } = useStore(null); 
   return (
     <div className={style.gcfCongratulationContainer}>
       <Row> 
@@ -30,7 +34,10 @@ const GCFCongratulation = () => {
           </div>
           <button
             className={style.goBtn}
-            onClick={() => navigate(constRoute?.sustainabilityReplicabilityResults100)}
+            onClick={() => {
+              setConceptNoteLoading(false)
+              navigate(constRoute?.sustainabilityReplicabilityResults100)}
+            }
           >
             {" "}
             <img src={LeftArrow} alt="left-arrow" /> Go Back

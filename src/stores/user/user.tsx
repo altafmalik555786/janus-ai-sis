@@ -319,7 +319,9 @@ export const user = types
       };
       self.projectNameData = JSON?.stringify(data)
       }
-
+const setConceptNoteLoading = (value)=>{
+  self.loadingConceptNote = value;
+}
     return {
       onUserLogin,
       onSignUpUser,
@@ -334,7 +336,8 @@ export const user = types
       generateReport,
       getSingleProjectData,
       setProjectName,
-      resetProjectData
+      resetProjectData,
+      setConceptNoteLoading
     };
   });
 

@@ -20,7 +20,7 @@ const ProjectGCFForm = observer(() => {
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+    user: {getProjectNameData,setConceptNoteLoading, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
   const getProjectName = localStorage.getItem('projectName')
@@ -43,8 +43,10 @@ const ProjectGCFForm = observer(() => {
   const handleSave = ()=>{
     notification.success("Save and Quit");
     navigate(constRoute?.home);
+    setConceptNoteLoading(false)
   }
   const handleback=()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults56)
   }
   return (
