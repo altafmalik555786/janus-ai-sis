@@ -18,6 +18,7 @@ const ProjectGCFResults = observer(() => {
     user: {
       getconceptNotedataList,
       conceptNote,
+      setConceptNoteLoading,
       getLoadingConceptNote
     },
   } = useStore(null);
@@ -28,13 +29,17 @@ const ProjectGCFResults = observer(() => {
   }
   
   const handleSave = ()=>{
+    setConceptNoteLoading(false)
     notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
+
   const handleback=()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfForm40)
   }
   const handleNext = ()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfForm48)
   }
   return (

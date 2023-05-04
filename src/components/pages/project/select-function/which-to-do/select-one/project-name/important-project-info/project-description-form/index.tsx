@@ -19,7 +19,7 @@ const ProjectDescriptionForm = observer(() => {
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const {
-    user: {getProjectNameData, getLoadingConceptNote, conceptNote },
+    user: {getProjectNameData, setConceptNoteLoading, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName')
@@ -40,10 +40,12 @@ const ProjectDescriptionForm = observer(() => {
     }
   };
   const handleSave = ()=>{
+    setConceptNoteLoading(false)
     notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
   const handleback=()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.contextAndBaselineResults)
   }
   return (

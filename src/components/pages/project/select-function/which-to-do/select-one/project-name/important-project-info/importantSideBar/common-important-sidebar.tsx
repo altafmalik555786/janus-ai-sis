@@ -56,7 +56,7 @@ const CommonImportantSideBar = ({
                  
               </p>
             </div>
-            <Divider />
+            {/* <Divider /> */}
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ const CommonImportantSideBar = ({
                   {forthParagraph || ''}
                 </p>
               </div>
-              <Divider />
+              {/* <Divider /> */}
             </div>
           </div>
         </div>

@@ -63,7 +63,7 @@ const SelectFunction = observer(() => {
               navigate(constRoute?.home)
             }
  > <img src={LeftArrow} alt="left-arrow" /> Go Back</button>
-            <button
+            {/* <button
                     onClick={() => {
                       notification.success("Save and Quit");
                       navigate(constRoute?.home);
@@ -71,7 +71,7 @@ const SelectFunction = observer(() => {
                     className={style.saveBtn}
                   >
                     Save & Quit
-                  </button>
+                  </button> */}
         </div>
       </div>
       </Row>
