@@ -15,11 +15,11 @@ export interface HeaderTypes {
 
 const CommonHeaderPercentCycle = ({
   projectName = "Your Project Name",
-  percent = "--%",
+  percent = "--%",  
   conceptNoteSection = "Your Concept Note Section",
 }: HeaderTypes) => {
 
-  const { user: { getProjectNameData } } = useStore(null)
+  const { user: { getProjectNameData } } = useStore(null) 
 const getProjectName = localStorage.getItem('projectName')
 const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProjectName || projectName
   return (

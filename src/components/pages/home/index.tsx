@@ -14,7 +14,7 @@ const Home = observer(() => {
 
   useEffect(() => {
     isModalOpen();
-  }, [openModal])
+  }, [openModal]) 
 
   const isModalOpen = () => {
     if (localStorage.getItem('trialModal') === 'true') {
@@ -30,7 +30,7 @@ const Home = observer(() => {
         <Col md={12} xs={20} className={style.homePageContainerCol}>
           <div className={style.homePageContainer}>
             <h1>Welcome to Climate Finance Co-pilot</h1>
-            <div className={style.paraContainer}>
+            <div className={style.paraContainer}> 
               <p>Your expert advisor for all things climate finance.</p>
               <p>Start by selecting one of the options below.</p>
             </div>

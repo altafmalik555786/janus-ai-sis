@@ -1,0 +1,23 @@
+// style={{width: '150px', height: '150px', borderRadius: '50%', background: 'lightBlue'}}
+.mainContainer {
+  .modalContainer {
+    .plusIcon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: lightgreen;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      // margin-top: 5px;
+    }
+  }
+  :global(.ant-modal-content) {
+    width: 900px;
+    // display: flex;
+    // justify-content: center;
+    padding: 35px 24px;
+    // align-items: center;
+  }
+}
