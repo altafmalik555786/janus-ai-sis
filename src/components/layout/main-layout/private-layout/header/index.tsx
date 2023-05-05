@@ -10,7 +10,7 @@ import style from "./style.module.scss";
 import { observer } from "mobx-react";
 import { resetStore, useStore } from "@stores/root-store";
 import CustomButton from "@components/common-components/custom-button";
-import LogoutIcon from "@assets/icons/log-out.png";
+import LogoutIcon from "@assets/icons/log-out.svg";
 const Header = observer(() => {
   const navigate = useNavigate();
   const location =  useLocation()
