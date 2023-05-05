@@ -80,10 +80,10 @@ const Header = observer(() => {
 
   const onClick: MenuProps["onClick"] = (e) => {
     // if(e?.key==="/FAQs") setIsFaqModel(true)
- 
     localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
-    navigate(e.key);
+    // navigate(e.key);
+    e?.key==="/FAQs" ? window.open(`/#${e.key}`) : navigate(e.key);
   };
   const faqModelCloe = ()=>{
     setIsFaqModel(false)
@@ -100,18 +100,18 @@ const Header = observer(() => {
 
       <Menu>
         <Menu.Item
-          onClick={() => {
-            navigate(constRoute.TermOfUse);
-          }}
+          // onClick={() => {
+          //   navigate(constRoute.TermOfUse);
+          // }}
         >
-          Terms
+          <a target='_blank' href={`/#${constRoute.TermOfUse}`}>Terms</a> 
         </Menu.Item> 
         <Menu.Item
-          onClick={() => {
-            navigate(constRoute?.setting);
-          }}
+          // onClick={() => {
+          //   navigate(constRoute?.setting);
+          // }}
         >
-          Privacy Policy
+          <a target='_blank' href={`/#${constRoute.setting}`}>Privacy Policy</a>
         </Menu.Item>
         <Menu.Item className={style.itemWithImgIcon} onClick={onLogout}>
           <img src={LogoutIcon} alt="logout" />
