@@ -23,12 +23,13 @@ const ProjectDeleteModelData: React.FC<Props> = ({
         open={isOpen}
         className={"customKeywordModal"}
         width={591}
+        closable={false}
         footer={null}
       >
         <ModalWrapper>
           <FlexWrapper>
             <ImageWrapper>
-              <img src={closeIcon} />
+              <img src={closeIcon} onClick={closeModal}/>
             </ImageWrapper>
             <div>
               <Message>Are you sure you want to delete this project?</Message>
@@ -61,6 +62,7 @@ const ImageWrapper = styled.div`
   height: 56px;
   background: #fdb9b9;
   border-radius: 8px;
+  cursor: pointer;
 `;
 const DeleteButton = styled(Button)`
   display: flex;
