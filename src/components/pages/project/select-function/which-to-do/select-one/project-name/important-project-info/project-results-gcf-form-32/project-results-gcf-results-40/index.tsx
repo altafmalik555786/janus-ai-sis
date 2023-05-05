@@ -19,22 +19,27 @@ const ProjectGCFResults = observer(() => {
     user: {
       getconceptNotedataList,
       conceptNote,
-      getLoadingConceptNote
+      getLoadingConceptNote,
+      setConceptNoteLoading
     },
   } = useStore(null);
+const [responseData] = useState(generateResult || state?.response);
   const handleRegenratePayload=async()=>{
     const payload=  localStorage.getItem('conceptPayload')
    const res= await conceptNote(JSON.parse(payload), navigate);
     setRegenrateResult(res?.response)
   }
   const handleSave = ()=>{
+    setConceptNoteLoading(false)
     notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
   const handleback=()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfForm32)
   }
   const handleNext = ()=>{
+    setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfForm40)
   }
   return (
@@ -63,10 +68,13 @@ const ProjectGCFResults = observer(() => {
  
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html:  generateResult || state?.response ||''}}
+      dangerouslySetInnerHTML={{__html: responseData ||''}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>
+            <div className={style.wordCountWrraper}>
+                  <p>Word Count: {responseData ? responseData?.split(' ')?.length : '0'}/1000</p>
+              </div>
             <CommonFooterButton
               handleGoNext={handleNext}
              handleRegenrate={handleRegenratePayload}

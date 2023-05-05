@@ -98,6 +98,22 @@
       .innerContentContainer {
         width: 90%;
         margin: auto;
+        .wordCountWrraper{
+          background-color: #F7F7F7;
+          border: 1px solid #E0E0E0;
+          border-top: none;
+          margin-top: -13px;
+          padding: 6px;
+          padding-left: 20px;
+          p{
+            font-family: 'Inter';
+            font-weight: 500;
+            font-style: normal;
+            color: #000000;
+            display: flex;
+            align-items: center;
+          }
+        }
 
         h1 {
           font-family: "Inter";
@@ -113,18 +129,20 @@
         .dataContentBox {
           background: #ffffff;
           border: 1px solid #e0e0e0;
+          border-bottom: none;
           border-radius: 5px;
           min-height: 400px;
           padding: 28px;
-          margin-bottom: 25px;
+          // margin-bottom: 25px;
           overflow: auto;
-
+          border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 0px;
           p {
             font-family: "Inter";
             font-style: normal;
             font-weight: 400;
             margin-top: 0;
-            font-size: 18px;
+            font-size: 14px;
             line-height: 16px;
             color: #000000;
           }

@@ -40,6 +40,8 @@
         margin: 5px 5px;
         padding: 0px 16px;
         font-size: 16px !important;
+        font-weight: 500;
+        color: #2E2E2E;
  
         &::after {
           border: none;
@@ -89,6 +91,7 @@
           .profileUserNameText {
             color: #000000;
             font-size: 20px;
+            font-weight: 500;
           }
 
           .profileUserNameText:hover {
@@ -168,9 +171,11 @@
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   padding-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
 
   .userData {
-    padding: 11px 18px;
+    padding: 18px 18px;
     font-size: 20px;
     border-bottom: 1px solid #dde2e4;
     margin-top: 18px;
@@ -201,6 +206,7 @@
     box-shadow: none;
     padding: 0px 9px;
     font-family: "Inter";
+    margin-top: 10px;
   }
 
   :global(.ant-dropdown-menu-item) {
@@ -210,6 +216,7 @@
       font-size: 20px;
       line-height: 25px;
       color: #000000;
+      margin-top: 10px;
     }
   }
 
