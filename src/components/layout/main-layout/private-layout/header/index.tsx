@@ -98,7 +98,7 @@ const Header = observer(() => {
       <Menu>
         <Menu.Item
           onClick={() => {
-            navigate(constRoute.profile);
+            navigate(constRoute.TermOfUse);
           }}
         >
           Terms
