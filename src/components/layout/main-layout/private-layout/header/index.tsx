@@ -76,8 +76,8 @@ const Header = observer(() => {
   }, [location?.pathname, localStorage.getItem('currentPage'), isFaqModel]);
 
   const onClick: MenuProps["onClick"] = (e) => {
-    if(e?.key=="/FAQs") setIsFaqModel(true)
-    else{}
+    if(e?.key==="/FAQs") setIsFaqModel(true)
+ 
     localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
     navigate(e.key);
