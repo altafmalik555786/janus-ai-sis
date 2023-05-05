@@ -57,7 +57,7 @@ const Routing = () => {
         <Route path={constRoute?.verifyEmail} element={<VerifyEmail />} />
         <Route path={constRoute?.home} element={<Home />} />
         <Route path={constRoute?.selectFunction} element={<SelectFunction />} />
-        <Route path={constRoute?.whichToDo} element={<WhichToDo />} /> 
+        <Route path={constRoute?.whichToDo} element={<WhichToDo />} />  
         <Route path={constRoute?.selectOne} element={<SelectOne />} />
         <Route path={constRoute?.projectName} element={<ProjectName />} />
         <Route path={constRoute?.importantProjectInfo} element={<ImportantProjectInfo />} />
@@ -68,7 +68,7 @@ const Routing = () => {
         <Route path={constRoute?.projectResultsGcfForm} element={<ProjectResultsGcfForm />} />
         <Route path={constRoute?.projectResultsGcfResults} element={<ProjectResultsGcfResults />} />
         <Route path={constRoute?.projectResultsGcfForm24} element={<ProjectResultsGcfForm24 />} />
-        <Route path={constRoute?.projectResultsGcfResults32} element={<ProjectResultsGcfResults32 />} />
+        <Route path={constRoute?.projectResultsGcfResults32} element={<ProjectResultsGcfResults32 />} /> 
         <Route path={constRoute?.projectResultsGcfForm32} element={<ProjectResultsGcfForm32 />} />
         <Route path={constRoute?.projectResultsGcfResults40} element={<ProjectResultsGcfResults40 />} />
         <Route path={constRoute?.projectResultsGcfForm40} element={<ProjectResultsGcfForm40 />} />
