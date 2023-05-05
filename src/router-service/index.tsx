@@ -40,6 +40,8 @@ import SustainabilyReplicabiltyResults100 from "@components/pages/project/select
 import GCFCongratulation from "@components/pages/project/select-function/which-to-do/select-one/project-name/important-project-info/gcf-congratulation";
 import ExistingProject from "@components/pages/ExistingProject/existingProject";
 import Faqs from "@components/layout/main-layout/private-layout/faqs";
+import TermOfUse from "@components/layout/main-layout/public-layout/term-of-use";
+import PrivacyPolicy from "@components/layout/main-layout/public-layout/privacy-policy";
 
 const Routing = () => {
   return (
@@ -87,6 +89,8 @@ const Routing = () => {
         <Route path={constRoute?.sustainabilityReplicabilityResults100} element={<SustainabilyReplicabiltyResults100 />} />
         <Route path={constRoute?.gcfCongratulation} element={<GCFCongratulation />} />
         <Route path={constRoute?.existingProject} element={<ExistingProject />} /> 
+        <Route path={constRoute?.TermOfUse} element={<TermOfUse />} /> 
+        <Route path={constRoute?.setting} element={<PrivacyPolicy />} /> 
       </Routes>
     </>
   );

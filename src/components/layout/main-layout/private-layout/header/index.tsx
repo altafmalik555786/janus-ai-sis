@@ -10,7 +10,7 @@ import style from "./style.module.scss";
 import { observer } from "mobx-react";
 import { resetStore, useStore } from "@stores/root-store";
 import CustomButton from "@components/common-components/custom-button";
-import LogoutIcon from "@assets/icons/log-out.png";
+import LogoutIcon from "@assets/icons/log-out.svg";
 import FaqModel from "@components/common-components/FaqModel/faqModel";
 import TermPrivcyPolicyModel from "@components/common-components/term-privcyPolicyModel/termPrivcyPolicyModel";
 const Header = observer(() => {
@@ -65,10 +65,10 @@ const Header = observer(() => {
       label: "FAQs",
       key: "/FAQs",
     },
-    {
-      label: "Get Expert Help",
-      key: "/getExpertHelp",
-    },
+    // {
+    //   label: "Get Expert Help",
+    //   key: "/getExpertHelp",
+    // },
   ];
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const Header = observer(() => {
   const dropdownMenu = (
     <div className={style.profileDropDonwMenu}>
       <div className={style.userData}>
-        <b>{`${getCurrentUserData?.firstname || " "}  ${
+        <b style={{textTransform: 'capitalize'}}>{`${getCurrentUserData?.firstname || " "}  ${
           getCurrentUserData?.lastname || ""
         }`}</b>
         <p>{getCurrentUserData?.email || ""}</p>
@@ -101,18 +101,14 @@ const Header = observer(() => {
       <Menu>
         <Menu.Item
           onClick={() => {
-            setOpenTermModel(true)
-            setIsTermShow(true)
-            // navigate(constRoute.profile);
+            navigate(constRoute.TermOfUse);
           }}
         >
           Terms
         </Menu.Item> 
         <Menu.Item
           onClick={() => {
-            setOpenTermModel(true);
-            setIsTermShow(false)
-            // navigate(constRoute?.setting);
+            navigate(constRoute?.setting);
           }}
         >
           Privacy Policy
@@ -176,7 +172,7 @@ const Header = observer(() => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className={style.spaceUserProfile}>
                     <span className={style.profileUserNameText}>
-                      Hi, {getCurrentUserData?.firstname || " "}
+                      Hi, <span style={{textTransform: 'capitalize'}}> {getCurrentUserData?.firstname || " "}</span>
                     </span>
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
@@ -190,7 +186,7 @@ const Header = observer(() => {
         </ul>
       </div>
       {/* <FaqModel isOpen={isFaqModel} closeModal={faqModelCloe}/> */}
-      <TermPrivcyPolicyModel isOpen={openTermModel} closeModal={closeTermModel} isTerm={isTermShow}/>
+      {/* <TermPrivcyPolicyModel isOpen={openTermModel} closeModal={closeTermModel} isTerm={isTermShow}/> */}
     </div>
   );
 });
