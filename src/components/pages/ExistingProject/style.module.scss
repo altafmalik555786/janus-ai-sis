@@ -1,6 +1,8 @@
 .homePagePageContainer {
   width: 100%;
   margin-top: 40px;
+  min-height: 100vh;
+  background-color: #f7f7f7;	
 
   @media only screen and (min-width: 205px) {
     .responsive {
