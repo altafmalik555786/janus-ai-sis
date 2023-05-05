@@ -20,7 +20,7 @@ reiciendis inventore vitae praesentium minus sequi ipsum aliquam esse in iste ne
 
 const FaqModel: React.FC<Props> = ({ isOpen, closeModal }) => {
   const onChange = (key: string | string[]) => {
-    console.log(key);
+
   };
   return (
     <Wrapper>
