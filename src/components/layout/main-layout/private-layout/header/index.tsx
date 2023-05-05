@@ -59,10 +59,10 @@ const Header = observer(() => {
       label: "FAQs",
       key: "/FAQs",
     },
-    {
-      label: "Get Expert Help",
-      key: "/getExpertHelp",
-    },
+    // {
+    //   label: "Get Expert Help",
+    //   key: "/getExpertHelp",
+    // },
   ];
 
   useEffect(() => {
@@ -81,7 +81,7 @@ const Header = observer(() => {
   const dropdownMenu = (
     <div className={style.profileDropDonwMenu}>
       <div className={style.userData}>
-        <b>{`${getCurrentUserData?.firstname || " "}  ${
+        <b style={{textTransform: 'capitalize'}}>{`${getCurrentUserData?.firstname || " "}  ${
           getCurrentUserData?.lastname || ""
         }`}</b>
         <p>{getCurrentUserData?.email || ""}</p>
@@ -158,7 +158,7 @@ const Header = observer(() => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className={style.spaceUserProfile}>
                     <span className={style.profileUserNameText}>
-                      Hi, {getCurrentUserData?.firstname || " "}
+                      Hi, <span style={{textTransform: 'capitalize'}}> {getCurrentUserData?.firstname || " "}</span>
                     </span>
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
