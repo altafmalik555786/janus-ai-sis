@@ -13,7 +13,7 @@ const TermOfUse: React.FC<Props> = observer(({ ...props }) => {
         <h1 style={{textAlign:'center'}}>Terms of use</h1>
         <p style={{textAlign:'center'}}>Updated: April 03, 2023</p>
         <p style={{textAlign:'center'}}>Thank you for using Climate Finance Co-pilot </p>
-          <p style={{textAlign:'center', width:'50%', margin:'auto', marginBottom:10}}>
+          <p style={{lineHeight:'26px', width:'50%', margin:'auto', marginBottom:20}}>
             These Terms of Use apply when you use the services of Janus Advisory
             Service Inc. or our affiliates, including our application
             programming interface, software, tools, developer services, data,
