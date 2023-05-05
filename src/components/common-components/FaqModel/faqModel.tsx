@@ -1,7 +1,7 @@
-import React from "react";
+ import React from "react"; 
 import styled from "styled-components";
 import style from "./style.module.scss";
-import { Modal, Button, Collapse } from "antd";
+import { Modal, Collapse } from "antd";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 const { Panel } = Collapse;
 interface Props {

@@ -1,0 +1,23 @@
+.mainContainer {
+  .modalContainer {
+    .termStyle{
+p{
+  font-size: 16px;
+}
+    }
+    .plusIcon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: lightgreen;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+  }
+  :global(.ant-modal-content) {
+    width: 900px;
+    padding: 35px 24px;
+  }
+}

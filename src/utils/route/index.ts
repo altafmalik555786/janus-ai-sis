@@ -3,6 +3,7 @@ export const constRoute = {
   dashboard: "/",
   home: "/home",
   login: "/login",
+  faqs:"/faqs",
   importantProjectInfo: "/important-project-info", 
   contextAndBaselineForm: "/context-and-baseline-form",
   contextAndBaselineResults: "/context-and-baseline-results",  

@@ -12,11 +12,14 @@ import { resetStore, useStore } from "@stores/root-store";
 import CustomButton from "@components/common-components/custom-button";
 import LogoutIcon from "@assets/icons/log-out.png";
 import FaqModel from "@components/common-components/FaqModel/faqModel";
+import TermPrivcyPolicyModel from "@components/common-components/term-privcyPolicyModel/termPrivcyPolicyModel";
 const Header = observer(() => {
   const navigate = useNavigate();
   const location =  useLocation()
   const [collapsed, setCollapsed] = useState(false);
   const [isFaqModel, setIsFaqModel] = useState(false)
+  const [openTermModel, setOpenTermModel] = useState(false)
+  const [isTermShow, setIsTermShow] = useState(false)
   const [isTermModel, setIsTermmodel] = useState(false)
   const [current, setCurrent] = useState( localStorage.getItem('currentPage')||"/home");
   const {
@@ -76,7 +79,7 @@ const Header = observer(() => {
   }, [location?.pathname, localStorage.getItem('currentPage'), isFaqModel]);
 
   const onClick: MenuProps["onClick"] = (e) => {
-    if(e?.key==="/FAQs") setIsFaqModel(true)
+    // if(e?.key==="/FAQs") setIsFaqModel(true)
  
     localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
@@ -98,14 +101,18 @@ const Header = observer(() => {
       <Menu>
         <Menu.Item
           onClick={() => {
-            navigate(constRoute.profile);
+            setOpenTermModel(true)
+            setIsTermShow(true)
+            // navigate(constRoute.profile);
           }}
         >
           Terms
         </Menu.Item> 
         <Menu.Item
           onClick={() => {
-            navigate(constRoute?.setting);
+            setOpenTermModel(true);
+            setIsTermShow(false)
+            // navigate(constRoute?.setting);
           }}
         >
           Privacy Policy
@@ -117,6 +124,9 @@ const Header = observer(() => {
       </Menu>
     </div>
   );
+  const closeTermModel = ()=>{
+  setOpenTermModel(false)
+  }
 
   const styles = { background: `linear-gradient(to right,#00c5fb, 0%, 100%)` };
 
@@ -179,7 +189,8 @@ const Header = observer(() => {
           </li>
         </ul>
       </div>
-      <FaqModel isOpen={isFaqModel} closeModal={faqModelCloe}/>
+      {/* <FaqModel isOpen={isFaqModel} closeModal={faqModelCloe}/> */}
+      <TermPrivcyPolicyModel isOpen={openTermModel} closeModal={closeTermModel} isTerm={isTermShow}/>
     </div>
   );
 });
