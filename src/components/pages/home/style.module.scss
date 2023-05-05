@@ -1,9 +1,10 @@
 .homePagePageContainer {
   width: 100%;
-  min-height: 79vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #F7F7F7;
 
   .homePageContainerCol {
     .homePageContainer {
