@@ -75,7 +75,9 @@ const Header = observer(() => {
     if(location?.pathname=== '/myProjects') setCurrent('/myProjects');
     else if(location?.pathname==='/FAQs') setCurrent('/FAQs')
     else if(location?.pathname==='/getExpertHelp') setCurrent('/getExpertHelp')
-    else setCurrent('/home')
+    else if(location?.pathname==='/home') setCurrent('/home')
+    else if(location?.pathname==='/select-function') setCurrent('/home')
+    else setCurrent('/')
   }, [location?.pathname, localStorage.getItem('currentPage'), isFaqModel]);
 
   const onClick: MenuProps["onClick"] = (e) => {
@@ -104,14 +106,14 @@ const Header = observer(() => {
           //   navigate(constRoute.TermOfUse);
           // }}
         >
-          <a target='_blank' href={`/#${constRoute.TermOfUse}`}>Terms</a> 
+          <a target='_blank' href={`/#${constRoute.TermOfUse}`} rel="noreferrer">Terms</a> 
         </Menu.Item> 
         <Menu.Item
           // onClick={() => {
           //   navigate(constRoute?.setting);
           // }}
         >
-          <a target='_blank' href={`/#${constRoute.setting}`}>Privacy Policy</a>
+          <a target='_blank' href={`/#${constRoute.setting}`} rel="noreferrer">Privacy Policy</a>
         </Menu.Item>
         <Menu.Item className={style.itemWithImgIcon} onClick={onLogout}>
           <img src={LogoutIcon} alt="logout" />
