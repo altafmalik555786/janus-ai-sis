@@ -23,6 +23,7 @@ const ProjectDeleteModelData: React.FC<Props> = ({
         open={isOpen}
         className={"customKeywordModal"}
         width={591}
+        closable={false}
         footer={null}
       >
         <ModalWrapper>
