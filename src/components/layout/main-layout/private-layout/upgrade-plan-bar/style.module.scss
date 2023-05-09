@@ -39,6 +39,9 @@
         text-align: center;
         color: #00b840;
         cursor: pointer;
+        @media screen and (max-width: 420px) {
+          margin-top: 12px;
+        }
       }
     }
   }
