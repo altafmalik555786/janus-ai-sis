@@ -24,12 +24,16 @@ const getProjectName = localStorage.getItem('projectName')
 const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProjectName || projectName
   return (
     <Row className={style.contextBaselineDiv}>
-      <Col md={13} xs={24}>
-        <p className={style.pTageOne}>Project Name</p>
+      <Col md={5} xs={24}>
+        <p className={style.pTageOne}>Document Type:</p>
+        <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>GCF Concept Note</strong>
+      </Col>
+      <Col md={9} xs={24}>
+        <p className={style.pTageOne}>Project Name:</p>
         <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>{projectNameData}</strong>
         {/* <img src={ProjectName} alt="icon" /> */}
       </Col>
-      <Col md={7} xs={24}>
+      <Col md={6} xs={24}>
         <p className={style.pTageThree}>Concept Note Section</p>
         <strong title={conceptNoteSection?.length> 48 ? conceptNoteSection: ''}> {truncate(conceptNoteSection, 48) } </strong>
         {/* <img src={NoteIcon} alt="icon" /> */}
