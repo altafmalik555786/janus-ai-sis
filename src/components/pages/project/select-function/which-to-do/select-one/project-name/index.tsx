@@ -23,7 +23,7 @@ const ProjectName = observer(() => {
     if(event.target.value.length > 0){
       setInputValue(false)
     }
-    else{
+    else{ 
       setInputValue(true)
     }
   };
