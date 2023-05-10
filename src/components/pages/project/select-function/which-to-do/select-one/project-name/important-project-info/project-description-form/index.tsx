@@ -24,10 +24,21 @@ const ProjectDescriptionForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+  const addMoreAnswers = getAnswers?.map((item) => {
+    return {
+      ...item,
+      q4:values?.q4,
+      q5:values?.q5
+    }
+  })
     const question ={
       q4: values?.q4||'',
       q5: values?.q5||'',
     }
+    console.log("addMoreAnswers", addMoreAnswers)
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
+
     const payload = {
       section: `B_2_8`,
       questions: question,
@@ -48,6 +59,7 @@ const ProjectDescriptionForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.contextAndBaselineResults)
   }
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle  percent={'8%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
@@ -112,6 +124,10 @@ const ProjectDescriptionForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q4:  getAnswers && getAnswers[0]?.q4 || "",
+                  q5:  getAnswers && getAnswers[0]?.q5 || "",
+                }}
               > 
                 <Form.Item
                   label="4. Describe the expected set of components/outputs and subcomponents/activities to address the previously discussed barriers identified that will lead to the expected outcomes."

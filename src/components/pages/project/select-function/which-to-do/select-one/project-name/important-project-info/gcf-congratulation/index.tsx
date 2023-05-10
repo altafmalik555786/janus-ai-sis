@@ -28,8 +28,8 @@ const GCFCongratulation = () => {
             </div>
             <div className={style.exportPdfContainer}>
               <p>
-                <span>Click here</span> to get the exportable pdf of this GCF
-                Draft Concept Note. Or, you can return to <span onClick={() => navigate(constRoute?.home)} >Home</span>.
+                <span>Click here </span>to review all output generated for this concept note.
+                Or, you can return to <span onClick={() => navigate(constRoute?.home)} >Home</span>.
               </p>
             </div>
           </div>

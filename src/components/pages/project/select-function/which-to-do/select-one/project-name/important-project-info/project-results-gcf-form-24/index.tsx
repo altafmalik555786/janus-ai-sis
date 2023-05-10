@@ -24,10 +24,19 @@ const ProjectGCFForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q7:values?.q7,
+      }
+    })
     const question ={
       q7: values?.q7||'',
 
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
+
     const payload = {
       section: `B_3_24`,
       questions: question,
@@ -49,7 +58,7 @@ const ProjectGCFForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults)
   }
-
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
          <CommonHeaderPercentCycle  percent={'24%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -111,6 +120,9 @@ const ProjectGCFForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q7:  getAnswers && getAnswers[0]?.q7 || "",
+                }}
               >
                 <Form.Item
                   label="7. Briefly Describe The Paradigm Shift Potential of the Project."

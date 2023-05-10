@@ -26,11 +26,21 @@ const gcfJustificationForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q12a:values?.q12a,
+        q12b:values?.q12b,
+        q12c:values?.q12b,
+      }
+    })
     const question ={
       q12a: values?.q12a||'',
       q12b: values?.q12b||'',
       q12c: values?.q12c||''
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const payload = {
       section: `C_2_72`,
       questions: question,
@@ -51,6 +61,7 @@ const gcfJustificationForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.ndaAeResults72)
   }
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'72%'} conceptNoteSection={'C.2 Justification of GCF Funding Request'}/> 
@@ -127,6 +138,11 @@ const gcfJustificationForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q12a:  getAnswers && getAnswers[0]?.q12a || "",
+                  q12b:  getAnswers && getAnswers[0]?.q12b || "",
+                  q12c:  getAnswers && getAnswers[0]?.q12c || "",
+                }}
               >
                 <Form.Item
                   label= {<span>{'12a) Explain why the project requires GCF funding, i.e. explaining why this is not financed by the public and/ or private sector(s) of the country.'}<span style={{color: 'red'}}>*</span></span>}

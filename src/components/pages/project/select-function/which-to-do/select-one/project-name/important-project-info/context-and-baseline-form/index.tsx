@@ -32,6 +32,7 @@ const ContextAndBaselineForm = observer(() => {
   const getProjectName = localStorage.getItem('projectName')
 
   const onFormSubmit = async (values) => {
+    localStorage.setItem('AllAnswers', JSON.stringify([{q1:values?.q1 || "", q2:values?.q2 || "",q3:values?.q3 || ""}]))
     const question = {
       q1: values?.q1 || "",
       q2: values?.q2 || "",
@@ -51,6 +52,7 @@ const ContextAndBaselineForm = observer(() => {
     }
   };
   
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   const handleSave = ()=>{
     setConceptNoteLoading(false)
     // notification.success("Save and Quit");
@@ -130,9 +132,9 @@ const ContextAndBaselineForm = observer(() => {
                 validateMessages={validateMessages}
                 layout="vertical"
                 initialValues={{
-                  q1: getProjectDataList?.q1 || "",
-                  q2: getProjectDataList?.q2 || "",
-                  q3: getProjectDataList?.q3 || "",
+                  q1: getProjectDataList?.q1 || getAnswers && getAnswers[0]?.q1 || "",
+                  q2: getProjectDataList?.q2 || getAnswers && getAnswers[0]?.q2 || "",
+                  q3: getProjectDataList?.q3 || getAnswers && getAnswers[0]?.q3 || "",
                 }}
               > 
                 <Form.Item

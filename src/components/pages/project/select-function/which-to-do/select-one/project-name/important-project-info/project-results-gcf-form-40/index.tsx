@@ -24,10 +24,18 @@ const ProjectGCFForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q9:values?.q9,
+      }
+    })
     const question ={
       q9: values?.q9||'',
 
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const payload = {
       section: `B_3_40`,
       questions: question,
@@ -49,7 +57,7 @@ const ProjectGCFForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults40)
   }
-    
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return ( 
     <div className={style.mainContainer}>
        <CommonHeaderPercentCycle  percent={'40%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -101,6 +109,9 @@ const ProjectGCFForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q9:  getAnswers && getAnswers[0]?.q9 || "",
+                }}
               >
                 <Form.Item
                   label="9. Briefly Describe The Needs of the Recipient of the Project (< 300 words).  "

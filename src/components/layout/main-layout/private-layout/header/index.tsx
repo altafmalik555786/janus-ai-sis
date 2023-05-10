@@ -27,6 +27,7 @@ const Header = observer(() => {
   } = useStore(null);
   const onLogout = () => {
     resetStore();
+    localStorage.removeItem("AllAnswers");
     localStorage.removeItem("token");
     localStorage.removeItem("theme");
     navigate(constRoute.login);
@@ -84,8 +85,8 @@ const Header = observer(() => {
     // if(e?.key==="/FAQs") setIsFaqModel(true)
     localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
-    // navigate(e.key);
-    e?.key==="/FAQs" ? window.open(`/#${e.key}`) : navigate(e.key);
+    navigate(e.key);
+    // e?.key==="/FAQs" ? window.open(`/#${e.key}`) : navigate(e.key);
   };
   const faqModelCloe = ()=>{
     setIsFaqModel(false)

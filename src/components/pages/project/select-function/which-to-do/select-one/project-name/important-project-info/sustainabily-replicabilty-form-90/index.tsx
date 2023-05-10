@@ -33,6 +33,16 @@ const SustainabilityReplicabilityForm = observer(() => {
     ` Develop a robust monitoring and evaluation framework`
   ];
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q13a:values?.q13a,
+        q13b:values?.q13b,
+        q13c:values?.q13b,
+      }
+    })
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const question ={
       q13a: values?.q13a||'',
       q13b: values?.q13b||'',
@@ -57,6 +67,7 @@ const SustainabilityReplicabilityForm = observer(() => {
     // notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
 
@@ -126,6 +137,10 @@ const SustainabilityReplicabilityForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q13a:  getAnswers && getAnswers[0]?.q13a || "",
+                  q13b:  getAnswers && getAnswers[0]?.q13b || "",
+                }}
               >
                 <Form.Item
                   label= {<span>{'13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.'}<span style={{color: 'red'}}>*</span></span>}
