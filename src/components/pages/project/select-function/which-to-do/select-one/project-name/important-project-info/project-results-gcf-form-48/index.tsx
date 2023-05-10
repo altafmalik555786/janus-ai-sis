@@ -54,7 +54,7 @@ const ProjectGCFForm = observer(() => {
   
   const handleSave = ()=>{
     setConceptNoteLoading(false)
-    notification.success("Save and Quit");
+    // notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
   const handleback=()=>{

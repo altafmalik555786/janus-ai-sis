@@ -6,6 +6,7 @@ import { constRoute } from "@utils/route";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CardItemsFunc from "../../common-components/card-item-func";
 import { notification } from "@utils/notifications";
+import GoBack from "@components/common-components/go-back";
 
 const WhichToDo = observer(() => {
   const navigate = useNavigate();
@@ -38,13 +39,14 @@ const WhichToDo = observer(() => {
         </div>
         <div className={style.btnDiv}>
           <div className={style.twoBtnDiv}>
-            <button className={style.goBtn}  onClick={() =>
+          <GoBack onClick={constRoute?.selectFunction} className={style.goBtn}/>
+            {/* <button className={style.goBtn}  onClick={() =>
               navigate(constRoute?.selectFunction)
             }
 >
             
               <img src={LeftArrow} alt="left-arrow" /> Go Back
-            </button>
+            </button> */}
             {/* <button
                     onClick={() => {
                       notification.success("Save and Quit");

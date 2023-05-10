@@ -8,11 +8,12 @@
     margin: auto;
     padding-top: 50px;
 
+
     .container {
       background-color: #ffffff;
       width: 100%;
       left: 373px;
-
+      border: 1px solid#E0E0E0;
       border-radius: 5px;
 
       .hTwo {
@@ -181,8 +182,8 @@
 
       }
       .saveBtn {
-        width: 116px;
-        height: 40px;
+        height: 50px;
+        width: 134px;
         color: #2E2E2E;
         white-space: nowrap; 
         background: #ececf1;

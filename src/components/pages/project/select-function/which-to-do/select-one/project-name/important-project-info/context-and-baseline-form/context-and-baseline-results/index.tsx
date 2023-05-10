@@ -32,7 +32,7 @@ const res=  await conceptNote(JSON.parse(payload), navigate);
 setRegenrateResult(res?.response)
 }
 const handleSave = ()=>{
-  notification.success("Save and Quit");
+  // notification.success("Save and Quit");
   setConceptNoteLoading(false)
   navigate(constRoute?.home);
 }
