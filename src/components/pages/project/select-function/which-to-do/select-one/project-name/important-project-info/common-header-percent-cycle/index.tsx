@@ -24,11 +24,11 @@ const getProjectName = localStorage.getItem('projectName')
 const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProjectName || projectName
   return (
     <Row className={style.contextBaselineDiv}>
-      <Col md={5} xs={24}>
+      <Col md={4} xs={24}>
         <p className={style.pTageOne}>Document Type:</p>
         <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>GCF Concept Note</strong>
       </Col>
-      <Col md={9} xs={24}>
+      <Col md={10} xs={24}>
         <p className={style.pTageOne}>Project name:</p>
         <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>{projectNameData}</strong>
         {/* <img src={ProjectName} alt="icon" /> */}
