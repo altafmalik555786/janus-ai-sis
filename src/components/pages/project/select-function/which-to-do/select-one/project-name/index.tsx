@@ -14,14 +14,21 @@ const ProjectName = observer(() => {
   const navigate = useNavigate();
   const [form] = useForm();
   const [inputValue, setInputValue] = useState(true)
+  const [inputValueLength, setInputValueLength] = useState(false)
   const onFormSubmit = (value) => {
     localStorage.setItem('projectName', value.projectName)
     navigate(constRoute?.importantProjectInfo,  { state: { projectName: value.projectName} });
   };
 
   const handleInputChange = (event) => {
-    if(event.target.value.length > 0){
-      setInputValue(false)
+    if(event.target.value.length > 88){
+      setInputValueLength(true)
+    }
+    else{
+      setInputValueLength(false)
+    }
+    if(event.target.value.length > 0 || event.target.value.length > 88){
+      setInputValue(false);
     }
     else{
       setInputValue(true)
@@ -54,10 +61,11 @@ const ProjectName = observer(() => {
                       },
                     ]}
                   > 
-                    <CommonInput onChange={handleInputChange} type="text" className={style.emailInput} />
+                    <CommonInput onChange={(e) => handleInputChange(e)} type="text" className={style.emailInput} />
                   </Form.Item>
+                  {inputValueLength && <p style={{color:'red', textAlign:'left', margin:0}}>Characters values exceeded</p>}
                   <div className={style.nextButtonDiv}>
-                    <button disabled={inputValue} className={style.nextButton}>Next</button>
+                    <button disabled={inputValue || inputValueLength} className={style.nextButton}>Next</button>
                   </div>
                 </Form>
               </Col>
