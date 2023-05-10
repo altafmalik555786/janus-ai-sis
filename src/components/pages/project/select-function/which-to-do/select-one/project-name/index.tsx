@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import { Col, Form, Row } from "antd";
+import { Col, Form, Input, Row } from "antd";
 import { useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import LeftArrow from "@assets/icons/left-arrow.png";
@@ -14,14 +14,14 @@ const ProjectName = observer(() => {
   const navigate = useNavigate();
   const [form] = useForm();
   const [inputValue, setInputValue] = useState(true)
-  const [inputValueLength, setInputValueLength] = useState(false)
+  const [inputValueLength, setInputValueLength] = useState(false);
   const onFormSubmit = (value) => {
     localStorage.setItem('projectName', value.projectName)
     navigate(constRoute?.importantProjectInfo,  { state: { projectName: value.projectName} });
   };
 
   const handleInputChange = (event) => {
-    if(event.target.value.length > 88){
+    if(event.target.value.length > 75){
       setInputValueLength(true)
     }
     else{
@@ -61,9 +61,9 @@ const ProjectName = observer(() => {
                       },
                     ]}
                   > 
-                    <CommonInput onChange={(e) => handleInputChange(e)} type="text" className={style.emailInput} />
+                    <Input maxLength={76} onChange={(e) => handleInputChange(e)} type="text" className={style.emailInput}/>
                   </Form.Item>
-                  {inputValueLength && <p style={{color:'red', textAlign:'left', margin:0}}>Characters values exceeded</p>}
+                  {<p style={{display:'flex', justifyContent:inputValueLength ? 'space-between' : "end", margin:0}}>{inputValueLength && <span style={{ color:'red', marginTop:-12}}>Characters values exceeded</span> }<span>Maximum 75 characters</span></p>}
                   <div className={style.nextButtonDiv}>
                     <button disabled={inputValue || inputValueLength} className={style.nextButton}>Next</button>
                   </div>

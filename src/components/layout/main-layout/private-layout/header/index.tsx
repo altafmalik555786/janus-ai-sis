@@ -84,8 +84,8 @@ const Header = observer(() => {
     // if(e?.key==="/FAQs") setIsFaqModel(true)
     localStorage?.setItem('currentPage', e?.key)
     setCurrent(e.key);
-    // navigate(e.key);
-    e?.key==="/FAQs" ? window.open(`/#${e.key}`) : navigate(e.key);
+    navigate(e.key);
+    // e?.key==="/FAQs" ? window.open(`/#${e.key}`) : navigate(e.key);
   };
   const faqModelCloe = ()=>{
     setIsFaqModel(false)
