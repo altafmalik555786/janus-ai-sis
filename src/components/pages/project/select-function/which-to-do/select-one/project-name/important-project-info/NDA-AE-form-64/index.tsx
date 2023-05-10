@@ -26,9 +26,17 @@ const ProjectDescriptionForm = observer(() => {
   const getProjectName = localStorage.getItem('projectName')
 
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q12:values?.q12,
+      }
+    })
     const question ={
       q12: values?.q12||'',
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const payload = {
       section: `B_4_64`,
       questions: question,
@@ -49,7 +57,7 @@ const ProjectDescriptionForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults64)
   }
- 
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'64%'} conceptNoteSection={'B.4 Engagement Among the NDA, AE and/or other'}/> 
@@ -109,6 +117,9 @@ const ProjectDescriptionForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q12:  getAnswers && getAnswers[0]?.q12 || "",
+                }}
               >
                 <Form.Item 
                   label="12. Please describe how engagement among the NDA, AE and/or other relevant stakeholders in the country has taken place."

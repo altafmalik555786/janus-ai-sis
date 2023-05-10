@@ -25,9 +25,17 @@ const ProjectGCFForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q11:values?.q11,
+      }
+    })
     const question ={
       q11: values?.q11||'',
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const payload = {
       section: `B_3_56`,
       questions: question,
@@ -49,6 +57,7 @@ const ProjectGCFForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults56)
   }
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'56%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -114,6 +123,9 @@ const ProjectGCFForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q11: getAnswers && getAnswers[0]?.q11 || "",
+                }}
               >
                 <Form.Item
                   label="11. Briefly Discuss The Project’s Efficiency and Effectiveness."

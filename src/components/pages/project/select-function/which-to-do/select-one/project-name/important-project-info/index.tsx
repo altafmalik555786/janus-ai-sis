@@ -16,22 +16,22 @@ const ImportantProjectInfo = observer(() => {
   } = useStore(null);
   const [error, setError] = useState(false);
   const {state} = useLocation();
-  const nextSubmitHandler =async() => {
-    if(isChecked){
-      resetProjectData()
-const payload = {
-  project_name: state?.projectName,
-  functionality: 'concept note'
-}
-const response =  await projectSave(payload, navigate)
-if(response?.message?.includes('project saved successfully')){
-  
-  navigate(constRoute?.contextAndBaselineForm)}
-}
-    else{
-      setError(true)
+  const nextSubmitHandler = async () => {
+    if (isChecked) {
+      resetProjectData();
+      const payload = {
+        project_name: state?.projectName,
+        functionality: "concept note",
+      };
+      const response = await projectSave(payload, navigate);
+      if (response?.message?.includes("project saved successfully")) {
+        localStorage.removeItem('AllAnswers')
+        navigate(constRoute?.contextAndBaselineForm);
+      }
+    } else {
+      setError(true);
     }
-  }
+  };
   return (
     <div className={style.mainContainer}>
       <div className={style.containerWrapper}>

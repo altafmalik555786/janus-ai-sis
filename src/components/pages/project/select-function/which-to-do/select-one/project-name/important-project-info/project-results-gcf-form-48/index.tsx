@@ -25,11 +25,21 @@ const ProjectGCFForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q10a:values?.q1,
+        q10b:values?.q2,
+        q10c:values?.q3,
+      }
+    })
     const question ={
       q10a: values?.q1||'',
       q10b: values?.q2||'',
       q10c: values?.q3||''
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const payload = {
       section: `B_3_48`,
       questions: question,
@@ -51,6 +61,7 @@ const ProjectGCFForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults48)
   }
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
     <CommonHeaderPercentCycle  percent={'48%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -110,6 +121,11 @@ const ProjectGCFForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q1:  getAnswers && getAnswers[0]?.q10a || "",
+                  q2:  getAnswers && getAnswers[0]?.q10b || "",
+                  q3:  getAnswers && getAnswers[0]?.q10c || "",
+                }}
               >
                 <Form.Item
                   label= {<span>{`10a) Briefly Describe Country Ownership of the Project.`}<span style={{color: 'red'}}>*</span></span>}
