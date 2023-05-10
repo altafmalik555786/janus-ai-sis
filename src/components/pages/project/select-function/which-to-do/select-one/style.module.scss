@@ -1,22 +1,30 @@
 .homePagePageContainer {
   width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 
+  :global(.ant-row) {
+    height: 325px;
+    @media only screen and (max-width: 768px) {
+      height:auto;
+    }
+  }
+ 
+
   .homePageContainerCol {
     width: 50%;
+    margin-bottom: 120px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     .homePageContainer {
-      margin-bottom: 120px;     min-height: 400px;
+      min-height: 400px;
       padding: 10px;
-
 
       h1 {
         font-family: "Inter";
@@ -30,7 +38,7 @@
       }
 
       .paraContainer {
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
         p {
           font-family: "Inter";
           font-style: normal;
@@ -107,70 +115,94 @@
       }
     }
   }
-
   .btnDiv {
-    margin-bottom: 52px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-
-    .twoBtnDiv {
+    padding-bottom: 10px;
+    .goBtn {
+      height: 50px;
+      width: 134px;
+      color: #2e2e2e;
+      background-color: #e6e6e6;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
       display: flex;
-      padding-inline: 28px;
-      margin-top: 60px;
+      margin-left: 15px;
+      margin-bottom: 15px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
 
-      justify-content: space-between;
-      .goBtn {
-        height: 50px;
-        width: 134px;
-        color: #2E2E2E;
-        background-color: #e6e6e6;
-        border-radius: 5px;
-        cursor: pointer;
-        border: none;
-        font-size: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-         
-        img {
-          margin-top: 1px;
-        }
-      }
-      .saveBtn {
-        color: #2E2E2E;
-        background-color: #e6e6e6;
-        height: 50px;
-        width: 134px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        display: flex;
-        font-size: 20px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        white-space: nowrap;
-      }
-    }
-    @media only screen and (max-width: 425px) {
-      .twoBtnDiv {
-        padding-inline: 20px;
-        margin-bottom: 0;
-        .goBtn {
-          height: 40px;
-          width: 114px;
-        }
-        .saveBtn {
-          height: 40px;
-          width: 114px;
-        }
+      img {
+        margin-top: 1px;
       }
     }
   }
+
+  // .btnDiv {
+  //   // margin-bottom: 52px;
+  //   width: 100%;
+  //   position: absolute;
+  //   bottom: 0;
+
+  //   .twoBtnDiv {
+  //     display: flex;
+  //     padding-inline: 28px;
+  //     // margin-top: 60px;
+
+  //     justify-content: space-between;
+  //     .goBtn {
+  //       height: 50px;
+  //       width: 134px;
+  //       color: #2e2e2e;
+  //       background-color: #e6e6e6;
+  //       border-radius: 5px;
+  //       cursor: pointer;
+  //       border: none;
+  //       font-size: 20px;
+  //       display: flex;
+  //       flex-direction: row;
+  //       justify-content: center;
+  //       align-items: center;
+  //       gap: 5px;
+
+  //       img {
+  //         margin-top: 1px;
+  //       }
+  //     }
+  //     .saveBtn {
+  //       color: #2e2e2e;
+  //       background-color: #e6e6e6;
+  //       height: 50px;
+  //       width: 134px;
+  //       border: none;
+  //       cursor: pointer;
+  //       border-radius: 5px;
+  //       display: flex;
+  //       font-size: 20px;
+  //       flex-direction: row;
+  //       align-items: center;
+  //       justify-content: center;
+  //       gap: 5px;
+  //       white-space: nowrap;
+  //     }
+  //   }
+  //   @media only screen and (max-width: 425px) {
+  //     .twoBtnDiv {
+  //       padding-inline: 20px;
+  //       margin-bottom: 0;
+  //       .goBtn {
+  //         height: 40px;
+  //         width: 114px;
+  //       }
+  //       .saveBtn {
+  //         height: 40px;
+  //         width: 114px;
+  //       }
+  //     }
+  //   }
+  // }
 
   @media only screen and (max-width: 768px) {
     height: max-content;

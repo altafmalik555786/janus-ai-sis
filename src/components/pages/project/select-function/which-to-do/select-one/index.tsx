@@ -35,16 +35,17 @@ const SelectOne = observer(() => {
             </Row>
           </div>
         </div>
-        <div className={style.btnDiv}>
-          <div className={style.twoBtnDiv}>
+
+        {/* <div className={style.btnDiv}>
+          <div className={style.twoBtnDiv}> 
             <button className={style.goBtn}  onClick={() =>
               navigate(constRoute?.whichToDo)
             }
 >
           
               <img src={LeftArrow} alt="left-arrow" /> Go Back
-            </button>
-            {/* <button
+            </button> */}
+        {/* <button
                     onClick={() => {
                       notification.success("Save and Quit");
                       navigate(constRoute?.home);
@@ -53,9 +54,17 @@ const SelectOne = observer(() => {
                   >
                     Save & Quit
                   </button> */}
-          </div>
-        </div>
+        {/* </div>
+        </div> */}
       </Row>
+      <div className={style.btnDiv}>
+      <button
+        className={style.goBtn}
+        onClick={() => navigate(constRoute?.whichToDo)}
+      >
+        <img src={LeftArrow} alt="left-arrow" /> Go Back
+      </button>
+      </div>
     </div>
   );
 });
