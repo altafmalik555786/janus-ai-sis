@@ -1,4 +1,4 @@
-import { observer } from "mobx-react";
+import { observer } from "mobx-react"; 
 import style from "./style.module.scss";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import React, { memo, useState } from "react";
@@ -7,6 +7,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { useStore } from "@stores/root-store";
 import { notification } from "@utils/notifications";
+import SaveQuit from "@components/common-components/save-quit";
+import GoBack from "@components/common-components/go-back";
 
 const ImportantProjectInfo = observer(() => {
   const navigate = useNavigate()
@@ -71,13 +73,15 @@ if(response?.message?.includes('project saved successfully')){
         </div>
       </div>
       <div className={style.btnDiv}>
-        <div className={style.twoBtnDiv}>
-          <button className={style.goBtn}  onClick={() =>
+        <div className={style.twoBtnDiv} >
+          <GoBack onClick={constRoute?.projectName} className={style.goBtn} />
+          {/* <button className={style.goBtn}  onClick={() =>
               navigate(constRoute?.projectName)
             }
  >
             <img src={LeftArrow} alt="left-arrow" /> Go Back
-          </button>
+          </button> */}
+          {/* <SaveQuit onClick={constRoute?.home} /> */}
           {/* <button
                     onClick={() => {
                       notification.success("Save and Quit");

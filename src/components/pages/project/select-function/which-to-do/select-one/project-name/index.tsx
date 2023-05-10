@@ -8,7 +8,8 @@ import { CommonInput } from "@components/common-components/input";
 import { validateMessages } from "@utils/json-data";
 import { useForm } from "antd/es/form/Form";
 import { useState } from "react";
-import { notification } from "@utils/notifications";
+import { notification } from "@utils/notifications"; 
+import GoBack from "@components/common-components/go-back";
 
 const ProjectName = observer(() => {
   const navigate = useNavigate();
@@ -66,14 +67,15 @@ const ProjectName = observer(() => {
         </div>
         <div className={style.btnDiv}>
           <div className={style.twoBtnDiv}>
-            <button 
+          <GoBack onClick={constRoute?.selectOne}             className={style.goBtn} />
+            {/* <button 
              onClick={() =>
               navigate(constRoute?.selectOne)
             }
             className={style.goBtn}>
               {" "}
               <img src={LeftArrow} alt="left-arrow" /> Go Back
-            </button>
+            </button> */}
             {/* <button
                     onClick={() => {
                       notification.success("Save and Quit");

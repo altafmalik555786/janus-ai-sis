@@ -36,7 +36,7 @@ const handleGoBack=()=>{
   navigate(constRoute?.sustainabilityReplicabilityForm90)}
 const handleSaveAndQuit = ()=> {
   setConceptNoteLoading(false)
-  notification.success("Save and Quit");
+  // notification.success("Save and Quit");
   navigate(constRoute?.home);
 }
   return (
@@ -116,10 +116,10 @@ const handleSaveAndQuit = ()=> {
                       navigate(constRoute?.home);
                     }}
                     className={style.saveBtn}
-                  >
+                  > 
                     Save & Quit
                   </button>
-                </div>
+                </div> 
               </div>
             </div> */}
           </div>

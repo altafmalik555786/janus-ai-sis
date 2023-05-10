@@ -6,6 +6,7 @@ import LeftArrow from "@assets/icons/left-arrow.png";
 import { useNavigate } from "react-router-dom";
 import { notification } from "@utils/notifications";
 import { useStore } from "@stores/root-store";
+import GoBack from "@components/common-components/go-back";
 const GCFCongratulation = () => {
   const navigate = useNavigate();
   const {
@@ -32,17 +33,18 @@ const GCFCongratulation = () => {
               </p>
             </div>
           </div>
-          <button
+          {/* <button
             className={style.goBtn}
             onClick={() => {
               setConceptNoteLoading(false)
               navigate(constRoute?.sustainabilityReplicabilityResults100)}
             }
           >
-            {" "}
+           
             <img src={LeftArrow} alt="left-arrow" /> Go Back
-          </button>
+          </button> */}
           
+          <GoBack  className={style.goBtn} onClick={constRoute?.sustainabilityReplicabilityResults100} />
         </Col>
         <Col xs={1} md={4} sm={2}></Col>
       </Row>
@@ -50,4 +52,4 @@ const GCFCongratulation = () => {
   );
 };
 
-export default GCFCongratulation;
+export default GCFCongratulation; 
