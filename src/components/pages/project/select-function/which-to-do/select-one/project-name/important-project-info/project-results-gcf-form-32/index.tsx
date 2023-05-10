@@ -24,10 +24,18 @@ const ProjectGCFForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName')
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q8:values?.q8,
+      }
+    })
     const question ={
       q8: values?.q8||'',
 
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const payload = {
       section: `B_3_32`,
       questions: question,
@@ -48,7 +56,7 @@ const ProjectGCFForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfResults32)
   }
-
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
        <CommonHeaderPercentCycle  percent={'32%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -99,6 +107,9 @@ const ProjectGCFForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q8:  getAnswers && getAnswers[0]?.q8 || "",
+                }}
               >
                 <Form.Item
                   label= {<span>{`8. Briefly Describe The Sustainable Development Potential of the Project (< 300 words). `}<span style={{color: 'red'}}>*</span></span>}

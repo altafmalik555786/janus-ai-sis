@@ -24,10 +24,19 @@ const ProjectDescriptionForm = observer(() => {
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const onFormSubmit = async(values) => {
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+    const addMoreAnswers = getAnswers?.map((item) => {
+      return {
+        ...item,
+        q6:values?.q6,
+      }
+    })
     const question ={
       q6: values?.q6||'',
 
     }
+  localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
+
     const payload = {
       section: `B_3_16`,
       questions: question,
@@ -47,6 +56,7 @@ const ProjectDescriptionForm = observer(() => {
     setConceptNoteLoading(false)
     navigate(constRoute?.projectDescriptionResults)
   }
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'16%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
@@ -99,6 +109,9 @@ const ProjectDescriptionForm = observer(() => {
                 onFinish={onFormSubmit}
                 validateMessages={validateMessages}
                 layout="vertical"
+                initialValues={{
+                  q6:  getAnswers && getAnswers[0]?.q6 || "",
+                }}
               >
                 <Form.Item
                   label= {<span>6. Briefly Describe The Impact Potential of the Project.<span style={{color:'red'}}>*</span></span>}

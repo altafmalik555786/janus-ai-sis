@@ -27,6 +27,7 @@ const Header = observer(() => {
   } = useStore(null);
   const onLogout = () => {
     resetStore();
+    localStorage.removeItem("AllAnswers");
     localStorage.removeItem("token");
     localStorage.removeItem("theme");
     navigate(constRoute.login);
