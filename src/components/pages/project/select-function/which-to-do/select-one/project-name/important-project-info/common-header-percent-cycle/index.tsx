@@ -29,7 +29,7 @@ const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProje
         <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>GCF Concept Note</strong>
       </Col>
       <Col md={9} xs={24}>
-        <p className={style.pTageOne}>Project Name:</p>
+        <p className={style.pTageOne}>Project name:</p>
         <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>{projectNameData}</strong>
         {/* <img src={ProjectName} alt="icon" /> */}
       </Col>
@@ -39,7 +39,7 @@ const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProje
         {/* <img src={NoteIcon} alt="icon" /> */}
       </Col>
       <Col md={4} xs={24}>
-        <p className={style.pTageTwo}>Percent Complete</p>
+        <p className={style.pTageTwo}>Percent complete:</p>
         <strong>{percent}</strong>
         {/* <img src={TimerIcon} alt="icon" /> */}
       </Col>
