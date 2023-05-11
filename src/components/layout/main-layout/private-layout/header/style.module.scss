@@ -75,6 +75,11 @@
           gap: 24px;
           align-items: center;
 
+          .billingInfoImg {
+            height: 40px;
+            width: 160px;
+            cursor: pointer;
+          }
           .billingInfo {
             height: 40px;
             background: #ffcd7c;
