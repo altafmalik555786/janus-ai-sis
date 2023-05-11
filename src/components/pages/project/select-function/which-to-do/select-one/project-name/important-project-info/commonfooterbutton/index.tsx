@@ -4,6 +4,7 @@ import { Button, Form } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import SaveQuit from "@components/common-components/save-quit";
 import GoBack from "@components/common-components/go-back";
+import { constImages } from "@utils/images";
 
 export interface CommonFooterButtonProps {
   handleSubmit?: any;
@@ -35,9 +36,11 @@ const CommonFooterButton = ({
       {isResult ? (
         <div className={style.footerButtonsDiv}>
           <div className={style.leftBtnContainer}>
-            <Button onClick={() => handleGoNext()} className={style.nextButton}>
+            <img  onClick={() => handleGoNext()} src={constImages.nextBtn} alt="" />
+            {/* <Button onClick={() => handleGoNext()} className={style.nextButton}>
               Next
-            </Button>
+            </Button> */}
+           {!isLoadingRegenrate ? <img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> :
             <Button
               onClick={() => handleRegenrate()}
               className={style.reGenerate}
@@ -45,7 +48,7 @@ const CommonFooterButton = ({
               disabled={isLoadingRegenrate}
             >
               Regenerate
-            </Button>
+            </Button>}
           </div>
           <div className={style.btnDiv}>
             <div className={style.twoBtnDiv}>
@@ -68,7 +71,7 @@ const CommonFooterButton = ({
       ) : (
         <div className={style.footerButtonsDiv}>
           <Form form={form} onFinish={handleSubmit}>
-            <Button
+            {isLoadingSubmit ? <Button
               loading={isLoadingSubmit}
               disabled={isLoadingSubmit}
               //  onClick={()=>handleSubmit()}
@@ -76,7 +79,8 @@ const CommonFooterButton = ({
               className={style.nextButton}
             >
               Submit
-            </Button>
+            </Button>:
+            <img className={style.nextImg} onClick={() => handleSubmit()} src={constImages.SubmitBtn} alt="" />}
           </Form>
           <div className={style.btnDiv}>
             <div className={style.twoBtnDiv}>

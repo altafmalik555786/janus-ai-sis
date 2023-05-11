@@ -13,6 +13,7 @@ import CustomButton from "@components/common-components/custom-button";
 import LogoutIcon from "@assets/icons/log-out.svg";
 import FaqModel from "@components/common-components/FaqModel/faqModel";
 import TermPrivcyPolicyModel from "@components/common-components/term-privcyPolicyModel/termPrivcyPolicyModel";
+import { constImages } from "@utils/images";
 const Header = observer(() => {
   const navigate = useNavigate();
   const location =  useLocation()
@@ -167,10 +168,11 @@ const Header = observer(() => {
         <ul className={style.rightMenuHeader}>
           <li className={style.userProfileDropDownContainer}>
             <Row className={style.userProfileDropDownWrapper}>
-              <CustomButton
+              {/* <CustomButton
                 title="Add billing info"
                 className={style.billingInfo} 
-              />
+              /> */}
+              <img className={style.billingInfoImg} src={constImages.addBillingBtn} alt="" />
               <Dropdown overlay={dropdownMenu} trigger={["click"]}>
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className={style.spaceUserProfile}>

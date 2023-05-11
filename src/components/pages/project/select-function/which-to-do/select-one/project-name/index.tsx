@@ -22,7 +22,7 @@ const ProjectName = observer(() => {
   };
 
   const handleInputChange = (event) => {
-    if(event.target.value.length > 75){
+    if(event.target.value.length >= 75){
       setInputValueLength(true)
     }
     else{
@@ -62,7 +62,7 @@ const ProjectName = observer(() => {
                       },
                     ]}
                   > 
-                    <Input maxLength={76} onChange={(e) => handleInputChange(e)} type="text" className={style.emailInput}/>
+                    <Input maxLength={75} onChange={(e) => handleInputChange(e)} type="text" className={style.emailInput}/>
                   </Form.Item>
                   {<p style={{display:'flex', justifyContent:inputValueLength ? 'space-between' : "end", margin:0}}>{inputValueLength && <span style={{ color:'red', marginTop:-12}}>Characters values exceeded</span> }<span style={{ color:'red'}}>Maximum 75 characters</span></p>}
                   <div className={style.nextButtonDiv}>

@@ -4,7 +4,16 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
- 
+
+          .leftBtnContainer{
+            display: flex;
+            img{
+              cursor: pointer;
+            }
+          }
+          .nextImg{
+            cursor: pointer;
+          }
           .nextButton {
  &:disabled {
           background-color: gray;
@@ -23,10 +32,13 @@
             padding: 6px 20px;
             &:hover{
               color: #ffffff;
-              background: #00b840;
+              // background: #00b840;
             }
           }
 
+          .reGenerateImg{
+            margin-left: 10px;
+          }
           .reGenerate {
             height: 40px;
             // width: 134px;
@@ -36,12 +48,12 @@
             font-size: 20px;
             margin-left: 10px;
             line-height: 27px;
-            color: #808080;
+            color: #121212;
             background: #e6e6e6;
             border-radius: 5px;
             border: none;
             &:hover{
-              color: #808080;
+              color: #121212;
             background: #e6e6e6;
             }
           }
