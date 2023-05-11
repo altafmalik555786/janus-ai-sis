@@ -33,15 +33,16 @@ const SustainabilityReplicabilityForm = observer(() => {
     ` Develop a robust monitoring and evaluation framework`
   ];
   const onFormSubmit = async(values) => {
-    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
-    const addMoreAnswers = getAnswers?.map((item) => {
+    const getAnswerls = localStorage.getItem('AllAnswers');
+    const getAnswers = (getAnswerls === 'undefined') ? [] : JSON.parse(getAnswerls)
+    const addMoreAnswers = getAnswers ? getAnswers?.map((item) => {
       return {
         ...item,
         q13a:values?.q13a,
         q13b:values?.q13b,
         q13c:values?.q13b,
       }
-    })
+    }) : [];
   localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
     const question ={
       q13a: values?.q13a||'',
@@ -67,7 +68,8 @@ const SustainabilityReplicabilityForm = observer(() => {
     // notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
-  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
+  const getAnswers = localStorage.getItem('AllAnswers');
+  const allAnswersParse = (getAnswers === 'undefined') ? [] : JSON.parse(getAnswers)
   return (
     <div className={style.mainContainer}>
 
@@ -138,8 +140,8 @@ const SustainabilityReplicabilityForm = observer(() => {
                 validateMessages={validateMessages}
                 layout="vertical"
                 initialValues={{
-                  q13a:  getAnswers && getAnswers[0]?.q13a || "",
-                  q13b:  getAnswers && getAnswers[0]?.q13b || "",
+                  q13a:  allAnswersParse && allAnswersParse[0]?.q13a || "",
+                  q13b:  allAnswersParse && allAnswersParse[0]?.q13b || "",
                 }}
               >
                 <Form.Item
