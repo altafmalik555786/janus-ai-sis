@@ -32,7 +32,7 @@ const ContextAndBaselineForm = observer(() => {
   const getProjectName = localStorage.getItem('projectName')
 
   const onFormSubmit = async (values) => {
-    localStorage.setItem('AllAnswers', JSON.stringify([{q1:values?.q1 || "", q2:values?.q2 || "",q3:values?.q3 || ""}]))
+     localStorage.setItem('AllAnswers', JSON.stringify([{q1:values?.q1 || "", q2:values?.q2 || "",q3:values?.q3 || ""}]))
     const question = {
       q1: values?.q1 || "",
       q2: values?.q2 || "",

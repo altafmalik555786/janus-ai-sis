@@ -71,7 +71,7 @@ const CommonFooterButton = ({
       ) : (
         <div className={style.footerButtonsDiv}>
           <Form form={form} onFinish={handleSubmit}>
-            {isLoadingSubmit ? <Button
+            <Button
               loading={isLoadingSubmit}
               disabled={isLoadingSubmit}
               //  onClick={()=>handleSubmit()}
@@ -79,8 +79,7 @@ const CommonFooterButton = ({
               className={style.nextButton}
             >
               Submit
-            </Button>:
-            <img className={style.nextImg} onClick={() => handleSubmit()} src={constImages.SubmitBtn} alt="" />}
+            </Button>
           </Form>
           <div className={style.btnDiv}>
             <div className={style.twoBtnDiv}>
