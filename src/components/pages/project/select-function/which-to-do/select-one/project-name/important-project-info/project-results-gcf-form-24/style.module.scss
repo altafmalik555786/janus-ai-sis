@@ -1,6 +1,6 @@
 .mainContainer {
   min-height: 100vh;
-  background-color: #f7f7f7;	
+  background-color: #f7f7f7;
   .contextBaselineDiv {
     background-color: #ffffff;
     min-height: 74px;
@@ -137,15 +137,23 @@
               border: 1px solid #e0e0e0;
               border-radius: 5px;
               margin-bottom: 25px;
-              padding-right: 26%;
+              // padding-right: 26%;
+              // width:100%;
 
               &::placeholder {
-                font-family: "Inter";
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 22px;
-                color: rgba(0, 0, 0, 0.5);
+                // font-family: "Inter";
+                // font-style: normal;
+                // font-weight: 400;
+                font-size: 15px;
+
+                // text-align: justify;
+                // line-height: 22px;
+                // color: rgba(0, 0, 0, 0.5);
+                // text-overflow: ellipsis !important;
+                // white-space: nowrap !important;
+                // overflow: hidden !important;
+
+                // width:100%;
               }
             }
 
@@ -169,12 +177,12 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
- 
+
           .nextButton {
             &:disabled {
               background-color: gray;
             }
-            font-family: "Inter"; 
+            font-family: "Inter";
             font-style: normal;
             font-weight: 500;
             height: 40px;
@@ -223,7 +231,7 @@
               .saveBtn {
                 width: 116px;
                 height: 40px;
-                color: #2E2E2E;
+                color: #2e2e2e;
                 white-space: nowrap;
                 background: #ececf1;
                 border-radius: 5px;
@@ -239,7 +247,7 @@
                 font-family: "Inter";
                 font-style: normal;
                 font-weight: 500;
-               
+
                 line-height: 27px;
               }
             }
@@ -295,6 +303,7 @@
   }
 }
 .fontSizeInput {
-  font-size: 20px !important;
+  // font-size: 20px !important;
   font-family: "Inter";
+  width: 100%;
 }

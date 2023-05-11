@@ -135,7 +135,7 @@ const ProjectGCFForm = observer(() => {
 
                     placeholder="Leave blank if you want Climate Finance Co-pilot to supply suggested narratives to give you a head start on completing this section."
                     className={style.fontSizeInput}
-                  />
+                  /> 
                 </Form.Item>
                 {/* <Form.Item
                   label="5. What is the name of the Accredited Entity(ies) and describe the implementation arrangements with the executing entity(ies) and implementing partners."
