@@ -1,13 +1,13 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
 import { useForm } from "antd/es/form/Form";
 import { CommonInput } from "@components/common-components/input";
 import { validateMessages } from "@utils/json-data";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { constRoute } from "@utils/route";
 import { notification } from "@utils/notifications";
 import { useStore } from "@stores/root-store";
@@ -16,6 +16,7 @@ import CommonImportantSideBar from "../importantSideBar/common-important-sidebar
 import CommonFooterButton from "../commonfooterbutton";
 
 const ContextAndBaselineForm = observer(() => { 
+  const location = useLocation();
   const [form] = useForm();
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
@@ -30,8 +31,11 @@ const ContextAndBaselineForm = observer(() => {
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
   const getProjectName = localStorage.getItem('projectName')
-
+useEffect(() => {
+  if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q1:"", q2:"",q3:""}]))}
+}, [])
   const onFormSubmit = async (values) => {
+    
      localStorage.setItem('AllAnswers', JSON.stringify([{q1:values?.q1 || "", q2:values?.q2 || "",q3:values?.q3 || ""}]))
     const question = {
       q1: values?.q1 || "",
@@ -174,8 +178,8 @@ const ContextAndBaselineForm = observer(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
+            handleQuickNext={constRoute?.contextAndBaselineResults}
             form={form}
-
             />
 
 

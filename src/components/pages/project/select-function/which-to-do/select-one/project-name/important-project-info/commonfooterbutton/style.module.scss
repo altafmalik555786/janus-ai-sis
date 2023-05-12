@@ -36,6 +36,25 @@
             }
           }
 
+          .quickNextButton{
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            // width: 92px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 27px;
+            border: none;
+            color: #ffffff;
+            background: #00b840;
+            border-radius: 5px;
+            padding: 6px 20px;
+            margin-left: 10px;
+            &:hover{
+              color: #ffffff;
+            }
+          }
+
           .reGenerateImg{
             margin-left: 10px;
           }

@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -32,15 +32,16 @@ const SustainabilityReplicabilityForm = observer(() => {
     `Ensure community ownership.`,
     ` Develop a robust monitoring and evaluation framework`
   ];
+  useEffect(() => {
+    if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q13a:'',q13b:''}]))}
+  }, [])
   const onFormSubmit = async(values) => {
-    const getAnswerls = localStorage.getItem('AllAnswers');
-    const getAnswers = (getAnswerls === 'undefined') ? [] : JSON.parse(getAnswerls)
+    const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
     const addMoreAnswers = getAnswers ? getAnswers?.map((item) => {
       return {
         ...item,
         q13a:values?.q13a,
         q13b:values?.q13b,
-        q13c:values?.q13b,
       }
     }) : [];
   localStorage.setItem('AllAnswers',JSON.stringify(addMoreAnswers));
@@ -68,8 +69,7 @@ const SustainabilityReplicabilityForm = observer(() => {
     // notification.success("Save and Quit");
     navigate(constRoute?.home);
   }
-  const getAnswers = localStorage.getItem('AllAnswers');
-  const allAnswersParse = (getAnswers === 'undefined') ? [] : JSON.parse(getAnswers)
+  const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   return (
     <div className={style.mainContainer}>
 
@@ -140,8 +140,8 @@ const SustainabilityReplicabilityForm = observer(() => {
                 validateMessages={validateMessages}
                 layout="vertical"
                 initialValues={{
-                  q13a:  allAnswersParse && allAnswersParse[0]?.q13a || "",
-                  q13b:  allAnswersParse && allAnswersParse[0]?.q13b || "",
+                  q13a:  getAnswers && getAnswers[0]?.q13a || "",
+                  q13b:  getAnswers && getAnswers[0]?.q13b || "",
                 }}
               >
                 <Form.Item
@@ -181,8 +181,8 @@ const SustainabilityReplicabilityForm = observer(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
+            handleQuickNext={constRoute?.sustainabilityReplicabilityResults100}
             form={form}
-
             />
 
             {/* <div className={style.footerButtonsDiv}>
