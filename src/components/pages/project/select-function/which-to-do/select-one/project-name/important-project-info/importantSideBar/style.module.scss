@@ -1,11 +1,15 @@
     .layoutDiv {
       display: flex;
+      background-color: #ffffff;
+      border: 1px solid #dde2e4;
+
+
 
       .siderStyle {
-        background-color: #ffffff;
-        border: 1px solid #dde2e4;
+        // background-color: #ffffff;
+        // border: 1px solid #dde2e4;
         width: 289px;
-        height: 100%;
+        height: 100vh;
 
         .sideInnerDiv {
           max-width: 100%;

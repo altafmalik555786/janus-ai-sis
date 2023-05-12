@@ -18,7 +18,7 @@ const GCFCongratulation = () => {
     <div className={style.gcfCongratulationContainer}>
       <Row> 
         <Col xs={1} md={4} sm={2} ></Col>
-        <Col xs={22} md={16} sm={20}>
+        <Col xs={22} md={16} sm={20} style={{marginBottom:71}}>
           <div className={style.congratulationBox}>
             <h1>Congratulations!</h1>
             <div className={style.firstParaContainer}>

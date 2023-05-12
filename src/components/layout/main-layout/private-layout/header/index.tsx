@@ -182,7 +182,8 @@ const Header = observer(() => {
                     <span className="mobile">
                       <i className="fa fa-ellipsis-v" />
                     </span>
-                    <DownOutlined className={style.profileUserNameText} />
+                    {/* <DownOutlined className={style.profileUserNameText} /> */}
+                    <img style={{height:26, width:26}} src={constImages.dropDownIcon} alt="" />
                   </Space>
                 </a>
               </Dropdown>
