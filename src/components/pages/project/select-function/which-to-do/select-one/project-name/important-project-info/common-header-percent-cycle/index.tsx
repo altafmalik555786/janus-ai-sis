@@ -14,7 +14,7 @@ export interface HeaderTypes {
 }
 
 const CommonHeaderPercentCycle = ({
-  projectName = "Your Project Name",
+  projectName = "Your Project Name", 
   percent = "--%",  
   conceptNoteSection = "Your Concept Note Section",
 }: HeaderTypes) => {
@@ -35,7 +35,7 @@ const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProje
       </Col>
       <Col md={6} xs={24}>
         <p className={style.pTageThree}>Concept Note Section</p>
-        <strong title={conceptNoteSection?.length> 48 ? conceptNoteSection: ''}> {truncate(conceptNoteSection, 48) } </strong>
+        <strong title={conceptNoteSection?.length> 48 ? conceptNoteSection: ''}> {conceptNoteSection } </strong>
         {/* <img src={NoteIcon} alt="icon" /> */}
       </Col>
       <Col md={4} xs={24}>
