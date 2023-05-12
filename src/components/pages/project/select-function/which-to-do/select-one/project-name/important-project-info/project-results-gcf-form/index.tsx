@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -22,7 +22,11 @@ const ProjectDescriptionForm = observer(() => {
   const {
     user: {getProjectNameData,setConceptNoteLoading, getLoadingConceptNote, conceptNote },
   } = useStore(null);
-  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
+  const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
+  useEffect(() => {
+    if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q6:''}]))}
+  }, [])
+
   const onFormSubmit = async(values) => {
     const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
     const addMoreAnswers = getAnswers?.map((item) => {
@@ -148,7 +152,7 @@ const ProjectDescriptionForm = observer(() => {
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
             form={form}
-
+            handleQuickNext={constRoute?.projectResultsGcfResults}
             />
 
 

@@ -5,6 +5,7 @@ import LeftArrow from "@assets/icons/left-arrow.png";
 import SaveQuit from "@components/common-components/save-quit";
 import GoBack from "@components/common-components/go-back";
 import { constImages } from "@utils/images";
+import { useNavigate } from "react-router-dom";
 
 export interface CommonFooterButtonProps {
   handleSubmit?: any;
@@ -17,6 +18,7 @@ export interface CommonFooterButtonProps {
   isLoadingRegenrate?: boolean;
   isLoadingSubmit?: boolean;
   form?: any;
+  handleQuickNext?: any;
 }
 
 const CommonFooterButton = ({
@@ -30,7 +32,9 @@ const CommonFooterButton = ({
   isLoadingRegenrate,
   isLoadingSubmit,
   form,
+  handleQuickNext
 }: CommonFooterButtonProps) => {
+  const navigate = useNavigate();
   return (
     <>
       {isResult ? (
@@ -79,6 +83,12 @@ const CommonFooterButton = ({
               className={style.nextButton}
             >
               Submit
+            </Button>
+            <Button
+              className={style.quickNextButton}
+              onClick={() => navigate(handleQuickNext)}
+            >
+              Quick next
             </Button>
           </Form>
           <div className={style.btnDiv}>

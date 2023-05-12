@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import CloseIcon from "@assets/icons/closeIcon.png";
@@ -23,7 +23,11 @@ const ProjectGCFForm = observer(() => {
     user: {getProjectNameData,setConceptNoteLoading, getLoadingConceptNote, conceptNote },
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
-  const getProjectName = localStorage.getItem('projectName')
+  const getProjectName = localStorage.getItem('projectName');
+  useEffect(() => {
+    if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q10a:'',q10b:'', q10c:''}]))}
+  }, [])
+
   const onFormSubmit = async(values) => {
     const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
     const addMoreAnswers = getAnswers?.map((item) => {
@@ -168,11 +172,12 @@ const ProjectGCFForm = observer(() => {
               </Form>
             </div>
             
-  <CommonFooterButton
+        <CommonFooterButton
             isLoadingSubmit={getLoadingConceptNote}
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
+            handleQuickNext={constRoute?.projectResultsGcfResults56}
             form={form}
             />
             {/* <div className={style.footerButtonsDiv}>
