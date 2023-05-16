@@ -48,7 +48,6 @@ const ProjectDescriptionForm = observer(() => {
       q4: values?.q4 || "",
       q5: values?.q5 || "",
     };
-    console.log("addMoreAnswers", addMoreAnswers);
     localStorage.setItem("AllAnswers", JSON.stringify(addMoreAnswers));
 
     const payload = {
@@ -62,6 +61,16 @@ const ProjectDescriptionForm = observer(() => {
       navigate(constRoute?.projectDescriptionResults, {
         state: { response: response?.response },
       });
+
+    const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+     const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+        return {
+          ...item,
+          result2: response?.response || ""
+        }
+      })
+      localStorage.setItem('allResults', JSON.stringify(addResults))
+
     }
   };
   const handleSave = () => {
