@@ -26,21 +26,21 @@ const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProje
     <Row className={style.contextBaselineDiv}>
       <Col md={4} xs={24}>
         <p className={style.pTageOne}>Document Type:</p>
-        <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>GCF Concept Note</strong>
+        <span style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>GCF Concept Note</span>
       </Col>
       <Col md={10} xs={24}>
         <p className={style.pTageOne}>Project name:</p>
-        <strong style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>{projectNameData}</strong>
+        <span style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all'}}>{projectNameData}</span>
         {/* <img src={ProjectName} alt="icon" /> */}
       </Col>
       <Col md={6} xs={24}>
         <p className={style.pTageThree}>Concept Note Section</p>
-        <strong title={conceptNoteSection?.length> 48 ? conceptNoteSection: ''}> {conceptNoteSection } </strong>
+        <span title={conceptNoteSection?.length> 48 ? conceptNoteSection: ''}> {conceptNoteSection } </span>
         {/* <img src={NoteIcon} alt="icon" /> */}
       </Col>
       <Col md={4} xs={24}>
         <p className={style.pTageTwo}>Percent complete:</p>
-        <strong>{percent}</strong>
+        <span>{percent}</span>
         {/* <img src={TimerIcon} alt="icon" /> */}
       </Col>
     </Row>
