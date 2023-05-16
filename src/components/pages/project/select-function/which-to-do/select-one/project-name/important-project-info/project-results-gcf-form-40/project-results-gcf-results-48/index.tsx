@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -26,9 +26,21 @@ const [responseData] = useState(generateResult || state?.response);
   const handleRegenratePayload=async()=>{
     const payload=  localStorage.getItem('conceptPayload')
     const res = await conceptNote(JSON.parse(payload), navigate);
-    setRegenrateResult(res?.response)
+    setRegenrateResult(res?.response);
+    const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+    const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+       return {
+         ...item,
+         result6: res?.response
+       }
+     })
+     localStorage.setItem('allResults', JSON.stringify(addResults))
   }
-  
+  useEffect(() => {
+    if(localStorage.getItem('allResults') === null){
+      localStorage.setItem('allResults', JSON.stringify([{result6: state?.response || ""}]))
+    }
+  }, [])
   const handleSave = ()=>{
     setConceptNoteLoading(false)
     // notification.success("Save and Quit");
@@ -43,7 +55,8 @@ const [responseData] = useState(generateResult || state?.response);
     setConceptNoteLoading(false)
     navigate(constRoute?.projectResultsGcfForm48)
   }
-  return (
+const results = JSON.parse(localStorage.getItem('allResults'));
+return (
     <div className={style.mainContainer}>
         <CommonHeaderPercentCycle  percent={'48%'} conceptNoteSection={'B.3 Expected Project Results Aligned with the GCF'}/> 
 
@@ -68,7 +81,7 @@ const [responseData] = useState(generateResult || state?.response);
 
             <div className={style.dataContentBox}>
             <div className={style.htmlContent} 
-      dangerouslySetInnerHTML={{__html:  responseData ||''}}
+      dangerouslySetInnerHTML={{__html:  responseData || results ? results[0]?.result6 : ''}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>

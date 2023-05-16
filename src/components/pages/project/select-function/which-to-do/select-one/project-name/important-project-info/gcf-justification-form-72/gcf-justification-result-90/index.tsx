@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import style from "./style.module.scss";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button, Col, Divider, Form, Row } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -24,10 +24,23 @@ const ProjectDescriptionResults = observer(() => {
   const handleRegenratePayload=async()=>{
     const payload=  localStorage.getItem('conceptPayload')
    const res = await conceptNote(JSON.parse(payload), navigate);
-    setRegenrateResult(res?.response)
+    setRegenrateResult(res?.response);
+    const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+    const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+       return {
+         ...item,
+         result10: res?.response
+       }
+     })
+     localStorage.setItem('allResults', JSON.stringify(addResults))
   }
 const [responseData] = useState(generateResult || state?.response);
 
+useEffect(() => {
+  if(localStorage.getItem('allResults') === null){
+    localStorage.setItem('allResults', JSON.stringify([{result10: state?.response || ""}]))
+  }
+}, [])
   const handleSave = ()=>{
     setConceptNoteLoading(false)
     // notification.success("Save and Quit");
@@ -41,7 +54,8 @@ const [responseData] = useState(generateResult || state?.response);
     setConceptNoteLoading(false)
     navigate(constRoute?.sustainabilityReplicabilityForm90)
   }
-  return (
+const results = JSON.parse(localStorage.getItem('allResults'));
+return (
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle conceptNoteSection="C.2 Justification of GCF Funding Request" percent="90%" />
       <div className={style.barContentContainer}>
@@ -51,7 +65,7 @@ const [responseData] = useState(generateResult || state?.response);
  
             <div className={style.dataContentBox}>
             <div className={style.htmlContent}
-      dangerouslySetInnerHTML={{__html: responseData ||''}}
+      dangerouslySetInnerHTML={{__html: responseData  || results ? results[0]?.result10 : ''}}
     />
               {/* <p>{state?.response || ''}</p> */}
             </div>

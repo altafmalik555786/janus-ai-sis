@@ -33,6 +33,9 @@ const ContextAndBaselineForm = observer(() => {
   const getProjectName = localStorage.getItem('projectName')
 useEffect(() => {
   if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q1:"", q2:"",q3:""}]))}
+    if(localStorage.getItem('allResults') === null){
+      localStorage.setItem('allResults', JSON.stringify([{result1: ""}]))
+    }
 }, [])
   const onFormSubmit = async (values) => {
     
@@ -53,9 +56,20 @@ useEffect(() => {
       navigate(constRoute?.contextAndBaselineResults, {
         state: { response: response?.response },
       });
+      if(localStorage.getItem('allResults') === null){
+        localStorage.setItem('allResults', JSON.stringify([{result1: response?.response || ""}]))
+      }else{
+        const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+        const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+           return {
+             ...item,
+             result1: response?.response
+           }
+         })
+         localStorage.setItem('allResults', JSON.stringify(addResults))
+      }
     }
   };
-  
   const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
   const handleSave = ()=>{
     setConceptNoteLoading(false)

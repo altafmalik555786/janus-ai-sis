@@ -49,6 +49,15 @@ const ProjectGCFForm = observer(() => {
     const response = await conceptNote(payload, navigate)
     if(response?.response){
       navigate(constRoute?.projectResultsGcfResults40,  { state: { response: response?.response} });
+
+      const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+      const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+        return {
+          ...item,
+          result5: response?.response || ""
+        }
+      })
+      localStorage.setItem('allResults', JSON.stringify(addResults))
     }
   };
   const handleSave = ()=>{
