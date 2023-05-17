@@ -141,6 +141,11 @@
     position: inherit;
     // bottom: 0px;
     // justify-content: space-between;
+    @media only screen and (min-height: 840px) {
+      position: absolute;
+      bottom: 0;
+    }
+
     .goBackBtnDiv {
       padding-top: 22px;
       width: 100%;
