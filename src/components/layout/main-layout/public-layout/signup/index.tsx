@@ -59,9 +59,7 @@ const SignUp = observer(() => {
           <img src={welcomeLogo} alt="" />
           <h2>Create Your Account</h2>
           <p>
-            Once you create your account, you will have a 20-day free trial to
-            use Climate Finance Copilot and we will notify you once the trial
-            expires.{" "}
+          Once you create your account, you will have unlimited and free access to the Basic Plan. Feel free to upgrade to premium at anytime, once the trial expires.
           </p>
         </div>
         <Form

@@ -12,7 +12,7 @@ const UpgradePlanBar = observer(() => {
         you can upgrade or continue with a free basic plan.
         <div className={style.upgradeContainer}>
           {/* <img src={Vector} alt="vector" /> */}
-          <span>20 days left in trial</span>
+          {/* <span>20 days left in trial</span> */}
         </div>
       </Heading>
     </div>

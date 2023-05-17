@@ -23,8 +23,8 @@
     justify-content: center;
 
     .homePageContainer {
-      min-height: 400px;
       padding: 10px;
+      margin-bottom: 120px;
 
       h1 {
         font-family: "Inter";
@@ -116,7 +116,8 @@
     }
   }
   .btnDiv {
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
+    margin-top: 60px;
     .goBtn {
       height: 50px;
       width: 134px;

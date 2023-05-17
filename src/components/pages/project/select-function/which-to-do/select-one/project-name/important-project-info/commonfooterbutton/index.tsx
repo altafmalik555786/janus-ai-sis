@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./style.module.scss";
-import { Button, Form } from "antd";
+import { Button, Form, Tooltip } from "antd";
 import LeftArrow from "@assets/icons/left-arrow.png";
 import SaveQuit from "@components/common-components/save-quit";
 import GoBack from "@components/common-components/go-back";
@@ -35,6 +35,14 @@ const CommonFooterButton = ({
   handleQuickNext
 }: CommonFooterButtonProps) => {
   const navigate = useNavigate();
+  const tooltipData = () => {
+    return <div style={{padding:11, color:"#000000"}}>
+      <h2 style={{margin:0}}>Important!</h2>
+      <p>If you plan on “regenerating” this result, be aware that you will lose the current output results being displayed.</p>
+      <hr />
+      <Button style={{backgroundColor:'#00B840', width:66, padding:' 6px 20px 10px 15px', height:34, color:"#FFFFFF"}}>Got it</Button>
+    </div>
+  }
   return (
     <>
       {isResult ? (
@@ -44,7 +52,9 @@ const CommonFooterButton = ({
             {/* <Button onClick={() => handleGoNext()} className={style.nextButton}>
               Next
             </Button> */}
-           {!isLoadingRegenrate ? <img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> :
+           {!isLoadingRegenrate ?
+            <Tooltip className={style.tooltipWrapper} color="#FFFF" title={tooltipData} ><img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> </Tooltip>
+            :
             <Button
               onClick={() => handleRegenrate()}
               className={style.reGenerate}
