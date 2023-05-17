@@ -71,7 +71,7 @@ const Login = observer(() => {
           </Form.Item>
         <div>
           <div className={style.loginWrraper}>
-            <p  onClick={() => {navigate(constRoute.forgetPassword)}} >Forgot Password?</p>
+            <p  onClick={() => {navigate(constRoute.forgetPassword)}} >Forgot Password?</p> 
             <Button className={style.loginBtn} htmlType="submit" >  { isLoadingLogin && <Spin /> || "Log In" } </Button>
           </div>
           <div className={style.signupWrraper}> 

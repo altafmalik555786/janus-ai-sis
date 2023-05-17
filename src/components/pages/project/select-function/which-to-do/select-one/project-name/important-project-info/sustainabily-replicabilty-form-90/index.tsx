@@ -153,7 +153,7 @@ const SustainabilityReplicabilityForm = observer(() => {
                 }}
               >
                 <Form.Item
-                  label= {<span>{'13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored, after the project/programme is implemented with support from the GCF and other sources.'}<span style={{color: 'red'}}>*</span></span>}
+                  label= {<span>{'13a) Please explain how the project/programme sustainability will be ensured in the long run and how this will be monitored after the project/programme is implemented with support from the GCF and other sources.'}<span style={{color: 'red'}}>*</span></span>}
                   name={"q13a"}
                   rules={[
                     {

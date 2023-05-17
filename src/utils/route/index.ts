@@ -35,6 +35,7 @@ export const constRoute = {
   setNewPassword: "/set-new-password",
   resetPasswordSuccessfully: "/reset-password-successfully",
   verifyEmail: "/verify-email",
+  selectFunder: "/select-funder",
   selectFunction: "/select-function",
   selectOne: "/select-one",
   whichToDo: "/which-to-do",

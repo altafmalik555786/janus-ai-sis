@@ -67,7 +67,7 @@ const SelectFunction = observer(() => {
      <div className={style.twoBtnDiv}>
        <div className={style.goBackBtnDiv}>
        
-     <GoBack onClick={constRoute?.home} className={style.goBtn}  />
+     <GoBack onClick={constRoute?.selectFunder} className={style.goBtn}  />
      </div>
 
        {/* <button className={style.goBtn}  onClick={() =>
