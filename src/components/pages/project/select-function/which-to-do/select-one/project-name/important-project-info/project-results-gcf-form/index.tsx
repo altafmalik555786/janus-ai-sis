@@ -118,7 +118,7 @@ const ProjectDescriptionForm = observer(() => {
                 }}
               >
                 <Form.Item
-                  label= {<span>6. Briefly Describe The Impact Potential of the Project.<span style={{color:'red'}}>*</span></span>}
+                  label= {<span>6. Briefly Describe The <span style={{fontStyle:'italic'}}>Impact Potential</span> of the Project.<span style={{color:'red'}}>*</span></span>}
                   name={"q6"}
                   rules={[
                     { required: true, message: "This field is required" },

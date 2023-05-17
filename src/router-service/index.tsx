@@ -42,6 +42,7 @@ import ExistingProject from "@components/pages/ExistingProject/existingProject";
 import Faqs from "@components/layout/main-layout/private-layout/faqs";
 import TermOfUse from "@components/layout/main-layout/public-layout/term-of-use";
 import PrivacyPolicy from "@components/layout/main-layout/public-layout/privacy-policy";
+import SelectFunder from "@components/pages/project/select-funder";
 
 const Routing = () => {
   return (
@@ -60,6 +61,7 @@ const Routing = () => {
         <Route path={constRoute?.verifyEmail} element={<VerifyEmail />} />
         <Route path={constRoute?.home} element={<Home />} />
         <Route path={constRoute?.faqs} element={<Faqs />} />
+        <Route path={constRoute?.selectFunder} element={<SelectFunder />} /> 
         <Route path={constRoute?.selectFunction} element={<SelectFunction />} /> 
         <Route path={constRoute?.whichToDo} element={<WhichToDo />} />  
         <Route path={constRoute?.selectOne} element={<SelectOne />} /> 

@@ -12,7 +12,7 @@ const Faqs: React.FC<Props> = observer(({ ...props }) => {
   const onChange = (key: string | string[]) => {};
   return (
     <div className={style.mainContainer}>
-      <h2>Main Functions and Navigation</h2>
+      <h2>FAQs</h2>
       <div className={style.container}>
       <Collapse
         expandIcon={({ isActive }) =>

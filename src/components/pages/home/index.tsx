@@ -37,7 +37,7 @@ const Home = observer(() => {
             <Row className={style.boxesContiner} gutter={20}>
               <Col md={12} xs={24} sm={24}>
                 <div
-                  onClick={() => navigate(constRoute?.selectFunction)}
+                  onClick={() => navigate(constRoute?.selectFunder)}
                   className={style.newProject}
                 >
                   <h4> New Project </h4>
