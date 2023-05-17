@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div
-      style={{ position: "relative", overflowX: "hidden" }}
+      style={{ position: "relative", overflowX: "hidden", minHeight:'100vh', backgroundColor:'#f5f5f5' }}
     >
         <DefaultLayout />
     </div>
