@@ -58,6 +58,14 @@ const SustainabilityReplicabilityForm = observer(() => {
     const response = await conceptNote(payload, navigate)
     if(response?.response){
     navigate(constRoute?.sustainabilityReplicabilityResults100,  { state: { response: response?.response} });
+    const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+    const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+      return {
+        ...item,
+        result11: response?.response || ""
+      }
+    })
+    localStorage.setItem('allResults', JSON.stringify(addResults))
     }
   };
   const handleback=()=>{

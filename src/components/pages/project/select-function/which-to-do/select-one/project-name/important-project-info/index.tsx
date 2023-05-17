@@ -28,6 +28,7 @@ const ImportantProjectInfo = observer(() => {
       const response = await projectSave(payload, navigate);
       if (response?.message?.includes("project saved successfully")) {
         localStorage.removeItem('AllAnswers')
+        localStorage.removeItem('allResults')
         navigate(constRoute?.contextAndBaselineForm);
       }
     } else {

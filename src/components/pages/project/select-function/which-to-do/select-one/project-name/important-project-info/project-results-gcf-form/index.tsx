@@ -50,6 +50,14 @@ const ProjectDescriptionForm = observer(() => {
     const response = await conceptNote(payload, navigate)
     navigate(constRoute?.projectResultsGcfResults,  { state: { response: response?.response} });
     // navigate(constRoute?.projectResultsGcfResults);
+    const getReultsfromls = JSON.parse(localStorage.getItem('allResults'));
+     const addResults =  getReultsfromls && getReultsfromls?.map((item) => {
+        return {
+          ...item,
+          result3: response?.response || ""
+        }
+      })
+      localStorage.setItem('allResults', JSON.stringify(addResults))
   };
   const handleSave = ()=>{
     setConceptNoteLoading(false)
