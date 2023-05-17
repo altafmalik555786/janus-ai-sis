@@ -48,12 +48,12 @@ const Home = observer(() => {
                   <h4>Open Existing Project</h4>
                 </div>
               </Col>
-             <Footer />
             </Row>
           </div>
         </Col>
         <Col md={6} xs={2}></Col>
       </Row>
+      <Footer />
       <SignupTrialModal open={openModal} setOpenModal={setOpenModal}/>
     </div>
   );
