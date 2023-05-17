@@ -2,6 +2,7 @@ import { observer } from "mobx-react";
 import style from "./style.module.scss";
 import styled from "styled-components";
 import useWindowSize from "@utils/hooks/useWindowSize";
+import TrialDateCounter from "@components/common-components/trial-date-counter";
 
 const UpgradePlanBar = observer(() => {
   const screenWidth = useWindowSize().width;
@@ -12,7 +13,7 @@ const UpgradePlanBar = observer(() => {
         you can upgrade or continue with a free basic plan.
         <div className={style.upgradeContainer}>
           {/* <img src={Vector} alt="vector" /> */}
-          <span>20 days left in trial</span>
+          <span><TrialDateCounter/></span>
         </div>
       </Heading>
     </div>
