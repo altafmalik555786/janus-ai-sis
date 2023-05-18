@@ -106,6 +106,9 @@
       position: absolute;
       bottom: 0;
     }
+    @media only screen and (max-width: 360px) {
+    padding-inline: 10px;
+    }
     .goBackBtnDiv {
       width: 100%;
       margin-left: 15px;
