@@ -8,8 +8,7 @@ const UpgradePlanBar = observer(() => {
   return (
     <div className={style.upgradePlanBarContainer}>
       <Heading size={screenWidth < 537 && 10} weight={screenWidth < 430 && 400}>
-        Your trial gives you access to premium features. Once your trial ends,
-        you can upgrade or continue with a free basic plan.
+      Enjoy your free access to Basic Plans features. We will alert you once the Premium plan becomes available.
         <div className={style.upgradeContainer}>
           {/* <img src={Vector} alt="vector" /> */}
           {/* <span>20 days left in trial</span> */}

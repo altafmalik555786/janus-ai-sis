@@ -36,6 +36,7 @@ const ImportantProjectInfo = observer(() => {
     }
   };
   return (
+    <div>
     <div className={style.mainContainer}>
       <div className={style.containerWrapper}>
         <div className={style.container}>
@@ -73,25 +74,12 @@ const ImportantProjectInfo = observer(() => {
           </Button>
         </div>
       </div>
-      <div className={style.btnDiv}>
+    </div>
+    <div className={style.btnDiv}>
         <div className={style.twoBtnDiv} >
+        <div className={style.goBackBtnDiv}>
           <GoBack onClick={constRoute?.projectName} className={style.goBtn} />
-          {/* <button className={style.goBtn}  onClick={() =>
-              navigate(constRoute?.projectName)
-            }
- >
-            <img src={LeftArrow} alt="left-arrow" /> Go Back
-          </button> */}
-          {/* <SaveQuit onClick={constRoute?.home} /> */}
-          {/* <button
-                    onClick={() => {
-                      notification.success("Save and Quit");
-                      navigate(constRoute?.home);
-                    }}
-                    className={style.saveBtn}
-                  >
-                    Save & Quit
-                  </button> */}
+          </div>
         </div>
       </div>
     </div>

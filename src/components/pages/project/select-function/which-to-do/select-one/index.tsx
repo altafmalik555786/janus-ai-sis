@@ -24,48 +24,28 @@ const SelectOne = observer(() => {
   ];
 
   return (
-    <div className={style.homePagePageContainer}>
-      <Row>
-        <div className={style.homePageContainerCol}>
-          <div className={style.homePageContainer}>
-            <h1>Select From One of The Options Below</h1>
-            <Row justify="center" className={style.boxesContiner} gutter={20}>
-              {btnCardsList?.map((item) => {
-                return <CardItemsFunc item={item} />;
-              })}
-            </Row>
+    <div>
+      <div className={style.homePagePageContainer}>
+        <Row>
+          <div className={style.homePageContainerCol}>
+            <div className={style.homePageContainer}>
+              <h1>Select From One of The Options Below</h1>
+              <Row justify="center" className={style.boxesContiner} gutter={20}>
+                {btnCardsList?.map((item) => {
+                  return <CardItemsFunc item={item} />;
+                })}
+              </Row>
+            </div>
+          </div>
+
+        </Row>
+      </div>
+      <div className={style.btnDiv}>
+        <div className={style.twoBtnDiv}>
+          <div className={style.goBackBtnDiv}>
+            <GoBack onClick={constRoute?.whichToDo} className={style.goBtn} />
           </div>
         </div>
-
-        {/* <div className={style.btnDiv}>
-          <div className={style.twoBtnDiv}> 
-            <button className={style.goBtn}  onClick={() =>
-              navigate(constRoute?.whichToDo)
-            }
->
-          
-              <img src={LeftArrow} alt="left-arrow" /> Go Back
-            </button> */}
-        {/* <button
-                    onClick={() => {
-                      notification.success("Save and Quit");
-                      navigate(constRoute?.home);
-                    }}
-                    className={style.saveBtn}
-                  >
-                    Save & Quit
-                  </button> */}
-        {/* </div>
-        </div> */}
-      </Row>
-      <div className={style.btnDiv}>
-      <GoBack onClick={constRoute?.whichToDo} className={style.goBtn} />
-      {/* <button
-        className={style.goBtn}
-        onClick={() => navigate(constRoute?.whichToDo)}
-      >
-        <img src={LeftArrow} alt="left-arrow" /> Go Back
-      </button> */}
       </div>
     </div>
   );

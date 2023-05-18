@@ -1,6 +1,6 @@
 .gcfCongratulationContainer {
   width: 100%;
-  min-height:   100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,28 +66,87 @@
     }
   } 
 
-  .goBtn {
-    // height: 50px;
-    // width: 80px;
-    color: #2e2e2e;
-    background: #ececf1;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px; 
-    line-height: 27px;
-    width: 116px;
-    height: 40px;
-    margin-top: 20px;
+  // .goBtn {
+  //   // height: 50px;
+  //   // width: 80px;
+  //   color: #2e2e2e;
+  //   background: #ececf1;
+  //   border-radius: 5px;
+  //   cursor: pointer;
+  //   border: none;
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 5px;
+  //   font-family: "Inter";
+  //   font-style: normal;
+  //   font-weight: 500;
+  //   font-size: 20px; 
+  //   line-height: 27px;
+  //   width: 116px;
+  //   height: 40px;
+  //   margin-top: 20px;
    
-  }
+  // }
 
+}
+.btnDiv {
+  margin: 0;
+  width: 100%;
+  .twoBtnDiv {
+    padding-inline: 28px;
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 90px;
+    position: inherit;
+    display: flex;
+    align-items: center;
+    @media only screen and (min-height: 840px) {
+      position: absolute;
+      bottom: 0;
+    }
+    .goBackBtnDiv {
+      width: 100%;
+      margin-left: 15px;
+      display: flex;
+      justify-content: space-between;
+
+      .goBtn {
+        height: 50px;
+        width: 134px;
+        color: #f8ebeb;
+        background-color: #e6e6e6;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        font-size: 20px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        img {
+          margin-top: 1px;
+        }
+      }
+    }
+    .saveBtn {
+      color: #2e2e2e;
+      background-color: #e6e6e6;
+      height: 50px;
+      width: 134px;
+      border: none;
+      white-space: nowrap;
+      cursor: pointer;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
 }

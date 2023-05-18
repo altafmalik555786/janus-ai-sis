@@ -19,6 +19,7 @@ export interface CommonFooterButtonProps {
   isLoadingSubmit?: boolean;
   form?: any;
   handleQuickNext?: any;
+  customStyle?:any;
 }
 
 const CommonFooterButton = ({
@@ -32,7 +33,8 @@ const CommonFooterButton = ({
   isLoadingRegenrate,
   isLoadingSubmit,
   form,
-  handleQuickNext
+  handleQuickNext,
+  customStyle
 }: CommonFooterButtonProps) => {
   const navigate = useNavigate();
   const tooltipData = () => {
@@ -46,7 +48,7 @@ const CommonFooterButton = ({
   return (
     <>
       {isResult ? (
-        <div className={style.footerButtonsDiv}>
+        <div style={customStyle && customStyle} className={style.footerButtonsDiv}>
           <div className={style.leftBtnContainer}>
             <img  onClick={() => handleGoNext()} src={constImages.nextBtn} alt="" />
             {/* <Button onClick={() => handleGoNext()} className={style.nextButton}>
@@ -83,7 +85,7 @@ const CommonFooterButton = ({
           </div>
         </div>
       ) : (
-        <div className={style.footerButtonsDiv}>
+        <div style={customStyle && customStyle}className={style.footerButtonsDiv}>
           <Form form={form} onFinish={handleSubmit}>
             <Button
               loading={isLoadingSubmit}

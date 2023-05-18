@@ -187,16 +187,6 @@ useEffect(() => {
                 </Form.Item>
               </Form>
             </div>
-            <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.contextAndBaselineResults}
-            form={form}
-            />
-
-
             {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button
@@ -229,6 +219,14 @@ useEffect(() => {
               </div>
             </div> */}
           </div>
+          <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            handleQuickNext={constRoute?.contextAndBaselineResults}
+            form={form}
+            />
         </div>
       </div>
     </div>

@@ -44,6 +44,9 @@
   .barContentContainer {
     display: flex;
 
+    .footerPosition{
+      position: absolute;
+    }
     .layoutDiv {
       display: flex;
 

@@ -153,14 +153,6 @@ const ProjectGCFForm = observer(() => {
                 </Form.Item> */}
               </Form>
             </div>
-            <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.projectResultsGcfResults48}
-            form={form}
-            />
 
         {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
@@ -192,6 +184,16 @@ const ProjectGCFForm = observer(() => {
               </div>
             </div> */}
           </div>
+
+          <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            handleQuickNext={constRoute?.projectResultsGcfResults48}
+            form={form}
+            customStyle={{position:'absolute'}}
+            />
         </div>
       </div>
     </div>
