@@ -1,15 +1,15 @@
 .homePagePageContainer {
   width: 100%;
-  // min-height: 100vh;
+  min-height: 72vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #F7F7F7;
+  // background-color: #F7F7F7;
 
   .homePageContainerCol {
     .homePageContainer {
-      margin-bottom: 250px;     min-height: 400px;
-      padding: 10px;
+      // margin-bottom: 250px;     min-height: 400px;
+      // padding: 10px;
 
       h1 {
         font-family: "Inter";

@@ -1,11 +1,14 @@
 .homePagePageContainer {
   width: 100%;
-  // min-height: 100vh;
+  min-height: 72vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-bottom: 72px;
+  // margin-bottom: 72px;
+  // @media only screen and (max-width: 992px) {
+  // margin-bottom: 72px;
+  // }
 
   .homePageContainerCol {
     width: 50%;
@@ -112,7 +115,7 @@
 
   @media only screen and (max-width: 768px) {
     height: max-content;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
 
     .homePageContainerCol {
       width: 80%;
@@ -131,13 +134,18 @@
   .twoBtnDiv {
     // display: flex;
     padding-inline: 28px;
-    margin-top: 60px;
+    // margin-top: 60px;
     width: 100%;
     background-color: #FFFFFF;
     height: 90px;
-    position: absolute;
-    bottom: 0px;
+    position: inherit;
+    // bottom: 0px;
     // justify-content: space-between;
+    @media only screen and (min-height: 840px) {
+      position: absolute;
+      bottom: 0;
+    }
+
     .goBackBtnDiv {
       padding-top: 22px;
       width: 100%;

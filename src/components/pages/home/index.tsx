@@ -24,6 +24,7 @@ const Home = observer(() => {
     }
   }
   return (
+    <div>
     <div className={style.homePagePageContainer}>
       <Row>
         <Col md={6} xs={2}></Col>
@@ -53,8 +54,9 @@ const Home = observer(() => {
         </Col>
         <Col md={6} xs={2}></Col>
       </Row>
-      <Footer />
       <SignupTrialModal open={openModal} setOpenModal={setOpenModal}/>
+    </div>
+      <div><Footer /></div>
     </div>
   );
 });
