@@ -25,6 +25,7 @@ const WhichToDo = observer(() => {
   ];
  
   return (
+    <div>
     <div className={style.homePagePageContainer}>
       <Row>
         <div className={style.homePageContainerCol}>
@@ -37,29 +38,33 @@ const WhichToDo = observer(() => {
             </Row>
           </div>
         </div>
-        <div className={style.btnDiv}>
-          <div className={style.twoBtnDiv}>
-          <GoBack onClick={constRoute?.selectFunction} className={style.goBtn}/>
-            {/* <button className={style.goBtn}  onClick={() =>
-              navigate(constRoute?.selectFunction)
-            }
->
-            
-              <img src={LeftArrow} alt="left-arrow" /> Go Back
-            </button> */}
-            {/* <button
-                    onClick={() => {
-                      notification.success("Save and Quit");
-                      navigate(constRoute?.home);
-                    }}
-                    className={style.saveBtn}
-                  >
-                    Save & Quit
-                  </button> */}
-          </div>
-        </div>
+        
       </Row>
     </div>
+    <div className={style.btnDiv}>
+    <div className={style.twoBtnDiv}>
+    <div className={style.goBackBtnDiv}>
+    <GoBack onClick={constRoute?.selectFunction} className={style.goBtn}/>
+    </div>
+      {/* <button className={style.goBtn}  onClick={() =>
+        navigate(constRoute?.selectFunction)
+      }
+>
+      
+        <img src={LeftArrow} alt="left-arrow" /> Go Back
+      </button> */}
+      {/* <button
+              onClick={() => {
+                notification.success("Save and Quit");
+                navigate(constRoute?.home);
+              }}
+              className={style.saveBtn}
+            >
+              Save & Quit
+            </button> */}
+    </div>
+  </div>
+  </div>
   );
 });
 

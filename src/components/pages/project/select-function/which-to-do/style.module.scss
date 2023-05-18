@@ -1,6 +1,6 @@
 .homePagePageContainer {
   width: 100%;
-  min-height: 100vh;
+  min-height: 72vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,69 +109,7 @@
     }
   }
 
-  .btnDiv {
-    // margin-bottom: 52px;
-    width: 100%;
-    // position: absolute;
-    bottom: 0;
 
-    .twoBtnDiv {
-      display: flex;
-      padding-inline: 28px;
-      margin-top: 60px;
-
-      justify-content: space-between;
-      .goBtn {
-        height: 50px;
-        width: 134px;
-        color: #2E2E2E;
-        background-color: #e6e6e6;
-        border-radius: 5px;
-        cursor: pointer;
-        border: none;
-        display: flex;
-        font-size: 20px;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-         
-        img {
-          margin-top: 1px;
-        }
-      }
-      .saveBtn {
-        color: #2E2E2E;
-        background-color: #e6e6e6;
-        height: 50px;
-        width: 134px;
-        border: none;
-        font-size: 20px;
-        white-space: nowrap;
-        cursor: pointer;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-      }
-    }
-    @media only screen and (max-width: 425px) {
-      .twoBtnDiv {
-        padding-inline: 20px;
-        margin-bottom: 0;
-        .goBtn {
-          height: 40px;
-          width: 114px;
-        }
-        .saveBtn {
-          height: 40px;
-          width: 114px;
-        }
-      }
-    }
-  }
 
   @media only screen and (max-width: 768px) {
     height: max-content;
@@ -184,6 +122,82 @@
   @media only screen and (max-width: 992px) {
     .homePageContainerCol {
       width: 80%;
+    }
+  }
+}
+.btnDiv {
+  margin: 0;
+  width: 100%;
+
+  .twoBtnDiv {
+    // display: flex;
+    padding-inline: 28px;
+    // margin-top: 60px;
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 90px;
+    position: inherit;
+    // bottom: 0px;
+    // justify-content: space-between;
+    @media only screen and (min-height: 840px) {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .goBackBtnDiv {
+      padding-top: 22px;
+      width: 100%;
+      margin-left: 15px;
+
+    .goBtn {
+      height: 50px;
+      width: 134px;
+      color: #2E2E2E;
+      background-color: #e6e6e6;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      font-size: 20px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+       
+      img {
+        margin-top: 1px;
+      }
+    }
+  }
+    .saveBtn {
+      color: #2E2E2E;
+      background-color: #e6e6e6;
+      height: 50px;
+      width: 134px;
+      border: none;
+      font-size: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .twoBtnDiv {
+      padding-inline: 20px;
+      margin-bottom: 0;
+      .goBtn {
+        height: 40px;
+        width: 114px;
+      }
+      .saveBtn {
+        height: 40px;
+        width: 114px;
+      }
     }
   }
 }
