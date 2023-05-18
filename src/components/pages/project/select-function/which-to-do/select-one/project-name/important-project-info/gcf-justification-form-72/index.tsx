@@ -199,14 +199,7 @@ const gcfJustificationForm = observer(() => {
                 </Form.Item>
               </Form>
             </div>
-            <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.gcfJustificationResults90}
-            form={form}
-            />
+     
 
 
 
@@ -237,6 +230,14 @@ const gcfJustificationForm = observer(() => {
               </div>
             </div> */}
           </div>
+          <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            // handleQuickNext={constRoute?.gcfJustificationResults90}
+            form={form}
+            />
         </div>
       </div>
     </div>

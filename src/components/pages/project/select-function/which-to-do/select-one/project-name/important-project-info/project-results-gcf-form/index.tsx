@@ -14,11 +14,13 @@ import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
 import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
 import CommonFooterButton from "../commonfooterbutton";
+import useWindowSize from "@utils/hooks/useWindowSize";
 const ProjectDescriptionForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const getProjectName = localStorage.getItem('projectName')
+  const screenWidth = useWindowSize().width;
   const {
     user: {getProjectNameData,setConceptNoteLoading, getLoadingConceptNote, conceptNote },
   } = useStore(null);
@@ -154,17 +156,6 @@ const ProjectDescriptionForm = observer(() => {
                 </Form.Item> */}
               </Form>
             </div>
-            <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            form={form}
-            handleQuickNext={constRoute?.projectResultsGcfResults}
-            />
-
-
- 
             {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} htmlType="submit" className={style.nextButton}>
@@ -193,6 +184,15 @@ const ProjectDescriptionForm = observer(() => {
               </div>
             </div> */}
           </div>
+          <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+            // handleQuickNext={constRoute?.projectResultsGcfResults}
+            customStyle={{position:(screenWidth > 770) ? 'absolute' : 'inherit'}}
+            />
         </div>
       </div>
     </div>

@@ -56,6 +56,7 @@ useEffect(() => {
   }
 const results = JSON.parse(localStorage.getItem('allResults'));
 return (
+  <div>
     <div className={style.mainContainer}>
       <CommonHeaderPercentCycle conceptNoteSection="C.2 Justification of GCF Funding Request" percent="90%" />
       <div className={style.barContentContainer}>
@@ -72,7 +73,12 @@ return (
               <div className={style.wordCountWrraper}>
                   <p>Word Count: {responseData ? responseData?.split(' ')?.length : '0'}/1000</p>
               </div>
-            <CommonFooterButton
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <CommonFooterButton
               handleGoNext={handleNext}
              handleRegenrate={handleRegenratePayload}
              handlegoback={handleback}
@@ -80,41 +86,6 @@ return (
              isResult={true}
              isLoadingRegenrate={getLoadingConceptNote}
              />
-            {/* <div className={style.footerButtonsDiv}>
-              <div className={style.leftBtnContainer}>
-                <Button
-                  onClick={() => navigate(constRoute?.sustainabilityReplicabilityForm90)}
-                  className={style.nextButton}
-                >
-                  Next
-                </Button>
-                <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote} onClick={() => handleRegenratePayload()} className={style.reGenerate}>
-                  Regenerate
-                </Button>
-              </div>
-              <div className={style.btnDiv}>
-                <div className={style.twoBtnDiv}>
-                  <button
-                    className={style.goBtn}
-                    onClick={() => navigate(constRoute?.gcfJustificationForm72)}
-                  >
-                    <img src={LeftArrow} alt="left-arrow" /> Go Back
-                  </button>
-                  <button
-                    onClick={() => {
-                      notification.success("Save and Quit");
-                      navigate(constRoute?.home);
-                    }}
-                    className={style.saveBtn}
-                  >
-                    Save & Quit
-                  </button>
-                </div>
-              </div>
-            </div> */}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }); 

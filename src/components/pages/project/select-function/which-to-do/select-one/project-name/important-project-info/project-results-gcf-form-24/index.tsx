@@ -14,6 +14,7 @@ import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
 import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
 import CommonFooterButton from "../commonfooterbutton";
+import useWindowSize from "@utils/hooks/useWindowSize";
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
@@ -23,6 +24,7 @@ const ProjectGCFForm = observer(() => {
   } = useStore(null);
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName');
+  const screenWidth = useWindowSize().width;
   useEffect(() => {
     if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q7:''}]))}
   }, [])
@@ -167,15 +169,6 @@ const ProjectGCFForm = observer(() => {
                 </Form.Item> */}
               </Form>
             </div>
-            
-          <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            form={form}
-            handleQuickNext={constRoute?.projectResultsGcfResults32}
-            />
             {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
                 <Button loading={getLoadingConceptNote} disabled={getLoadingConceptNote}  htmlType="submit" className={style.nextButton}>
@@ -205,6 +198,15 @@ const ProjectGCFForm = observer(() => {
               </div>
             </div> */}
           </div>
+          <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+            // handleQuickNext={constRoute?.projectResultsGcfResults32}
+            customStyle={{position:(screenWidth > 770) ? 'absolute' : 'inherit'}}
+            />
         </div>
       </div>
     </div>

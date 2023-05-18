@@ -184,14 +184,7 @@ const SustainabilityReplicabilityForm = observer(() => {
               
               </Form> 
             </div>
-            <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.sustainabilityReplicabilityResults100}
-            form={form}
-            />
+  
 
             {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
@@ -220,6 +213,14 @@ const SustainabilityReplicabilityForm = observer(() => {
               </div>
             </div> */}
           </div>
+          <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            // handleQuickNext={constRoute?.sustainabilityReplicabilityResults100}
+            form={form}
+            />
         </div>
       </div>
     </div>

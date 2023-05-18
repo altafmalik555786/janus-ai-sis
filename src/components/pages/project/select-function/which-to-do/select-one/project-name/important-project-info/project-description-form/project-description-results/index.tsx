@@ -59,9 +59,9 @@ const [responseData] = useState(generateResult || state?.response);
   }
 const results = JSON.parse(localStorage.getItem('allResults'));
   return ( 
+    <div>
     <div className={style.mainContainer}>
      <CommonHeaderPercentCycle  percent={'16%'} conceptNoteSection={'B.2 Project/Programme Description'}/> 
-
       <div className={style.barContentContainer}>
         {/* <div className={style.layoutDiv}>
           <div className={style.siderStyle}>
@@ -90,14 +90,6 @@ const results = JSON.parse(localStorage.getItem('allResults'));
             <div className={style.wordCountWrraper}>
                   <p>Word Count: {responseData ? responseData?.split(' ')?.length : '0'}/1000</p>
               </div>
-            <CommonFooterButton
-              handleGoNext={handleNext}
-             handleRegenrate={handleRegenratePayload}
-             handlegoback={handleback}
-             handleSaveAndQuit={handleSave}
-             isResult={true}
-             isLoadingRegenrate={getLoadingConceptNote}
-             />
             {/* <div className={style.footerButtonsDiv}>
               <div className={style.leftBtnContainer}>
                 <Button
@@ -135,6 +127,15 @@ const results = JSON.parse(localStorage.getItem('allResults'));
           </div>
         </div>
       </div>
+    </div>
+    <CommonFooterButton
+              handleGoNext={handleNext}
+             handleRegenrate={handleRegenratePayload}
+             handlegoback={handleback}
+             handleSaveAndQuit={handleSave}
+             isResult={true}
+             isLoadingRegenrate={getLoadingConceptNote}
+             />
     </div>
   );
 });

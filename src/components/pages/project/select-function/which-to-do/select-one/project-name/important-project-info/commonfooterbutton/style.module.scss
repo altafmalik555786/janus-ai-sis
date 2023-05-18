@@ -1,10 +1,20 @@
 
  .footerButtonsDiv {
-          margin: 50px 0;
+          // margin: 50px 0;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-
+          height: 90px;
+          align-items: center;
+          margin-top: 60px;
+          background-color: #ffffff;
+          padding-inline: 70px;
+          position: inherit;
+          width: -webkit-fill-available;
+          bottom: 0px;
+          @media only screen and (min-height: 1440px) {
+            position: absolute;
+          }
           .leftBtnContainer{
             display: flex;
             img{

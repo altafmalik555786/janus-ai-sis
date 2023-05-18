@@ -179,16 +179,6 @@ const ProjectDescriptionForm = observer(() => {
                 </Form.Item>
               </Form>
             </div>
-
-            <CommonFooterButton
-              isLoadingSubmit={getLoadingConceptNote}
-              handleSubmit={onFormSubmit}
-              handlegoback={handleback}
-              handleSaveAndQuit={handleSave}
-              form={form}
-              handleQuickNext={constRoute?.projectDescriptionResults}
-            />
-
             {/*  
             <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
@@ -218,6 +208,14 @@ const ProjectDescriptionForm = observer(() => {
               </div>
             </div> */}
           </div>
+          <CommonFooterButton
+              isLoadingSubmit={getLoadingConceptNote}
+              handleSubmit={onFormSubmit}
+              handlegoback={handleback}
+              handleSaveAndQuit={handleSave}
+              form={form}
+              // handleQuickNext={constRoute?.projectDescriptionResults}
+            />
         </div>
       </div>
     </div>

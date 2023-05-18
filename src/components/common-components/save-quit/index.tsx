@@ -5,10 +5,12 @@ import SaveAndQuit from "@assets/images/Save-Quit.svg";
 import { notification } from "@utils/notifications";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "antd";
+import { constRoute } from "@utils/route";
 
 interface Props {
   onClick?: any;
   onClickForFooter?: any;
+  className?:any
 }
 const SaveQuit: React.FC<Props> = observer(({ onClick, ...props }) => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const SaveQuit: React.FC<Props> = observer(({ onClick, ...props }) => {
     if(props?.onClickForFooter){
       props?.onClickForFooter();
     }else{
-      navigate(`${onClick}`)
+      navigate(constRoute?.home)
     }
   }
   const saveQuitTooltipData = () => {
@@ -31,7 +33,7 @@ const SaveQuit: React.FC<Props> = observer(({ onClick, ...props }) => {
   return (
     <div className={style.mainWrraper}>
         <Tooltip color="#FFFF" title={saveQuitTooltipData} ><img onClick={saveQuitHandler} src={SaveAndQuit} alt="ws" 
-        className={style.saveAndQuitImg}   /></Tooltip>
+        className={props?.className ? props?.className : style.saveAndQuitImg}   /></Tooltip>
     </div>
   );
 });

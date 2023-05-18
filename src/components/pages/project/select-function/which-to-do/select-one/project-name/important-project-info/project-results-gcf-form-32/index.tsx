@@ -14,6 +14,7 @@ import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
 import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
 import CommonFooterButton from "../commonfooterbutton";
+import useWindowSize from "@utils/hooks/useWindowSize";
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
@@ -26,7 +27,7 @@ const ProjectGCFForm = observer(() => {
     useEffect(() => {
     if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q8:''}]))}
   }, [])
-
+  const screenWidth = useWindowSize().width;
   const onFormSubmit = async(values) => {
     const getAnswers = JSON.parse(localStorage.getItem('AllAnswers'));
     const addMoreAnswers = getAnswers?.map((item) => {
@@ -155,15 +156,6 @@ const ProjectGCFForm = observer(() => {
                 </Form.Item> */}
               </Form>
             </div>
-            
-         <CommonFooterButton
-            isLoadingSubmit={getLoadingConceptNote}
-            handleSubmit={onFormSubmit}
-            handlegoback={handleback}
-            handleSaveAndQuit={handleSave}
-            form={form}
-            handleQuickNext={constRoute?.projectResultsGcfResults40}
-            />
   
             {/* <div className={style.footerButtonsDiv}>
               <Form form={form} onFinish={onFormSubmit}>
@@ -195,6 +187,15 @@ const ProjectGCFForm = observer(() => {
               </div>
             </div>  */}
           </div>
+         <CommonFooterButton
+            isLoadingSubmit={getLoadingConceptNote}
+            handleSubmit={onFormSubmit}
+            handlegoback={handleback}
+            handleSaveAndQuit={handleSave}
+            form={form}
+            // handleQuickNext={constRoute?.projectResultsGcfResults40}
+            customStyle={{position:(screenWidth > 770) ? 'absolute' : 'inherit'}}
+            />
         </div>
       </div>
     </div>
