@@ -28,31 +28,36 @@ const SelectFunder = observer(() => {
       disable: true,
     },
     {
-      title: "United States International Development Finance Corporation (DFC)",
+      title:
+        "United States International Development Finance Corporation (DFC)",
       status: "Coming Soon",
       disable: true,
-    }
+    },
   ];
 
   return (
-    <div className={style.homePagePageContainer}>
-      <Row>
-        <div className={style.homePageContainerCol}>
-          <div className={style.homePageContainer}>
-            <h1>Select the funder you are targeting</h1>
-            <Row justify="center" className={style.boxesContiner} gutter={20}>
-              {btnCardsList?.map((item) => {
-                return <CardItemsFunc item={item} />;
-              })}
-            </Row>
+    <div>
+      <div className={style.homePagePageContainer}>
+        <Row>
+          <div className={style.homePageContainerCol}>
+            <div className={style.homePageContainer}>
+              <h1>Select the funder you are targeting</h1>
+              <Row justify="center" className={style.boxesContiner} gutter={20}>
+                {btnCardsList?.map((item) => {
+                  return <CardItemsFunc item={item} />;
+                })}
+              </Row>
+            </div>
           </div>
-        </div>
-        <div className={style.btnDiv}>
-          <div className={style.twoBtnDiv}>
+        </Row>
+      </div>
+      <div className={style.btnDiv}>
+        <div className={style.twoBtnDiv}>
+          <div className={style.goBackBtnDiv}>
             <GoBack onClick={constRoute?.home} className={style.goBtn} />
           </div>
         </div>
-      </Row>
+      </div>
     </div>
   );
 });
