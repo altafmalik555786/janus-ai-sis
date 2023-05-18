@@ -214,7 +214,7 @@ const ProjectDescriptionForm = observer(() => {
               handlegoback={handleback}
               handleSaveAndQuit={handleSave}
               form={form}
-              handleQuickNext={constRoute?.projectDescriptionResults}
+              // handleQuickNext={constRoute?.projectDescriptionResults}
             />
         </div>
       </div>

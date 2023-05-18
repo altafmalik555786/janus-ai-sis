@@ -218,7 +218,7 @@ const SustainabilityReplicabilityForm = observer(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.sustainabilityReplicabilityResults100}
+            // handleQuickNext={constRoute?.sustainabilityReplicabilityResults100}
             form={form}
             />
         </div>

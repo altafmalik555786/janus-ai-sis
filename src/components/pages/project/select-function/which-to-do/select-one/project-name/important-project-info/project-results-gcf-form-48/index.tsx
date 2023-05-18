@@ -214,7 +214,7 @@ const ProjectGCFForm = observer(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.projectResultsGcfResults56}
+            // handleQuickNext={constRoute?.projectResultsGcfResults56}
             form={form}
             />
         </div> 

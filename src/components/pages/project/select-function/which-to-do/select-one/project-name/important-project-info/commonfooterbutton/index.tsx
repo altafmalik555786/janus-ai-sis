@@ -96,12 +96,12 @@ const CommonFooterButton = ({
             >
               Submit
             </Button>
-            <Button
+            {/* <Button
               className={style.quickNextButton}
               onClick={() => navigate(handleQuickNext)}
             >
               Quick next
-            </Button>
+            </Button> */}
           </Form>
           <div className={style.btnDiv}>
             <div className={style.twoBtnDiv}>

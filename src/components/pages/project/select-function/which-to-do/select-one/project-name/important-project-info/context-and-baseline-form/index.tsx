@@ -224,7 +224,7 @@ useEffect(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.contextAndBaselineResults}
+            // handleQuickNext={constRoute?.contextAndBaselineResults}
             form={form}
             />
         </div>

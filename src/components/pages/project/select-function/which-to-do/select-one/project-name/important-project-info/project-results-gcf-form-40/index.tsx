@@ -14,6 +14,7 @@ import CommonHeaderPercentCycle from "../common-header-percent-cycle";
 import { useStore } from "@stores/root-store";
 import CommonImportantSideBar from "../importantSideBar/common-important-sidebar";
 import CommonFooterButton from "../commonfooterbutton";
+import useWindowSize from "@utils/hooks/useWindowSize";
 const ProjectGCFForm = observer(() => {
   const [form] = useForm();
   const [show, setShow] = useState(true);
@@ -21,6 +22,7 @@ const ProjectGCFForm = observer(() => {
   const {
     user: {getProjectNameData,setConceptNoteLoading, getLoadingConceptNote, conceptNote },
   } = useStore(null);
+  const screenWidth = useWindowSize().width;
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name)
   const getProjectName = localStorage.getItem('projectName');
   useEffect(() => {
@@ -190,9 +192,9 @@ const ProjectGCFForm = observer(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.projectResultsGcfResults48}
+            // handleQuickNext={constRoute?.projectResultsGcfResults48}
             form={form}
-            customStyle={{position:'absolute'}}
+            customStyle={{position:(screenWidth > 770) ? 'absolute' : 'inherit'}}
             />
         </div>
       </div>

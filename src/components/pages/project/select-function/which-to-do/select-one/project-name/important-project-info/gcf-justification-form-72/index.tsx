@@ -235,7 +235,7 @@ const gcfJustificationForm = observer(() => {
             handleSubmit={onFormSubmit}
             handlegoback={handleback}
             handleSaveAndQuit={handleSave}
-            handleQuickNext={constRoute?.gcfJustificationResults90}
+            // handleQuickNext={constRoute?.gcfJustificationResults90}
             form={form}
             />
         </div>
