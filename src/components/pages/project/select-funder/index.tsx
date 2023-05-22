@@ -44,7 +44,7 @@ const SelectFunder = observer(() => {
               <h1>Select the funder you are targeting</h1>
               <Row justify="center" className={style.boxesContiner} gutter={20}>
                 {btnCardsList?.map((item) => {
-                  return <CardItemsFunc item={item} />;
+                  return <CardItemsFunc cardGrid={true} item={item} />;
                 })}
               </Row>
             </div>

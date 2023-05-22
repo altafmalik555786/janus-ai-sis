@@ -5,14 +5,15 @@ import style from './style.module.scss'
 
 export interface itemPropsTypes {
     item: any;
+    cardGrid?:any;
 }
  
-const CardItemsFunc = observer(({ item }: itemPropsTypes ) => {
+const CardItemsFunc = observer(({ cardGrid, item }: itemPropsTypes ) => {
   return (
-    <Col lg={8} md={12} xs={24}> 
+    <Col lg={cardGrid ? 12 : 8} md={12} xs={24}> 
       <div onClick={item.navigate} className={item.disable ? style.disableCards : style.cardItem}>
         {(item?.status === "Most Popular" && (
-          <div className={style.statusBadge}>
+          <div className={item.status.includes('Most Popular') ? style.statusBadgeNew : style.statusBadge}>
             {" "}
             <p> {item?.status} </p>{" "}
           </div>
