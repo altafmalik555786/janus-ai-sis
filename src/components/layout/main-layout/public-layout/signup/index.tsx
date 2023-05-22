@@ -59,7 +59,7 @@ const SignUp = observer(() => {
           <img src={welcomeLogo} alt="" />
           <h2>Create Your Account</h2>
           <p>
-          Once you create your account, you will have unlimited and free access to the Basic Plan. Feel free to upgrade to premium at anytime, once the trial expires.
+          Once you create your account, you will have unlimited and free access to the Basic plan. We will notify you once the premium plan comes available.
           </p>
         </div>
         <Form
