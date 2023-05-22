@@ -38,11 +38,11 @@ const CommonFooterButton = ({
 }: CommonFooterButtonProps) => {
   const navigate = useNavigate();
   const tooltipData = () => {
-    return <div style={{padding:11, color:"#000000"}}>
-      <h2 style={{margin:0}}>Important!</h2>
-      <p>If you plan on “regenerating” this result, be aware that you will lose the current output results being displayed.</p>
-      <hr />
-      <Button style={{backgroundColor:'#00B840', width:66, padding:' 6px 20px 10px 15px', height:34, color:"#FFFFFF"}}>Got it</Button>
+    return <div style={{paddingLeft:11,paddingRight:11, color:"#000000"}}>
+      <p style={{margin:0, fontFamily: 'Inter',fontStyle: 'normal', fontWeight: 500,fontSize: '20px',lineHeight: '30px',color: '#000000'}}>Important!</p>
+      <p style={{marginTop:4, fontFamily: 'Inter', fontStyle: 'normal', fontSize:14}}>If you plan on “regenerating” this result, be aware that you will lose the current output results being displayed.</p>
+      {/* <hr /> */}
+      <div style={{marginTop:12, padding:'12px 20px', marginLeft:-19, marginRight:-19, marginBottom:-6, border: '1px solid #E0E0E0'}}><Button style={{backgroundColor:'#00B840', width:66, padding:' 6px 20px 10px 15px', height:34, color:"#FFFFFF"}}>Got it</Button></div>
     </div>
   }
   return (
@@ -55,7 +55,7 @@ const CommonFooterButton = ({
               Next
             </Button> */}
            {!isLoadingRegenrate ?
-            <Tooltip className={style.tooltipWrapper} color="#FFFF" title={tooltipData} ><img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> </Tooltip>
+            <Tooltip overlayInnerStyle={{width:294}} className={style.tooltipWrapper} color="#FFFF" title={tooltipData} ><img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> </Tooltip>
             :
             <Button
               onClick={() => handleRegenrate()}
