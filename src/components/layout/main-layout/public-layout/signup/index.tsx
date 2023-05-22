@@ -164,7 +164,7 @@ const SignUp = observer(() => {
                 disabled={!isAccept}
                 className={style.signUpBtn}
               >
-                {(isLoadingEmailVerification && <Spin />) || "Sign Up"}
+                {(isLoadingEmailVerification && <Spin />) || "Sign Up" }
               </Button>
             </Form>
           </div>
