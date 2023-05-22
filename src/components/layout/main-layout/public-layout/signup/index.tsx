@@ -155,8 +155,7 @@ const SignUp = observer(() => {
            <div className={style.checkBox}>
             <Checkbox defaultChecked={true} onChange={onChange}/>
             <p style={{fontSize:"20px"}}>
-              I accept the <span className={style.termsStyle}>Terms</span> &
-              <span className={style.termsStyle}>Privacy Policy</span>
+              I accept the <a href={`/#${constRoute.TermOfUse}`} target="_blank" rel="noreferrer" className={style.termsStyle}>Terms</a> & <a target='_blank' href={`/#${constRoute.setting}`} rel="noreferrer" className={style.termsStyle}> Privacy Policy</a >
               </p>
               </div>
             <Form form={signUpForm} onFinish={onFormSubmit}>

@@ -32,16 +32,17 @@ const ContextAndBaselineForm = observer(() => {
   const [projectName] = useState(JSON.parse(getProjectNameData)?.project_name);
   const getProjectName = localStorage.getItem('projectName')
 useEffect(() => {
-  if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q1:"", q2:"",q3:""}]))}
+  if (localStorage.getItem('AllAnswers') === null) {localStorage.setItem('AllAnswers', JSON.stringify([{q1a:"", q1b:"", q2:"",q3:""}]))}
     if(localStorage.getItem('allResults') === null){
       localStorage.setItem('allResults', JSON.stringify([{result1: ""}]))
     }
 }, [])
   const onFormSubmit = async (values) => {
     
-     localStorage.setItem('AllAnswers', JSON.stringify([{q1:values?.q1 || "", q2:values?.q2 || "",q3:values?.q3 || ""}]))
+     localStorage.setItem('AllAnswers', JSON.stringify([{q1a:values?.q1a || "",q1b:values?.q1b || "", q2:values?.q2 || "",q3:values?.q3 || ""}]))
     const question = {
-      q1: values?.q1 || "",
+      q1a: values?.q1a || "",
+      q1b: values?.q1b || "",
       q2: values?.q2 || "",
       q3: values?.q3 || "",
     };
@@ -85,6 +86,9 @@ useEffect(() => {
       <CommonHeaderPercentCycle
         percent={"0%"}
         conceptNoteSection={"B.1 Context and Baseline"}
+        ribonBg={'#00792A'}
+        documentTypeStyle={{color:'#FFFFFF', opacity:'80%'}}
+        documentTypeSubHeading={'#FFFFFF'}
       />
 
       <div className={style.barContentContainer}>
@@ -150,14 +154,25 @@ useEffect(() => {
                 validateMessages={validateMessages}
                 layout="vertical"
                 initialValues={{
-                  q1: getProjectDataList?.q1 || getAnswers && getAnswers[0]?.q1 || "",
+                  q1a: getProjectDataList?.q1a || getAnswers && getAnswers[0]?.q1a || "",
+                  q1b: getProjectDataList?.q1b || getAnswers && getAnswers[0]?.q1b || "",
                   q2: getProjectDataList?.q2 || getAnswers && getAnswers[0]?.q2 || "",
                   q3: getProjectDataList?.q3 || getAnswers && getAnswers[0]?.q3 || "",
                 }}
               > 
                 <Form.Item
-                  label="1. Project/Programme Region or country name."
-                  name={"q1"}
+                  label="1a). Project/Programme Region or country name*"
+                  name={"q1a"}
+                >
+                  <CommonInput
+                    inputType="textarea"
+                    autoSizeCheck={{ minRows: 7, maxRows: 7 }}
+                    className={style.emailInput}
+                  />
+                </Form.Item>
+                <Form.Item
+                  label="1b). State whether the Project is Adaptation or Mitigation*"
+                  name={"q1b"}
                 >
                   <CommonInput
                     inputType="textarea"

@@ -27,7 +27,7 @@ const DefaultLayout = observer(() => {
     await loadUserInfo(navigate) 
    }
  useEffect(()=>{
-  if(!location.pathname?.includes(constRoute.login)&& location.pathname!=='/'&&!location.pathname?.includes(constRoute.signup)&&!location.pathname?.includes(constRoute.verifyEmail)&&!location.pathname?.includes(constRoute.forgetPassword)) handleLoadUserInfoDetal()
+  if(!location.pathname?.includes(constRoute.login)&& location.pathname!=='/'&&!location.pathname?.includes(constRoute.signup)&&!location.pathname?.includes(constRoute.verifyEmail)&&!location.pathname?.includes(constRoute.forgetPassword) &&!location.pathname?.includes(constRoute.TermOfUse) &&!location.pathname?.includes(constRoute.setting)) handleLoadUserInfoDetal()
  }, [navigate])
   return !(isToken) && <PublicLayout /> || <PrivateLayout /> ;
 });

@@ -65,6 +65,9 @@ const results = JSON.parse(localStorage.getItem('allResults'));
       <CommonHeaderPercentCycle
         percent={"8%"}
         conceptNoteSection={"B.1 Context and Baseline"}
+        ribonBg={'#00792A'}
+        documentTypeStyle={{color:'#FFFFFF', opacity:'80%'}}
+        documentTypeSubHeading={'#FFFFFF'}
       />
 
       <div className={style.barContentContainer}>
