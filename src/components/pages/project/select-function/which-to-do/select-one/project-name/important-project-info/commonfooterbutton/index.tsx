@@ -71,7 +71,7 @@ const CommonFooterButton = ({
               {/* <button className={style.goBtn} onClick={() => handlegoback()}>
                 <img src={LeftArrow} alt="left-arrow" /> Go Back
               </button> */}
-              <GoBack onClickForFooterGo={handlegoback} />
+              <GoBack isTooltip={true} onClickForFooterGo={handlegoback} />
               {/* <button
           onClick={() => {
             handleSaveAndQuit()
@@ -108,7 +108,7 @@ const CommonFooterButton = ({
               {/* <button className={style.goBtn} onClick={() => handlegoback()}>
                 <img src={LeftArrow} alt="left-arrow" /> Go Back
               </button> */}
-              <GoBack onClickForFooterGo={handlegoback} />
+              <GoBack isTooltip={true} onClickForFooterGo={handlegoback} />
 
               {/* <button
                 onClick={() => {

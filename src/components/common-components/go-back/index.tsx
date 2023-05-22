@@ -10,6 +10,7 @@ interface Props {
   onClick?: any;
   className?: any;
   onClickForFooterGo? : any;
+  isTooltip?:any;
 }
 const GoBack: React.FC<Props> = observer(({ onClick,...props }) => {
   const navigate = useNavigate();
@@ -30,12 +31,19 @@ const GoBack: React.FC<Props> = observer(({ onClick,...props }) => {
   }
   return (
     <div className={style.mainWrraper}>
-       <Tooltip overlayInnerStyle={{minWidth:294}} color="#FFFF" title={saveQuitTooltipData} ><img
+       {props?.isTooltip ? <Tooltip overlayInnerStyle={{minWidth:294}} color="#FFFF" title={saveQuitTooltipData} ><img
         onClick={goBackHandler}
         src={GoBackImg}
         alt="ws"
         className={props?.className ? props?.className : style.saveAndQuitImg}
-      /></Tooltip>
+      /></Tooltip> : 
+      <img
+        onClick={goBackHandler}
+        src={GoBackImg}
+        alt="ws"
+        className={props?.className ? props?.className : style.saveAndQuitImg}
+      />
+      }
     </div>
   );
 });
