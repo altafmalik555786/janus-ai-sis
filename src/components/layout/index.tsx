@@ -17,16 +17,18 @@ const DefaultLayout = observer(() => {
       setIsToken(localStorage.getItem("token"))
       // navigate(constRoute?.home)
     } else { 
-      localStorage.removeItem("token")
-      navigate(constRoute?.dashboard)
-      setIsToken("")
+      if(!location.pathname?.includes(constRoute.setting) && !location.pathname?.includes(constRoute.TermOfUse)){
+        localStorage.removeItem("token")
+        navigate(constRoute?.dashboard)
+        setIsToken("")
+      }
     }
   }, [localStorage.getItem("token")])
   
   const handleLoadUserInfoDetal=async()=>{
     await loadUserInfo(navigate) 
    }
- useEffect(()=>{
+ useEffect(()=>{ 
   if(!location.pathname?.includes(constRoute.login)&& location.pathname!=='/'&&!location.pathname?.includes(constRoute.signup)&&!location.pathname?.includes(constRoute.verifyEmail)&&!location.pathname?.includes(constRoute.forgetPassword) &&!location.pathname?.includes(constRoute.TermOfUse) &&!location.pathname?.includes(constRoute.setting)) handleLoadUserInfoDetal()
  }, [navigate])
   return !(isToken) && <PublicLayout /> || <PrivateLayout /> ;
