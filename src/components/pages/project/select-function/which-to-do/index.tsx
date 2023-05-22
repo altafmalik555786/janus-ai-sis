@@ -13,14 +13,14 @@ const WhichToDo = observer(() => {
 
   const btnCardsList = [
     {
-      title: "Draft a GCF Proposal",
-      status: "Coming Soon",
-      disable:true
-    },
-    {
       title: "Draft a GCF Concept Note",
       status: "",
       navigate: () => navigate(constRoute?.selectOne),
+    },
+    {
+      title: "Draft a GCF Proposal",
+      status: "Coming Soon",
+      disable:true
     },
   ];
  

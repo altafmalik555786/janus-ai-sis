@@ -18,29 +18,35 @@ const SelectFunction = observer(() => {
       navigate: () => navigate(constRoute?.whichToDo),
     },
     {
-      title: "Climate Rationale Advisor",
+      title: "Grade a GCF Concept Note or Proposal",
+      status: "Most Popular",
+      disable:true,
+    },
+    {
+      title: "Climate Smart Project Advisor",
       status: "Coming Soon", 
       disable:true,
     },
     {
-      title: "Grade a GCF Concept Note or Proposal",
-      status: "Most Popular",
-    },
-    {
-      title: "Create Project Structure Plan",
-      status: "Coming Soon",
+      title: "Climate Rationale Advisor",
+      status: "Coming Soon", 
       disable:true,
-    },
-    {
-      title: "Funder Matchmaker ",
-      status: "Coming Soon",
-      disable:true,
-    },
-    {
-      title: "Draft An Annex",
-      status: "Coming Soon",
-      disable:true,
-    },
+    }
+    // {
+    //   title: "Create Project Structure Plan",
+    //   status: "Coming Soon",
+    //   disable:true,
+    // },
+    // {
+    //   title: "Funder Matchmaker ",
+    //   status: "Coming Soon",
+    //   disable:true,
+    // },
+    // {
+    //   title: "Draft An Annex",
+    //   status: "Coming Soon",
+    //   disable:true,
+    // },
   ];
 
   return (
@@ -53,7 +59,7 @@ const SelectFunction = observer(() => {
             <Row justify="center" className={style.boxesContiner} gutter={20}>
               {btnCardsList?.map((item) => {
                 return (
-                  <CardItemsFunc item={item} />
+                  <CardItemsFunc cardGrid={true} item={item} />
                 );
               })}
             </Row>

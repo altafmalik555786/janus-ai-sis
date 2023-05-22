@@ -34,7 +34,7 @@ const projectNameData = JSON.parse(getProjectNameData)?.project_name || getProje
       </Col>
       <Col md={10} xs={24}>
         <p style={props?.documentTypeStyle} className={style.pTageOne}>Project name:</p>
-        <span style={{width: '90%', display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all', color: props?.documentTypeSubHeading ? props?.documentTypeSubHeading : '#000000'}}>{projectNameData}</span>
+        <span style={{display: 'flex', flexWrap: 'wrap', wordBreak: 'break-all', color: props?.documentTypeSubHeading ? props?.documentTypeSubHeading : '#000000'}}>{projectNameData}</span>
         {/* <img src={ProjectName} alt="icon" /> */}
       </Col>
       <Col md={6} xs={24}>
