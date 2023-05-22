@@ -55,8 +55,7 @@ const CommonFooterButton = ({
               Next
             </Button> */}
            {!isLoadingRegenrate ?
-            <Tooltip overlayInnerStyle={{width:294}} className={style.tooltipWrapper} color="#FFFF" title={tooltipData} ><img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> </Tooltip>
-            :
+            <Tooltip overlayInnerStyle={{width:294}} className={style.tooltipWrapper} color="#FFFF" title={tooltipData} ><img  className={style.reGenerateImg} onClick={() => handleRegenrate()} src={constImages.RegenerateBtn} alt="" /> </Tooltip>:
             <Button
               onClick={() => handleRegenrate()}
               className={style.reGenerate}
